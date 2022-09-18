@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "953242244962",
+    "project_id": "motore-b29a1",
+    "storage_bucket": "motore-b29a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:953242244962:android:c91a61d0eaa33f76537e3b",
+        "android_client_info": {
+          "package_name": "com.example.motore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "953242244962-jsbljar5k27vv7nf1btprkl1qmu4abk7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyE7_x68iYU7wtMjanNplu3kSVrX6zzxg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "953242244962-jsbljar5k27vv7nf1btprkl1qmu4abk7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "953242244962-8da25k8drvsd3o4htc9f56ein1iohi0l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.motore"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
