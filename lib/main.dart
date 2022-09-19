@@ -5,6 +5,8 @@ import 'package:motore/screens/wrapper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:motore/services/auth.dart';
 import 'package:provider/provider.dart';
+import 'package:motore/splash.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,12 +21,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamProvider<MyUser?>.value(
-      catchError: (_, __) => null,
-      initialData: null,
-      value: AuthService().user,
-      child: MaterialApp(
-        home: Wrapper(),
-      ),
-    );
+        catchError: (_, __) => null,
+        initialData: null,
+        value: AuthService().user,
+        child: MaterialApp(
+          home: AnimatedSplashScreen(
+              // splash: 'lib/icons/BC_logo.png',
+              splash: 'lib/icons/BC_logo.png',
+              duration: 3000,
+              splashIconSize: 400,
+              // backgroundColor: Colors.black,
+              splashTransition: SplashTransition.fadeTransition,
+              nextScreen: Wrapper()),
+        ));
   }
 }
