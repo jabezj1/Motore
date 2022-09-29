@@ -22,6 +22,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       //appBar: AppBar(elevation: 0),
+      resizeToAvoidBottomInset: false,
 
       body: Container(
           margin: EdgeInsets.all(50),
