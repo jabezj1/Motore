@@ -137,26 +137,66 @@ class _LoginState extends State<Login> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         GestureDetector(
-          onTap: () {
-            print('Google Pressed');
-          },
-          child: Container(
-            height: 60.0,
-            width: 60.0,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.black26,
-                    offset: Offset(0, 2),
-                    blurRadius: 6.0),
-              ],
-              // image: DecorationImage(
-              //     image: AssetImage('assets/images/google.png')),
-            ),
-          ),
-        ),
+            onTap: () {
+              print('Google Pressed');
+            },
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 30.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Container(
+                      height: 45.0,
+                      width: 140,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        shape: BoxShape.rectangle,
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black26,
+                              offset: Offset(0, 2),
+                              blurRadius: 6.0),
+                        ],
+                        // image: DecorationImage(
+                        //     image: AssetImage('assets/images/google.png')),
+                      ),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          "Sign in with Google",
+                          style: TextStyle(
+                              fontSize: 10, fontWeight: FontWeight.bold),
+                        ),
+                      )),
+                  SizedBox(width: 12),
+                  Container(
+                      height: 45.0,
+                      width: 140,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        shape: BoxShape.rectangle,
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black26,
+                              offset: Offset(0, 2),
+                              blurRadius: 6.0),
+                        ],
+                        // image: DecorationImage(
+                        //     image: AssetImage('assets/images/google.png')),
+                      ),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          "Sign in with Apple",
+                          style: TextStyle(
+                              fontSize: 10, fontWeight: FontWeight.bold),
+                        ),
+                      )),
+                ],
+              ),
+            )),
       ],
     );
 
