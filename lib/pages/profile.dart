@@ -19,24 +19,24 @@ class _ProfileState extends State<Profile> {
               height: 30,
             ),
             Align(
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.center,
                 child: Text(
                   'Profile Page',
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 40,
                       color: Colors.black,
-                      fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.w600),
                 )),
             SizedBox(
-              height: 5,
+              height: 40,
             ),
             Container(
               height: 350,
               width: 500,
               decoration: BoxDecoration(
-                  color: Colors.grey,
+                  color: Color.fromARGB(255, 150, 206, 232),
                   border: Border.all(),
-                  borderRadius: BorderRadius.all(Radius.circular(5))),
+                  borderRadius: BorderRadius.all(Radius.circular(30))),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -44,7 +44,7 @@ class _ProfileState extends State<Profile> {
                     Row(
                       children: [
                         Text(
-                          "Name: ",
+                          " Name: ",
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
@@ -67,7 +67,7 @@ class _ProfileState extends State<Profile> {
                               read = true;
                             });
                           },
-                          initialValue: "John Doe",
+                          initialValue: " John Doe",
                           style: TextStyle(fontSize: 20),
                         ))
                       ],
@@ -78,7 +78,7 @@ class _ProfileState extends State<Profile> {
                     Row(
                       children: [
                         Text(
-                          "Car Make: ",
+                          " Car Make: ",
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
@@ -96,7 +96,7 @@ class _ProfileState extends State<Profile> {
                               read = true;
                             });
                           },
-                          initialValue: "Toyota",
+                          initialValue: " Toyota",
                           style: TextStyle(fontSize: 20),
                         ))
                       ],
@@ -107,7 +107,7 @@ class _ProfileState extends State<Profile> {
                     Row(
                       children: [
                         Text(
-                          "Car Model: ",
+                          " Car Model: ",
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
@@ -125,7 +125,7 @@ class _ProfileState extends State<Profile> {
                               read = true;
                             });
                           },
-                          initialValue: "Prius",
+                          initialValue: " Prius",
                           style: TextStyle(fontSize: 20),
                         ))
                       ],
@@ -136,36 +136,7 @@ class _ProfileState extends State<Profile> {
                     Row(
                       children: [
                         Text(
-                          "License Number: ",
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Flexible(
-                            child: TextFormField(
-                          readOnly: read,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                          ),
-                          onEditingComplete: () {
-                            setState(() {
-                              read = true;
-                            });
-                          },
-                          initialValue: "",
-                          style: TextStyle(fontSize: 20),
-                        ))
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "License Plate: ",
+                          " License Number: ",
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
@@ -194,7 +165,36 @@ class _ProfileState extends State<Profile> {
                     Row(
                       children: [
                         Text(
-                          "Registration Expiry Date: ",
+                          " License Plate: ",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Flexible(
+                            child: TextFormField(
+                          readOnly: read,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                          onEditingComplete: () {
+                            setState(() {
+                              read = true;
+                            });
+                          },
+                          initialValue: "",
+                          style: TextStyle(fontSize: 20),
+                        ))
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          " Registration Expiry Date: ",
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
