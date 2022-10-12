@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:motore/pages/history_second.dart';
+import 'package:motore/pages/history_third.dart';
+import 'package:motore/pages/history_fourth.dart';
 
 class History extends StatelessWidget {
   const History({Key? key}) : super(key: key);
@@ -83,21 +85,143 @@ class History extends StatelessWidget {
                   SizedBox(
                     height: 2,
                   ),
+
                   Text(
-                    "Your monthly expenses are:",
+                    "AVERAGE monthly expenses:",
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 20,
                     ),
                   ),
                   SizedBox(
-                    height: 11,
+                    height: 5,
+                  ),
+                  Text(
+                    "\$1035",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  // SizedBox(
+                  //   height: 0.1,
+                  // ),
+
+                  ElevatedButton(
+                    child: const Text('See more'),
+                    style: ElevatedButton.styleFrom(
+                      primary: Color.fromARGB(255, 150, 206, 232),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HistoryThird()),
+                      );
+                    },
+                  ),
+                  // Text(
+                  //   "Click to see more ->",
+                  //   textAlign: TextAlign.left,
+                  // ),
+                ],
+              ),
+            ),
+          ),
+          // Padding(
+          //   padding: const EdgeInsets.all(3.0),
+          //   child: Text(
+          //     "History",
+          //     style: TextStyle(fontSize: 40, fontWeight: FontWeight.w600),
+          //   ),
+          // ),
+          // Padding(
+          //   padding: const EdgeInsets.all(3.0),
+          //   child: Container(
+          //     //borderRadius: BorderRadius.circular(30),
+          //     child: Container(
+          //       decoration: BoxDecoration(
+          //         borderRadius: BorderRadius.circular(30),
+          //         color: Color.fromARGB(255, 150, 206, 232),
+          //       ),
+          //       margin: const EdgeInsets.only(top: 1),
+          //       height: 40,
+          //       width: 380,
+
+          //       // ignore: prefer_const_constructors
+
+          //       child: const Text(
+          //         "Set a Reminder",
+          //         textAlign: TextAlign.center,
+          //         style: TextStyle(
+          //           color: Colors.black,
+          //           fontSize: 25,
+          //           fontWeight: FontWeight.bold,
+          //         ),
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+
+            // child: ClipRRect(
+            // borderRadius: BorderRadius.circular(30),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 150, 206, 232),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(30),
+                ),
+              ),
+              margin: const EdgeInsets.only(top: 1),
+              height: 170,
+              width: 380,
+              // color: Color.fromARGB(255, 150, 206, 232),
+              child: Column(
+                children: [
+                  Icon(
+                    Icons.attach_money_rounded,
+                    color: Colors.red,
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "Oil Changes",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 2,
                   ),
 
-                  Text(" ____________________"),
-                  SizedBox(
-                    height: 10,
+                  Text(
+                    "Last Oil Change:",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
                   ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "08/16/22",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  // SizedBox(
+                  //   height: 0.1,
+                  // ),
 
                   ElevatedButton(
                     child: const Text('See more'),
@@ -120,63 +244,77 @@ class History extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 150, 206, 232),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(30),
-                ),
-              ),
+          // Padding(
+          //   padding: const EdgeInsets.all(8.0),
+          //   child: Container(
+          //     decoration: BoxDecoration(
+          //       color: Color.fromARGB(255, 150, 206, 232),
+          //       borderRadius: BorderRadius.all(
+          //         Radius.circular(30),
+          //       ),
+          //     ),
 
-              margin: const EdgeInsets.only(top: 1),
-              height: 170,
-              width: 380,
-              // color: Color.fromARGB(255, 150, 206, 232),
-              child: Column(
-                children: [
-                  Icon(
-                    Icons.car_repair,
-                    color: Colors.red,
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    "Oil Changes",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Text(
-                    "Your last oil change:",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Text(" ____________________"),
-                  SizedBox(
-                    height: 22,
-                  ),
-                  Text(
-                    "Click to see more ->",
-                    textAlign: TextAlign.left,
-                  ),
-                ],
-              ),
-            ),
-          ),
+          //     margin: const EdgeInsets.only(top: 1),
+          //     height: 170,
+          //     width: 380,
+          //     // color: Color.fromARGB(255, 150, 206, 232),
+          //     child: Column(
+          //       children: [
+          //         Icon(
+          //           Icons.car_repair,
+          //           color: Colors.red,
+          //         ),
+          //         SizedBox(
+          //           height: 5,
+          //         ),
+          //         Text(
+          //           "Oil Changes",
+          //           textAlign: TextAlign.left,
+          //           style: TextStyle(
+          //             color: Colors.black,
+          //             fontSize: 25,
+          //             fontWeight: FontWeight.bold,
+          //           ),
+          //         ),
+          //         SizedBox(
+          //           height: 15,
+          //         ),
+          //         Text(
+          //           "Your last oil change:",
+          //           textAlign: TextAlign.left,
+          //           style: TextStyle(
+          //             fontSize: 20,
+          //           ),
+          //         ),
+          //         SizedBox(
+          //           height: 9,
+          //         ),
+          //         Text(" ____________________"),
+          //         SizedBox(
+          //           height: 1,
+          //         ),
+          //         ElevatedButton(
+          //           child: const Text('See more'),
+          //           style: ElevatedButton.styleFrom(
+          //             primary: Color.fromARGB(255, 150, 206, 232),
+          //           ),
+          //           onPressed: () {
+          //             Navigator.push(
+          //               context,
+          //               MaterialPageRoute(
+          //                   builder: (context) => const HistoryThird()),
+          //             );
+          //           },
+          //         ),
+          //         // Text(
+          //         //   "Click to see more ->",
+          //         //   textAlign: TextAlign.left,
+          //         // ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
+
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
@@ -208,9 +346,9 @@ class History extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
+                  // SizedBox(
+                  //   height: 15,
+                  // ),
                   Text(
                     "Your last maintenance:",
                     textAlign: TextAlign.left,
@@ -218,12 +356,20 @@ class History extends StatelessWidget {
                       fontSize: 20,
                     ),
                   ),
-                  SizedBox(
-                    height: 15,
+                  Text(
+                    "Battery 09/22",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  Text(" ____________________"),
+                  // SizedBox(
+                  //   height: 1,
+                  // ),
+                  // Text("Battery 09/22"),
                   SizedBox(
-                    height: 22,
+                    height: 1,
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -231,10 +377,23 @@ class History extends StatelessWidget {
                     //   SignupButton(),
                     // ],
                   ),
-                  Text(
-                    "Click to see more ->",
-                    textAlign: TextAlign.left,
+                  ElevatedButton(
+                    child: const Text('See more'),
+                    style: ElevatedButton.styleFrom(
+                      primary: Color.fromARGB(255, 150, 206, 232),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HistoryFourth()),
+                      );
+                    },
                   ),
+                  // Text(
+                  //   "Click to see more ->",
+                  //   textAlign: TextAlign.left,
+                  // ),
                 ],
               ),
             ),
