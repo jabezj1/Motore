@@ -31,7 +31,7 @@ class NavigationExample extends StatefulWidget {
 
 class _NavigationExampleState extends State<NavigationExample> {
   final items = const [
-    Icon(Icons.dashboard_customize_outlined, size: 30, color: Colors.grey),
+    Icon(Icons.dashboard_customize_outlined, size: 30, color: Colors.black),
 
     // Icon(
     //   Icons.directions_car,
@@ -41,25 +41,25 @@ class _NavigationExampleState extends State<NavigationExample> {
     ImageIcon(
       AssetImage("lib/icons/car-repair.png"),
       size: 30,
-      color: Colors.grey,
+      color: Colors.black,
     ),
     // Icon(Icons.history_outlined, size: 30, color: Colors.grey),
     ImageIcon(
       AssetImage("lib/icons/gas_station1.png"),
       size: 30,
-      color: Colors.grey,
+      color: Colors.black,
     ),
     // Icon(Icons.dashboard_customize_outlined, size: 30, color: Colors.grey),
     ImageIcon(
       AssetImage("lib/icons/history.png"),
       size: 30,
-      color: Colors.grey,
+      color: Colors.black,
     ),
     // Icon(Icons.person, size: 30, color: Colors.grey)
     ImageIcon(
       AssetImage("lib/icons/user.png"),
       size: 30,
-      color: Colors.grey,
+      color: Colors.black,
     )
   ];
 
