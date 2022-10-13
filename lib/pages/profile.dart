@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'package:motore/services/auth.dart';
+
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
   @override
   _ProfileState createState() => _ProfileState();
 }
+
+final AuthService _auth = AuthService();
 
 class _ProfileState extends State<Profile> {
   bool read = true;
@@ -219,6 +223,49 @@ class _ProfileState extends State<Profile> {
                     ),
                   ]),
             ),
+            SizedBox(
+              height: 60,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ElevatedButton.icon(
+                  onPressed: () async {
+                    await _auth.signOut();
+                  },
+                  icon: Icon(Icons.person),
+                  label: Text(
+                    'Log Out',
+                  ),
+                  style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 40.0, vertical: 15.0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50.0)),
+                      primary: Colors.red),
+
+                  // style: ElevatedButton.styleFrom(primary: Colors.red),
+                  // style: ButtonStyle(
+                  //     shape: MaterialStateProperty.all<
+                  //             RoundedRectangleBorder>(
+                  //         RoundedRectangleBorder(
+                  //             borderRadius: BorderRadius.circular(18.0),
+                  //             side: BorderSide(color: Colors.black)))),
+
+                  // style: ButtonStyle(
+                  //   overlayColor:
+                  //       MaterialStateProperty.resolveWith<Color?>(
+                  //     (Set<MaterialState> states) {
+                  //       if (states.contains(MaterialState.hovered))
+                  //         return Colors.redAccent; //<-- SEE HERE
+                  //       return Colors
+                  //           .blueGrey; // Defer to the widget's default.
+                  //     },
+                  //   ),
+                  // ),
+                )
+              ],
+            )
           ],
         ));
   }

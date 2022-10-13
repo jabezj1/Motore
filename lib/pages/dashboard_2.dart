@@ -12,7 +12,7 @@ class Dashboard2 extends StatelessWidget {
           Text(
             'History Page',
             style: TextStyle(
-                fontSize: 40, color: Colors.black, fontWeight: FontWeight.bold),
+                fontSize: 40, color: Colors.white, fontWeight: FontWeight.bold),
           ),
           SizedBox(
             height: 100,
@@ -26,7 +26,7 @@ class Dashboard2 extends StatelessWidget {
           ),
           Text(
             'History Page Content',
-            style: TextStyle(fontSize: 40, color: Colors.black),
+            style: TextStyle(fontSize: 40, color: Colors.white),
           ),
         ],
       ),
