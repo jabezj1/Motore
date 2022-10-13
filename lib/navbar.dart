@@ -31,15 +31,36 @@ class NavigationExample extends StatefulWidget {
 
 class _NavigationExampleState extends State<NavigationExample> {
   final items = const [
-    Icon(Icons.people, size: 30, color: Colors.grey),
-    Icon(
-      Icons.person,
+    Icon(Icons.dashboard_customize_outlined, size: 30, color: Colors.black),
+
+    // Icon(
+    //   Icons.directions_car,
+    //   size: 30,
+    //   color: Colors.grey,
+    // ),
+    ImageIcon(
+      AssetImage("lib/icons/car-repair.png"),
       size: 30,
-      color: Colors.grey,
+      color: Colors.black,
     ),
-    Icon(Icons.add, size: 30, color: Colors.grey),
-    Icon(Icons.search_off_outlined, size: 30, color: Colors.grey),
-    Icon(Icons.settings, size: 30, color: Colors.grey)
+    // Icon(Icons.history_outlined, size: 30, color: Colors.grey),
+    ImageIcon(
+      AssetImage("lib/icons/gas_station1.png"),
+      size: 30,
+      color: Colors.black,
+    ),
+    // Icon(Icons.dashboard_customize_outlined, size: 30, color: Colors.grey),
+    ImageIcon(
+      AssetImage("lib/icons/history.png"),
+      size: 30,
+      color: Colors.black,
+    ),
+    // Icon(Icons.person, size: 30, color: Colors.grey)
+    ImageIcon(
+      AssetImage("lib/icons/user.png"),
+      size: 30,
+      color: Colors.black,
+    )
   ];
 
   int index = 1;
@@ -74,22 +95,22 @@ class _NavigationExampleState extends State<NavigationExample> {
     Widget widget;
     switch (index) {
       case 0:
-        widget = const CarPart();
-        break;
-      case 1:
-        widget = const Profile();
-        break;
-      case 2:
-        widget = const History();
-        break;
-      case 3:
         widget = const Dashboard();
         break;
-      case 4:
+      case 1:
+        widget = const CarPart();
+        break;
+      case 2:
         widget = Fuel();
         break;
+      case 3:
+        widget = const History();
+        break;
+      case 4:
+        widget = Profile();
+        break;
       default:
-        widget = const CarPart();
+        widget = const Dashboard();
         break;
     }
     return widget;

@@ -21,6 +21,7 @@ class _SignupState extends State<Signup> {
   Widget build(BuildContext context) {
     return Scaffold(
       //appBar: AppBar(elevation: 0),
+      resizeToAvoidBottomInset: false,
 
       body: Container(
           margin: EdgeInsets.all(24),
@@ -31,6 +32,7 @@ class _SignupState extends State<Signup> {
                   _header(context),
                   _inputFields(context),
                   _googleAOth(context),
+                  _appleAOth(context),
                   _loginInfo(context),
                 ],
               ))
@@ -165,31 +167,143 @@ class _SignupState extends State<Signup> {
   }
 
   _googleAOth(context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        GestureDetector(
+            onTap: () {
+              print('Google Pressed');
+            },
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 0.05),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Container(
+                      margin: const EdgeInsets.all(3),
+                      height: 45.0,
+                      width: 140,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        shape: BoxShape.rectangle,
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black26,
+                              offset: Offset(0, 2),
+                              blurRadius: 6.0),
+                        ],
+                        image: DecorationImage(
+                            image: AssetImage('lib/icons/google.png'),
+                            alignment: Alignment.centerLeft),
+                      ),
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          "Sign in with Google",
+                          style: TextStyle(
+                              fontSize: 10, fontWeight: FontWeight.bold),
+                        ),
+                      )),
+                ],
+              ),
+            )),
+      ],
+    );
+  }
+
+  // return ElevatedButton(
+  //   onPressed: () async {
+  //     dynamic result = await _auth.signInAnon();
+  //     if (result == null) {
+  //       print('Error loging in!');
+  //     } else {
+  //       print('Signed in');
+  //       print(result);
+  //     }
+  //   },
+  //   child: Text(
+  //     "Login",
+  //     style: TextStyle(fontSize: 20),
+  //   ),
+  //   style: ElevatedButton.styleFrom(
+  //     shape: StadiumBorder(),
+  //     padding: EdgeInsets.symmetric(vertical: 16),
+  //   ),
+  // );
+
+  _appleAOth(context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         GestureDetector(
-          onTap: () => debugPrint('LOGIN With Google'),
-          child: Container(
-            height: 60.0,
-            width: 60.0,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.black26,
-                    offset: Offset(0, 2),
-                    blurRadius: 6.0),
-              ],
-              // image: DecorationImage(
-              //     image: AssetImage('assets/images/google.png')),
-            ),
-          ),
-        ),
+            onTap: () {
+              print('Google Pressed');
+            },
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Container(
+                      //margin: const EdgeInsets.all(3),
+                      height: 45.0,
+                      width: 140,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        shape: BoxShape.rectangle,
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black26,
+                              offset: Offset(0, 2),
+                              blurRadius: 6.0),
+                        ],
+                        image: DecorationImage(
+                            image: AssetImage('lib/icons/apple.png'),
+                            alignment: Alignment.centerLeft),
+                      ),
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          "Sign in with Apple",
+                          style: TextStyle(
+                              fontSize: 10, fontWeight: FontWeight.bold),
+                        ),
+                      )),
+                ],
+              ),
+            )),
       ],
     );
   }
+
+  // _googleAOth(context) {
+  //   return Column(
+  //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  //     children: <Widget>[
+  //       GestureDetector(
+  //         onTap: () => debugPrint('LOGIN With Google'),
+  //         child: Container(
+  //           height: 60.0,
+  //           width: 60.0,
+  //           decoration: const BoxDecoration(
+  //             shape: BoxShape.circle,
+  //             color: Colors.white,
+  //             boxShadow: [
+  //               BoxShadow(
+  //                   color: Colors.black26,
+  //                   offset: Offset(0, 2),
+  //                   blurRadius: 6.0),
+  //             ],
+  //              image: DecorationImage(
+  //                  image: AssetImage('assets/images/google.png')),
+  //           ),
+  //         ),
+  //       ),
+  //     ],
+  //   );
+  // }
 
   _loginInfo(context) {
     return Column(

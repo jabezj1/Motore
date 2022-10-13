@@ -9,10 +9,10 @@ class Fuel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[400],
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('Home Page'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.transparent,
         elevation: 0.0,
         actions: <Widget>[
           ElevatedButton.icon(
