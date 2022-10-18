@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motore/services/auth.dart';
+import 'package:motore/components/basicPage.dart';
 
 class Login extends StatefulWidget {
   final toggleView;
@@ -45,13 +46,7 @@ class _LoginState extends State<Login> {
 
   _header(context) {
     return Column(
-      children: [
-        Text(
-          "Login",
-          style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-        ),
-        //Text("Enter details to get started"),
-      ],
+      children: [const pageName("Log in")],
     );
   }
 
@@ -59,49 +54,14 @@ class _LoginState extends State<Login> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        TextFormField(
-            decoration: InputDecoration(
-              hintText: "Email Address",
-              fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
-              filled: true,
-              prefixIcon: Icon(Icons.email_outlined),
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(18),
-                  borderSide: BorderSide.none),
-            ),
-            validator: (String? val) {
-              if (val!.isEmpty) {
-                return "Please Enter an Email";
-              }
-              return null;
-            },
-            onChanged: (val) {
-              setState(() => email = val);
-            }),
-        SizedBox(
+        const LoginComponents(
+            "Email", Icons.email_outlined, "Please enter an Email"),
+        const SizedBox(
           height: 10,
         ),
-        TextFormField(
-            decoration: InputDecoration(
-              hintText: "Password",
-              fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
-              filled: true,
-              prefixIcon: Icon(Icons.password_outlined),
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(18),
-                  borderSide: BorderSide.none),
-            ),
-            obscureText: true,
-            validator: (String? val) {
-              if (val!.length < 6) {
-                return "Password is incorrect ";
-              }
-              return null;
-            },
-            onChanged: (val) {
-              setState(() => password = val);
-            }),
-        SizedBox(
+        const LoginComponents(
+            "Password", Icons.password_outlined, "Please enter a Password"),
+        const SizedBox(
           height: 10,
         ),
         ElevatedButton(
