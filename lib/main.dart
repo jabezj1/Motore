@@ -12,6 +12,8 @@ import 'package:provider/provider.dart';
 import 'package:motore/splash.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 
+import 'navbar.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
               splashIconSize: 400,
               // backgroundColor: Colors.black,
               splashTransition: SplashTransition.fadeTransition,
-              nextScreen: Wrapper()),
+              nextScreen: NavigationExample()),
         ));
   }
 }
