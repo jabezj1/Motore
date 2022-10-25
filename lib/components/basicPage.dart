@@ -14,55 +14,57 @@ class pageName extends StatelessWidget {
   }
 }
 
-class LoginComponents extends StatelessWidget {
-  const LoginComponents(
-    this.text,
-    this.icons,
-    this.error,
-  );
-  final String text;
-  final dynamic icons;
-  final String error;
-  // final dynamic change;
+// class LoginComponents extends StatelessWidget {
+//   const LoginComponents(
+//       this.text, this.icons, this.error, this.setState, this.change, this.val);
+//   final String text;
+//   final dynamic icons;
+//   final String error;
+//   final Function setState;
+//   dynamic change;
+//   final dynamic val;
 
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        hintText: text,
-        fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
-        filled: true,
-        prefixIcon: Icon(icons),
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(18),
-            borderSide: BorderSide.none),
-      ),
-      validator: (String? val) {
-        if (val!.isEmpty) {
-          return error;
-        }
-        return null;
-      },
-      // onChanged: (val) {
-      //   setState(() => change = val);
-      // },
-    );
+//   @override
+//   Widget build(BuildContext context) {
+//     return TextFormField(
+//         decoration: InputDecoration(
+//           hintText: text,
+//           fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
+//           filled: true,
+//           prefixIcon: Icon(icons),
+//           border: OutlineInputBorder(
+//               borderRadius: BorderRadius.circular(18),
+//               borderSide: BorderSide.none),
+//         ),
+//         validator: (String? val) {
+//           if (val!.isEmpty) {
+//             return error;
+//           }
+//           return null;
+//         },
+//         onChanged: (value) {
+//           setState(() => change = val);
+//         }
+//         // onChanged: (val) {
+//         //   setState(() => change = val);
+//         // },
+//         );
 
-    // TextFormField(
-    //   decoration: InputDecoration(
-    //     hintText: text,
+//     // TextFormField(
+//     //   decoration: InputDecoration(
+//     //     hintText: text,
 
-    //     border: OutlineInputBorder(
-    //         borderRadius: BorderRadius.circular(18),
-    //         borderSide: BorderSide.none),
-    //   ),
-    //   validator: (String? val) {
-    //     if (val!.isEmpty) {
-    //       return error;
-    //     }
-    //     return null;
-    //   },
-    //   obscureText: check,
-    // );
-  }
-}
+//     //     border: OutlineInputBorder(
+//     //         borderRadius: BorderRadius.circular(18),
+//     //         borderSide: BorderSide.none),
+//     //   ),
+//     //   validator: (String? val) {
+//     //     if (val!.isEmpty) {
+//     //       return error;
+//     //     }
+//     //     return null;
+//     //   },
+//     //   obscureText: check,
+//     // );
+//   }
+// }
