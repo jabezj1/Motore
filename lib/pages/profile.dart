@@ -243,26 +243,6 @@ class _ProfileState extends State<Profile> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50.0)),
                       primary: Colors.red),
-
-                  // style: ElevatedButton.styleFrom(primary: Colors.red),
-                  // style: ButtonStyle(
-                  //     shape: MaterialStateProperty.all<
-                  //             RoundedRectangleBorder>(
-                  //         RoundedRectangleBorder(
-                  //             borderRadius: BorderRadius.circular(18.0),
-                  //             side: BorderSide(color: Colors.black)))),
-
-                  // style: ButtonStyle(
-                  //   overlayColor:
-                  //       MaterialStateProperty.resolveWith<Color?>(
-                  //     (Set<MaterialState> states) {
-                  //       if (states.contains(MaterialState.hovered))
-                  //         return Colors.redAccent; //<-- SEE HERE
-                  //       return Colors
-                  //           .blueGrey; // Defer to the widget's default.
-                  //     },
-                  //   ),
-                  // ),
                 )
               ],
             )
