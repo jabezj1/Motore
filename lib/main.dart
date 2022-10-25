@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
           // backgroundColor: Colors.black,
           splashTransition: SplashTransition.fadeTransition,
           nextScreen: AuthService().handleAuthState()),
+      //nextScreen: History()),
     );
   }
 }
