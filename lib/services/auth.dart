@@ -8,36 +8,37 @@ import 'package:motore/navbar.dart';
 import 'package:motore/screens/authenticate/login.dart';
 
 class AuthService {
-  // final FirebaseAuth _auth = FirebaseAuth.instance;
-  handleAuthState() {
+	// final FirebaseAuth _auth = FirebaseAuth.instance;
+	handleAuthState() {
     return StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (BuildContext context, snapshot) {
-          if (snapshot.hasData) {
-            return NavigationExample();
-          } else {
-            return Login();
-          }
-        });
-  }
+			if (snapshot.hasData) {
+				return NavigationExample();
+			} else {
+				return Login();
+			}
+        }
+    );
+}
 
-  signInWithGoogle() async {
+signInWithGoogle() async {
     final GoogleSignInAccount? googleUser =
         await GoogleSignIn(scopes: <String>["email"]).signIn();
 
     final GoogleSignInAuthentication googleAuth =
         await googleUser!.authentication;
     final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
+  	    accessToken: googleAuth.accessToken,
+    	idToken: googleAuth.idToken,
     );
 
     return await FirebaseAuth.instance.signInWithCredential(credential);
-  }
+}
 
-  signOut() {
+signOut() {
     FirebaseAuth.instance.signOut();
-  }
+}
 
   //create user obj based on FirebaseUser
   // MyUser? _userFromFirebaseUser(User user) {
