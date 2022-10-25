@@ -24,23 +24,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<MyUser?>.value(
-        catchError: (_, __) => null,
-        initialData: null,
-        value: AuthService().user,
-        child: MaterialApp(
-          initialRoute: '/',
-          // routes: {
-          //   '/': (context) => HistorySecond(),
-          // },
-          home: AnimatedSplashScreen(
-              // splash: 'lib/icons/BC_logo.png',
-              splash: 'lib/icons/BC_logo.png',
-              duration: 3000,
-              splashIconSize: 400,
-              // backgroundColor: Colors.black,
-              splashTransition: SplashTransition.fadeTransition,
-              nextScreen: Wrapper()),
-        ));
+    return MaterialApp(
+      initialRoute: '/',
+      // routes: {
+      //   '/': (context) => HistorySecond(),
+      // },
+      home: AnimatedSplashScreen(
+          // splash: 'lib/icons/BC_logo.png',
+          splash: 'lib/icons/BC_logo.png',
+          duration: 3000,
+          splashIconSize: 400,
+          // backgroundColor: Colors.black,
+          splashTransition: SplashTransition.fadeTransition,
+          nextScreen: AuthService().handleAuthState()),
+    );
   }
 }
