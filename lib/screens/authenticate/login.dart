@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:motore/services/auth.dart';
 import 'package:motore/components/basicPage.dart';
+import 'package:provider/provider.dart';
 
 class Login extends StatefulWidget {
   final toggleView;
@@ -11,7 +12,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final AuthService _auth = AuthService();
+  // final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
 
   //text feild state
@@ -64,18 +65,20 @@ class _LoginState extends State<Login> {
         const SizedBox(
           height: 10,
         ),
-        ElevatedButton(
+        ElevatedButton.icon(
           onPressed: () async {
-            if (_formKey.currentState!.validate()) {
-              print('object');
-              dynamic result =
-                  await _auth.logInWithEmailAndPassword(email, password);
-              if (result == null) {
-                setState(() => error = 'Log In Failed, Please try Again');
-              }
-            }
+            // if (_formKey.currentState!.validate()) {
+            //   print('object');
+            //   dynamic result =
+            //       await _auth.logInWithEmailAndPassword(email, password);
+            //   if (result == null) {
+            //     setState(() => error = 'Log In Failed, Please try Again');
+            //   }
+            // }
+            AuthService().signInWithGoogle();
           },
-          child: Text(
+          icon: Icon(Icons.car_rental),
+          label: Text(
             "Login",
             style: TextStyle(fontSize: 20),
           ),
@@ -99,7 +102,7 @@ class _LoginState extends State<Login> {
       children: <Widget>[
         GestureDetector(
             onTap: () {
-              print('Google Pressed');
+              AuthService().signInWithGoogle();
             },
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 0.05),

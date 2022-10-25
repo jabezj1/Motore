@@ -10,7 +10,7 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
-  final AuthService _auth = AuthService();
+  // final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
 
   String email = '';
@@ -140,13 +140,13 @@ class _SignupState extends State<Signup> {
         ),
         ElevatedButton(
           onPressed: () async {
-            if (_formKey.currentState!.validate()) {
-              dynamic result =
-                  await _auth.signUpWithEmailAndPassword(email, password);
-              if (result == null) {
-                setState(() => error = 'Please Provide a Valid Email');
-              }
-            }
+            // if (_formKey.currentState!.validate()) {
+            //   dynamic result =
+            //       await _auth.signUpWithEmailAndPassword(email, password);
+            //   if (result == null) {
+            //     setState(() => error = 'Please Provide a Valid Email');
+            //   }
+            // }
           },
           child: Text(
             "Create Account",

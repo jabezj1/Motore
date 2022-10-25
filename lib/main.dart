@@ -12,8 +12,6 @@ import 'package:provider/provider.dart';
 import 'package:motore/splash.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 
-import 'navbar.dart';
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -26,23 +24,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<MyUser?>.value(
-        catchError: (_, __) => null,
-        initialData: null,
-        value: AuthService().user,
-        child: MaterialApp(
-          initialRoute: '/',
-          // routes: {
-          //   '/': (context) => HistorySecond(),
-          // },
-          home: AnimatedSplashScreen(
-              // splash: 'lib/icons/BC_logo.png',
-              splash: 'lib/icons/BC_logo.png',
-              duration: 3000,
-              splashIconSize: 400,
-              // backgroundColor: Colors.black,
-              splashTransition: SplashTransition.fadeTransition,
-              nextScreen: NavigationExample()),
-        ));
+    return MaterialApp(
+      initialRoute: '/',
+      // routes: {
+      //   '/': (context) => HistorySecond(),
+      // },
+      home: AnimatedSplashScreen(
+          // splash: 'lib/icons/BC_logo.png',
+          splash: 'lib/icons/BC_logo.png',
+          duration: 3000,
+          splashIconSize: 400,
+          // backgroundColor: Colors.black,
+          splashTransition: SplashTransition.fadeTransition,
+          nextScreen: AuthService().handleAuthState()),
+      //nextScreen: History()),
+    );
   }
 }
