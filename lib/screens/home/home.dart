@@ -4,7 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:motore/services/auth.dart';
 
 class Home extends StatelessWidget {
-  final AuthService _auth = AuthService();
+  // final AuthService _auth = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class Home extends StatelessWidget {
         actions: <Widget>[
           ElevatedButton.icon(
               onPressed: () async {
-                await _auth.signOut();
+                // await _auth.signOut();
               },
               icon: Icon(Icons.person),
               label: Text('Log Out'))
