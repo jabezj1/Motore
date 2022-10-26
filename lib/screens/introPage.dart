@@ -2,6 +2,7 @@ import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:lottie/lottie.dart';
 
 import 'package:motore/components/introPageComp.dart';
 import 'package:motore/screens/authenticate/login.dart';
@@ -58,12 +59,12 @@ class _IntroPageState extends State<IntroPage> {
                 Container(
                   margin: const EdgeInsets.all(15.0),
                   child: lottieComp(
-                      "https://assets3.lottiefiles.com/packages/lf20_fiik04re.json"),
+                      "https://assets9.lottiefiles.com/packages/lf20_70jmbzgx.json"),
                 ),
                 Container(
                   margin: const EdgeInsets.all(15.0),
                   alignment: Alignment.centerLeft,
-                  child: introPara("Track Your Car Expences!"),
+                  child: introPara("Save Your Money, \nAnd Your Car."),
                 ),
                 SizedBox(
                   height: 30,
@@ -133,8 +134,12 @@ class _IntroPageState extends State<IntroPage> {
         padding: const EdgeInsets.symmetric(horizontal: 8),
         height: 70,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            SizedBox(
+              width: 40,
+            ),
+
             // TextButton(
             //     onPressed: () => controller.jumpToPage(2),
             //     child: const Text(
@@ -144,6 +149,17 @@ class _IntroPageState extends State<IntroPage> {
             Center(
               child: SmoothPageIndicator(controller: controller, count: 3),
             ),
+            Container(
+              padding: const EdgeInsets.all(15.0),
+              child: GestureDetector(
+                onTap: () => controller.nextPage(
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeInOut), // Image tapped
+                child: Lottie.network(
+                    'https://assets10.lottiefiles.com/packages/lf20_vOtfdf.json'),
+              ),
+            ),
+
             // TextButton(
             //     onPressed: () => controller.nextPage(
             //         duration: const Duration(milliseconds: 500),
