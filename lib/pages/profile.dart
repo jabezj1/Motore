@@ -30,16 +30,22 @@ class _ProfileState extends State<Profile> {
             width: double.infinity,
             height: 165,
             decoration: BoxDecoration(
-              color: Color.fromARGB(255, 150, 206, 232),
-              image: DecorationImage(
-                image: AssetImage("lib/icons/car.png"),
-                fit: BoxFit.scaleDown,
-              ),
-              borderRadius: BorderRadius.only(
-                bottomRight: Radius.circular(35),
-                bottomLeft: Radius.circular(35),
-              ),
-            ),
+                color: Color.fromARGB(255, 150, 206, 232),
+                image: DecorationImage(
+                  image: AssetImage("lib/icons/car.png"),
+                  fit: BoxFit.scaleDown,
+                ),
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(35),
+                  bottomLeft: Radius.circular(35),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0xFF04589A),
+                    offset: Offset(7, 7),
+                    blurRadius: 6,
+                  )
+                ]),
           ),
           SizedBox(height: 60),
           Row(
@@ -131,7 +137,8 @@ class ProfileRow extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width / 3,
                 child: Divider(
-                  thickness: 1.0,
+                  thickness: 2.0,
+                  color: Colors.black,
                 ),
               ),
             ],
