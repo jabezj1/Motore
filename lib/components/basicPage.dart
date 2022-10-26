@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:motore/services/auth.dart';
 import 'package:motore/screens/authenticate/login.dart';
 
@@ -7,10 +8,10 @@ class pageName extends StatelessWidget {
   final String text;
   @override
   Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-    );
+    return Text(text,
+        style: GoogleFonts.lato(
+          textStyle: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+        ));
   }
 }
 

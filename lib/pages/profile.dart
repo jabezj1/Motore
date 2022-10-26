@@ -50,19 +50,19 @@ class _ProfileState extends State<Profile> {
           ),
           SizedBox(height: 10),
           Row(
-            children: [
+            children: const [
               ProfileRow(title: 'Year', value: '2017'),
               ProfileRow(title: 'Make', value: 'Maserati'),
             ],
           ),
           SizedBox(height: 10),
           Row(
-            children: [
+            children: const [
               ProfileRow(title: 'Model', value: 'Ghibli'),
               ProfileRow(title: 'Odometer', value: '27,754 miles'),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           Row(
@@ -71,9 +71,10 @@ class _ProfileState extends State<Profile> {
               ElevatedButton.icon(
                 onPressed: () async {
                   await _auth.signOut();
+                  await _auth.emailsignOut();
                 },
                 icon: Icon(Icons.logout),
-                label: Text(
+                label: const Text(
                   'Log Out',
                 ),
                 style: ElevatedButton.styleFrom(
