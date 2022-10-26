@@ -4,11 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:motore/models/myuser.dart';
 import 'package:motore/navbar.dart';
-import 'package:motore/navbar.dart';
 import 'package:motore/screens/authenticate/login.dart';
 
 class AuthService {
-  // final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   handleAuthState() {
     return StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
@@ -40,9 +39,9 @@ class AuthService {
   }
 
   //create user obj based on FirebaseUser
-  // MyUser? _userFromFirebaseUser(User user) {
-  //   return user != null ? MyUser(uid: user.uid) : null;
-  // }
+  MyUser? _userFromFirebaseUser(User user) {
+    return user != null ? MyUser(uid: user.uid) : null;
+  }
 
   // // Auth change user stream
   // Stream<MyUser> get user {
@@ -65,39 +64,39 @@ class AuthService {
 
   // //sign in with email password
 
-  // Future logInWithEmailAndPassword(String email, String password) async {
-  //   try {
-  //     UserCredential result = await _auth.signInWithEmailAndPassword(
-  //         email: email, password: password);
-  //     User? user = result.user;
-  //     return _userFromFirebaseUser(user!);
-  //   } catch (e) {
-  //     print(e.toString());
-  //     return null;
-  //   }
-  // }
+  Future logInWithEmailAndPassword(String email, String password) async {
+    try {
+      UserCredential result = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      User? user = result.user;
+      return _userFromFirebaseUser(user!);
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 
   // //register with email password
 
-  // Future signUpWithEmailAndPassword(String email, String password) async {
-  //   try {
-  //     UserCredential result = await _auth.createUserWithEmailAndPassword(
-  //         email: email, password: password);
-  //     User? user = result.user;
-  //     return _userFromFirebaseUser(user!);
-  //   } catch (e) {
-  //     print(e.toString());
-  //     return null;
-  //   }
-  // }
+  Future signUpWithEmailAndPassword(String email, String password) async {
+    try {
+      UserCredential result = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      User? user = result.user;
+      return _userFromFirebaseUser(user!);
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 
   // //sign out
-  // Future signOut() async {
-  //   try {
-  //     return await _auth.signOut();
-  //   } catch (e) {
-  //     print(e.toString());
-  //     return null;
-  //   }
-  // }
+  Future emailsignOut() async {
+    try {
+      return await _auth.signOut();
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 }

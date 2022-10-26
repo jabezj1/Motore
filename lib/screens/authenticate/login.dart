@@ -55,27 +55,62 @@ class _LoginState extends State<Login> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const LoginComponents(
-            "Email", Icons.email_outlined, "Please enter an Email"),
-        const SizedBox(
+        TextFormField(
+            decoration: InputDecoration(
+              hintText: "Email Address",
+              fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
+              filled: true,
+              prefixIcon: Icon(Icons.email_outlined),
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(18),
+                  borderSide: BorderSide.none),
+            ),
+            validator: (String? val) {
+              if (val!.isEmpty) {
+                return "Please Enter an Email";
+              }
+              return null;
+            },
+            onChanged: (val) {
+              setState(() => email = val);
+            }),
+        SizedBox(
           height: 10,
         ),
-        const LoginComponents(
-            "Password", Icons.password_outlined, "Please enter a Password"),
-        const SizedBox(
+        TextFormField(
+            decoration: InputDecoration(
+              hintText: "Password",
+              fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
+              filled: true,
+              prefixIcon: Icon(Icons.password_outlined),
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(18),
+                  borderSide: BorderSide.none),
+            ),
+            obscureText: true,
+            validator: (String? val) {
+              if (val!.length < 6) {
+                return "Password must at least 6 characters long ";
+              }
+              return null;
+            },
+            onChanged: (val) {
+              setState(() => password = val);
+            }),
+        SizedBox(
           height: 10,
         ),
         ElevatedButton.icon(
           onPressed: () async {
-            // if (_formKey.currentState!.validate()) {
-            //   print('object');
-            //   dynamic result =
-            //       await _auth.logInWithEmailAndPassword(email, password);
-            //   if (result == null) {
-            //     setState(() => error = 'Log In Failed, Please try Again');
-            //   }
-            // }
-            AuthService().signInWithGoogle();
+            if (_formKey.currentState!.validate()) {
+              print('object');
+              dynamic result = await AuthService()
+                  .logInWithEmailAndPassword(email, password);
+              if (result == null) {
+                setState(() => error = 'Log In Failed, Please try Again');
+              }
+            }
+            // AuthService().signInWithGoogle();
           },
           icon: Icon(Icons.car_rental),
           label: Text(
