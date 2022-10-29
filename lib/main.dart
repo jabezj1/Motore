@@ -38,8 +38,8 @@ class MyApp extends StatelessWidget {
           splashIconSize: 400,
           // backgroundColor: Colors.black,
           splashTransition: SplashTransition.fadeTransition,
-          // nextScreen: AuthService().handleAuthState()),
-          nextScreen: IntroPage()),
+          nextScreen: AuthService().handleAuthState()),
+      //nextScreen: IntroPage()),
     );
   }
 }

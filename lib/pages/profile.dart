@@ -77,7 +77,7 @@ class _ProfileState extends State<Profile> {
               ElevatedButton.icon(
                 onPressed: () async {
                   await _auth.signOut();
-                  await _auth.emailsignOut();
+                  // await _auth.emailsignOut();
                 },
                 icon: Icon(Icons.logout),
                 label: const Text(
