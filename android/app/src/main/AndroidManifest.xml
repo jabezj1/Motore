@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.motore">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="motore"
         android:name="${applicationName}"
@@ -31,5 +32,9 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBTygVJojXbFjWjM2Jr9firACU-NYkd6Wg"/>
     </application>
+    <!-- <users-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> -->
 </manifest>
