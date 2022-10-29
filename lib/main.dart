@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:motore/models/myuser.dart';
+import 'package:motore/navbar.dart';
 import 'package:motore/pages/history_fourth.dart';
 import 'package:motore/pages/history_third.dart';
 import 'package:motore/pages/history_second.dart';
 import 'package:motore/pages/History.dart';
 import 'package:motore/screens/authenticate/login.dart';
+import 'package:motore/screens/introPage.dart';
 import 'package:motore/screens/wrapper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:motore/services/auth.dart';
@@ -24,23 +26,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<MyUser?>.value(
-        catchError: (_, __) => null,
-        initialData: null,
-        value: AuthService().user,
-        child: MaterialApp(
-          initialRoute: '/',
-          // routes: {
-          //   '/': (context) => HistorySecond(),
-          // },
-          home: AnimatedSplashScreen(
-              // splash: 'lib/icons/BC_logo.png',
-              splash: 'lib/icons/BC_logo.png',
-              duration: 3000,
-              splashIconSize: 400,
-              // backgroundColor: Colors.black,
-              splashTransition: SplashTransition.fadeTransition,
-              nextScreen: Wrapper()),
-        ));
+    return MaterialApp(
+      initialRoute: '/',
+      // routes: {
+      //   '/': (context) => HistorySecond(),
+      // },
+      home: AnimatedSplashScreen(
+          // splash: 'lib/icons/BC_logo.png',
+          splash: 'lib/icons/BC_logo.png',
+          duration: 3000,
+          splashIconSize: 400,
+          // backgroundColor: Colors.black,
+          splashTransition: SplashTransition.fadeTransition,
+          nextScreen: AuthService().handleAuthState()),
+      //nextScreen: IntroPage()),
+    );
   }
 }
