@@ -2,6 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+// import 'package:motore/pages/Credit_card_info.dart';
+
+import 'dashboard_2.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -32,7 +35,7 @@ class Dashboard extends StatelessWidget {
           //   ),
           // ),
           SizedBox(
-            height: 60,
+            height: 30,
           ),
           Center(
             child: Padding(
@@ -117,6 +120,18 @@ class Dashboard extends StatelessWidget {
                                 fontSize: 20,
                               ),
                             ),
+                            SizedBox(
+                              height: 2,
+                            ),
+                            // GestureDetector(
+                            //   child: Text("Add card"),
+                            //   onTap: () {
+                            //     Navigator.of(context).pushReplacement(
+                            //         MaterialPageRoute(
+                            //             builder: (BuildContext context) =>
+                            //                 Dashboard2()));
+                            //   },
+                            // ),
                           ],
                         ),
                       ),
@@ -151,14 +166,26 @@ class Dashboard extends StatelessWidget {
                                 fontSize: 20,
                               ),
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 5),
                             Text(
                               "Total : 465.18",
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w300,
                               ),
-                            )
+                            ),
+                            SizedBox(
+                              height: 2,
+                            ),
+                            // GestureDetector(
+                            //   child: Text("Add card"),
+                            //   onTap: () {
+                            //     Navigator.of(context).pushReplacement(
+                            //         MaterialPageRoute(
+                            //             builder: (BuildContext context) =>
+                            //                 Credit_card()));
+                            //   },
+                            // ),
                           ],
                         ),
                       ),

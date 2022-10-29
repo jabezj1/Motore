@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:motore/pages/History.dart';
 import 'package:motore/pages/Fuel.dart';
 import 'package:motore/pages/Dashboard.dart';
+import 'package:motore/pages/search.dart';
 
 //Used a pub package called curved_navigtion_bar
 //Link: https://pub.dev/packages/curved_navigation_bar

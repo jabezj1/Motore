@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:motore/services/auth.dart';
 
+import 'package:motore/services/auth.dart';
+
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
   @override
