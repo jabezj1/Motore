@@ -49,10 +49,6 @@ class History extends StatelessWidget {
                               image: AssetImage("lib/icons/car.png"),
                               fit: BoxFit.scaleDown,
                             ),
-                            borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(35),
-                              bottomLeft: Radius.circular(35),
-                            ),
                           ),
                         ),
                       ],
