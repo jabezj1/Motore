@@ -125,7 +125,7 @@ class _LoginState extends State<Login> {
         SizedBox(height: 12.0),
         Text(
           error,
-          style: TextStyle(color: Colors.red, fontSize: 14.0),
+          //style: TextStyle(color: Colors.red, fontSize: 14.0),
         )
       ],
     );
