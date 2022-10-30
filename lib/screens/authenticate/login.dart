@@ -47,7 +47,7 @@ class _LoginState extends State<Login> {
 
   _header(context) {
     return Column(
-      children: [const pageName("Log in")],
+      children: [const pageName("Login")],
     );
   }
 
@@ -102,14 +102,8 @@ class _LoginState extends State<Login> {
         ),
         ElevatedButton.icon(
           onPressed: () async {
-            if (_formKey.currentState!.validate()) {
-              print('object');
-              dynamic result = await AuthService()
-                  .logInWithEmailAndPassword(email, password);
-              if (result == null) {
-                setState(() => error = 'Log In Failed, Please try Again');
-              }
-            }
+            AuthService().logInWithEmailAndPassword(email, password);
+
             // AuthService().signInWithGoogle();
           },
           icon: Icon(Icons.car_rental),
@@ -203,7 +197,7 @@ class _LoginState extends State<Login> {
       children: <Widget>[
         GestureDetector(
             onTap: () {
-              print('Google Pressed');
+              AuthService().signInWithApple();
             },
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 15),

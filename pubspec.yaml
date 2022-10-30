@@ -44,6 +44,12 @@ dependencies:
   # flutter_svg: ^1.1.5
   firebase_core: ^1.23.0
   google_sign_in: ^5.4.2
+  lottie: ^1.4.3
+  smooth_page_indicator: ^1.0.0+2
+  auth_buttons: ^3.0.0
+  google_fonts: ^3.0.1
+  sign_in_with_apple: ^4.1.0
+  crypto: ^3.0.2
 
 dev_dependencies:
   flutter_test:
