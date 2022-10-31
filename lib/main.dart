@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:motore/models/myuser.dart';
 import 'package:motore/navbar.dart';
 import 'package:motore/pages/history_fourth.dart';
-import 'package:motore/pages/history_third.dart';
+import 'package:motore/pages/createHistoryEntry.dart';
 import 'package:motore/pages/history_second.dart';
 import 'package:motore/pages/History.dart';
 import 'package:motore/screens/authenticate/login.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motore/pages/history_second.dart';
-import 'package:motore/pages/history_third.dart';
+import 'package:motore/pages/createHistoryEntry.dart';
 import 'package:motore/pages/history_fourth.dart';
 
 const List<String> list = <String>[
