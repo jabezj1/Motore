@@ -18,7 +18,7 @@ class HistorySecond extends StatelessWidget {
                     )),
           );
         },
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.blue,
         child: const Icon(Icons.add),
       ),
       body: SingleChildScrollView(

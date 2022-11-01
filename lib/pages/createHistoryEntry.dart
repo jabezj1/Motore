@@ -95,13 +95,16 @@ class _createHistoryEntry extends State<createHistoryEntry> {
                   child: TextField(
                     obscureText: false,
                     controller: historyTitleController,
-                    decoration: const InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.red)),
-                      labelText: 'Title',
-                    ),
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          //borderSide: BorderSide(width: 0, style: BorderStyle.none),
+                          //borderSide: BorderSide(color: Colors.red)),
+                          //labelText: 'Title',
+                        ),
+                        fillColor: Colors.white,
+                        filled: true,
+                        hintText: 'Title'),
                   ),
                 ),
                 // const Text(
@@ -113,13 +116,14 @@ class _createHistoryEntry extends State<createHistoryEntry> {
                   child: TextField(
                     obscureText: false,
                     controller: historyDateController,
-                    decoration: const InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.red)),
-                      labelText: 'Date',
-                    ),
+                    decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: BorderSide(color: Colors.red)),
+                        // labelText: 'Date',
+                        hintText: 'Date'),
                   ),
                 ),
                 // const Text(
@@ -131,12 +135,14 @@ class _createHistoryEntry extends State<createHistoryEntry> {
                   child: TextField(
                     obscureText: false,
                     controller: historyCostController,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
                           borderSide: BorderSide(color: Colors.red)),
-                      labelText: 'Cost',
+                      //labelText: 'Cost',
+                      hintText: 'Cost',
                     ),
                   ),
                 ),
@@ -149,13 +155,14 @@ class _createHistoryEntry extends State<createHistoryEntry> {
                   child: TextField(
                     obscureText: false,
                     controller: historyLocationController,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
-                          //borderRadius: BorderRadius.all(radius),
+                          borderRadius: BorderRadius.circular(30),
                           borderSide: BorderSide(color: Colors.red)),
-                      labelText: 'Location',
+                      // labelText: 'Location',
+                      hintText: 'Location',
                     ),
                   ),
                 ),
@@ -167,12 +174,14 @@ class _createHistoryEntry extends State<createHistoryEntry> {
                     obscureText: false,
                     controller: historyNotesController,
                     maxLines: null,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
                           borderSide: BorderSide(color: Colors.red)),
-                      labelText: 'Notes',
+                      //labelText: 'Notes',
+                      hintText: 'Notes',
                     ),
                   ),
                 ),
@@ -184,7 +193,12 @@ class _createHistoryEntry extends State<createHistoryEntry> {
                     width: 280,
                     padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(primary: Colors.blue),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.blue,
+                        side: BorderSide(width: 4.0),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)),
+                      ),
                       child: const Text('Create New History Entry',
                           style: TextStyle(fontSize: 20, color: Colors.black)),
                       onPressed: () async {
