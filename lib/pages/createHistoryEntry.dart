@@ -170,29 +170,31 @@ class _createHistoryEntry extends State<createHistoryEntry> {
 										),
 										onPressed: () async {
 											FirebaseFirestore.instance
-												.collection("users")
-												.doc(FirebaseAuth.instance.currentUser?.email)
-												.collection("cars")
-												.doc("car-nickname-3")
-												.collection("history")
-												.add({
+											.collection("users")
+											.doc(FirebaseAuth.instance.currentUser!.email)
+											.set(
+												{
+													"email": FirebaseAuth.instance.currentUser!.email,
+													"uid": FirebaseAuth.instance.currentUser!.uid
+												}
+											);
+										
+											FirebaseFirestore.instance
+											.collection("users")
+											.doc(FirebaseAuth.instance.currentUser!.email)
+											.collection("cars")
+											.doc("car-nickname-3")
+											.collection("history")
+											.add(
+												{
 													"title": historyTitleController,
 													"date": historyDateController,
 													"cost": historyCostController,
 													"location": historyLocationController,
 													"notes": historyNotesController
-												}).then((value) {
-													Navigator.push(
-														context,
-														MaterialPageRoute(
-															builder: (context) => const History(),
-														)
-													);
-												}).catchError((error) => print(
-													"Failed to save new history entry to database! Error: $error"
-												)
+												}
 											);
-										},
+										}
 									)
 								),
 							]
