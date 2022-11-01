@@ -35,7 +35,7 @@ class _ProfileState extends State<Profile> {
       body: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(30),
+            //padding: EdgeInsets.all(30),
             child: Container(
               padding: const EdgeInsets.only(right: 100),
               width: double.infinity,
