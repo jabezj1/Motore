@@ -8,27 +8,7 @@ class CarPart extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(24.0),
       child: Column(
-        children: const [
-          Text(
-            'CarPart Page',
-            style: TextStyle(
-                fontSize: 40, color: Colors.black, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(
-            height: 100,
-          ),
-          CircleAvatar(
-            radius: 70,
-            child: Icon(Icons.people, size: 120),
-          ),
-          SizedBox(
-            height: 100,
-          ),
-          Text(
-            'CarPart Page Content',
-            style: TextStyle(fontSize: 40, color: Colors.black),
-          ),
-        ],
+        children: const [],
       ),
     );
   }
