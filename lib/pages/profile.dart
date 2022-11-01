@@ -18,36 +18,51 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 150, 206, 232),
-        centerTitle: true,
-        elevation: 0,
         title: Text(
           'Profile',
-          style: TextStyle(color: Colors.blue),
+        ),
+        centerTitle: true,
+        elevation: 0,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Color(0xFF15AAAFF),
+              Color(0xFFADF7F2),
+            ]),
+          ),
         ),
       ),
       body: Column(
         children: [
           Container(
-            width: double.infinity,
-            height: 165,
-            decoration: BoxDecoration(
-                color: Color.fromARGB(255, 150, 206, 232),
-                image: DecorationImage(
-                  image: AssetImage("lib/icons/car.png"),
-                  fit: BoxFit.scaleDown,
-                ),
-                borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(35),
-                  bottomLeft: Radius.circular(35),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color(0xFF04589A),
-                    offset: Offset(7, 7),
-                    blurRadius: 6,
-                  )
-                ]),
+            padding: EdgeInsets.all(30),
+            child: Container(
+              padding: const EdgeInsets.only(right: 100),
+              width: double.infinity,
+              height: 165,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(colors: [
+                    Color(0xFF15AAAFF),
+                    Color(0xFFADF7F2),
+                  ]),
+                  //color: Color.fromARGB(255, 150, 206, 232),
+
+                  image: DecorationImage(
+                    image: AssetImage("lib/icons/car2.png"),
+                    fit: BoxFit.none,
+                  ),
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(35),
+                    bottomLeft: Radius.circular(35),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0xFF04589A),
+                      offset: Offset(7, 7),
+                      blurRadius: 6,
+                    )
+                  ]),
+            ),
           ),
           SizedBox(height: 60),
           Row(
