@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -29,8 +27,26 @@ class _FuelState extends State<Fuel> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Maps Sample App'),
-          backgroundColor: Colors.green[700],
+          title: const Text(
+					'Nearby Gas Stations',
+					style: TextStyle(
+						color: Color.fromARGB(255, 255, 255, 255)
+					),
+				),
+				centerTitle: true,
+				elevation: 0,
+				flexibleSpace: Container(
+					decoration: const BoxDecoration(
+						gradient: LinearGradient(
+							begin: Alignment.bottomLeft,
+							end: Alignment.bottomRight,
+							colors: [
+								Color(0xFF15AAAFF),
+								Color(0xFFADF7F2),
+							]
+						),
+					),
+				),
         ),
         body: GoogleMap(
           onMapCreated: _onMapCreated,
