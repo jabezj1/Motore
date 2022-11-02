@@ -5,6 +5,10 @@
         android:label="motore"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyARHzX_3Esoj0g8zgkzhLj4IsXNfgTj4YM"/>
        android:usesCleartextTraffic="true"
         <activity
             android:name=".MainActivity"
@@ -32,9 +36,9 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-        <meta-data
+        <!-- <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyARHzX_3Esoj0g8zgkzhLj4IsXNfgTj4YM"/>
+            android:value="AIzaSyARHzX_3Esoj0g8zgkzhLj4IsXNfgTj4YM"/> -->
     </application>
     <!-- <users-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> -->
 </manifest>
