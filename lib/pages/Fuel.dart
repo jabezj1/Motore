@@ -1,38 +1,44 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:motore/services/auth.dart';
 
-class Fuel extends StatelessWidget {
+class Fuel extends StatefulWidget {
   const Fuel({Key? key}) : super(key: key);
+
+  @override 
+  _FuelState createState() => _FuelState();
+
+  
+}
+
+class _FuelState extends State<Fuel> {
+  late GoogleMapController mapController;
+
+  final LatLng _center = const LatLng(45.521563, -122.677433);
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(24.0),
-      child: Column(
-        children: const [
-          Text(
-            'Fuel map Page',
-            style: TextStyle(
-                fontSize: 40, color: Colors.black, fontWeight: FontWeight.bold),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Maps Sample App'),
+          backgroundColor: Colors.green[700],
+        ),
+        body: GoogleMap(
+          onMapCreated: _onMapCreated,
+          initialCameraPosition: CameraPosition(
+            target: _center,
+            zoom: 11.0,
           ),
-          SizedBox(
-            height: 100,
-          ),
-          CircleAvatar(
-            radius: 70,
-            child: Icon(Icons.people, size: 120),
-          ),
-          SizedBox(
-            height: 100,
-          ),
-          Text(
-            'Fuel map Content',
-            style: TextStyle(fontSize: 40, color: Colors.black),
-          ),
-        ],
+        ),
       ),
     );
   }
