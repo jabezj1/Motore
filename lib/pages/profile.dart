@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motore/services/auth.dart';
-
+import 'package:motore/pages/createCarProfile.dart';
 import 'package:motore/services/auth.dart';
 
 class Profile extends StatefulWidget {
@@ -31,6 +31,19 @@ class _ProfileState extends State<Profile> {
             ]),
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const createCarProfile(
+                      title: "a",
+                    )),
+          );
+        },
+        backgroundColor: Colors.blue,
+        child: const Icon(Icons.add),
       ),
       body: Column(
         children: [

@@ -57,7 +57,7 @@ class _createHistoryEntry extends State<createHistoryEntry> {
             child: SingleChildScrollView(
               child: Column(children: [
                 const Text(
-                  "Enter the details of your latest car servicing or maintenance here",
+                  "Enter the details of your latest car servicing here.",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 15,
