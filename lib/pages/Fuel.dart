@@ -7,7 +7,7 @@ LatLng startingLocation = LatLng(40.7678, -73.9645);
 class Fuel extends StatefulWidget {
   const Fuel({Key? key}) : super(key: key);
 
-  @override 
+  @override
   _FuelState createState() => _FuelState();
 }
 
