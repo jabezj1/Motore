@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motore/navbar.dart';
 import 'package:motore/pages/History.dart';
 import 'package:motore/pages/createHistoryEntry.dart';
 
@@ -35,7 +36,7 @@ class HistorySecond extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const History()),
+                  MaterialPageRoute(builder: (context) => NavigationExample()),
                 );
               },
             ),
