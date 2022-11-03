@@ -9,18 +9,21 @@ class HistorySecond extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => const createHistoryEntry(
-                      title: "a",
-                    )),
-          );
-        },
-        backgroundColor: Colors.blue,
-        child: const Icon(Icons.add),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 10),
+        child: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const createHistoryEntry(
+                        title: "a",
+                      )),
+            );
+          },
+          backgroundColor: Colors.blue,
+          child: const Icon(Icons.add),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(

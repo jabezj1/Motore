@@ -32,19 +32,21 @@ class _ProfileState extends State<Profile> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => const createCarProfile(
-                      title: "a",
-                    )
-            ),
-          );
-        },
-        backgroundColor: Colors.blue,
-        child: const Icon(Icons.add),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 10),
+        child: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const createCarProfile(
+                        title: "a",
+                      )),
+            );
+          },
+          backgroundColor: Colors.blue,
+          child: const Icon(Icons.add),
+        ),
       ),
       body: Column(
         children: [
