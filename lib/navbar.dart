@@ -3,6 +3,8 @@ import 'package:motore/pages/profile.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:motore/pages/History.dart';
+import 'package:motore/pages/history_second.dart';
+import 'package:motore/pages/history_fourth.dart';
 import 'package:motore/pages/Fuel.dart';
 import 'package:motore/pages/Dashboard.dart';
 import 'package:motore/pages/search.dart';
@@ -68,27 +70,39 @@ class _NavigationExampleState extends State<NavigationExample> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      bottomNavigationBar: CurvedNavigationBar(
-        items: items,
-        index: index,
-        color: Color(0xFF90CAF9),
-        onTap: (selctedIndex) {
-          setState(() {
-            index = selctedIndex;
-          });
-        },
-        height: 70,
-        backgroundColor: Colors.transparent,
-        animationDuration: const Duration(milliseconds: 300),
+    return Container(
+      // decoration: const BoxDecoration(
+      //   gradient: LinearGradient(
+
+      //       //begin: Alignment.topLeft,
+      //       //end: Alignment.topRight,
+      //       colors: [
+      //         Color(0xff15aaaff),
+      //         Color(0xFFADF7F2),
+      //       ]),
+      // ),
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        bottomNavigationBar: CurvedNavigationBar(
+          items: items,
+          index: index,
+          color: Color(0xFF90CAF9),
+          onTap: (selctedIndex) {
+            setState(() {
+              index = selctedIndex;
+            });
+          },
+          height: 70,
+          backgroundColor: Colors.transparent,
+          animationDuration: const Duration(milliseconds: 300),
+        ),
+        body: Container(
+            color: Colors.white,
+            width: double.infinity,
+            height: double.infinity,
+            alignment: Alignment.center,
+            child: getSelectedWidget(index: index)),
       ),
-      body: Container(
-          color: Colors.white,
-          width: double.infinity,
-          height: double.infinity,
-          alignment: Alignment.center,
-          child: getSelectedWidget(index: index)),
     );
   }
 
@@ -110,6 +124,7 @@ class _NavigationExampleState extends State<NavigationExample> {
       case 4:
         widget = Profile();
         break;
+
       default:
         widget = const Dashboard();
         break;

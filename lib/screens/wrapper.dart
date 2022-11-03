@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:motore/models/myuser.dart';
 import 'package:motore/pages/profile.dart';
+import 'package:motore/pages/createHistoryEntry.dart';
 import 'package:motore/screens/authenticate/authenticate.dart';
 import 'package:motore/screens/authenticate/login.dart';
 import 'package:motore/screens/authenticate/signup.dart';

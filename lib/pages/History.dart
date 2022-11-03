@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motore/pages/history_second.dart';
-import 'package:motore/pages/history_third.dart';
+import 'package:motore/pages/createHistoryEntry.dart';
 import 'package:motore/pages/history_fourth.dart';
 
 const List<String> list = <String>[
@@ -49,10 +49,6 @@ class History extends StatelessWidget {
                               image: AssetImage("lib/icons/car.png"),
                               fit: BoxFit.scaleDown,
                             ),
-                            borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(35),
-                              bottomLeft: Radius.circular(35),
-                            ),
                           ),
                         ),
                       ],
@@ -86,29 +82,35 @@ class History extends StatelessWidget {
                   );
                 }).toList(),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: HistoryWidget(
-                    value: 'Monthly Expenses',
-                    value2: 'AVERAGE Monthly Expenses:',
-                    value3: '\$1035',
-                    value4: 'See More'),
+              SizedBox(
+                height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(0),
                 child: HistoryWidget(
-                    value: 'Oil Changes',
-                    value2: 'Last Oil Change:',
-                    value3: '08/16/22',
-                    value4: 'See More'),
+                  value: "lib/icons/expense.png",
+                  value2: "Monthly Expenses",
+                  value3: "Your Monthly Expenses are: \n",
+                  value4: "\$523",
+                ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(0),
                 child: HistoryWidget(
-                    value: 'Past Maintenance',
-                    value2: 'Battery Replacement',
-                    value3: '08/12/22',
-                    value4: 'See More'),
+                  value: "lib/icons/oil_two.png",
+                  value2: "Oil Changes",
+                  value3: "Last Oil Change: \n",
+                  value4: "09/14/22",
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(0),
+                child: HistoryWidget(
+                  value: "lib/icons/past.png",
+                  value2: "Past Maintenances",
+                  value3: "Your Last Maintenance: \n",
+                  value4: "10/04/22",
+                ),
               ),
             ],
           ),
@@ -139,60 +141,82 @@ class HistoryWidget extends StatelessWidget {
         MaterialPageRoute(builder: (context) => const HistorySecond()),
       ),
       child: Container(
-        decoration: BoxDecoration(
-            color: Color.fromARGB(255, 150, 206, 232),
-            borderRadius: BorderRadius.all(
-              Radius.circular(30),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Color(0xFF04589A),
-                offset: Offset(8, 8),
-                blurRadius: 6,
-              )
-            ]),
-        margin: const EdgeInsets.only(top: 1),
-        height: 170,
-        width: 355,
-        // color: Color.fromARGB(255, 150, 206, 232),
-        child: Column(
+        height: 140,
+        width: 360,
+        //
+        child: Stack(
           children: [
-            Icon(
-              Icons.attach_money_rounded,
-              color: Colors.red,
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Text(
-              value,
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 111,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [
+                  Color(0xFF15AAAFF),
+                  Color(0xFFADF7F2),
+                ]),
+                //color: Color.fromARGB(255, 150, 206, 232),
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 30,
+                    offset: Offset(8, 10),
+                    color: Color.fromARGB(255, 133, 178, 214),
+                  ),
+                ],
               ),
             ),
-            Text(
-              value2,
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                fontSize: 20,
+            Container(
+              height: 200,
+              width: 350,
+              margin: const EdgeInsets.only(
+                right: 220,
+                bottom: 20,
+              ),
+
+              //color: Colors.redAccent.withOpacity(0.2),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                image: DecorationImage(
+                  image: AssetImage(value),
+                  //fit: BoxFit.scaleDown,
+                ),
               ),
             ),
-            Text(
-              value3,
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(
-              height: 1,
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            Container(
+              width: double.maxFinite,
+              height: 100,
+              //color: Colors.redAccent.withOpacity(0.3),
+              margin: const EdgeInsets.only(left: 140, top: 10),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      value2,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    RichText(
+                        text: TextSpan(
+                            text: value3,
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            children: [
+                          TextSpan(
+                              text: value4,
+                              style: TextStyle(
+                                //color: Colors.blue,
+                                fontSize: 16,
+                              ))
+                        ]))
+                  ]),
             ),
           ],
         ),
