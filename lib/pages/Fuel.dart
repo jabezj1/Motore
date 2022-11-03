@@ -11,13 +11,13 @@ import 'dart:async';
 class Fuel extends StatefulWidget {
   const Fuel({Key? key}) : super(key: key);
 
-  @override 
+  @override
   _FuelState createState() => _FuelState();
 }
 
 class _FuelState extends State<Fuel> {
-  late LatLng currentLatLng;
-  // late LatLng currentLatLng = const LatLng(48.8566, 2.3522);
+  //late LatLng currentLatLng;
+  late LatLng currentLatLng = const LatLng(48.8566, 2.3522);
   final Completer<GoogleMapController> _controller = Completer();
   Future<void> _determinePosition() async {
     LocationPermission permission;
@@ -30,7 +30,7 @@ class _FuelState extends State<Fuel> {
     } else {
       throw Exception(Error);
     }
-    
+
     Position position = await Geolocator.getCurrentPosition();
     setState(() {
       currentLatLng = LatLng(position.latitude, position.longitude);
@@ -56,18 +56,17 @@ class _FuelState extends State<Fuel> {
             _controller.complete(controller);
           },
           markers: <Marker>{
-              Marker(
-                draggable: true,
-                markerId: const MarkerId("1"),
-                position: currentLatLng,
-                icon: BitmapDescriptor.defaultMarker,
-                infoWindow: const InfoWindow(
-                  title: 'My Location',
-                ),
-              )
-            },
+            Marker(
+              draggable: true,
+              markerId: const MarkerId("1"),
+              position: currentLatLng,
+              icon: BitmapDescriptor.defaultMarker,
+              infoWindow: const InfoWindow(
+                title: 'My Location',
+              ),
+            )
+          },
         ),
-
         floatingActionButton: FloatingActionButton.extended(
           onPressed: _goToCurrentLocation,
           label: const Text('Home'),
@@ -80,7 +79,8 @@ class _FuelState extends State<Fuel> {
   Future<void> _goToCurrentLocation() async {
     await _determinePosition();
     final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: currentLatLng, zoom: 3)));
+    controller.animateCamera(CameraUpdate.newCameraPosition(
+        CameraPosition(target: currentLatLng, zoom: 3)));
   }
   // late GoogleMapController mapController;
 
@@ -96,25 +96,25 @@ class _FuelState extends State<Fuel> {
   //     home: Scaffold(
   //       appBar: AppBar(
   //         title: const Text(
-	// 				'Nearby Gas Stations',
-	// 				style: TextStyle(
-	// 					color: Color.fromARGB(255, 255, 255, 255)
-	// 				),
-	// 			),
-	// 			centerTitle: true,
-	// 			elevation: 0,
-	// 			flexibleSpace: Container(
-	// 				decoration: const BoxDecoration(
-	// 					gradient: LinearGradient(
-	// 						begin: Alignment.bottomLeft,
-	// 						end: Alignment.bottomRight,
-	// 						colors: [
-	// 							Color(0xFF15AAAFF),
-	// 							Color(0xFFADF7F2),
-	// 						]
-	// 					),
-	// 				),
-	// 			),
+  // 				'Nearby Gas Stations',
+  // 				style: TextStyle(
+  // 					color: Color.fromARGB(255, 255, 255, 255)
+  // 				),
+  // 			),
+  // 			centerTitle: true,
+  // 			elevation: 0,
+  // 			flexibleSpace: Container(
+  // 				decoration: const BoxDecoration(
+  // 					gradient: LinearGradient(
+  // 						begin: Alignment.bottomLeft,
+  // 						end: Alignment.bottomRight,
+  // 						colors: [
+  // 							Color(0xFF15AAAFF),
+  // 							Color(0xFFADF7F2),
+  // 						]
+  // 					),
+  // 				),
+  // 			),
   //       ),
   //       body: GoogleMap(
   //         onMapCreated: _onMapCreated,
