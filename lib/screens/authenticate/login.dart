@@ -27,7 +27,7 @@ class _LoginState extends State<Login> {
       resizeToAvoidBottomInset: false,
 
       body: Container(
-          margin: EdgeInsets.all(50),
+          margin: const EdgeInsets.all(50),
           child: Form(
               key: _formKey,
               child: Column(
@@ -47,7 +47,7 @@ class _LoginState extends State<Login> {
 
   _header(context) {
     return Column(
-      children: [const pageName("Login")],
+      children: const [pageName("Login")],
     );
   }
 
@@ -60,7 +60,7 @@ class _LoginState extends State<Login> {
               hintText: "Email Address",
               fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
               filled: true,
-              prefixIcon: Icon(Icons.email_outlined),
+              prefixIcon: const Icon(Icons.email_outlined),
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(18),
                   borderSide: BorderSide.none),
@@ -74,7 +74,7 @@ class _LoginState extends State<Login> {
             onChanged: (val) {
               setState(() => email = val);
             }),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         TextFormField(
@@ -82,7 +82,7 @@ class _LoginState extends State<Login> {
               hintText: "Password",
               fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
               filled: true,
-              prefixIcon: Icon(Icons.password_outlined),
+              prefixIcon: const Icon(Icons.password_outlined),
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(18),
                   borderSide: BorderSide.none),
@@ -97,7 +97,7 @@ class _LoginState extends State<Login> {
             onChanged: (val) {
               setState(() => password = val);
             }),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         ElevatedButton.icon(
@@ -106,17 +106,17 @@ class _LoginState extends State<Login> {
 
             // AuthService().signInWithGoogle();
           },
-          icon: Icon(Icons.car_rental),
-          label: Text(
+          icon: const Icon(Icons.car_rental),
+          label: const Text(
             "Login",
             style: TextStyle(fontSize: 20),
           ),
           style: ElevatedButton.styleFrom(
-            shape: StadiumBorder(),
-            padding: EdgeInsets.symmetric(vertical: 16),
+            shape: const StadiumBorder(),
+            padding: const EdgeInsets.symmetric(vertical: 16),
           ),
         ),
-        SizedBox(height: 12.0),
+        const SizedBox(height: 12.0),
         Text(
           error,
           //style: TextStyle(color: Colors.red, fontSize: 14.0),
@@ -134,7 +134,7 @@ class _LoginState extends State<Login> {
               AuthService().signInWithGoogle();
             },
             child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 0.05),
+              padding: const EdgeInsets.symmetric(vertical: 0.05),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -146,17 +146,17 @@ class _LoginState extends State<Login> {
                         borderRadius: BorderRadius.circular(15),
                         shape: BoxShape.rectangle,
                         color: Colors.white,
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                               color: Colors.black26,
                               offset: Offset(0, 2),
                               blurRadius: 6.0),
                         ],
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             image: AssetImage('lib/icons/google.png'),
                             alignment: Alignment.centerLeft),
                       ),
-                      child: Align(
+                      child: const Align(
                         alignment: Alignment.centerRight,
                         child: Text(
                           "Sign in with Google",
@@ -171,26 +171,6 @@ class _LoginState extends State<Login> {
     );
   }
 
-  // return ElevatedButton(
-  //   onPressed: () async {
-  //     dynamic result = await _auth.signInAnon();
-  //     if (result == null) {
-  //       print('Error loging in!');
-  //     } else {
-  //       print('Signed in');
-  //       print(result);
-  //     }
-  //   },
-  //   child: Text(
-  //     "Login",
-  //     style: TextStyle(fontSize: 20),
-  //   ),
-  //   style: ElevatedButton.styleFrom(
-  //     shape: StadiumBorder(),
-  //     padding: EdgeInsets.symmetric(vertical: 16),
-  //   ),
-  // );
-
   _appleAOth(context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -200,7 +180,7 @@ class _LoginState extends State<Login> {
               AuthService().signInWithApple();
             },
             child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 15),
+              padding: const EdgeInsets.symmetric(vertical: 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -213,17 +193,17 @@ class _LoginState extends State<Login> {
                         borderRadius: BorderRadius.circular(15),
                         shape: BoxShape.rectangle,
                         color: Colors.white,
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                               color: Colors.black26,
                               offset: Offset(0, 2),
                               blurRadius: 6.0),
                         ],
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             image: AssetImage('lib/icons/apple.png'),
                             alignment: Alignment.centerLeft),
                       ),
-                      child: Align(
+                      child: const Align(
                         alignment: Alignment.centerRight,
                         child: Text(
                           "Sign in with Apple",
@@ -242,15 +222,15 @@ class _LoginState extends State<Login> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Text("New Here?"),
+        const Text("New Here?"),
         TextButton(
             onPressed: () {
               widget.toggleView();
             },
-            child: Text("Sign Up")),
+            child: const Text("Sign Up")),
         Container(
             alignment: Alignment.bottomCenter,
-            child: SizedBox(
+            child: const SizedBox(
               width: 200.0,
               height: 200.0,
               // child: Image.asset(
