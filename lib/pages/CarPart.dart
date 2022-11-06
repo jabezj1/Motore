@@ -13,27 +13,27 @@ class _HomePageState extends State<HomePage> {
   // my tabs
   List<Widget> myTabs = [
     // engine & transmmission tab
-    MyTab(
+    const MyTab(
       iconPath: 'lib/icons/engine.png',
     ),
 
     // wheels & suspension tab
-    MyTab(
+    const MyTab(
       iconPath: 'lib/icons/suspension.png',
     ),
 
     // electrical tab
-    MyTab(
+    const MyTab(
       iconPath: 'lib/icons/battery.png',
     ),
 
     // interior tab
-    MyTab(
+    const MyTab(
       iconPath: 'lib/icons/interior.png',
     ),
 
     // exterior tab
-    MyTab(
+    const MyTab(
       iconPath: 'lib/icons/exterior.png',
     ),
   ];
@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
       length: myTabs.length,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             'Car Parts',
           ),
           centerTitle: false,
@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                     'Looking for',
                     style: TextStyle(fontSize: 24, color: Colors.grey[600]),
                   ),
-                  Text(
+                  const Text(
                     ' PARTS?',
                     style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   ),
