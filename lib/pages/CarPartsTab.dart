@@ -5,10 +5,19 @@ import 'package:motore/pages/PartTile.dart';
 class EngineTab extends StatelessWidget {
   List partsOnSale = [
     // [ partName, partPrice, tileColor, imageName ]
-    ["Engine", "36", Colors.blue, "lib/icons/engine.png"],
-    ["Spark Plug", "45", Colors.red, "lib/icons/engine.png"],
-    ["Engine Oil", "84", Colors.purple, "lib/icons/engine.png"],
-    ["Air FIlter", "95", Colors.brown, "lib/icons/engine.png"],
+    ["Alternator", "36", Colors.blue, "lib/images/alternator.png"],
+    ["Driveshaft", "45", Colors.red, "lib/icons/engine.png"],
+    ["Clutches", "84", Colors.purple, "lib/icons/engine.png"],
+    ["Transmission", "95", Colors.brown, "lib/icons/engine.png"],
+    ["Alternator", "36", Colors.blue, "lib/images/alternator.png"],
+    ["Driveshaft", "45", Colors.red, "lib/icons/engine.png"],
+    ["Clutches", "84", Colors.purple, "lib/icons/engine.png"],
+    ["Tran", "95", Colors.brown, "lib/icons/engine.png"],
+    ["Alternator", "36", Colors.blue, "lib/images/alternator.png"],
+    ["Driveshaft", "45", Colors.red, "lib/icons/engine.png"],
+    ["Clutches", "84", Colors.purple, "lib/icons/engine.png"],
+    ["Transmission & Shifters", "95", Colors.brown, "lib/icons/engine.png"],
+    ["Alternator", "36", Colors.blue, "lib/images/alternator.png"],
   ];
 
   @override
@@ -66,7 +75,7 @@ class BatteryTab extends StatelessWidget {
     ["wheel", "36", Colors.blue, "lib/icons/battery.png"],
     ["brakes", "45", Colors.red, "lib/icons/battery.png"],
     ["rotors", "84", Colors.purple, "lib/icons/battery.png"],
-    //["rims", "95", Colors.brown, "lib/icons/battery.png"],
+    ["rims", "95", Colors.brown, "lib/icons/battery.png"],
   ];
 
   @override
