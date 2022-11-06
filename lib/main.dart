@@ -17,18 +17,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: '/',
-      // routes: {
-      //   '/': (context) => HistorySecond(),
-      // },
       home: AnimatedSplashScreen(
-          // splash: 'lib/icons/BC_logo.png',
           splash: 'lib/icons/BC_logo.png',
           duration: 3000,
           splashIconSize: 400,
-          // backgroundColor: Colors.black,
           splashTransition: SplashTransition.fadeTransition,
-          // nextScreen: AuthService().handleAuthState()),
-          nextScreen: CarInfo()),
+          nextScreen: const CarInfo()),
     );
   }
 }
