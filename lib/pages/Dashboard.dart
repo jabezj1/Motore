@@ -355,7 +355,6 @@
 //   // }
 // }
 
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -402,167 +401,169 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: SafeArea(
-          child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          SizedBox(
-            height: 30,
-          ),
-          WelcomeText("Dashboard", 30),
-          WelcomeText("Welcome Back, Kevin", 20),
-          Padding(
-            padding: const EdgeInsets.all(5),
-            child: Center(
-              child: Column(
-                children: [
-                  Container(
-                      width: 410,
-                      height: 245,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Color.fromARGB(255, 164, 160, 160),
-                      ),
-                      child: Column(
-                        children: <Widget>[
-                          ListView(
-                            shrinkWrap: true,
-                          ),
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: WelcomeText("Car Stats", 30),
-                          ),
-                          Align(
-                              alignment: Alignment.centerLeft,
-                              child: Row(
-                                children: <Widget>[
-                                  ImageInput("lib/icons/car2.png", 85, 150),
-                                  ImageInput("lib/icons/mileage.png", 75, 75),
-                                  WelcomeText("97,000\nMiles", 25)
-                                ],
-                              )),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Align(
-                            alignment: Alignment.bottomCenter,
-                            child: DropdownButton<String>(
-                              //value: dropdownValue,
-                              icon: const Icon(Icons.arrow_downward),
-                              elevation: 16,
-                              style: const TextStyle(color: Colors.red),
-                              underline: Container(
-                                height: 2,
-                                color: Colors.redAccent,
-                              ),
-                              onChanged: (String? value) {
-                                // This is called when the user selects an item.
-                                // setState(() {
-                                //   dropdownValue = value!;
-                                // }
-                                //);
-                              },
-                              items: list.map<DropdownMenuItem<String>>(
-                                  (String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                            ),
-                          ),
-                        ],
-                      ))
-                ],
-              ),
+      body: SingleChildScrollView(
+        child: SafeArea(
+            child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(
+              height: 30,
             ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(5),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 180,
-                  height: 250,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    color: Color.fromARGB(255, 164, 160, 160),
-                  ),
-                  child: Column(
-                    children: <Widget>[
-                      WelcomeText("Reminder", 30),
-                      Container(
-                        margin: EdgeInsets.all(10),
-                        padding: EdgeInsets.all(10),
-                        width: 85,
-                        height: 85,
+            WelcomeText("Dashboard", 30),
+            WelcomeText("Welcome Back, Kevin", 20),
+            Padding(
+              padding: const EdgeInsets.all(5),
+              child: Center(
+                child: Column(
+                  children: [
+                    Container(
+                        width: 410,
+                        height: 245,
                         decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Color.fromARGB(255, 49, 187, 58),
+                          borderRadius: BorderRadius.circular(30),
+                          color: Color.fromARGB(255, 164, 160, 160),
                         ),
                         child: Column(
                           children: <Widget>[
-                            WelcomeText("56", 25),
+                            ListView(
+                              shrinkWrap: true,
+                            ),
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: WelcomeText("Car Stats", 30),
+                            ),
+                            Align(
+                                alignment: Alignment.centerLeft,
+                                child: Row(
+                                  children: <Widget>[
+                                    ImageInput("lib/icons/car2.png", 85, 150),
+                                    ImageInput("lib/icons/mileage.png", 75, 75),
+                                    WelcomeText("97,000\nMiles", 25)
+                                  ],
+                                )),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Align(
+                              alignment: Alignment.bottomCenter,
+                              child: DropdownButton<String>(
+                                //value: dropdownValue,
+                                icon: const Icon(Icons.arrow_downward),
+                                elevation: 16,
+                                style: const TextStyle(color: Colors.red),
+                                underline: Container(
+                                  height: 2,
+                                  color: Colors.redAccent,
+                                ),
+                                onChanged: (String? value) {
+                                  // This is called when the user selects an item.
+                                  // setState(() {
+                                  //   dropdownValue = value!;
+                                  // }
+                                  //);
+                                },
+                                items: list.map<DropdownMenuItem<String>>(
+                                    (String value) {
+                                  return DropdownMenuItem<String>(
+                                    value: value,
+                                    child: Text(value),
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+                          ],
+                        ))
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(5),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 180,
+                    height: 250,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: Color.fromARGB(255, 164, 160, 160),
+                    ),
+                    child: Column(
+                      children: <Widget>[
+                        WelcomeText("Reminder", 30),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10),
+                          width: 85,
+                          height: 85,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Color.fromARGB(255, 49, 187, 58),
+                          ),
+                          child: Column(
+                            children: <Widget>[
+                              WelcomeText("56", 25),
+                            ],
+                          ),
+                        ),
+                        Align(
+                            alignment: Alignment.centerRight,
+                            child:
+                                WelcomeText("Days until next oil change", 12))
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 25,
+                  ),
+                  Column(
+                    children: <Widget>[
+                      Container(
+                          child: ElevatedButton(
+                        onPressed: (() => debugPrint("Setting a Reminder")),
+                        style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all<Color>(Colors.red),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            ))),
+                        child: WelcomeText("Set a Reminder", 15),
+                      )),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        width: 175,
+                        height: 190,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Color.fromARGB(255, 164, 160, 160),
+                        ),
+                        child: Column(
+                          children: <Widget>[
+                            WelcomeText(" Expenses", 25),
+                            WelcomeText("\$4000", 30),
+                            Align(
+                              alignment: Alignment.centerRight,
+                              child: WelcomeText("This Month", 15),
+                            )
                           ],
                         ),
-                      ),
-                      Align(
-                          alignment: Alignment.centerRight,
-                          child: WelcomeText("Days until next oil change", 12))
+                      )
                     ],
-                  ),
-                ),
-                SizedBox(
-                  width: 25,
-                ),
-                Column(
-                  children: <Widget>[
-                    Container(
-                        child: ElevatedButton(
-                      onPressed: (() => debugPrint("Setting a Reminder")),
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.red),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18.0),
-                          ))),
-                      child: WelcomeText("Set a Reminder", 15),
-                    )),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Container(
-                      width: 175,
-                      height: 190,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Color.fromARGB(255, 164, 160, 160),
-                      ),
-                      child: Column(
-                        children: <Widget>[
-                          WelcomeText(" Expenses", 25),
-                          WelcomeText("\$4000", 30),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: WelcomeText("This Month", 15),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                )
-              ],
-            ),
-          )
-        ],
-      )),
+                  )
+                ],
+              ),
+            )
+          ],
+        )),
+      ),
     );
   }
 }
