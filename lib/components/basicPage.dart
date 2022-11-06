@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:motore/services/auth.dart';
 import 'package:motore/screens/authenticate/login.dart';
+import 'package:motore/pages/CarPart.dart';
 
 class pageName extends StatelessWidget {
   const pageName(this.text);
