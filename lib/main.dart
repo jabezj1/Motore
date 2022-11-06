@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:motore/models/myuser.dart';
 import 'package:motore/navbar.dart';
+import 'package:motore/pages/CarInfo.dart';
 import 'package:motore/pages/history_fourth.dart';
 import 'package:motore/pages/createHistoryEntry.dart';
 import 'package:motore/pages/history_second.dart';
@@ -38,8 +39,8 @@ class MyApp extends StatelessWidget {
           splashIconSize: 400,
           // backgroundColor: Colors.black,
           splashTransition: SplashTransition.fadeTransition,
-          nextScreen: AuthService().handleAuthState()),
-      //nextScreen: IntroPage()),
+          // nextScreen: AuthService().handleAuthState()),
+          nextScreen: CarInfo()),
     );
   }
 }
