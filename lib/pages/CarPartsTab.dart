@@ -24,8 +24,8 @@ class EngineTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       itemCount: partsOnSale.length,
-      padding: EdgeInsets.all(12),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      padding: const EdgeInsets.all(12),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         childAspectRatio: 1 / 1.5,
       ),
@@ -53,8 +53,8 @@ class WheelTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       itemCount: partsOnSale.length,
-      padding: EdgeInsets.all(12),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      padding: const EdgeInsets.all(12),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         childAspectRatio: 1 / 1.5,
       ),
@@ -82,8 +82,8 @@ class BatteryTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       itemCount: partsOnSale.length,
-      padding: EdgeInsets.all(12),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      padding: const EdgeInsets.all(12),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         childAspectRatio: 1 / 1.5,
       ),
@@ -111,8 +111,8 @@ class InteriorTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       itemCount: partsOnSale.length,
-      padding: EdgeInsets.all(12),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      padding: const EdgeInsets.all(12),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         childAspectRatio: 1 / 1.5,
       ),
@@ -144,8 +144,8 @@ class ExteriorTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       itemCount: partsOnSale.length,
-      padding: EdgeInsets.all(12),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      padding: const EdgeInsets.all(12),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         childAspectRatio: 1 / 1.5,
       ),
