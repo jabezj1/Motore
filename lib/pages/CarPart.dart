@@ -61,7 +61,6 @@ class _HomePageState extends State<HomePage> {
         body: Column(
           children: [
             // i want to eat
-            
 
             // tab bar
             TabBar(tabs: myTabs),
@@ -89,28 +88,24 @@ class _HomePageState extends State<HomePage> {
             ),
             Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 36.0, vertical: 18),
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 11),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-						children: <Widget>[
-							ElevatedButton.icon(
-								onPressed: () {
-								
-								},
-								icon: const Icon(Icons.map_outlined),
-								label: const Text(
-								  'Find Nearby Auto Parts Stores'
-								),
-								style: ElevatedButton.styleFrom(
-									padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0), 
-									backgroundColor: Colors.green,
-									shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0))
-								),
-							)
-						],
+                children: <Widget>[
+                  ElevatedButton.icon(
+                    onPressed: () {},
+                    icon: const Icon(Icons.map_outlined),
+                    label: const Text('Find Nearby Auto Parts Stores'),
+                    style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20.0, vertical: 5.0),
+                        backgroundColor: Color.fromARGB(255, 228, 111, 150),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50.0))),
+                  )
+                ],
               ),
             )
-
           ],
         ),
       ),
