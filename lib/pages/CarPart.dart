@@ -10,33 +10,33 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // my tabs
-  List<Widget> myTabs = [
+  	// my tabs
+  	List<Widget> myTabs = [
     // engine & transmmission tab
-    const MyTab(
-      iconPath: 'lib/icons/engine.png',
-    ),
+		const MyTab(
+		iconPath: 'lib/icons/engine.png',
+		),
 
-    // wheels & suspension tab
-    const MyTab(
-      iconPath: 'lib/icons/suspension.png',
-    ),
+		// wheels & suspension tab
+		const MyTab(
+		iconPath: 'lib/icons/suspension.png',
+		),
 
-    // electrical tab
-    const MyTab(
-      iconPath: 'lib/icons/battery.png',
-    ),
+		// electrical tab
+		const MyTab(
+		iconPath: 'lib/icons/battery.png',
+		),
 
-    // interior tab
-    const MyTab(
-      iconPath: 'lib/icons/interior.png',
-    ),
+		// interior tab
+		const MyTab(
+		iconPath: 'lib/icons/interior.png',
+		),
 
-    // exterior tab
-    const MyTab(
-      iconPath: 'lib/icons/exterior.png',
-    ),
-  ];
+		// exterior tab
+		const MyTab(
+		iconPath: 'lib/icons/exterior.png',
+		)
+	];
 
   @override
   Widget build(BuildContext context) {
