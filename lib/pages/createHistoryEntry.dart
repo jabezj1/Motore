@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:motore/pages/History.dart';
 
-class createHistoryEntry extends StatefulWidget {
-  const createHistoryEntry({super.key, required this.title});
+class CreateHistoryEntry extends StatefulWidget {
+  const CreateHistoryEntry({super.key, required this.title});
   final String title;
 
   @override
-  _createHistoryEntry createState() => _createHistoryEntry();
+  StateCreateHistoryEntry createState() => StateCreateHistoryEntry();
 }
 
-class _createHistoryEntry extends State<createHistoryEntry> {
+class StateCreateHistoryEntry extends State<CreateHistoryEntry> {
   TextEditingController historyTitleController = TextEditingController();
   TextEditingController historyDateController = TextEditingController();
   TextEditingController historyCostController = TextEditingController();

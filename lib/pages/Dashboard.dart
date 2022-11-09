@@ -406,7 +406,7 @@ class Dashboard extends StatelessWidget {
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             WelcomeText("Dashboard", 30),
@@ -421,7 +421,7 @@ class Dashboard extends StatelessWidget {
                         height: 245,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
-                          color: Color.fromARGB(255, 164, 160, 160),
+                          color: const Color.fromARGB(255, 164, 160, 160),
                         ),
                         child: Column(
                           children: <Widget>[
@@ -441,7 +441,7 @@ class Dashboard extends StatelessWidget {
                                     WelcomeText("97,000\nMiles", 25)
                                   ],
                                 )),
-                            SizedBox(
+                            const SizedBox(
                               height: 30,
                             ),
                             Align(
@@ -477,7 +477,7 @@ class Dashboard extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Padding(
@@ -491,17 +491,17 @@ class Dashboard extends StatelessWidget {
                     height: 250,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      color: Color.fromARGB(255, 164, 160, 160),
+                      color: const Color.fromARGB(255, 164, 160, 160),
                     ),
                     child: Column(
                       children: <Widget>[
                         WelcomeText("Reminder", 30),
                         Container(
-                          margin: EdgeInsets.all(10),
-                          padding: EdgeInsets.all(10),
+                          margin: const EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           width: 85,
                           height: 85,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             color: Color.fromARGB(255, 49, 187, 58),
                           ),
@@ -518,7 +518,7 @@ class Dashboard extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 25,
                   ),
                   Column(
@@ -535,7 +535,7 @@ class Dashboard extends StatelessWidget {
                             ))),
                         child: WelcomeText("Set a Reminder", 15),
                       )),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Container(
@@ -543,7 +543,7 @@ class Dashboard extends StatelessWidget {
                         height: 190,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
-                          color: Color.fromARGB(255, 164, 160, 160),
+                          color: const Color.fromARGB(255, 164, 160, 160),
                         ),
                         child: Column(
                           children: <Widget>[

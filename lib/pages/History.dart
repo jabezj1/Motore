@@ -18,102 +18,98 @@ class History extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Container(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 25,
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 25,
+            ),
+            const Padding(
+              padding: EdgeInsets.all(3.0),
+              child: Text(
+                "History",
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.w600),
+                //Fredoka One
               ),
-              Padding(
-                padding: const EdgeInsets.all(3.0),
-                child: Text(
-                  "History",
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.w600),
-                  //Fredoka One
-                ),
-              ),
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: 200,
-                          height: 120,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            image: DecorationImage(
-                              image: AssetImage("lib/icons/car.png"),
-                              fit: BoxFit.scaleDown,
-                            ),
-                          ),
+                    Container(
+                      width: 200,
+                      height: 120,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        image: DecorationImage(
+                          image: AssetImage("lib/icons/car.png"),
+                          fit: BoxFit.scaleDown,
                         ),
-                      ],
+                      ),
                     ),
                   ],
                 ),
+              ],
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            DropdownButton<String>(
+              //value: dropdownValue,
+              icon: const Icon(Icons.arrow_downward),
+              elevation: 16,
+              style: const TextStyle(color: Colors.blue),
+              underline: Container(
+                height: 2,
+                color: Colors.blueAccent,
               ),
-              SizedBox(
-                width: 10,
+              onChanged: (String? value) {
+                // This is called when the user selects an item.
+                // setState(() {
+                //   dropdownValue = value!;
+                // }
+                //);
+              },
+              items: list.map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Padding(
+              padding: EdgeInsets.all(0),
+              child: HistoryWidget(
+                value: "lib/icons/expense.png",
+                value2: "Monthly Expenses",
+                value3: "Your Monthly Expenses are: \n",
+                value4: "\$523",
               ),
-              DropdownButton<String>(
-                //value: dropdownValue,
-                icon: const Icon(Icons.arrow_downward),
-                elevation: 16,
-                style: const TextStyle(color: Colors.blue),
-                underline: Container(
-                  height: 2,
-                  color: Colors.blueAccent,
-                ),
-                onChanged: (String? value) {
-                  // This is called when the user selects an item.
-                  // setState(() {
-                  //   dropdownValue = value!;
-                  // }
-                  //);
-                },
-                items: list.map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(0),
+              child: HistoryWidget(
+                value: "lib/icons/oil_two.png",
+                value2: "Oil Changes",
+                value3: "Last Oil Change: \n",
+                value4: "09/14/22",
               ),
-              SizedBox(
-                height: 20,
+            ),
+            const Padding(
+              padding: EdgeInsets.all(0),
+              child: HistoryWidget(
+                value: "lib/icons/past.png",
+                value2: "Past Maintenances",
+                value3: "Your Last Maintenance: \n",
+                value4: "10/04/22",
               ),
-              Padding(
-                padding: const EdgeInsets.all(0),
-                child: HistoryWidget(
-                  value: "lib/icons/expense.png",
-                  value2: "Monthly Expenses",
-                  value3: "Your Monthly Expenses are: \n",
-                  value4: "\$523",
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(0),
-                child: HistoryWidget(
-                  value: "lib/icons/oil_two.png",
-                  value2: "Oil Changes",
-                  value3: "Last Oil Change: \n",
-                  value4: "09/14/22",
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(0),
-                child: HistoryWidget(
-                  value: "lib/icons/past.png",
-                  value2: "Past Maintenances",
-                  value3: "Your Last Maintenance: \n",
-                  value4: "10/04/22",
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -150,14 +146,14 @@ class HistoryWidget extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               height: 111,
               decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
+                gradient: const LinearGradient(colors: [
                   Color(0xFF15AAAFF),
                   Color(0xFFADF7F2),
                 ]),
                 //color: Color.fromARGB(255, 150, 206, 232),
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
-                  BoxShadow(
+                  const BoxShadow(
                     blurRadius: 30,
                     offset: Offset(8, 10),
                     color: Color.fromARGB(255, 133, 178, 214),
@@ -192,18 +188,18 @@ class HistoryWidget extends StatelessWidget {
                   children: [
                     Text(
                       value2,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     RichText(
                         text: TextSpan(
                             text: value3,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.blue,
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
@@ -211,7 +207,7 @@ class HistoryWidget extends StatelessWidget {
                             children: [
                           TextSpan(
                               text: value4,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 //color: Colors.blue,
                                 fontSize: 16,
                               ))

@@ -47,7 +47,7 @@ class _LoginState extends State<Login> {
 
   _header(context) {
     return Column(
-      children: const [pageName("Login")],
+      children: const [PageName("Login")],
     );
   }
 

@@ -16,7 +16,7 @@ class HistorySecond extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => const createHistoryEntry(
+                  builder: (context) => const CreateHistoryEntry(
                         title: "a",
                       )),
             );
@@ -28,23 +28,23 @@ class HistorySecond extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             ElevatedButton(
-              child: const Text('Go Back'),
               style: ElevatedButton.styleFrom(
-                primary: Color.fromARGB(255, 27, 156, 216),
+                primary: const Color.fromARGB(255, 27, 156, 216),
               ),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => NavigationExample()),
+                  MaterialPageRoute(builder: (context) => const NavigationExample()),
                 );
               },
+              child: const Text('Go Back'),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
 
               // child: ClipRRect(
               // borderRadius: BorderRadius.circular(30),
@@ -61,8 +61,8 @@ class HistorySecond extends StatelessWidget {
                 value10: "N/A",
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
 
               // child: ClipRRect(
               // borderRadius: BorderRadius.circular(30),
@@ -79,8 +79,8 @@ class HistorySecond extends StatelessWidget {
                 value10: "N/A",
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
 
               // child: ClipRRect(
               // borderRadius: BorderRadius.circular(30),
@@ -132,7 +132,7 @@ class HistorySec extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           color: Color.fromARGB(255, 150, 206, 232),
           borderRadius: BorderRadius.all(
             Radius.circular(30),
@@ -157,110 +157,110 @@ class HistorySec extends StatelessWidget {
         children: [
           Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Text(
                 value,
                 textAlign: TextAlign.left,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 2,
               ),
               Text(
                 value2,
                 textAlign: TextAlign.left,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 20,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 11,
               ),
               Row(
                 children: [
                   Text(
                     value3,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Flexible(
                     child: Text(
                       value4,
-                      style: (TextStyle(
+                      style: (const TextStyle(
                         fontSize: 20,
                       )),
                     ),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 9,
               ),
               Row(
                 children: [
                   Text(
                     value5,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Flexible(
                     child: Text(
                       value6,
-                      style: (TextStyle(
+                      style: (const TextStyle(
                         fontSize: 20,
                       )),
                     ),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 9,
               ),
               Row(
                 children: [
                   Text(
                     value7,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Flexible(
                     child: Text(
                       value8,
-                      style: (TextStyle(
+                      style: (const TextStyle(
                         fontSize: 20,
                       )),
                     ),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 9,
               ),
               Row(
                 children: [
                   Text(
                     value9,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Flexible(
                     child: Text(
                       value10,
-                      style: (TextStyle(
+                      style: (const TextStyle(
                         fontSize: 20,
                       )),
                     ),
