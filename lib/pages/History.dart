@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:motore/pages/InspectPastMaintenance.dart';
 import 'package:motore/pages/createHistoryEntry.dart';
 import 'package:motore/pages/history_fourth.dart';
+import 'package:motore/components/basicPage.dart';
 
 const List<String> list = <String>[
   ' Car One',
@@ -17,21 +18,21 @@ class History extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-				automaticallyImplyLeading: false,
-				title: const Text(
-					'History',
-				),
-				centerTitle: true,
-				elevation: 0,
-				flexibleSpace: Container(
-					decoration: const BoxDecoration(
-						gradient: LinearGradient(colors: [
-							Color(0xff15aaaff),
-							Color(0xFFADF7F2),
-						]),
-					),
-				),
-			),
+        automaticallyImplyLeading: false,
+        title: const Text(
+          'History',
+        ),
+        centerTitle: true,
+        elevation: 0,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Color(0xff15aaaff),
+              Color(0xFFADF7F2),
+            ]),
+          ),
+        ),
+      ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
@@ -64,29 +65,7 @@ class History extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            DropdownButton<String>(
-              //value: dropdownValue,
-              icon: const Icon(Icons.arrow_downward),
-              elevation: 16,
-              style: const TextStyle(color: Colors.blue),
-              underline: Container(
-                height: 2,
-                color: Colors.blueAccent,
-              ),
-              onChanged: (String? value) {
-                // This is called when the user selects an item.
-                // setState(() {
-                //   dropdownValue = value!;
-                // }
-                //);
-              },
-              items: list.map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-            ),
+            DropDown(),
             const SizedBox(
               height: 20,
             ),
