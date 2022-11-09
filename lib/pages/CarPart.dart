@@ -47,6 +47,7 @@ class _HomePageState extends State<HomePage> {
           title: const Text(
             'Car Parts',
           ),
+          automaticallyImplyLeading: false,
           centerTitle: true,
           elevation: 0,
           flexibleSpace: Container(

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:motore/navbar.dart';
-import 'package:motore/pages/History.dart';
 import 'package:motore/pages/createHistoryEntry.dart';
 
 class InspectPastMaintenance extends StatelessWidget {
@@ -43,23 +41,11 @@ class InspectPastMaintenance extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: [
-            const SizedBox(
+          children: const [
+            SizedBox(
               height: 30,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: const Color.fromARGB(255, 27, 156, 216),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const NavigationExample()),
-                );
-              },
-              child: const Text('Go Back'),
-            ),
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(8.0),
 
               // child: ClipRRect(
@@ -77,7 +63,7 @@ class InspectPastMaintenance extends StatelessWidget {
                 value10: "N/A",
               ),
             ),
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(8.0),
 
               // child: ClipRRect(
@@ -95,7 +81,7 @@ class InspectPastMaintenance extends StatelessWidget {
                 value10: "N/A",
               ),
             ),
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(8.0),
 
               // child: ClipRRect(

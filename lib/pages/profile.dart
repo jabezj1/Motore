@@ -104,8 +104,8 @@ class StateProfile extends State<Profile> {
               elevation: 16,
               style: const TextStyle(color: Colors.blue),
               underline: Container(
-                height: 6,
-                width: 3,
+                height: 1,
+                width: 1,
                 color: Colors.blueAccent,
               ),
               onChanged: (String? value) {

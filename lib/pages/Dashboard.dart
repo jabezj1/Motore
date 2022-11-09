@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 const List<String> list = <String>[
@@ -62,7 +63,7 @@ class Dashboard extends StatelessWidget {
             const SizedBox(
               height: 5,
             ),
-            WelcomeText("Welcome back, user.", 30, Colors.black),
+            WelcomeText("Welcome back, user", 30, Colors.black),
             Padding(
               padding: const EdgeInsets.all(5),
               child: Center(
@@ -177,7 +178,9 @@ class Dashboard extends StatelessWidget {
                     children: <Widget>[
                       Container(
                           child: ElevatedButton(
-                        onPressed: (() => debugPrint("Setting a Reminder")),
+                        onPressed: (
+                          () => debugPrint("Setting a Reminder")
+                        ),
                         style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.all<Color>(Colors.red),
