@@ -10,6 +10,8 @@ const List<String> list = <String>[
   ' Car Four',
 ];
 
+String drop = list.first;
+
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
   @override
@@ -89,20 +91,22 @@ class _ProfileState extends State<Profile> {
           ),
           SizedBox(height: 10),
           DropdownButton<String>(
-            //value: dropdownValue,
-            icon: const Icon(Icons.arrow_downward),
+            value: drop,
+            icon: const Icon(Icons.arrow_drop_down_sharp),
             elevation: 16,
             style: const TextStyle(color: Colors.blue),
             underline: Container(
-              height: 2,
-              color: Colors.red,
+              height: 6,
+              color: Colors.blueAccent,
             ),
             onChanged: (String? value) {
+              setState(() {
+                //dropdown
+              });
               // This is called when the user selects an item.
-              // setState(() {
-              //   dropdownValue = value!;
-              // }
-              //);
+              setState(() {
+                drop = value!;
+              });
             },
             items: list.map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(
