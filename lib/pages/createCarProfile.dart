@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class createCarProfile extends StatefulWidget {
-	const createCarProfile({super.key, required this.title});
+class CreateCarProfile extends StatefulWidget {
+	const CreateCarProfile({super.key, required this.title});
 	final String title;
 
 	@override
-	_createCarProfile createState() => _createCarProfile();
+	StateCreateCarProfile createState() => StateCreateCarProfile();
 }
 
-class _createCarProfile extends State<createCarProfile> {
+class StateCreateCarProfile extends State<CreateCarProfile> {
 	TextEditingController carMakeController = TextEditingController();
 	TextEditingController carModelController = TextEditingController();
 	TextEditingController carModelYearController = TextEditingController();
@@ -72,22 +72,22 @@ class _createCarProfile extends State<createCarProfile> {
 									height: 20,
 								),
 								ProfileInfo(
-									hintText: "Make", Controller: carMakeController
+									hintText: "Make", controller: carMakeController
 								),
 								ProfileInfo(
-									hintText: "Model", Controller: carModelController
+									hintText: "Model", controller: carModelController
 								),
 								ProfileInfo(
-									hintText: "Model Year", Controller: carModelYearController
+									hintText: "Model Year", controller: carModelYearController
 								),
 								ProfileInfo(
-									hintText: "Model Trim", Controller: carTrimController
+									hintText: "Model Trim", controller: carTrimController
 								),
 								ProfileInfo(
-									hintText: "Mileage", Controller: carMileageController
+									hintText: "Mileage", controller: carMileageController
 								),
 								ProfileInfo(
-									hintText: "Car Model", Controller: carModelController
+									hintText: "Car Nickname", controller: carNicknameController
 								),
 								const SizedBox(
 									height: 30,
@@ -124,13 +124,13 @@ class _createCarProfile extends State<createCarProfile> {
 												.collection("users")
 												.doc("iftekhar.f.19@gmail.com")
 												.collection("cars")
-												.doc(carNicknameController.text)
+												.doc()
 												.set({
-													"title": carMakeController.text,
-													"date": carModelController.text,
-													"cost": carModelYearController.text,
-													"location": carTrimController.text,
-													"notes": carMileageController.text,
+													"make": carMakeController.text,
+													"model": carModelController.text,
+													"year": carModelYearController.text,
+													"trim": carTrimController.text,
+													"miles": carMileageController.text,
 													"nickname": carNicknameController.text
 												})
 											.then((value) => print("successfully added document"))
@@ -149,8 +149,8 @@ class _createCarProfile extends State<createCarProfile> {
 
 class ProfileInfo extends StatelessWidget {
 	final String hintText;
-	final TextEditingController Controller;
-	const ProfileInfo({super.key, required this.hintText, required this.Controller});
+	final TextEditingController controller;
+	const ProfileInfo({super.key, required this.hintText, required this.controller});
 
 	@override
 	Widget build(BuildContext context) {
@@ -158,7 +158,7 @@ class ProfileInfo extends StatelessWidget {
 			padding: const EdgeInsets.only(bottom: 10, right: 40, left: 30),
 			child: TextField(
 				obscureText: false,
-				controller: Controller,
+				controller: controller,
 				maxLines: null,
 				decoration: InputDecoration(
 					filled: true,
