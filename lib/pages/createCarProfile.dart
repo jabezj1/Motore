@@ -98,7 +98,7 @@ class StateCreateCarProfile extends State<CreateCarProfile> {
 									padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
 									child: ElevatedButton(
 										style: ElevatedButton.styleFrom(
-											primary: Colors.blue,
+											backgroundColor: Colors.blue,
 											side: const BorderSide(width: 4.0),
 											shape: RoundedRectangleBorder(
 												borderRadius: BorderRadius.circular(30)
