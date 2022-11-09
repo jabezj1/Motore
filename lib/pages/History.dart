@@ -16,20 +16,28 @@ class History extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+				automaticallyImplyLeading: false,
+				title: const Text(
+					'History',
+				),
+				centerTitle: true,
+				elevation: 0,
+				flexibleSpace: Container(
+					decoration: const BoxDecoration(
+						gradient: LinearGradient(colors: [
+							Color(0xff15aaaff),
+							Color(0xFFADF7F2),
+						]),
+					),
+				),
+			),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           children: [
             const SizedBox(
               height: 25,
-            ),
-            const Padding(
-              padding: EdgeInsets.all(3.0),
-              child: Text(
-                "History",
-                style: TextStyle(fontSize: 40, fontWeight: FontWeight.w600),
-                //Fredoka One
-              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -104,7 +112,7 @@ class History extends StatelessWidget {
               padding: EdgeInsets.all(0),
               child: HistoryWidget(
                 value: "lib/icons/past.png",
-                value2: "Past Maintenances",
+                value2: "Past Maintenance",
                 value3: "Your Last Maintenance: \n",
                 value4: "10/04/22",
               ),

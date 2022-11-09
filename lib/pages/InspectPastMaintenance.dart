@@ -9,6 +9,22 @@ class InspectPastMaintenance extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+				automaticallyImplyLeading: false,
+				title: const Text(
+					'Past Maintenance',
+				),
+				centerTitle: true,
+				elevation: 0,
+				flexibleSpace: Container(
+					decoration: const BoxDecoration(
+						gradient: LinearGradient(colors: [
+							Color(0xff15aaaff),
+							Color(0xFFADF7F2),
+						]),
+					),
+				),
+			),
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 10),
         child: FloatingActionButton(

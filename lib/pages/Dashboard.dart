@@ -400,6 +400,22 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+				automaticallyImplyLeading: false,
+				title: const Text(
+					'Dashboard',
+				),
+				centerTitle: true,
+				elevation: 0,
+				flexibleSpace: Container(
+					decoration: const BoxDecoration(
+						gradient: LinearGradient(colors: [
+							Color(0xff15aaaff),
+							Color(0xFFADF7F2),
+						]),
+					),
+				),
+			),
       backgroundColor: Color(0xFF15AAAFF),
       body: SingleChildScrollView(
         child: SafeArea(

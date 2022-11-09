@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
           title: const Text(
             'Car Parts',
           ),
-          centerTitle: false,
+          centerTitle: true,
           elevation: 0,
           flexibleSpace: Container(
             decoration: const BoxDecoration(
@@ -61,22 +61,7 @@ class _HomePageState extends State<HomePage> {
         body: Column(
           children: [
             // i want to eat
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 36.0, vertical: 18),
-              child: Row(
-                children: [
-                  Text(
-                    'Looking for',
-                    style: TextStyle(fontSize: 24, color: Colors.grey[600]),
-                  ),
-                  const Text(
-                    ' PARTS?',
-                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            ),
+            
 
             // tab bar
             TabBar(tabs: myTabs),
@@ -101,7 +86,31 @@ class _HomePageState extends State<HomePage> {
                   ExteriorTab(),
                 ],
               ),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 36.0, vertical: 18),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+						children: <Widget>[
+							ElevatedButton.icon(
+								onPressed: () {
+								
+								},
+								icon: const Icon(Icons.map_outlined),
+								label: const Text(
+								  'Find Nearby Auto Parts Stores'
+								),
+								style: ElevatedButton.styleFrom(
+									padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0), 
+									backgroundColor: Colors.green,
+									shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0))
+								),
+							)
+						],
+              ),
             )
+
           ],
         ),
       ),
