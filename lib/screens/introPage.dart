@@ -40,13 +40,13 @@ class _IntroPageState extends State<IntroPage> {
               children: [
                 Container(
                   margin: const EdgeInsets.all(30.0),
-                  child: lottieComp(
+                  child: LottieComp(
                       "https://assets7.lottiefiles.com/packages/lf20_asjtnqce.json"),
                 ),
                 Container(
                   margin: const EdgeInsets.all(30.0),
                   alignment: Alignment.centerLeft,
-                  child: introPara("Be your own mechanic!"),
+                  child: IntroPara("Be your own mechanic!"),
                 ),
                 SizedBox(
                   height: 30,
@@ -58,13 +58,13 @@ class _IntroPageState extends State<IntroPage> {
               children: [
                 Container(
                   margin: const EdgeInsets.all(15.0),
-                  child: lottieComp(
+                  child: LottieComp(
                       "https://assets9.lottiefiles.com/packages/lf20_70jmbzgx.json"),
                 ),
                 Container(
                   margin: const EdgeInsets.all(15.0),
                   alignment: Alignment.centerLeft,
-                  child: introPara("Save Your Money, \nAnd Your Car."),
+                  child: IntroPara("Save Your Money, \nAnd Your Car."),
                 ),
                 SizedBox(
                   height: 30,
@@ -76,13 +76,13 @@ class _IntroPageState extends State<IntroPage> {
               children: [
                 Container(
                   alignment: Alignment.topCenter,
-                  child: lottieComp(
+                  child: LottieComp(
                       "https://assets6.lottiefiles.com/packages/lf20_svy4ivvy.json"),
                 ),
                 Container(
                   margin: const EdgeInsets.only(left: 15.0),
                   alignment: Alignment.centerLeft,
-                  child: introPara("Transport. \nWith. \nEase."),
+                  child: IntroPara("Transport. \nWith. \nEase."),
                 ),
                 SizedBox(
                   height: 10,

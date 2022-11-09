@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:motore/services/auth.dart';
 import 'package:motore/pages/createCarProfile.dart';
-import 'package:motore/services/auth.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
   @override
-  _ProfileState createState() => _ProfileState();
+  StateProfile createState() => StateProfile();
 }
 
 final AuthService _auth = AuthService();
 
-class _ProfileState extends State<Profile> {
+class StateProfile extends State<Profile> {
   bool read = true;
-  Color _iconColor = Colors.blue;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Profile',
         ),
         centerTitle: true,
@@ -26,7 +24,7 @@ class _ProfileState extends State<Profile> {
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
-              Color(0xFF15AAAFF),
+              Color(0xff15aaaff),
               Color(0xFFADF7F2),
             ]),
           ),
@@ -56,9 +54,9 @@ class _ProfileState extends State<Profile> {
               padding: const EdgeInsets.only(right: 100),
               width: double.infinity,
               height: 165,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   gradient: LinearGradient(colors: [
-                    Color(0xFF15AAAFF),
+                    Color(0xff15aaaff),
                     Color(0xFFADF7F2),
                   ]),
                   //color: Color.fromARGB(255, 150, 206, 232),
@@ -80,21 +78,21 @@ class _ProfileState extends State<Profile> {
                   ]),
             ),
           ),
-          SizedBox(height: 60),
+          const SizedBox(height: 60),
           Row(
             children: [
-              ProfileRow(title: 'Name', value: 'John Doe'),
-              ProfileRow(title: 'Email', value: 'admin@gmail.com'),
+              const ProfileRow(title: 'Name', value: 'John Doe'),
+              const ProfileRow(title: 'Email', value: 'admin@gmail.com'),
             ],
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             children: const [
               ProfileRow(title: 'Year', value: '2017'),
               ProfileRow(title: 'Make', value: 'Maserati'),
             ],
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             children: const [
               ProfileRow(title: 'Model', value: 'Ghibli'),
@@ -112,13 +110,13 @@ class _ProfileState extends State<Profile> {
                   await _auth.signOut();
                   // await _auth.emailsignOut();
                 },
-                icon: Icon(Icons.logout),
+                icon: const Icon(Icons.logout),
                 label: const Text(
                   'Log Out',
                 ),
                 style: ElevatedButton.styleFrom(
                     padding:
-                        EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
+                        const EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50.0)),
                     primary: Colors.red),
@@ -169,14 +167,14 @@ class ProfileRow extends StatelessWidget {
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width / 3,
-                child: Divider(
+                child: const Divider(
                   thickness: 2.0,
                   color: Colors.black,
                 ),
               ),
             ],
           ),
-          Align(
+          const Align(
             alignment: Alignment.centerRight,
             child: Icon(
               Icons.lock_outline,

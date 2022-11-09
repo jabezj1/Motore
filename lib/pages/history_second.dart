@@ -16,7 +16,7 @@ class HistorySecond extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => const createHistoryEntry(
+                  builder: (context) => const CreateHistoryEntry(
                         title: "a",
                       )),
             );
