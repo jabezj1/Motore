@@ -89,28 +89,42 @@ class _ProfileState extends State<Profile> {
                   ]),
             ),
           ),
-          SizedBox(height: 10),
-          DropdownButton<String>(
-            value: drop,
-            icon: const Icon(Icons.arrow_drop_down_sharp),
-            elevation: 16,
-            style: const TextStyle(color: Colors.blue),
-            underline: Container(
-              height: 6,
-              color: Colors.blueAccent,
+          SizedBox(height: 20),
+          Container(
+            decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: Colors.black38, width: 3),
+                borderRadius: BorderRadius.circular(30),
+                boxShadow: <BoxShadow>[
+                  //apply shadow on Dropdown button
+                  // BoxShadow(
+                  //     color: Color.fromRGBO(0, 0, 0, 0.57), //shadow for button
+                  //     blurRadius: 5) //blur radius of shadow
+                ]),
+            padding: EdgeInsets.only(left: 30, right: 30),
+            child: DropdownButton<String>(
+              value: drop,
+              icon: const Icon(Icons.arrow_drop_down_sharp),
+              elevation: 16,
+              style: const TextStyle(color: Colors.blue),
+              underline: Container(
+                height: 6,
+                width: 3,
+                color: Colors.blueAccent,
+              ),
+              onChanged: (String? value) {
+                // This is called when the user selects an item.
+                setState(() {
+                  drop = value!;
+                });
+              },
+              items: list.map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
             ),
-            onChanged: (String? value) {
-              // This is called when the user selects an item.
-              setState(() {
-                drop = value!;
-              });
-            },
-            items: list.map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList(),
           ),
           SizedBox(height: 30),
           Row(
