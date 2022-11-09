@@ -400,7 +400,7 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color(0xFF15AAAFF),
       body: SingleChildScrollView(
         child: SafeArea(
             child: Column(
