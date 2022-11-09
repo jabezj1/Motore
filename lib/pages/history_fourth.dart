@@ -55,13 +55,13 @@ class HistoryFourth extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             ElevatedButton(
               child: const Text('Go Back'),
               style: ElevatedButton.styleFrom(
-                primary: Color.fromARGB(255, 27, 156, 216),
+                primary: const Color.fromARGB(255, 27, 156, 216),
               ),
               onPressed: () {
                 Navigator.push(
@@ -76,7 +76,7 @@ class HistoryFourth extends StatelessWidget {
               // child: ClipRRect(
               // borderRadius: BorderRadius.circular(30),
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color.fromARGB(255, 150, 206, 232),
                   borderRadius: BorderRadius.all(
                     Radius.circular(30),
@@ -91,10 +91,10 @@ class HistoryFourth extends StatelessWidget {
                   children: [
                     Column(
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
-                        Text(
+                        const Text(
                           "Cool Shop NY",
                           textAlign: TextAlign.left,
                           style: TextStyle(
@@ -103,21 +103,21 @@ class HistoryFourth extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 2,
                         ),
-                        Text(
+                        const Text(
                           "Battery Replacement",
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontSize: 20,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 11,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " 09/07/22 - 118,087 mi",
                               style: TextStyle(
@@ -125,11 +125,11 @@ class HistoryFourth extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 9,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " Cost: ",
                               style: TextStyle(
@@ -148,11 +148,11 @@ class HistoryFourth extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 9,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " Brand: ",
                               style: TextStyle(
@@ -171,11 +171,11 @@ class HistoryFourth extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " Warranty: ",
                               style: TextStyle(
@@ -194,11 +194,11 @@ class HistoryFourth extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " Additional Notes",
                               style: TextStyle(
@@ -229,7 +229,7 @@ class HistoryFourth extends StatelessWidget {
               // child: ClipRRect(
               // borderRadius: BorderRadius.circular(30),
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color.fromARGB(255, 150, 206, 232),
                   borderRadius: BorderRadius.all(
                     Radius.circular(30),
@@ -244,10 +244,10 @@ class HistoryFourth extends StatelessWidget {
                   children: [
                     Column(
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
-                        Text(
+                        const Text(
                           "Avenue X Tire Shop",
                           textAlign: TextAlign.left,
                           style: TextStyle(
@@ -256,21 +256,21 @@ class HistoryFourth extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 2,
                         ),
-                        Text(
+                        const Text(
                           "Flat Tire Repair",
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontSize: 20,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 11,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " 09/07/22 - 118,083 mi",
                               style: TextStyle(
@@ -278,11 +278,11 @@ class HistoryFourth extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 9,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " Cost: ",
                               style: TextStyle(
@@ -301,11 +301,11 @@ class HistoryFourth extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 9,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " Brand: ",
                               style: TextStyle(
@@ -324,11 +324,11 @@ class HistoryFourth extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " Warranty: ",
                               style: TextStyle(
@@ -347,11 +347,11 @@ class HistoryFourth extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " Additional Notes",
                               style: TextStyle(
@@ -382,7 +382,7 @@ class HistoryFourth extends StatelessWidget {
               // child: ClipRRect(
               // borderRadius: BorderRadius.circular(30),
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color.fromARGB(255, 150, 206, 232),
                   borderRadius: BorderRadius.all(
                     Radius.circular(30),
@@ -397,10 +397,10 @@ class HistoryFourth extends StatelessWidget {
                   children: [
                     Column(
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
-                        Text(
+                        const Text(
                           "Cool Shop NY 2",
                           textAlign: TextAlign.left,
                           style: TextStyle(
@@ -409,21 +409,21 @@ class HistoryFourth extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 2,
                         ),
-                        Text(
+                        const Text(
                           "Bumper Repair",
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontSize: 20,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 11,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " 06/07/22 - 117,457 mi",
                               style: TextStyle(
@@ -431,11 +431,11 @@ class HistoryFourth extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 9,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " Cost: ",
                               style: TextStyle(
@@ -454,11 +454,11 @@ class HistoryFourth extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 9,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " Brand: ",
                               style: TextStyle(
@@ -477,11 +477,11 @@ class HistoryFourth extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " Warranty: ",
                               style: TextStyle(
@@ -500,11 +500,11 @@ class HistoryFourth extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " Additional Notes",
                               style: TextStyle(
@@ -535,7 +535,7 @@ class HistoryFourth extends StatelessWidget {
               // child: ClipRRect(
               // borderRadius: BorderRadius.circular(30),
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color.fromARGB(255, 150, 206, 232),
                   borderRadius: BorderRadius.all(
                     Radius.circular(30),
@@ -550,10 +550,10 @@ class HistoryFourth extends StatelessWidget {
                   children: [
                     Column(
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
-                        Text(
+                        const Text(
                           "Cool Shop NY 2",
                           textAlign: TextAlign.left,
                           style: TextStyle(
@@ -562,21 +562,21 @@ class HistoryFourth extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 2,
                         ),
-                        Text(
+                        const Text(
                           "Fender Replacement",
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontSize: 20,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 11,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " 06/07/22 - 117,457 mi",
                               style: TextStyle(
@@ -584,11 +584,11 @@ class HistoryFourth extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 9,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " Cost: ",
                               style: TextStyle(
@@ -607,11 +607,11 @@ class HistoryFourth extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 9,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " Brand: ",
                               style: TextStyle(
@@ -630,11 +630,11 @@ class HistoryFourth extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " Warranty: ",
                               style: TextStyle(
@@ -653,11 +653,11 @@ class HistoryFourth extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               " Additional Notes",
                               style: TextStyle(

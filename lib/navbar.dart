@@ -85,7 +85,7 @@ class _NavigationExampleState extends State<NavigationExample> {
         bottomNavigationBar: CurvedNavigationBar(
           items: items,
           index: index,
-          color: Color(0xFF90CAF9),
+          color: const Color(0xFF90CAF9),
           //color: Color(0xFF90CAF9),
           onTap: (selctedIndex) {
             setState(() {
@@ -113,16 +113,16 @@ class _NavigationExampleState extends State<NavigationExample> {
         widget = const Dashboard();
         break;
       case 1:
-        widget = HomePage();
+        widget = const HomePage();
         break;
       case 2:
-        widget = Fuel();
+        widget = const Fuel();
         break;
       case 3:
         widget = const History();
         break;
       case 4:
-        widget = Profile();
+        widget = const Profile();
         break;
 
       default:
