@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:motore/services/auth.dart';
 import 'package:motore/pages/createCarProfile.dart';
+import 'package:motore/services/auth.dart';
 
 const List<String> list = <String>[
   ' Car One',
@@ -12,63 +13,65 @@ const List<String> list = <String>[
 String drop = list.first;
 
 class Profile extends StatefulWidget {
-	const Profile({Key? key}) : super(key: key);
-	@override
-	StateProfile createState() => StateProfile();
+  const Profile({Key? key}) : super(key: key);
+  @override
+  _ProfileState createState() => _ProfileState();
 }
 
 final AuthService _auth = AuthService();
 
-class StateProfile extends State<Profile> {
-	bool read = true;
-	@override
-	Widget build(BuildContext context) {
-		return Scaffold(
-			appBar: AppBar(
-				automaticallyImplyLeading: false,
-				title: const Text(
-					'Profile',
-				),
-				centerTitle: true,
-				elevation: 0,
-				flexibleSpace: Container(
-					decoration: const BoxDecoration(
-						gradient: LinearGradient(colors: [
-							Color(0xff15aaaff),
-							Color(0xFFADF7F2),
-						]),
-					),
-				),
-			),
-			floatingActionButton: Padding(
-				padding: const EdgeInsets.only(bottom: 10),
-				child: FloatingActionButton(
-				onPressed: () {
-					Navigator.push(
-					context,
-					MaterialPageRoute(
-						builder: (context) => const CreateCarProfile(
-								title: "a",
-							)
-						),
-					);
-				},
-				backgroundColor: Colors.blue,
-				child: const Icon(Icons.add),
-				),
-			),
-			body: Column(
-				children: [
-					Container(
-						padding: const EdgeInsets.only(right: 100),
-						width: double.infinity,
-						height: 165,
-						decoration: const BoxDecoration(
-							gradient: LinearGradient(colors: [
-							Color(0xff15aaaff),
-							Color(0xFFADF7F2),
-							]),
-							//color: Color.fromARGB(255, 150, 206, 232),
+class _ProfileState extends State<Profile> {
+  bool read = true;
+  Color _iconColor = Colors.blue;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Profile',
+        ),
+        centerTitle: true,
+        elevation: 0,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Color(0xFF15AAAFF),
+              Color(0xFFADF7F2),
+            ]),
+          ),
+        ),
+      ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 10),
+        child: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const CreateCarProfile(
+                        title: "a",
+                      )),
+            );
+          },
+          backgroundColor: Colors.blue,
+          child: const Icon(Icons.add),
+        ),
+      ),
+      body: Column(
+        children: [
+          Container(
+            //padding: EdgeInsets.all(30),
+            child: Container(
+              padding: const EdgeInsets.only(right: 100),
+              width: double.infinity,
+              height: 165,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(colors: [
+                    Color(0xFF15AAAFF),
+                    Color(0xFFADF7F2),
+                  ]),
+                  //color: Color.fromARGB(255, 150, 206, 232),
+
                   image: DecorationImage(
                     image: AssetImage("lib/icons/car2.png"),
                     fit: BoxFit.none,
@@ -97,9 +100,6 @@ class StateProfile extends State<Profile> {
               color: Colors.blueAccent,
             ),
             onChanged: (String? value) {
-              setState(() {
-                //dropdown
-              });
               // This is called when the user selects an item.
               setState(() {
                 drop = value!;
@@ -201,14 +201,14 @@ class ProfileRow extends StatelessWidget {
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width / 3,
-                child: const Divider(
+                child: Divider(
                   thickness: 2.0,
                   color: Colors.black,
                 ),
               ),
             ],
           ),
-          const Align(
+          Align(
             alignment: Alignment.centerRight,
             child: Icon(
               Icons.lock_outline,
