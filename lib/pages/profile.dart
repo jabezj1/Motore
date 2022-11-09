@@ -3,130 +3,130 @@ import 'package:motore/services/auth.dart';
 import 'package:motore/pages/createCarProfile.dart';
 
 class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
-  @override
-  StateProfile createState() => StateProfile();
+	const Profile({Key? key}) : super(key: key);
+	@override
+	StateProfile createState() => StateProfile();
 }
 
 final AuthService _auth = AuthService();
 
 class StateProfile extends State<Profile> {
-  bool read = true;
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Profile',
-        ),
-        centerTitle: true,
-        elevation: 0,
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [
-              Color(0xff15aaaff),
-              Color(0xFFADF7F2),
-            ]),
-          ),
-        ),
-      ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 10),
-        child: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const CreateCarProfile(
-                        title: "a",
-                      )),
-            );
-          },
-          backgroundColor: Colors.blue,
-          child: const Icon(Icons.add),
-        ),
-      ),
-      body: Column(
-        children: [
-          Container(
-            //padding: EdgeInsets.all(30),
-            child: Container(
-              padding: const EdgeInsets.only(right: 100),
-              width: double.infinity,
-              height: 165,
-              decoration: const BoxDecoration(
-                  gradient: LinearGradient(colors: [
-                    Color(0xff15aaaff),
-                    Color(0xFFADF7F2),
-                  ]),
-                  //color: Color.fromARGB(255, 150, 206, 232),
+	bool read = true;
+	@override
+	Widget build(BuildContext context) {
+		return Scaffold(
+			appBar: AppBar(
+				automaticallyImplyLeading: false,
+				title: const Text(
+					'Profile',
+				),
+				centerTitle: true,
+				elevation: 0,
+				flexibleSpace: Container(
+					decoration: const BoxDecoration(
+						gradient: LinearGradient(colors: [
+							Color(0xff15aaaff),
+							Color(0xFFADF7F2),
+						]),
+					),
+				),
+			),
+			floatingActionButton: Padding(
+				padding: const EdgeInsets.only(bottom: 10),
+				child: FloatingActionButton(
+				onPressed: () {
+					Navigator.push(
+					context,
+					MaterialPageRoute(
+						builder: (context) => const CreateCarProfile(
+								title: "a",
+							)
+						),
+					);
+				},
+				backgroundColor: Colors.blue,
+				child: const Icon(Icons.add),
+				),
+			),
+			body: Column(
+				children: [
+					Container(
+						padding: const EdgeInsets.only(right: 100),
+						width: double.infinity,
+						height: 165,
+						decoration: const BoxDecoration(
+							gradient: LinearGradient(colors: [
+							Color(0xff15aaaff),
+							Color(0xFFADF7F2),
+							]),
+							//color: Color.fromARGB(255, 150, 206, 232),
 
-                  image: DecorationImage(
-                    image: AssetImage("lib/icons/car2.png"),
-                    fit: BoxFit.none,
-                  ),
-                  borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(35),
-                    bottomLeft: Radius.circular(35),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0xFF04589A),
-                      offset: Offset(7, 7),
-                      blurRadius: 6,
-                    )
-                  ]),
-            ),
-          ),
-          const SizedBox(height: 60),
-          Row(
-            children: [
-              const ProfileRow(title: 'Name', value: 'John Doe'),
-              const ProfileRow(title: 'Email', value: 'admin@gmail.com'),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: const [
-              ProfileRow(title: 'Year', value: '2017'),
-              ProfileRow(title: 'Make', value: 'Maserati'),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: const [
-              ProfileRow(title: 'Model', value: 'Ghibli'),
-              ProfileRow(title: 'Odometer', value: '27,754 miles'),
-            ],
-          ),
-          const SizedBox(
-            height: 50,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              ElevatedButton.icon(
-                onPressed: () async {
-                  await _auth.signOut();
-                  // await _auth.emailsignOut();
-                },
-                icon: const Icon(Icons.logout),
-                label: const Text(
-                  'Log Out',
-                ),
-                style: ElevatedButton.styleFrom(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50.0)),
-                    primary: Colors.red),
-              )
-            ],
-          )
-        ],
-      ),
-    );
-  }
+							image: DecorationImage(
+							image: AssetImage("lib/icons/car2.png"),
+							fit: BoxFit.none,
+							),
+							borderRadius: BorderRadius.only(
+							bottomRight: Radius.circular(35),
+							bottomLeft: Radius.circular(35),
+							),
+							boxShadow: [
+							BoxShadow(
+								color: Color(0xFF04589A),
+								offset: Offset(7, 7),
+								blurRadius: 6,
+							)
+							]),
+					),
+					const SizedBox(height: 60),
+					Row(
+						children: const [
+						ProfileRow(title: 'Name', value: 'John Doe'),
+						ProfileRow(title: 'Email', value: 'admin@gmail.com'),
+						],
+					),
+					const SizedBox(height: 10),
+					Row(
+						children: const [
+						ProfileRow(title: 'Year', value: '2017'),
+						ProfileRow(title: 'Make', value: 'Maserati'),
+						],
+					),
+					const SizedBox(height: 10),
+					Row(
+						children: const [
+						ProfileRow(title: 'Model', value: 'Ghibli'),
+						ProfileRow(title: 'Odometer', value: '27,754 miles'),
+						],
+					),
+					const SizedBox(
+						height: 50,
+					),
+					Row(
+						mainAxisAlignment: MainAxisAlignment.center,
+						children: <Widget>[
+							ElevatedButton.icon(
+								onPressed: () async {
+								await _auth.signOut();
+								// await _auth.emailsignOut();
+								},
+								icon: const Icon(Icons.logout),
+								label: const Text(
+								'Log Out',
+								),
+								style: ElevatedButton.styleFrom(
+									padding:
+										const EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0), backgroundColor: Colors.red,
+									shape: RoundedRectangleBorder(
+										borderRadius: BorderRadius.circular(50.0)
+									)
+								),
+							)
+						],
+					)
+				],
+			),
+		);
+	}
 }
 
 class ProfileRow extends StatelessWidget {

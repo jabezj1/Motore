@@ -71,24 +71,12 @@ class StateCreateCarProfile extends State<CreateCarProfile> {
 								const SizedBox(
 									height: 20,
 								),
-								ProfileInfo(
-									hintText: "Make", controller: carMakeController
-								),
-								ProfileInfo(
-									hintText: "Model", controller: carModelController
-								),
-								ProfileInfo(
-									hintText: "Model Year", controller: carModelYearController
-								),
-								ProfileInfo(
-									hintText: "Model Trim", controller: carTrimController
-								),
-								ProfileInfo(
-									hintText: "Mileage", controller: carMileageController
-								),
-								ProfileInfo(
-									hintText: "Car Nickname", controller: carNicknameController
-								),
+								EnterCarInfo(hintText: "Make", controller: carMakeController),
+								EnterCarInfo(hintText: "Model", controller: carModelController),
+								EnterCarInfo(hintText: "Model Year", controller: carModelYearController),
+								EnterCarInfo(hintText: "Model Trim", controller: carTrimController),
+								EnterCarInfo(hintText: "Mileage", controller: carMileageController),
+								EnterCarInfo(hintText: "Car Nickname", controller: carNicknameController),
 								const SizedBox(
 									height: 30,
 								),
@@ -147,10 +135,10 @@ class StateCreateCarProfile extends State<CreateCarProfile> {
 	}
 }
 
-class ProfileInfo extends StatelessWidget {
+class EnterCarInfo extends StatelessWidget {
 	final String hintText;
 	final TextEditingController controller;
-	const ProfileInfo({super.key, required this.hintText, required this.controller});
+	const EnterCarInfo({super.key, required this.hintText, required this.controller});
 
 	@override
 	Widget build(BuildContext context) {

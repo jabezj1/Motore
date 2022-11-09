@@ -3,8 +3,8 @@ import 'package:motore/navbar.dart';
 import 'package:motore/pages/History.dart';
 import 'package:motore/pages/createHistoryEntry.dart';
 
-class HistorySecond extends StatelessWidget {
-  const HistorySecond({Key? key}) : super(key: key);
+class InspectPastMaintenance extends StatelessWidget {
+  const InspectPastMaintenance({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:motore/pages/history_second.dart';
+import 'package:motore/pages/InspectPastMaintenance.dart';
 
 class EngineTile extends StatelessWidget {
   final String partType;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:motore/pages/history_second.dart';
+import 'package:motore/pages/InspectPastMaintenance.dart';
 import 'package:motore/pages/createHistoryEntry.dart';
 import 'package:motore/pages/history_fourth.dart';
 
@@ -134,7 +134,7 @@ class HistoryWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const HistorySecond()),
+        MaterialPageRoute(builder: (context) => const InspectPastMaintenance()),
       ),
       child: Container(
         height: 140,
