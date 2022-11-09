@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:motore/services/auth.dart';
 import 'package:motore/pages/createCarProfile.dart';
 
-const List<String> list = <String>[
+const List<String> listOfCarNames = <String>[
   ' Car One',
   ' Car Two',
   ' Car Three',
   ' Car Four',
 ];
 
-String drop = list.first;
+String drop = listOfCarNames.first;
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -114,7 +114,7 @@ class StateProfile extends State<Profile> {
                   drop = value!;
                 });
               },
-              items: list.map<DropdownMenuItem<String>>((String value) {
+              items: listOfCarNames.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),

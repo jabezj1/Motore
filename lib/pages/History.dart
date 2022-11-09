@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:motore/pages/InspectPastMaintenance.dart';
-import 'package:motore/pages/createHistoryEntry.dart';
-import 'package:motore/pages/history_fourth.dart';
 
 const List<String> list = <String>[
   ' Car One',
@@ -63,29 +61,6 @@ class History extends StatelessWidget {
             ),
             const SizedBox(
               width: 10,
-            ),
-            DropdownButton<String>(
-              //value: dropdownValue,
-              icon: const Icon(Icons.arrow_downward),
-              elevation: 16,
-              style: const TextStyle(color: Colors.blue),
-              underline: Container(
-                height: 2,
-                color: Colors.blueAccent,
-              ),
-              onChanged: (String? value) {
-                // This is called when the user selects an item.
-                // setState(() {
-                //   dropdownValue = value!;
-                // }
-                //);
-              },
-              items: list.map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
             ),
             const SizedBox(
               height: 20,
@@ -155,13 +130,13 @@ class HistoryWidget extends StatelessWidget {
               height: 111,
               decoration: BoxDecoration(
                 gradient: const LinearGradient(colors: [
-                  Color(0xFF15AAAFF),
+                  Color(0xff15aaaff),
                   Color(0xFFADF7F2),
                 ]),
                 //color: Color.fromARGB(255, 150, 206, 232),
                 borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  const BoxShadow(
+                boxShadow: const [
+                  BoxShadow(
                     blurRadius: 30,
                     offset: Offset(8, 10),
                     color: Color.fromARGB(255, 133, 178, 214),
