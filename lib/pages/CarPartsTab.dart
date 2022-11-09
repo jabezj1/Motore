@@ -6,18 +6,16 @@ class EngineTab extends StatelessWidget {
   List partsOnSale = [
     // [ partName, partPrice, tileColor, imageName ]
     ["Alternator", "36", Colors.blue, "lib/images/alternator.png"],
-    ["Driveshaft", "45", Colors.red, "lib/icons/engine.png"],
-    ["Clutches", "84", Colors.purple, "lib/icons/engine.png"],
-    ["Transmission", "95", Colors.brown, "lib/icons/engine.png"],
-    ["Alternator", "36", Colors.blue, "lib/images/alternator.png"],
-    ["Driveshaft", "45", Colors.red, "lib/icons/engine.png"],
-    ["Clutches", "84", Colors.purple, "lib/icons/engine.png"],
-    ["Tran", "95", Colors.brown, "lib/icons/engine.png"],
-    ["Alternator", "36", Colors.blue, "lib/images/alternator.png"],
-    ["Driveshaft", "45", Colors.red, "lib/icons/engine.png"],
-    ["Clutches", "84", Colors.purple, "lib/icons/engine.png"],
-    ["Transmission & Shifters", "95", Colors.brown, "lib/icons/engine.png"],
-    ["Alternator", "36", Colors.blue, "lib/images/alternator.png"],
+    ["Driveshaft", "45", Colors.red, "lib/images/driveshaft.png"],
+    ["Clutches", "84", Colors.purple, "lib/images/clutch.png"],
+    ["Transmission", "95", Colors.brown, "lib/images/transmission.png"],
+    ["Spark Plug", "36", Colors.blue, "lib/images/spark-plug.png"],
+    ["Starter", "45", Colors.red, "lib/images/starter.png"],
+    ["Gearbox", "84", Colors.purple, "lib/images/gearbox.png"],
+    ["Air Filter", "95", Colors.brown, "lib/images/air-filter.png"],
+    ["Intake Sytem", "36", Colors.blue, "lib/images/filter.png"],
+    ["Pistons", "45", Colors.red, "lib/images/piston.png"],
+    ["Flywheels", "84", Colors.purple, "lib/images/flywheel.png"],
   ];
 
   @override
@@ -43,8 +41,8 @@ class EngineTab extends StatelessWidget {
 
 class WheelTab extends StatelessWidget {
   List partsOnSale = [
-    ["wheel", "36", Colors.blue, "lib/icons/brake.png"],
-    ["brakes", "45", Colors.red, "lib/icons/brake.png"],
+    ["Axles", "36", Colors.blue, "lib/images/axle.png"],
+    ["Bearings", "45", Colors.red, "lib/images/bearing.png"],
     ["rotors", "84", Colors.purple, "lib/icons/brake.png"],
     ["rims", "95", Colors.brown, "lib/icons/brake.png"],
   ];
