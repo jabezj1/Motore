@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motore/services/auth.dart';
 import 'package:motore/pages/createCarProfile.dart';
-import 'package:motore/services/auth.dart';
 
 const List<String> list = <String>[
   ' Car One',
@@ -15,19 +14,19 @@ String drop = list.first;
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
   @override
-  _ProfileState createState() => _ProfileState();
+  StateProfile createState() => StateProfile();
 }
 
 final AuthService _auth = AuthService();
 
-class _ProfileState extends State<Profile> {
+class StateProfile extends State<Profile> {
   bool read = true;
-  Color _iconColor = Colors.blue;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Profile',
         ),
         centerTitle: true,
@@ -60,48 +59,45 @@ class _ProfileState extends State<Profile> {
       body: Column(
         children: [
           Container(
-            //padding: EdgeInsets.all(30),
-            child: Container(
-              padding: const EdgeInsets.only(right: 100),
-              width: double.infinity,
-              height: 165,
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [
-                    Color(0xFF15AAAFF),
-                    Color(0xFFADF7F2),
-                  ]),
-                  //color: Color.fromARGB(255, 150, 206, 232),
+            padding: const EdgeInsets.only(right: 100),
+            width: double.infinity,
+            height: 165,
+            decoration: const BoxDecoration(
+                gradient: LinearGradient(colors: [
+                  Color(0xFF15AAAFF),
+                  Color(0xFFADF7F2),
+                ]),
+                //color: Color.fromARGB(255, 150, 206, 232),
 
-                  image: DecorationImage(
-                    image: AssetImage("lib/icons/car2.png"),
-                    fit: BoxFit.none,
-                  ),
-                  borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(35),
-                    bottomLeft: Radius.circular(35),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0xFF04589A),
-                      offset: Offset(7, 7),
-                      blurRadius: 6,
-                    )
-                  ]),
-            ),
+                image: DecorationImage(
+                  image: AssetImage("lib/icons/car2.png"),
+                  fit: BoxFit.none,
+                ),
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(35),
+                  bottomLeft: Radius.circular(35),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0xFF04589A),
+                    offset: Offset(7, 7),
+                    blurRadius: 6,
+                  )
+                ]),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Container(
             decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border.all(color: Colors.black38, width: 3),
                 borderRadius: BorderRadius.circular(30),
-                boxShadow: <BoxShadow>[
+                boxShadow: const <BoxShadow>[
                   //apply shadow on Dropdown button
                   // BoxShadow(
                   //     color: Color.fromRGBO(0, 0, 0, 0.57), //shadow for button
                   //     blurRadius: 5) //blur radius of shadow
                 ]),
-            padding: EdgeInsets.only(left: 30, right: 30),
+            padding: const EdgeInsets.only(left: 30, right: 30),
             child: DropdownButton<String>(
               value: drop,
               icon: const Icon(Icons.arrow_drop_down_sharp),
@@ -126,21 +122,21 @@ class _ProfileState extends State<Profile> {
               }).toList(),
             ),
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Row(
-            children: [
+            children: const [
               ProfileRow(title: 'Name', value: 'John Doe'),
               ProfileRow(title: 'Email', value: 'admin@gmail.com'),
             ],
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             children: const [
               ProfileRow(title: 'Year', value: '2017'),
               ProfileRow(title: 'Make', value: 'Maserati'),
             ],
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             children: const [
               ProfileRow(title: 'Model', value: 'Ghibli'),
@@ -158,16 +154,15 @@ class _ProfileState extends State<Profile> {
                   await _auth.signOut();
                   // await _auth.emailsignOut();
                 },
-                icon: Icon(Icons.logout),
+                icon: const Icon(Icons.logout),
                 label: const Text(
                   'Log Out',
                 ),
                 style: ElevatedButton.styleFrom(
                     padding:
-                        EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
+                        const EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0), backgroundColor: Colors.red,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50.0)),
-                    primary: Colors.red),
+                        borderRadius: BorderRadius.circular(50.0))),
               )
             ],
           )
@@ -185,7 +180,7 @@ class ProfileRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: MediaQuery.of(context).size.width / 2,
 
       //height: 10,
@@ -215,14 +210,14 @@ class ProfileRow extends StatelessWidget {
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width / 3,
-                child: Divider(
+                child: const Divider(
                   thickness: 2.0,
                   color: Colors.black,
                 ),
               ),
             ],
           ),
-          Align(
+          const Align(
             alignment: Alignment.centerRight,
             child: Icon(
               Icons.lock_outline,
