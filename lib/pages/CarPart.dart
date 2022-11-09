@@ -58,55 +58,63 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        body: Column(
-          children: [
-            // i want to eat
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.bottomLeft,
+                end: Alignment.bottomRight,
+                colors: [Color(0xFF15AAAFF), Color(0xFFADF7F2)]),
+          ),
+          child: Column(
+            children: [
+              // i want to eat
 
-            // tab bar
-            TabBar(tabs: myTabs),
+              // tab bar
+              TabBar(tabs: myTabs),
 
-            // tab bar view
-            Expanded(
-              child: TabBarView(
-                children: [
-                  // engine page
-                  EngineTab(),
+              // tab bar view
+              Expanded(
+                child: TabBarView(
+                  children: [
+                    // engine page
+                    EngineTab(),
 
-                  // wheel page
-                  WheelTab(),
+                    // wheel page
+                    WheelTab(),
 
-                  // battery page
-                  BatteryTab(),
+                    // battery page
+                    BatteryTab(),
 
-                  // interior page
-                  InteriorTab(),
+                    // interior page
+                    InteriorTab(),
 
-                  // exterior page
-                  ExteriorTab(),
-                ],
+                    // exterior page
+                    ExteriorTab(),
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 11),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.map_outlined),
-                    label: const Text('Find Nearby Auto Parts Stores'),
-                    style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20.0, vertical: 5.0),
-                        backgroundColor: Color.fromARGB(255, 228, 111, 150),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50.0))),
-                  )
-                ],
-              ),
-            )
-          ],
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 11),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    ElevatedButton.icon(
+                      onPressed: () {},
+                      icon: const Icon(Icons.map_outlined),
+                      label: const Text('Find Nearby Auto Parts Stores'),
+                      style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 5.0),
+                          backgroundColor: Color.fromARGB(255, 228, 111, 150),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(50.0))),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
