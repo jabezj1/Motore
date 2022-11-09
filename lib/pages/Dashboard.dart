@@ -379,13 +379,13 @@ ImageInput(String path, double h, double w) {
   );
 }
 
-WelcomeText(String text, double size) {
+WelcomeText(String text, double size, Color coloring) {
   return Padding(
     padding: const EdgeInsets.all(18.0),
     child: Text(
       text,
       style: TextStyle(
-        color: Colors.white,
+        color: coloring,
         fontSize: size,
         fontWeight: FontWeight.bold,
       ),
@@ -403,7 +403,7 @@ class Dashboard extends StatelessWidget {
       appBar: AppBar(
 				automaticallyImplyLeading: false,
 				title: const Text(
-					'Dashboard',
+					'Dashboard'
 				),
 				centerTitle: true,
 				elevation: 0,
@@ -416,17 +416,16 @@ class Dashboard extends StatelessWidget {
 					),
 				),
 			),
-      backgroundColor: Color(0xFF15AAAFF),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
         child: SafeArea(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             const SizedBox(
-              height: 30,
+              height: 5,
             ),
-            WelcomeText("Dashboard", 30),
-            WelcomeText("Welcome Back, Kevin", 20),
+            WelcomeText("Welcome back, user.", 30, Colors.black),
             Padding(
               padding: const EdgeInsets.all(5),
               child: Center(
@@ -446,7 +445,7 @@ class Dashboard extends StatelessWidget {
                             ),
                             Align(
                               alignment: Alignment.centerLeft,
-                              child: WelcomeText("Car Stats", 30),
+                              child: WelcomeText("Car Stats", 30, Colors.white),
                             ),
                             Align(
                                 alignment: Alignment.centerLeft,
@@ -454,7 +453,7 @@ class Dashboard extends StatelessWidget {
                                   children: <Widget>[
                                     ImageInput("lib/icons/car2.png", 85, 150),
                                     ImageInput("lib/icons/mileage.png", 75, 75),
-                                    WelcomeText("97,000\nMiles", 25)
+                                    WelcomeText("97,000\nMiles", 25, Colors.white)
                                   ],
                                 )),
                             const SizedBox(
@@ -511,7 +510,7 @@ class Dashboard extends StatelessWidget {
                     ),
                     child: Column(
                       children: <Widget>[
-                        WelcomeText("Reminder", 30),
+                        WelcomeText("Reminder", 30, Colors.white),
                         Container(
                           margin: const EdgeInsets.all(10),
                           padding: const EdgeInsets.all(10),
@@ -523,14 +522,14 @@ class Dashboard extends StatelessWidget {
                           ),
                           child: Column(
                             children: <Widget>[
-                              WelcomeText("56", 25),
+                              WelcomeText("56", 25, Colors.white),
                             ],
                           ),
                         ),
                         Align(
                             alignment: Alignment.centerRight,
                             child:
-                                WelcomeText("Days until next oil change", 12))
+                                WelcomeText("Days until next oil change", 12, Colors.white))
                       ],
                     ),
                   ),
@@ -549,7 +548,7 @@ class Dashboard extends StatelessWidget {
                                 RoundedRectangleBorder>(RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
                             ))),
-                        child: WelcomeText("Set a Reminder", 15),
+                        child: WelcomeText("Set a Reminder", 15, Colors.white),
                       )),
                       const SizedBox(
                         height: 20,
@@ -563,11 +562,11 @@ class Dashboard extends StatelessWidget {
                         ),
                         child: Column(
                           children: <Widget>[
-                            WelcomeText(" Expenses", 25),
-                            WelcomeText("\$4000", 30),
+                            WelcomeText(" Expenses", 25, Colors.white),
+                            WelcomeText("\$4000", 30, Colors.white),
                             Align(
                               alignment: Alignment.centerRight,
-                              child: WelcomeText("This Month", 15),
+                              child: WelcomeText("This Month", 15, Colors.white),
                             )
                           ],
                         ),
