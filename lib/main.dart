@@ -4,6 +4,8 @@ import 'package:motore/navbar.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:motore/pages/Dashboard.dart';
+import 'package:motore/screens/authenticate/authenticate.dart';
+import 'package:motore/services/auth.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +26,7 @@ class MyApp extends StatelessWidget {
 				duration: 3000,
 				splashIconSize: 400,
 				splashTransition: SplashTransition.fadeTransition,
-				nextScreen: const NavigationExample()
+				nextScreen: AuthService().handleAuthState()
 			),
 		);
 	}
