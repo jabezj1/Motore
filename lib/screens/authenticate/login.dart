@@ -146,17 +146,17 @@ class _LoginState extends State<Login> {
                         borderRadius: BorderRadius.circular(15),
                         shape: BoxShape.rectangle,
                         color: Colors.white,
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                               color: Colors.black26,
                               offset: Offset(0, 2),
                               blurRadius: 6.0),
                         ],
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             image: AssetImage('lib/icons/google.png'),
                             alignment: Alignment.centerLeft),
                       ),
-                      child: Align(
+                      child: const Align(
                         alignment: Alignment.centerRight,
                         child: Text(
                           "Sign in with Google",
@@ -197,7 +197,7 @@ class _LoginState extends State<Login> {
       children: <Widget>[
         GestureDetector(
             onTap: () {
-              AuthService().signInWithApple();
+              // AuthService().signInWithApple();
             },
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 15),
@@ -213,17 +213,17 @@ class _LoginState extends State<Login> {
                         borderRadius: BorderRadius.circular(15),
                         shape: BoxShape.rectangle,
                         color: Colors.white,
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                               color: Colors.black26,
                               offset: Offset(0, 2),
                               blurRadius: 6.0),
                         ],
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             image: AssetImage('lib/icons/apple.png'),
                             alignment: Alignment.centerLeft),
                       ),
-                      child: Align(
+                      child: const Align(
                         alignment: Alignment.centerRight,
                         child: Text(
                           "Sign in with Apple",
@@ -250,7 +250,7 @@ class _LoginState extends State<Login> {
             child: Text("Sign Up")),
         Container(
             alignment: Alignment.bottomCenter,
-            child: SizedBox(
+            child: const SizedBox(
               width: 200.0,
               height: 200.0,
               // child: Image.asset(

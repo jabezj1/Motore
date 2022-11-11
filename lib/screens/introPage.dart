@@ -59,7 +59,7 @@ class _IntroPageState extends State<IntroPage> {
                 Container(
                   margin: const EdgeInsets.all(15.0),
                   child: lottieComp(
-                      "https://assets9.lottiefiles.com/packages/lf20_70jmbzgx.json"),
+                      "https://assets8.lottiefiles.com/packages/lf20_06a6pf9i.json"),
                 ),
                 Container(
                   margin: const EdgeInsets.all(15.0),
@@ -77,7 +77,7 @@ class _IntroPageState extends State<IntroPage> {
                 Container(
                   alignment: Alignment.topCenter,
                   child: lottieComp(
-                      "https://assets6.lottiefiles.com/packages/lf20_svy4ivvy.json"),
+                      "https://assets9.lottiefiles.com/private_files/lf30_hsabbeks.json"),
                 ),
                 Container(
                   margin: const EdgeInsets.only(left: 15.0),
