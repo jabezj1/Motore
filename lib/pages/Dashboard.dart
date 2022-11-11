@@ -108,55 +108,82 @@ class Dashboard extends StatelessWidget {
                                   height: 2,
                                   color: Colors.redAccent,
                                 ),
-                                onChanged: (String? value) {
-                                  // This is called when the user selects an item.
-                                  // setState(() {
-                                  //   dropdownValue = value!;
-                                  // }
-                                  //);
-                                },
-                                items: list.map<DropdownMenuItem<String>>(
-                                    (String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value),
-                                  );
-                                }).toList(),
                               ),
-                            ),
-                          ],
-                        ))
-                  ],
+                            ],
+                          ))
+                    ],
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(5),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    width: 180,
-                    height: 250,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: const Color.fromARGB(255, 164, 160, 160),
+              const SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(5),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      width: 180,
+                      height: 250,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: const Color.fromARGB(255, 164, 160, 160),
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          WelcomeText("Reminder", 30),
+                          Container(
+                            margin: const EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(10),
+                            width: 85,
+                            height: 85,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color.fromARGB(255, 49, 187, 58),
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                WelcomeText("56", 25),
+                              ],
+                            ),
+                          ),
+                          Align(
+                              alignment: Alignment.centerRight,
+                              child:
+                                  WelcomeText("Days until next oil change", 12))
+                        ],
+                      ),
                     ),
-                    child: Column(
+                    const SizedBox(
+                      width: 25,
+                    ),
+                    Column(
                       children: <Widget>[
                         WelcomeText("Reminder", 30, Colors.white),
                         Container(
-                          margin: const EdgeInsets.all(10),
-                          padding: const EdgeInsets.all(10),
-                          width: 85,
-                          height: 85,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Color.fromARGB(255, 49, 187, 58),
+                            child: ElevatedButton(
+                          onPressed: (() => debugPrint("Setting a Reminder")),
+                          style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all<Color>(Colors.red),
+                              shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0),
+                              ))),
+                          child: WelcomeText("Set a Reminder", 15),
+                        )),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          width: 175,
+                          height: 190,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: const Color.fromARGB(255, 164, 160, 160),
                           ),
                           child: Column(
                             children: <Widget>[

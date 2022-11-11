@@ -177,7 +177,7 @@ class _LoginState extends State<Login> {
       children: <Widget>[
         GestureDetector(
             onTap: () {
-              AuthService().signInWithApple();
+              // AuthService().signInWithApple();
             },
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 15),
