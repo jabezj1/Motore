@@ -16,6 +16,7 @@ class StateCreateHistoryEntry extends State<CreateHistoryEntry> {
 	TextEditingController historyCostController = TextEditingController();
 	TextEditingController historyLocationController = TextEditingController();
 	TextEditingController historyNotesController = TextEditingController();
+  Timestamp timestampdate = Timestamp.now();
 
 	@override
 	Widget build(BuildContext context) {
@@ -105,7 +106,7 @@ class StateCreateHistoryEntry extends State<CreateHistoryEntry> {
 												.collection("users")
 												.doc("iftekhar.f.19@gmail.com")
 												.collection("cars")
-												.doc()
+												.doc("car-nickname-1")
 												.collection("history")
 												.doc()
 												.set({
@@ -114,9 +115,21 @@ class StateCreateHistoryEntry extends State<CreateHistoryEntry> {
 													"cost": historyCostController.text,
 													"location": historyLocationController.text,
 													"notes": historyNotesController.text,
+                          "timestamp": timestampdate
 												})
 												.then((value) => print("successfully added document"))
 												.catchError((e) => print(e));
+
+                      // DocumentReference doc_ref = FirebaseFirestore.instance
+                      //   .collection("users")
+                      //   .doc("iftekhar.f.19@gmail.com")
+                      //   .collection("cars")
+                      //   .doc();
+
+                      // DocumentSnapshot docSnap = await doc_ref.get();
+                      //   var doc_id2 = docSnap.reference.id;
+
+                      //   print(doc_id2);
 										}
 									)
 								),
