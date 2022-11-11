@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:motore/services/auth.dart';
 import 'package:motore/pages/createCarProfile.dart';
 
+import '../components/basicPage.dart';
 
 const List<String> listOfCarNames = <String>[
   ' Car One',
@@ -115,7 +116,8 @@ class StateProfile extends State<Profile> {
                   drop = value!;
                 });
               },
-              items: listOfCarNames.map<DropdownMenuItem<String>>((String value) {
+              items:
+                  listOfCarNames.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
@@ -160,8 +162,9 @@ class StateProfile extends State<Profile> {
                   'Log Out',
                 ),
                 style: ElevatedButton.styleFrom(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0), backgroundColor: Colors.red,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 40.0, vertical: 15.0),
+                    backgroundColor: Colors.red,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50.0))),
               )
