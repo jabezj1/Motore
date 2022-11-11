@@ -16,6 +16,7 @@ class CarInfo extends StatefulWidget {
 
 class _CarInfoState extends State<CarInfo> {
   List<dynamic> cars = [];
+  // var yearSelected = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,10 +29,15 @@ class _CarInfoState extends State<CarInfo> {
             final year = cars[index];
             // final show = year['data']['image'];
             return ListTile(
-                // leading: ClipRRect(
-                //     borderRadius: BorderRadius.circular(100),
-                //     child: Image.network(show)),
-                title: Text(year.toString()));
+              // leading: ClipRRect(
+              //     borderRadius: BorderRadius.circular(100),
+              //     child: Image.network(show)),
+              title: Text(year),
+              onTap: () {
+                print(year);
+                // yearSelected = year;
+              },
+            );
           }),
       floatingActionButton: FloatingActionButton(
         onPressed: fetchCarYear,
@@ -41,12 +47,12 @@ class _CarInfoState extends State<CarInfo> {
 
   void fetchCarYear() async {
     print("fetchCar called");
-    const url = 'http://api.carmd.com/v3.0/image?vin=5TFEV54198X043410';
+    const url = 'http://api.carmd.com/v3.0/year';
     final uri = Uri.parse(url);
     final response = await http.get(uri, headers: {
       "content-type": "application/json",
-      "authorization": "Basic M2Q2MDg4NDQtNjMwNy00OWZlLTljOGEtYTMzNjZlZTFkN2My",
-      "partner-token": "b1b86519c8a345ad84a19df7fe93dd04"
+      "authorization": "Basic YjFkYTZkMzgtYzZmYy00M2YzLTg1YmQtYzE5YjVmODg2NzNj",
+      "partner-token": "171474d263404efa843077ee5e3f747b"
     });
     final body = response.body;
     final json = jsonDecode(body);
@@ -54,5 +60,23 @@ class _CarInfoState extends State<CarInfo> {
       cars = json['data'];
     });
     print('fetchCars complete');
+  }
+
+  void fetchCarMake() async {
+    // var yearmake = yearSelected;
+    print("fetchCarMake called");
+    // const url = 'http://api.carmd.com/v3.0/make?year=' '${yearmake}';
+    // // final uri = Uri.parse(url);
+    // final response = await http.get(uri, headers: {
+    //   "content-type": "application/json",
+    //   "authorization": "Basic YjFkYTZkMzgtYzZmYy00M2YzLTg1YmQtYzE5YjVmODg2NzNj",
+    //   "partner-token": "171474d263404efa843077ee5e3f747b"
+    // // });
+    // final body = response.body;
+    // final json = jsonDecode(body);
+    setState(() {
+      // cars = json['data'];
+    });
+    print('fetchCarsMake complete');
   }
 }

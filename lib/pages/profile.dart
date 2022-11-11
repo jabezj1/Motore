@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:motore/services/auth.dart';
 import 'package:motore/pages/createCarProfile.dart';
 
+import '../components/basicPage.dart';
+
 const List<String> listOfCarNames = <String>[
   ' Car One',
   ' Car Two',
@@ -114,7 +116,8 @@ class StateProfile extends State<Profile> {
                   drop = value!;
                 });
               },
-              items: listOfCarNames.map<DropdownMenuItem<String>>((String value) {
+              items:
+                  listOfCarNames.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
@@ -159,8 +162,9 @@ class StateProfile extends State<Profile> {
                   'Log Out',
                 ),
                 style: ElevatedButton.styleFrom(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0), backgroundColor: Colors.red,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 40.0, vertical: 15.0),
+                    backgroundColor: Colors.red,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50.0))),
               )
@@ -225,6 +229,50 @@ class ProfileRow extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class DropDown extends StatefulWidget {
+  const DropDown({super.key});
+
+  @override
+  State<DropDown> createState() => _DropDownState();
+}
+
+class _DropDownState extends State<DropDown> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color: Colors.black38, width: 3),
+        borderRadius: BorderRadius.circular(30),
+      ),
+      padding: EdgeInsets.only(left: 30, right: 30),
+      child: DropdownButton<String>(
+        value: drop,
+        icon: const Icon(Icons.arrow_drop_down_sharp),
+        elevation: 16,
+        style: const TextStyle(color: Colors.blue),
+        underline: Container(
+          height: 6,
+          width: 3,
+          color: Colors.blueAccent,
+        ),
+        onChanged: (String? value) {
+          // This is called when the user selects an item.
+          setState(() {
+            drop = value!;
+          });
+        },
+        items: list.map<DropdownMenuItem<String>>((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(value),
+          );
+        }).toList(),
       ),
     );
   }

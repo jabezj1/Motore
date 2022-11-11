@@ -39,21 +39,19 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-				automaticallyImplyLeading: false,
-				title: const Text(
-					'Dashboard'
-				),
-				centerTitle: true,
-				elevation: 0,
-				flexibleSpace: Container(
-					decoration: const BoxDecoration(
-						gradient: LinearGradient(colors: [
-							Color(0xff15aaaff),
-							Color(0xFFADF7F2),
-						]),
-					),
-				),
-			),
+        automaticallyImplyLeading: false,
+        title: const Text('Dashboard'),
+        centerTitle: true,
+        elevation: 0,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Color(0xff15aaaff),
+              Color(0xFFADF7F2),
+            ]),
+          ),
+        ),
+      ),
       backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -91,7 +89,8 @@ class Dashboard extends StatelessWidget {
                                   children: <Widget>[
                                     imageInput("lib/icons/car2.png", 85, 150),
                                     imageInput("lib/icons/mileage.png", 75, 75),
-                                    WelcomeText("97,000\nMiles", 25, Colors.white)
+                                    WelcomeText(
+                                        "97,000\nMiles", 25, Colors.white)
                                   ],
                                 )),
                             const SizedBox(
@@ -166,8 +165,8 @@ class Dashboard extends StatelessWidget {
                         ),
                         Align(
                             alignment: Alignment.centerRight,
-                            child:
-                                WelcomeText("Days until next oil change", 12, Colors.white))
+                            child: WelcomeText(
+                                "Days until next oil change", 12, Colors.white))
                       ],
                     ),
                   ),
@@ -178,9 +177,7 @@ class Dashboard extends StatelessWidget {
                     children: <Widget>[
                       Container(
                           child: ElevatedButton(
-                        onPressed: (
-                          () => debugPrint("Setting a Reminder")
-                        ),
+                        onPressed: (() => debugPrint("Setting a Reminder")),
                         style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.all<Color>(Colors.red),
@@ -206,7 +203,8 @@ class Dashboard extends StatelessWidget {
                             WelcomeText("\$4000", 30, Colors.white),
                             Align(
                               alignment: Alignment.centerRight,
-                              child: WelcomeText("This Month", 15, Colors.white),
+                              child:
+                                  WelcomeText("This Month", 15, Colors.white),
                             )
                           ],
                         ),

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:lottie/lottie.dart';
-
 import 'package:motore/components/introPageComp.dart';
 import 'package:motore/screens/authenticate/login.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -58,8 +57,8 @@ class _IntroPageState extends State<IntroPage> {
               children: [
                 Container(
                   margin: const EdgeInsets.all(15.0),
-                  child: const LottieComp(
-                      "https://assets9.lottiefiles.com/packages/lf20_70jmbzgx.json"),
+                  child: LottieComp(
+                      "https://assets8.lottiefiles.com/packages/lf20_06a6pf9i.json"),
                 ),
                 Container(
                   margin: const EdgeInsets.all(15.0),
