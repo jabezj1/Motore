@@ -3,8 +3,7 @@ import 'package:motore/pages/profile.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:motore/pages/History.dart';
-import 'package:motore/pages/history_second.dart';
-import 'package:motore/pages/history_fourth.dart';
+
 import 'package:motore/pages/Fuel.dart';
 import 'package:motore/pages/Dashboard.dart';
 import 'package:motore/pages/search.dart';
@@ -86,18 +85,19 @@ class _NavigationExampleState extends State<NavigationExample> {
         bottomNavigationBar: CurvedNavigationBar(
           items: items,
           index: index,
-          color: Color(0xFF90CAF9),
+          color: const Color(0xFF90CAF9),
+          //color: Color(0xFF90CAF9),
           onTap: (selctedIndex) {
             setState(() {
               index = selctedIndex;
             });
           },
           height: 70,
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           animationDuration: const Duration(milliseconds: 300),
         ),
         body: Container(
-            color: Colors.white,
+            color: Colors.black,
             width: double.infinity,
             height: double.infinity,
             alignment: Alignment.center,
@@ -113,16 +113,16 @@ class _NavigationExampleState extends State<NavigationExample> {
         widget = const Dashboard();
         break;
       case 1:
-        widget = const CarPart();
+        widget = const HomePage();
         break;
       case 2:
-        widget = Fuel();
+        widget = const Fuel();
         break;
       case 3:
         widget = const History();
         break;
       case 4:
-        widget = Profile();
+        widget = const Profile();
         break;
 
       default:

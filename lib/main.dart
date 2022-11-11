@@ -4,7 +4,7 @@ import 'package:motore/navbar.dart';
 import 'package:motore/pages/CarInfo.dart';
 import 'package:motore/pages/history_fourth.dart';
 import 'package:motore/pages/createHistoryEntry.dart';
-import 'package:motore/pages/history_second.dart';
+import 'package:motore/pages/InspectPastMaintenance.dart';
 import 'package:motore/pages/History.dart';
 import 'package:motore/screens/authenticate/login.dart';
 import 'package:motore/screens/introPage.dart';

@@ -16,9 +16,9 @@ class AuthService {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (BuildContext context, snapshot) {
           if (snapshot.hasData) {
-            return NavigationExample();
+            return const NavigationExample();
           } else {
-            return IntroPage();
+            return const IntroPage();
           }
         });
   }
@@ -56,18 +56,6 @@ class AuthService {
         .authStateChanges()
         .map((User? user) => _userFromFirebaseUser(user!)!);
   }
-
-  // // sign in anon
-  // Future signInAnon() async {
-  //   try {
-  //     UserCredential result = await _auth.signInAnonymously();
-  //     User? user = result.user;
-  //     return _userFromFirebaseUser(user!);
-  //   } catch (e) {
-  //     print(e.toString());
-  //     return null;
-  //   }
-  // }
 
   // //sign in with email password
 

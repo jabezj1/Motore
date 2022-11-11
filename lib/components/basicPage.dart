@@ -1,71 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:motore/services/auth.dart';
-import 'package:motore/screens/authenticate/login.dart';
 
-class pageName extends StatelessWidget {
-  const pageName(this.text);
+class PageName extends StatelessWidget {
+  const PageName(this.text, {super.key});
   final String text;
   @override
   Widget build(BuildContext context) {
     return Text(text,
         style: GoogleFonts.lato(
-          textStyle: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+          textStyle: const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
         ));
   }
 }
 
-// class LoginComponents extends StatelessWidget {
-//   const LoginComponents(
-//       this.text, this.icons, this.error, this.setState, this.change, this.val);
-//   final String text;
-//   final dynamic icons;
-//   final String error;
-//   final Function setState;
-//   dynamic change;
-//   final dynamic val;
+const List<String> list = <String>[
+  ' Car One',
+  ' Car Two',
+  ' Car Three',
+  ' Car Four',
+];
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return TextFormField(
-//         decoration: InputDecoration(
-//           hintText: text,
-//           fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
-//           filled: true,
-//           prefixIcon: Icon(icons),
-//           border: OutlineInputBorder(
-//               borderRadius: BorderRadius.circular(18),
-//               borderSide: BorderSide.none),
-//         ),
-//         validator: (String? val) {
-//           if (val!.isEmpty) {
-//             return error;
-//           }
-//           return null;
-//         },
-//         onChanged: (value) {
-//           setState(() => change = val);
-//         }
-//         // onChanged: (val) {
-//         //   setState(() => change = val);
-//         // },
-//         );
+String drop = list.first;
 
-//     // TextFormField(
-//     //   decoration: InputDecoration(
-//     //     hintText: text,
+class DropDown extends StatefulWidget {
+  const DropDown({super.key});
 
-//     //     border: OutlineInputBorder(
-//     //         borderRadius: BorderRadius.circular(18),
-//     //         borderSide: BorderSide.none),
-//     //   ),
-//     //   validator: (String? val) {
-//     //     if (val!.isEmpty) {
-//     //       return error;
-//     //     }
-//     //     return null;
-//     //   },
-//     //   obscureText: check,
-//     // );
-//   }
-// }
+  @override
+  State<DropDown> createState() => _DropDownState();
+}
+
+class _DropDownState extends State<DropDown> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color: Colors.black38, width: 3),
+        borderRadius: BorderRadius.circular(30),
+      ),
+      padding: EdgeInsets.only(left: 30, right: 30),
+      child: DropdownButton<String>(
+        value: drop,
+        icon: const Icon(Icons.arrow_drop_down_sharp),
+        elevation: 16,
+        style: const TextStyle(color: Colors.blue),
+        underline: Container(
+          height: 6,
+          width: 3,
+          color: Colors.blueAccent,
+        ),
+        onChanged: (String? value) {
+          // This is called when the user selects an item.
+          setState(() {
+            drop = value!;
+          });
+        },
+        items: list.map<DropdownMenuItem<String>>((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(value),
+          );
+        }).toList(),
+      ),
+    );
+  }
+}

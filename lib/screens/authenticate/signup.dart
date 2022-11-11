@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../services/auth.dart';
 
 class Signup extends StatefulWidget {
   final toggleView;
@@ -24,7 +23,7 @@ class _SignupState extends State<Signup> {
       resizeToAvoidBottomInset: false,
 
       body: Container(
-          margin: EdgeInsets.all(24),
+          margin: const EdgeInsets.all(24),
           child: Form(
               key: _formKey,
               child: Column(
@@ -44,7 +43,7 @@ class _SignupState extends State<Signup> {
 
   _header(context) {
     return Column(
-      children: [
+      children: const [
         Text(
           "Sign Up",
           style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
@@ -63,7 +62,7 @@ class _SignupState extends State<Signup> {
             hintText: "Username",
             fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
             filled: true,
-            prefixIcon: Icon(Icons.person),
+            prefixIcon: const Icon(Icons.person),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(18),
                 borderSide: BorderSide.none),
@@ -75,7 +74,7 @@ class _SignupState extends State<Signup> {
             return null;
           },
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         TextFormField(
@@ -83,7 +82,7 @@ class _SignupState extends State<Signup> {
               hintText: "Email Address",
               fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
               filled: true,
-              prefixIcon: Icon(Icons.email_outlined),
+              prefixIcon: const Icon(Icons.email_outlined),
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(18),
                   borderSide: BorderSide.none),
@@ -97,7 +96,7 @@ class _SignupState extends State<Signup> {
             onChanged: (val) {
               setState(() => email = val);
             }),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         TextFormField(
@@ -105,7 +104,7 @@ class _SignupState extends State<Signup> {
               hintText: "Password",
               fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
               filled: true,
-              prefixIcon: Icon(Icons.password_outlined),
+              prefixIcon: const Icon(Icons.password_outlined),
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(18),
                   borderSide: BorderSide.none),
@@ -120,7 +119,7 @@ class _SignupState extends State<Signup> {
             onChanged: (val) {
               setState(() => password = val);
             }),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         TextField(
@@ -128,14 +127,14 @@ class _SignupState extends State<Signup> {
             hintText: "Retype Password",
             fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
             filled: true,
-            prefixIcon: Icon(Icons.password_outlined),
+            prefixIcon: const Icon(Icons.password_outlined),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(18),
                 borderSide: BorderSide.none),
           ),
           obscureText: true,
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         ElevatedButton(
@@ -148,19 +147,19 @@ class _SignupState extends State<Signup> {
             //   }
             // }
           },
-          child: Text(
+          child: const Text(
             "Create Account",
             style: TextStyle(fontSize: 20),
           ),
           style: ElevatedButton.styleFrom(
-            shape: StadiumBorder(),
-            padding: EdgeInsets.symmetric(vertical: 16),
+            shape: const StadiumBorder(),
+            padding: const EdgeInsets.symmetric(vertical: 16),
           ),
         ),
-        SizedBox(height: 12.0),
+        const SizedBox(height: 12.0),
         Text(
           error,
-          style: TextStyle(color: Colors.red, fontSize: 14.0),
+          style: const TextStyle(color: Colors.red, fontSize: 14.0),
         )
       ],
     );
@@ -175,7 +174,7 @@ class _SignupState extends State<Signup> {
               print('Google Pressed');
             },
             child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 0.05),
+              padding: const EdgeInsets.symmetric(vertical: 0.05),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -187,17 +186,17 @@ class _SignupState extends State<Signup> {
                         borderRadius: BorderRadius.circular(15),
                         shape: BoxShape.rectangle,
                         color: Colors.white,
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                               color: Colors.black26,
                               offset: Offset(0, 2),
                               blurRadius: 6.0),
                         ],
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             image: AssetImage('lib/icons/google.png'),
                             alignment: Alignment.centerLeft),
                       ),
-                      child: Align(
+                      child: const Align(
                         alignment: Alignment.centerRight,
                         child: Text(
                           "Sign in with Google",
@@ -241,7 +240,7 @@ class _SignupState extends State<Signup> {
               print('Google Pressed');
             },
             child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 15),
+              padding: const EdgeInsets.symmetric(vertical: 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -253,17 +252,17 @@ class _SignupState extends State<Signup> {
                         borderRadius: BorderRadius.circular(15),
                         shape: BoxShape.rectangle,
                         color: Colors.white,
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                               color: Colors.black26,
                               offset: Offset(0, 2),
                               blurRadius: 6.0),
                         ],
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             image: AssetImage('lib/icons/apple.png'),
                             alignment: Alignment.centerLeft),
                       ),
-                      child: Align(
+                      child: const Align(
                         alignment: Alignment.centerRight,
                         child: Text(
                           "Sign in with Apple",
@@ -309,15 +308,15 @@ class _SignupState extends State<Signup> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Text("Already have an account?"),
+        const Text("Already have an account?"),
         TextButton(
             onPressed: () {
               widget.toggleView();
             },
-            child: Text("Login")),
+            child: const Text("Login")),
         Container(
             alignment: Alignment.bottomCenter,
-            child: SizedBox(
+            child: const SizedBox(
               width: 200.0,
               height: 200.0,
               // child: Image.asset(
