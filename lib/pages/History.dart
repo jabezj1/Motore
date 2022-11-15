@@ -52,39 +52,6 @@ class History extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(
-              width: 10,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Padding(
-              padding: EdgeInsets.all(0),
-              child: HistoryWidget(
-                value: "lib/icons/expense.png",
-                value2: "Monthly Expenses",
-                value3: "Your Monthly Expenses are: \n",
-                value4: "\$523",
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.all(0),
-              child: HistoryWidget(
-                value: "lib/icons/oil_two.png",
-                value2: "Oil Changes",
-                value3: "Last Oil Change: \n",
-                value4: "09/14/22",
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.all(0),
-              child: HistoryWidget(
-                value: "lib/icons/past.png",
-                value2: "Past Maintenance",
-                value3: "Your Last Maintenance: \n",
-                value4: "10/04/22",
-              ),
-            ),
           ],
         ),
       ),
