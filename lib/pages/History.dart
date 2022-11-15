@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:motore/pages/InspectPastMaintenance.dart';
-import 'package:motore/pages/createHistoryEntry.dart';
-import 'package:motore/pages/history_fourth.dart';
-import 'package:motore/components/basicPage.dart';
 
 class History extends StatelessWidget {
   const History({Key? key}) : super(key: key);
