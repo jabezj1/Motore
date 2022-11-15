@@ -4,14 +4,6 @@ import 'package:motore/pages/createHistoryEntry.dart';
 import 'package:motore/pages/history_fourth.dart';
 import 'package:motore/components/basicPage.dart';
 
-
-const List<String> list = <String>[
-  ' Car One',
-  ' Car Two',
-  ' Car Three',
-  ' Car Four',
-];
-
 class History extends StatelessWidget {
   const History({Key? key}) : super(key: key);
 
@@ -66,9 +58,6 @@ class History extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-
-            DropDown(),
-
             const SizedBox(
               height: 20,
             ),
