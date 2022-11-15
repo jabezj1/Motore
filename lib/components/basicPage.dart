@@ -45,7 +45,7 @@ class _DropDownState extends State<DropDown> {
         elevation: 16,
         style: const TextStyle(color: Colors.blue),
         underline: Container(
-          height: 6,
+          height: 1,
           width: 3,
           color: Colors.blueAccent,
         ),

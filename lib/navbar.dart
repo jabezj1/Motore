@@ -110,7 +110,7 @@ class _NavigationExampleState extends State<NavigationExample> {
     Widget widget;
     switch (index) {
       case 0:
-        widget = const Dashboard();
+        widget = Dashboard();
         break;
       case 1:
         widget = const HomePage();
@@ -126,7 +126,7 @@ class _NavigationExampleState extends State<NavigationExample> {
         break;
 
       default:
-        widget = const Dashboard();
+        widget = Dashboard();
         break;
     }
     return widget;
