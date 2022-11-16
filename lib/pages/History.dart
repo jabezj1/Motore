@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motore/pages/InspectPastMaintenance.dart';
+import 'package:motore/pages/createHistoryEntry.dart';
 
 class History extends StatelessWidget {
 	const History({Key? key}) : super(key: key);
@@ -52,6 +53,14 @@ class History extends StatelessWidget {
 						),
 					],
 				),
+			),
+      		floatingActionButton: FloatingActionButton(
+				onPressed:() {
+					Navigator.push(
+						context, 
+						MaterialPageRoute(builder: (context) => const CreateHistoryEntry(title: "title"))
+					);
+      			}
 			),
 		);
 	}

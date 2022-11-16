@@ -1,4 +1,5 @@
 import 'package:motore/pages/CarPart.dart';
+import 'package:motore/pages/InspectPastMaintenance.dart';
 import 'package:motore/pages/profile.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';

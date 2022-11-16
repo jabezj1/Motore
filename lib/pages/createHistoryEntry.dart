@@ -102,7 +102,7 @@ class StateCreateHistoryEntry extends State<CreateHistoryEntry> {
 
                           FirebaseFirestore.instance
                               .collection("users")
-                              .doc(FirebaseAuth.instance.currentUser?.email)
+                              .doc("iftekhar.f.19@gmail.com") //FirebaseAuth.instance.currentUser?.email
                               .collection("cars")
                               .doc("car-nickname-1")
                               .collection("history")
