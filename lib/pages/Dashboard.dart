@@ -1,15 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-imageInput(String path, double h, double w) {
-	return Image.asset(
-		path,
-		height: h,
-		width: w,
-		fit: BoxFit.fill,
-	);
-}
-
 class Dashboard extends StatelessWidget {
 	Dashboard({Key? key}) : super(key: key);
 
