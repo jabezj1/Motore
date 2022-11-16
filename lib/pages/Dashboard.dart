@@ -48,3 +48,28 @@ class Dashboard extends StatelessWidget {
 		);
 	}
 }
+
+class ShowReminders extends StatelessWidget {
+	final String remText;
+	final String daysLeft;
+	const ShowReminders(
+		{super.key, required this.remText, required this.daysLeft}
+	);
+
+	@override
+	Widget build(BuildContext context) {
+		return Container(
+		padding: const EdgeInsets.only(bottom: 10, right: 40, left: 30),
+
+			child: Row(
+				children: [
+					Text(remText),
+					const SizedBox(
+						width: 15
+					),
+					Text(daysLeft)
+				],
+			)
+		);
+	}
+}
