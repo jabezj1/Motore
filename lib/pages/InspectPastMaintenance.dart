@@ -26,7 +26,7 @@ class _InspectPastMaintenanceState extends State<InspectPastMaintenance> {
 	Widget build(BuildContext context) {
 		return Scaffold(
 			appBar: AppBar(
-				automaticallyImplyLeading: false,
+				automaticallyImplyLeading: true,
 				title: const Text('History'),
 				centerTitle: true,
 				elevation: 0,
@@ -40,6 +40,15 @@ class _InspectPastMaintenanceState extends State<InspectPastMaintenance> {
 						),
 					),
 				),
+			),
+			floatingActionButton: FloatingActionButton(
+				onPressed:() {
+					Navigator.push(
+						context, 
+						MaterialPageRoute(builder: (context) => const CreateHistoryEntry(title: "title"))
+					);
+      			},
+				child: const Icon(Icons.add)
 			),
 			body: SafeArea(
 				child: ListView.builder(

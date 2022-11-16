@@ -104,7 +104,7 @@ class StateCreateHistoryEntry extends State<CreateHistoryEntry> {
                               .collection("users")
                               .doc("iftekhar.f.19@gmail.com") //FirebaseAuth.instance.currentUser?.email
                               .collection("cars")
-                              .doc("car-nickname-1")
+                              .doc("NAPm33gq0rcaKIaZGAA3")
                               .collection("history")
                               .doc()
                               .set({
@@ -113,7 +113,7 @@ class StateCreateHistoryEntry extends State<CreateHistoryEntry> {
                                 "cost": historyCostController.text,
                                 "location": historyLocationController.text,
                                 "notes": historyNotesController.text,
-                                "timestamp": timestampdate
+                                "timestamp": timestampdate.toDate()
                               })
                               .then((value) =>
                                   print("successfully added document"))
