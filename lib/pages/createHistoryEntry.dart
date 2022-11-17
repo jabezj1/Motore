@@ -139,28 +139,28 @@ class StateCreateHistoryEntry extends State<CreateHistoryEntry> {
 }
 
 class EnterHistoryInfo extends StatelessWidget {
-  final String hintText;
-  final TextEditingController controller;
-  const EnterHistoryInfo(
-      {super.key, required this.hintText, required this.controller});
+	final String hintText;
+	final TextEditingController controller;
+	const EnterHistoryInfo({super.key, required this.hintText, required this.controller});
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(bottom: 10, right: 40, left: 30),
-      child: TextField(
-        obscureText: false,
-        controller: controller,
-        maxLines: null,
-        decoration: InputDecoration(
-          filled: true,
-          fillColor: Colors.white,
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
-              borderSide: const BorderSide(color: Colors.red)),
-          hintText: hintText,
-        ),
-      ),
-    );
-  }
+	@override
+	Widget build(BuildContext context) {
+		return Container(
+			padding: const EdgeInsets.only(bottom: 10, right: 40, left: 30),
+			child: TextField(
+				obscureText: false,
+				controller: controller,
+				maxLines: null,
+				decoration: InputDecoration(
+					filled: true,
+					fillColor: Colors.white,
+					border: OutlineInputBorder(
+						borderRadius: BorderRadius.circular(30),
+						borderSide: const BorderSide(color: Colors.red)
+					),
+					hintText: hintText,
+				),
+			),
+		);
+	}
 }
