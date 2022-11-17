@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:motore/pages/InspectPastMaintenance.dart';
 
-class EngineTile extends StatelessWidget {
+class EngineTile extends StatefulWidget {
   final String partType;
   final String partPrice;
   final tileColor;
   final String imageName;
 
-  final double borderRadius = 12;
 
   const EngineTile({
     super.key,
@@ -18,6 +17,13 @@ class EngineTile extends StatelessWidget {
   });
 
   @override
+  State<EngineTile> createState() => _EngineTileState();
+}
+
+class _EngineTileState extends State<EngineTile> {
+  final double borderRadius = 12;
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.push,
@@ -25,7 +31,7 @@ class EngineTile extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Container(
           decoration: BoxDecoration(
-            color: tileColor[50],
+            color: widget.tileColor[50],
             borderRadius: BorderRadius.circular(borderRadius),
           ),
           child: Column(
@@ -36,7 +42,7 @@ class EngineTile extends StatelessWidget {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      color: tileColor[100],
+                      color: widget.tileColor[100],
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(borderRadius),
                         topRight: Radius.circular(borderRadius),
@@ -44,9 +50,9 @@ class EngineTile extends StatelessWidget {
                     ),
                     padding: EdgeInsets.all(12),
                     child: Text(
-                      '\$$partPrice',
+                      '\$${widget.partPrice}',
                       style: TextStyle(
-                        color: tileColor[800],
+                        color: widget.tileColor[800],
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),
@@ -59,12 +65,12 @@ class EngineTile extends StatelessWidget {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 36.0, vertical: 16),
-                child: Image.asset(imageName),
+                child: Image.asset(widget.imageName),
               ),
 
               // part type
               Text(
-                partType,
+                widget.partType,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
