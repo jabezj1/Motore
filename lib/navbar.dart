@@ -1,4 +1,5 @@
 import 'package:motore/pages/CarPart.dart';
+import 'package:motore/pages/InspectPastMaintenance.dart';
 import 'package:motore/pages/profile.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -110,7 +111,7 @@ class _NavigationExampleState extends State<NavigationExample> {
     Widget widget;
     switch (index) {
       case 0:
-        widget = const Dashboard();
+        widget = Dashboard();
         break;
       case 1:
         widget = const HomePage();
@@ -126,7 +127,7 @@ class _NavigationExampleState extends State<NavigationExample> {
         break;
 
       default:
-        widget = const Dashboard();
+        widget = Dashboard();
         break;
     }
     return widget;
