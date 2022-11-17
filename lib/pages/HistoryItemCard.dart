@@ -90,25 +90,37 @@ class HistoryItemCard extends StatelessWidget {
                             children: [
                               Padding(
                                   padding: const EdgeInsets.only(right: 10.0),
-                                  child: Row(
-                                    children: [
-                                      const Text(
-                                        "\$",
-                                        style: const TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
+                                  child: Container(
+                                    padding: EdgeInsets.all(8),
+                                    decoration: BoxDecoration(
+                                        color:
+                                            Color.fromARGB(255, 50, 172, 228),
+                                        border: Border.all(
+                                          color: Colors.red.shade400,
+                                          width: 3,
                                         ),
-                                      ),
-                                      Text(
-                                        _historyItem.cost.toString(),
-                                        style: const TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10))),
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          "\$",
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
-                                      ), // cost of the maintenance, far right side
-                                    ],
+                                        Text(
+                                          _historyItem.cost.toString(),
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ), // cost of the maintenance, far right side
+                                      ],
+                                    ),
                                   )),
                             ],
                           )
