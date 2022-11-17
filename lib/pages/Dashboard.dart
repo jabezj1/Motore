@@ -44,9 +44,9 @@ class Dashboard extends StatelessWidget {
 							Text(
 								username.toString(),
 								style: const TextStyle(
-								color: Colors.black,
-								fontSize: 30,
-								fontWeight: FontWeight.bold,
+									color: Colors.black,
+									fontSize: 30,
+									fontWeight: FontWeight.bold,
 								),
 							)
 						]
@@ -67,7 +67,11 @@ class ShowReminders extends StatelessWidget {
 		return Container(
 			padding: const EdgeInsets.only(bottom: 10, right: 40, left: 30),
 			child: Row(
-				children: [Text(remText), const SizedBox(width: 15), Text(daysLeft)],
+				children: [
+					Text(remText), 
+					const SizedBox(width: 15), 
+					Text(daysLeft)
+				],
 			)
 		);
 	}
