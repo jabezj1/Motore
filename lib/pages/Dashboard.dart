@@ -28,10 +28,10 @@ class Dashboard extends StatelessWidget {
 			backgroundColor: const Color.fromARGB(255, 255, 255, 255),
 			body: SingleChildScrollView(
 				child: SafeArea(
-					child: Column(
-						crossAxisAlignment: CrossAxisAlignment.start,
+					child: Row(
 						children: [
-							Text("Hello, "),
+							const Text("Hello, "),
+							Text(username.toString())
             			]
 					)
 				),
