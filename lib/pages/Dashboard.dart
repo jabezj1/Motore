@@ -30,9 +30,9 @@ class Dashboard extends StatelessWidget {
 				child: SafeArea(
 					child: Column(
 						crossAxisAlignment: CrossAxisAlignment.start,
-						children: const <Widget>[
-              
-						],
+						children: [
+							Text("Hello, "),
+            			]
 					)
 				),
 			),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:motore/pages/InspectPastMaintenance.dart';
 
 class CreateHistoryEntry extends StatefulWidget {
 	const CreateHistoryEntry({super.key, required this.title});
@@ -106,7 +107,7 @@ class StateCreateHistoryEntry extends State<CreateHistoryEntry> {
 
 											FirebaseFirestore.instance
 												.collection("users")
-												.doc("iftekhar.f.19@gmail.com") //FirebaseAuth.instance.currentUser?.email
+												.doc(FirebaseAuth.instance.currentUser?.email) //FirebaseAuth.instance.currentUser?.email
 												.collection("cars")
 												.doc("NAPm33gq0rcaKIaZGAA3")
 												.collection("history")
@@ -125,6 +126,13 @@ class StateCreateHistoryEntry extends State<CreateHistoryEntry> {
 												(value) => print("successfully added document")
 											).catchError(
 												(e) => print(e)
+											);
+
+											Navigator.push(
+												context, 
+												MaterialPageRoute(
+													builder: (context) => const InspectPastMaintenance()
+												)
 											);
 										}
 									)
