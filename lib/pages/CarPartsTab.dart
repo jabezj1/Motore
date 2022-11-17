@@ -11,12 +11,12 @@ class EngineTab extends StatefulWidget {
 class _EngineTabState extends State<EngineTab> {
   List partsOnSale = [
     // [ partName, partPrice, tileColor, imageName ]
-    ["Alternator", "36", Colors.blue, "lib/images/alternator.png"],
+
     ["Driveshaft", "45", Colors.red, "lib/images/driveshaft.png"],
     ["Clutches", "84", Colors.purple, "lib/images/clutch.png"],
     ["Transmission", "95", Colors.brown, "lib/images/transmission.png"],
     ["Spark Plug", "36", Colors.blue, "lib/images/spark-plug.png"],
-    ["Starter", "45", Colors.red, "lib/images/starter.png"],
+
     ["Gearbox", "84", Colors.purple, "lib/images/gearbox.png"],
     ["Air Filter", "95", Colors.brown, "lib/images/air-filter.png"],
     ["Intake Sytem", "36", Colors.blue, "lib/images/filter.png"],
@@ -53,10 +53,12 @@ class WheelTab extends StatefulWidget {
 
 class _WheelTabState extends State<WheelTab> {
   List partsOnSale = [
-    ["wheel", "36", Colors.blue, "lib/icons/brake.png"],
-    ["brakes", "45", Colors.red, "lib/icons/brake.png"],
-    ["rotors", "84", Colors.purple, "lib/icons/brake.png"],
-    ["rims", "95", Colors.brown, "lib/icons/brake.png"],
+    ["Wheels", "36", Colors.blue, "lib/images/wheel.png"],
+    ["Brakes", "45", Colors.red, "lib/images/brakes.png"],
+    ["Rotors", "84", Colors.purple, "lib/icons/brake.png"],
+    ["Axle", "95", Colors.brown, "lib/images/axle.png"],
+    ["Bearings", "36", Colors.blue, "lib/images/bearing.png"],
+    ["Wheel Hub", "45", Colors.red, "lib/images/hub.png"],
   ];
 
   @override
@@ -87,10 +89,12 @@ class BatteryTab extends StatefulWidget {
 
 class _BatteryTabState extends State<BatteryTab> {
   List partsOnSale = [
-    ["wheel", "36", Colors.blue, "lib/icons/battery.png"],
-    ["brakes", "45", Colors.red, "lib/icons/battery.png"],
-    ["rotors", "84", Colors.purple, "lib/icons/battery.png"],
-    ["rims", "95", Colors.brown, "lib/icons/battery.png"]
+    ["Batteries", "36", Colors.blue, "lib/icons/battery.png"],
+    ["Headlights", "45", Colors.red, "lib/images/headlight.png"],
+    ["Tailight", "84", Colors.purple, "lib/images/taillight.png"],
+    ["Electric Module", "95", Colors.brown, "lib/images/ecm.png"],
+    ["Alternator", "36", Colors.blue, "lib/images/alternator.png"],
+    ["Starter", "45", Colors.red, "lib/images/starter.png"],
   ];
 
   @override
@@ -123,10 +127,14 @@ class InteriorTab extends StatefulWidget {
 
 class _InteriorTabState extends State<InteriorTab> {
   List partsOnSale = [
-    ["steering wheel", "36", Colors.blue, "lib/icons/interior.png"],
-    ["spekaers", "45", Colors.red, "lib/icons/interior.png"],
-    ["navigation", "84", Colors.purple, "lib/icons/interior.png"],
-    ["dome light", "95", Colors.brown, "lib/icons/interior.png"],
+    ["steering wheel", "36", Colors.blue, "lib/images/steering-wheel.png"],
+    ["Air Conditioner", "45", Colors.red, "lib/images/air-conditioner.png"],
+    ["Heating", "84", Colors.purple, "lib/images/climatization.png"],
+    ["Seats", "95", Colors.brown, "lib/images/car-seat.png"],
+    ["Mats", "36", Colors.blue, "lib/images/mats.png"],
+    ["Speakers", "45", Colors.red, "lib/images/speaker.png"],
+    ["Navigation", "84", Colors.purple, "lib/images/tracking.png"],
+    ["Dome Light", "95", Colors.brown, "lib/images/dome-light.png"]
   ];
 
   @override
@@ -158,14 +166,14 @@ class ExteriorTab extends StatefulWidget {
 
 class _ExteriorTabState extends State<ExteriorTab> {
   List partsOnSale = [
-    ["steering wheel", "35", Colors.blue, "lib/icons/exterior.png"],
-    ["spekaers", "45", Colors.red, "lib/icons/exterior.png"],
-    ["navigation", "84", Colors.purple, "lib/icons/exterior.png"],
-    ["dome light", "95", Colors.brown, "lib/icons/exterior.png"],
-    ["steering wheel", "36", Colors.blue, "lib/icons/exterior.png"],
-    ["spekaers", "45", Colors.red, "lib/icons/exterior.png"],
-    ["navigation", "84", Colors.purple, "lib/icons/exterior.png"],
-    ["dome light", "95", Colors.brown, "lib/icons/exterior.png"]
+    ["Bumper", "36", Colors.blue, "lib/images/bumper.png"],
+    ["Fender", "45", Colors.red, "lib/images/fender.png"],
+    ["Heating", "84", Colors.purple, "lib/images/fog-lamp.png"],
+    ["Grille", "95", Colors.brown, "lib/images/grille.png"],
+    ["Hood", "36", Colors.blue, "lib/images/bonnet.png"],
+    ["Mirrors", "45", Colors.red, "lib/images/side-mirror.png"],
+    ["Windshield", "84", Colors.purple, "lib/images/windshield.png"],
+    ["Wiper Blades", "95", Colors.brown, "lib/images/wiper.png"]
   ];
 
   @override
