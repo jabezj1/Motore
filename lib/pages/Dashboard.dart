@@ -67,7 +67,11 @@ class ShowReminders extends StatelessWidget {
 		return Container(
 			padding: const EdgeInsets.only(bottom: 10, right: 40, left: 30),
 			child: Row(
-				children: [Text(remText), const SizedBox(width: 15), Text(daysLeft)],
+				children: [
+					Text(remText), 
+					const SizedBox(width: 15), 
+					Text(daysLeft)
+				],
 			)
 		);
 	}
