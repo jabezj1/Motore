@@ -44,9 +44,9 @@ class Dashboard extends StatelessWidget {
 							Text(
 								username.toString(),
 								style: const TextStyle(
-								color: Colors.black,
-								fontSize: 30,
-								fontWeight: FontWeight.bold,
+									color: Colors.black,
+									fontSize: 30,
+									fontWeight: FontWeight.bold,
 								),
 							)
 						]
