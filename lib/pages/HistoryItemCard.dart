@@ -17,7 +17,7 @@ class HistoryItemCard extends StatelessWidget {
         ),
         // color: Colors.black,
         child: Card(
-          margin: const EdgeInsets.all(12),
+          margin: const EdgeInsets.all(5),
           elevation: 0,
           child: Container(
             clipBehavior: Clip.hardEdge,
