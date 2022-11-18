@@ -11,10 +11,22 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-	String? username = FirebaseAuth.instance.currentUser?.displayName;
+	String? username = FirebaseAuth.instance.currentUser?.displayName; // name of the authenticated user
+	late String? carNick = ""; // nickname of the car the user picked in Profile page
 
 	@override
 	Widget build(BuildContext context) {
+
+		var docSnapshot = FirebaseFirestore.instance
+		.collection("users")
+		.doc(FirebaseAuth.instance.currentUser?.email)
+		.collection("cars")
+		.doc(curr_car) // curr_car references the current car selected in profile page
+		.get()
+		.then((DocumentSnapshot ds) { // creates a document snapshot named "ds"
+			carNick = ds['nickname']; // only retrieves the nickname field from the document
+		});
+
 		return Scaffold(
 			appBar: AppBar(
 				automaticallyImplyLeading: false,
@@ -37,7 +49,7 @@ class _DashboardState extends State<Dashboard> {
 				child: SafeArea(
 					child: Column(
 						children: [
-							Row(
+							Row( // This row prints "Hello, <Name of authenticated user>"
 								children: [
 									const Padding(
 										padding: EdgeInsets.all(16.0),
@@ -66,13 +78,13 @@ class _DashboardState extends State<Dashboard> {
 									Container(
 										decoration: const BoxDecoration(
 											image: DecorationImage(
-												image: AssetImage("lib/icons/car2.png"),		
+												image: AssetImage("lib/icons/car2.png"), // displays picture of selected car from Profile
 											)
 										),	
 									),
 									const SizedBox(height: 5),
 									Text(
-										""
+										carNick.toString() // displays car nickname under picture of car
 									)
 								],
 							)
