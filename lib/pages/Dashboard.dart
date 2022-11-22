@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:motore/pages/ReminderItem.dart';
+import 'package:motore/pages/ReminderItemCard.dart';
 import 'package:motore/pages/createCarProfile.dart';
 
 class Dashboard extends StatefulWidget {
@@ -21,10 +23,10 @@ class _DashboardState extends State<Dashboard> {
     var docSnapshot = FirebaseFirestore.instance
         .collection("users")
         .doc(FirebaseAuth.instance.currentUser?.email)
-        .collection("cars");
-    .doc(
-        curr_car) // curr_car references the current car selected in profile page
-    .get()
+        .collection("cars")
+        .doc(
+            curr_car) // curr_car references the current car selected in profile page
+        .get()
         .then((DocumentSnapshot ds) {
       // creates a document snapshot named "ds"
       carNick =
@@ -71,20 +73,20 @@ class _DashboardState extends State<Dashboard> {
               )
             ]),
             Column(
-            	children: [
-            		const SizedBox(height: 25),
-            		Container(
-            			decoration: const BoxDecoration(
-            				image: DecorationImage(
-            					image: AssetImage("lib/icons/car2.png"), // displays picture of selected car from Profile
-            				)
-            			),
-            		),
-            		const SizedBox(height: 5),
-            		Text(
-            			carNick.toString() // displays car nickname under picture of car
-            		)
-            	],
+              children: [
+                const SizedBox(height: 25),
+                Container(
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                    image: AssetImage(
+                        "lib/icons/car2.png"), // displays picture of selected car from Profile
+                  )),
+                ),
+                const SizedBox(height: 5),
+                Text(carNick
+                        .toString() // displays car nickname under picture of car
+                    )
+              ],
             )
           ],
         )),
