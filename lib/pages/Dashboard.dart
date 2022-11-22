@@ -126,7 +126,7 @@ class _DashboardState extends State<Dashboard> {
 	Future getCarRemindersList() async {
 		var data = await FirebaseFirestore.instance
 			.collection("users")
-			.doc(emailAdd)
+			.doc("iftekhar.f.19@gmail.com") // emailAdd
 			.collection("cars")
 			.doc("NAPm33gq0rcaKIaZGAA3") // replace with curr_car
 			.collection("reminders")
