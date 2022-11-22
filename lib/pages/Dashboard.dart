@@ -12,6 +12,7 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
 	String? username = FirebaseAuth.instance.currentUser?.displayName; // name of the authenticated user
+	String? emailAdd = FirebaseAuth.instance.currentUser?.email; // email of the authenticated user
 	late String? carNick = ""; // nickname of the car the user picked in Profile page
 
 	@override
@@ -19,9 +20,9 @@ class _DashboardState extends State<Dashboard> {
 
 		var docSnapshot = FirebaseFirestore.instance
 		.collection("users")
-		.doc(FirebaseAuth.instance.currentUser?.email)
+		.doc(emailAdd)
 		.collection("cars")
-		.doc(curr_car) // curr_car references the current car selected in profile page
+		.doc("NAPm33gq0rcaKIaZGAA3") // curr_car references the current car selected in profile page
 		.get()
 		.then((DocumentSnapshot ds) { // creates a document snapshot named "ds"
 			carNick = ds['nickname']; // only retrieves the nickname field from the document
