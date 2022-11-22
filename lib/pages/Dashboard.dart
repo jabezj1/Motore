@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:motore/pages/ReminderItem.dart';
+import 'package:motore/pages/ReminderItemCard.dart';
 import 'package:motore/pages/createCarProfile.dart';
 
 class Dashboard extends StatefulWidget {
@@ -14,6 +16,14 @@ class _DashboardState extends State<Dashboard> {
 	String? username = FirebaseAuth.instance.currentUser?.displayName; // name of the authenticated user
 	String? emailAdd = FirebaseAuth.instance.currentUser?.email; // email of the authenticated user
 	late String? carNick = ""; // nickname of the car the user picked in Profile page
+
+	List<Object> _reminderList = [];
+
+	@override
+	void didChangeDependencies() {
+		super.didChangeDependencies();
+		getCarRemindersList();
+	}
 
 	@override
 	Widget build(BuildContext context) {
@@ -86,14 +96,51 @@ class _DashboardState extends State<Dashboard> {
 									const SizedBox(height: 5),
 									Text(
 										carNick.toString() // displays car nickname under picture of car
-									)
+									),
 								],
+							),
+							// this is where the list of reminders will show
+							const Text(
+								"To-Do List",
+								style: TextStyle(
+									color: Colors.black,
+									fontSize: 25,
+									fontWeight: FontWeight.bold
+								),
+						  	),
+							SafeArea(
+								child: ListView.builder(
+									itemCount: _reminderList.length,
+									itemBuilder: ((context, index) {
+										return ReminderItemCard(_reminderList[index] as ReminderItem);
+									})
+								)
 							)
 						],
 					)
 				),
 			),
 		);
+	}
+
+	Future getCarRemindersList() async {
+		var data = await FirebaseFirestore.instance
+			.collection("users")
+			.doc(emailAdd)
+			.collection("cars")
+			.doc("NAPm33gq0rcaKIaZGAA3") // replace with curr_car
+			.collection("reminders")
+			.orderBy("days", descending: false)
+			.get()
+		;
+
+		setState(() {
+			_reminderList = List.from(
+				data.docs.map(
+					(doc) => ReminderItem.fromSnapshot(doc)
+				)
+			);
+		});
 	}
 }
 
