@@ -84,8 +84,10 @@ class _DashboardState extends State<Dashboard> {
             ]),
             Column(
               children: [
-                const SizedBox(height: 25),
+                // const SizedBox(height: 35),
                 Container(
+                  height: MediaQuery.of(context).size.height / 3,
+                  width: MediaQuery.of(context).size.width / 1.5,
                   decoration: const BoxDecoration(
                       image: DecorationImage(
                     image: AssetImage(
@@ -107,15 +109,20 @@ class _DashboardState extends State<Dashboard> {
                   fontWeight: FontWeight.bold),
             ),
             SafeArea(
-                child: Expanded(
-              child: ListView.builder(
-                  shrinkWrap: true,
-                  physics: BouncingScrollPhysics(),
-                  itemCount: _reminderList.length,
-                  itemBuilder: ((context, index) {
-                    return ReminderItemCard(
-                        _reminderList[index] as ReminderItem);
-                  })),
+                child: Column(
+              children: [
+                Container(
+                  height: 800,
+                  child: ListView.builder(
+                      shrinkWrap: true,
+                      physics: BouncingScrollPhysics(),
+                      itemCount: _reminderList.length,
+                      itemBuilder: ((context, index) {
+                        return ReminderItemCard(
+                            _reminderList[index] as ReminderItem);
+                      })),
+                ),
+              ],
             ))
           ],
         )),
