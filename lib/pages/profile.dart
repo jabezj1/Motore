@@ -1,7 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:motore/pages/Dashboard.dart';
 import 'package:motore/services/auth.dart';
 import 'package:motore/pages/createCarProfile.dart';
-
 import '../components/basicPage.dart';
 
 const List<String> listOfCarNames = <String>[
@@ -23,6 +24,8 @@ final AuthService _auth = AuthService();
 
 class StateProfile extends State<Profile> {
   bool read = true;
+  String? username = FirebaseAuth.instance.currentUser?.displayName;
+  String? emailAdd = FirebaseAuth.instance.currentUser?.email;
 
   @override
   Widget build(BuildContext context) {
@@ -40,22 +43,6 @@ class StateProfile extends State<Profile> {
               Color(0xFFADF7F2),
             ]),
           ),
-        ),
-      ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 10),
-        child: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const CreateCarProfile(
-                        title: "a",
-                      )),
-            );
-          },
-          backgroundColor: Colors.blue,
-          child: const Icon(Icons.add),
         ),
       ),
       body: Column(
@@ -127,23 +114,25 @@ class StateProfile extends State<Profile> {
           ),
           const SizedBox(height: 30),
           Row(
-            children: const [
-              ProfileRow(title: 'Name', value: 'John Doe'),
-              ProfileRow(title: 'Email', value: 'admin@gmail.com'),
+            children: [
+              ProfileRow(title: 'Name', value: username.toString()),
+              ProfileRow(title: 'Email', value: emailAdd.toString()),
             ],
           ),
           const SizedBox(height: 10),
           Row(
-            children: const [
-              ProfileRow(title: 'Year', value: '2017'),
-              ProfileRow(title: 'Make', value: 'Maserati'),
+            children: [
+              ProfileRow(title: 'Number of Cars', value: listOfCarNames.length.toString()),
+              ProfileRow(title: 'Active Reminders', value: reminderList.length.toString()),
             ],
           ),
-          const SizedBox(height: 10),
+		  const SizedBox(height: 10),
           Row(
-            children: const [
-              ProfileRow(title: 'Model', value: 'Ghibli'),
-              ProfileRow(title: 'Odometer', value: '27,754 miles'),
+            children: [
+				Expanded(
+					child: ProfileRow(title: 'User ID Number', value: FirebaseAuth.instance.currentUser!.uid.toString()),
+				)
+              
             ],
           ),
           const SizedBox(
@@ -152,6 +141,29 @@ class StateProfile extends State<Profile> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+				ElevatedButton.icon(
+                onPressed: () async {
+                  	Navigator.push(
+						context,
+						MaterialPageRoute(
+							builder: (context) => const CreateCarProfile(
+								title: "a",
+							)
+						),
+            		);
+                },
+                icon: const Icon(Icons.add),
+                label: const Text(
+                  'Add a Car',
+                ),
+                style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 40.0, vertical: 15.0),
+                    backgroundColor: Colors.blue,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50.0))),
+              ),
+			  const SizedBox(width: 10),
               ElevatedButton.icon(
                 onPressed: () async {
                   await _auth.signOut();
@@ -202,6 +214,7 @@ class ProfileRow extends StatelessWidget {
                       color: Colors.blue,
                       fontWeight: FontWeight.w600,
                       fontSize: 15.0,
+					  
                     ),
               ),
               Text(
@@ -214,19 +227,11 @@ class ProfileRow extends StatelessWidget {
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width / 3,
-                child: const Divider(
-                  thickness: 2.0,
-                  color: Colors.black,
-                ),
               ),
             ],
           ),
           const Align(
             alignment: Alignment.centerRight,
-            child: Icon(
-              Icons.lock_outline,
-              size: 20.0,
-            ),
           ),
         ],
       ),
