@@ -16,14 +16,9 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  String? username = FirebaseAuth
-      .instance.currentUser?.displayName; // name of the authenticated user
-  String? emailAdd = FirebaseAuth
-      .instance.currentUser?.email; // email of the authenticated user
-  late String? carNick =
-      ""; // nickname of the car the user picked in Profile page
-
-  
+  String? username = FirebaseAuth.instance.currentUser?.displayName; // name of the authenticated user
+  String? emailAdd = FirebaseAuth.instance.currentUser?.email; // email of the authenticated user
+  late String? carNick = ""; // nickname of the car the user picked in Profile page
 
   @override
   void didChangeDependencies() {
@@ -202,6 +197,7 @@ class _DashboardState extends State<Dashboard> {
           List.from(data.docs.map((doc) => ReminderItem.fromSnapshot(doc)));
     });
   }
+
 }
 
 class ShowReminders extends StatelessWidget {
@@ -231,6 +227,7 @@ class ShowReminders extends StatelessWidget {
               )
             ],
           ),
-        ));
+        )
+     );
   }
 }
