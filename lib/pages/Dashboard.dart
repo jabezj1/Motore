@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:motore/pages/ReminderItem.dart';
 import 'package:motore/pages/ReminderItemCard.dart';
 import 'package:motore/pages/createCarProfile.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 List<Object> reminderList = [];
 
@@ -22,7 +23,7 @@ class _DashboardState extends State<Dashboard> {
   late String? carNick =
       ""; // nickname of the car the user picked in Profile page
 
-  // List<Object> _reminderList = [];
+  
 
   @override
   void didChangeDependencies() {
@@ -97,51 +98,85 @@ class _DashboardState extends State<Dashboard> {
                   )),
                 ),
                 const SizedBox(height: 5),
-                Text(
-                  carNick.toString(),
-                  // displays car nickname under picture of car
+                Container(
+                  padding: EdgeInsets.all(8),
+                  width: MediaQuery.of(context).size.width,
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                        colors: [Colors.white, Colors.red],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter),
+                  ),
+                  child: Text(
+                    carNick.toString(),
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.getFont(
+                      'Permanent Marker',
+                      color: Colors.black,
+                      fontSize: 36,
+                      fontWeight: FontWeight.w700,
+                      fontStyle: FontStyle.italic,
+                    ),
+
+                    // displays car nickname under picture of car
+                  ),
                 ),
               ],
             ),
+            SizedBox(
+              height: 10,
+            ),
             // this is where the list of reminders will show
-            const Text(
-              "To-Do List",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold),
+
+            SizedBox(
+              height: 10,
             ),
             SafeArea(
                 child: Column(
               children: [
                 Container(
+                  padding: EdgeInsets.only(top: 10),
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Color(0xff15aaaff),
-                        Color(0xFFADF7F2),
-                      ],
-                    ),
-                    borderRadius: BorderRadius.circular(30),
+                    gradient: LinearGradient(colors: [
+                      Color(0xff15aaaff),
+                      Colors.white,
+                    ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+                    // borderRadius: BorderRadius.circular(30),
                   ),
+
                   // color: Colors.black,
                   // height: 800,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      // color: Colors.green,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
+
+                  child: Column(
+                    children: [
+                      Text(
+                        "To-Do List",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold),
                       ),
-                      child: ListView.builder(
-                          shrinkWrap: true,
-                          physics: BouncingScrollPhysics(),
-                          itemCount: reminderList.length,
-                          itemBuilder: ((context, index) {
-                            return ReminderItemCard(
-                                reminderList[index] as ReminderItem);
-                          })),
-                    ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          // color: Colors.green,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: ListView.builder(
+                              shrinkWrap: true,
+                              physics: BouncingScrollPhysics(),
+                              itemCount: reminderList.length,
+                              itemBuilder: ((
+                                context,
+                                index,
+                              ) {
+                                return ReminderItemCard(
+                                    reminderList[index] as ReminderItem);
+                              })),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -165,7 +200,6 @@ class _DashboardState extends State<Dashboard> {
     setState(() {
       reminderList =
           List.from(data.docs.map((doc) => ReminderItem.fromSnapshot(doc)));
-      reminderList.length = reminderList.length;
     });
   }
 }
@@ -179,9 +213,24 @@ class ShowReminders extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        // color: Colors.pink,
         padding: const EdgeInsets.only(bottom: 10, right: 40, left: 30),
-        child: Row(
-          children: [Text(remText), const SizedBox(width: 15), Text(daysLeft)],
+        child: Container(
+          child: Row(
+            children: [
+              Text(
+                remText,
+                style: TextStyle(
+                  fontSize: 30,
+                ),
+              ),
+              const SizedBox(width: 15),
+              Text(
+                daysLeft,
+                textAlign: TextAlign.left,
+              )
+            ],
+          ),
         ));
   }
 }
