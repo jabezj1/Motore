@@ -5,6 +5,8 @@ import 'package:motore/pages/ReminderItem.dart';
 import 'package:motore/pages/ReminderItemCard.dart';
 import 'package:motore/pages/createCarProfile.dart';
 
+List<Object> reminderList = [];
+
 class Dashboard extends StatefulWidget {
   Dashboard({Key? key}) : super(key: key);
 
@@ -20,7 +22,7 @@ class _DashboardState extends State<Dashboard> {
   late String? carNick =
       ""; // nickname of the car the user picked in Profile page
 
-  List<Object> _reminderList = [];
+  // List<Object> _reminderList = [];
 
   @override
   void didChangeDependencies() {
@@ -134,10 +136,10 @@ class _DashboardState extends State<Dashboard> {
                       child: ListView.builder(
                           shrinkWrap: true,
                           physics: BouncingScrollPhysics(),
-                          itemCount: _reminderList.length,
+                          itemCount: reminderList.length,
                           itemBuilder: ((context, index) {
                             return ReminderItemCard(
-                                _reminderList[index] as ReminderItem);
+                                reminderList[index] as ReminderItem);
                           })),
                     ),
                   ),
@@ -161,8 +163,9 @@ class _DashboardState extends State<Dashboard> {
         .get();
 
     setState(() {
-      _reminderList =
+      reminderList =
           List.from(data.docs.map((doc) => ReminderItem.fromSnapshot(doc)));
+      reminderList.length = reminderList.length;
     });
   }
 }
