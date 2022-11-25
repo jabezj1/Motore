@@ -122,17 +122,23 @@ class StateProfile extends State<Profile> {
           const SizedBox(height: 10),
           Row(
             children: [
-              ProfileRow(title: 'Number of Cars', value: listOfCarNames.length.toString()),
-              ProfileRow(title: 'Active Reminders', value: reminderList.length.toString()),
+              ProfileRow(
+                  title: 'Number of Cars',
+                  value: listOfCarNames.length.toString()),
+              ProfileRow(
+                title: 'Active Reminders',
+                value: reminderList.length.toString(),
+              ),
             ],
           ),
-		  const SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             children: [
-				Expanded(
-					child: ProfileRow(title: 'User ID Number', value: FirebaseAuth.instance.currentUser!.uid.toString()),
-				)
-              
+              Expanded(
+                child: ProfileRow(
+                    title: 'User ID Number',
+                    value: FirebaseAuth.instance.currentUser!.uid.toString()),
+              )
             ],
           ),
           const SizedBox(
@@ -141,16 +147,15 @@ class StateProfile extends State<Profile> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-				ElevatedButton.icon(
+              ElevatedButton.icon(
                 onPressed: () async {
-                  	Navigator.push(
-						context,
-						MaterialPageRoute(
-							builder: (context) => const CreateCarProfile(
-								title: "a",
-							)
-						),
-            		);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const CreateCarProfile(
+                              title: "a",
+                            )),
+                  );
                 },
                 icon: const Icon(Icons.add),
                 label: const Text(
@@ -163,7 +168,7 @@ class StateProfile extends State<Profile> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50.0))),
               ),
-			  const SizedBox(width: 10),
+              const SizedBox(width: 10),
               ElevatedButton.icon(
                 onPressed: () async {
                   await _auth.signOut();
@@ -214,7 +219,6 @@ class ProfileRow extends StatelessWidget {
                       color: Colors.blue,
                       fontWeight: FontWeight.w600,
                       fontSize: 15.0,
-					  
                     ),
               ),
               Text(
