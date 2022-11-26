@@ -27,7 +27,8 @@ class _CarInfoState extends State<CarInfo> {
       body: ListView.builder(
           itemCount: cars.length,
           itemBuilder: (context, index) {
-            final year = cars[index]['name'];
+            final year = cars[index]["id"];
+            final name = cars[index]["name"];
             // final show = year['data']['image'];
             return ListTile(
               leading: ClipRRect(
@@ -35,6 +36,7 @@ class _CarInfoState extends State<CarInfo> {
                 // child: Image.network(show)),
               ),
               title: Text(year.toString()),
+              subtitle: Text(name.toString()),
               onTap: () {
                 print(year);
                 yearSelected = year;
@@ -48,7 +50,7 @@ class _CarInfoState extends State<CarInfo> {
 
   void fetchCarYear() async {
     print("fetchCar called");
-    const url = 'https://car-api2.p.rapidapi.com/api/makes';
+    const url = 'https://car-api2.p.rapidapi.com/api/models';
     final uri = Uri.parse(url);
     final response = await http.get(uri, headers: {
       'X-RapidAPI-Key': 'e6ebfb9ba0mshc75a7335d6856fcp170770jsn8630a0da6b73',
