@@ -45,154 +45,156 @@ class StateProfile extends State<Profile> {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.only(right: 100),
-            width: double.infinity,
-            height: 165,
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(colors: [
-                  Color(0xFF15AAAFF),
-                  Color(0xFFADF7F2),
-                ]),
-                //color: Color.fromARGB(255, 150, 206, 232),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.only(right: 100),
+              width: double.infinity,
+              height: 165,
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(colors: [
+                    Color(0xFF15AAAFF),
+                    Color(0xFFADF7F2),
+                  ]),
+                  //color: Color.fromARGB(255, 150, 206, 232),
 
-                image: DecorationImage(
-                  image: AssetImage("lib/icons/car2.png"),
-                  fit: BoxFit.none,
-                ),
-                borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(35),
-                  bottomLeft: Radius.circular(35),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color(0xFF04589A),
-                    offset: Offset(7, 7),
-                    blurRadius: 6,
-                  )
-                ]),
-          ),
-          const SizedBox(height: 20),
-          Container(
-            decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(color: Colors.black38, width: 3),
-                borderRadius: BorderRadius.circular(30),
-                boxShadow: const <BoxShadow>[]),
-            padding: const EdgeInsets.only(left: 30, right: 30),
-            child: DropdownButton<String>(
-              value: drop,
-              icon: const Icon(Icons.arrow_drop_down_sharp),
-              elevation: 16,
-              style: const TextStyle(color: Colors.blue),
-              underline: Container(
-                height: 1,
-                width: 1,
-                color: Colors.blueAccent,
-              ),
-              onChanged: (String? value) {
-                // This is called when the user selects an item.
-                setState(() {
-                  drop = value!;
-                });
-              },
-              items:
-                  listOfCarNames.map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
+                  image: DecorationImage(
+                    image: AssetImage("lib/icons/car2.png"),
+                    fit: BoxFit.none,
+                  ),
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(35),
+                    bottomLeft: Radius.circular(35),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0xFF04589A),
+                      offset: Offset(7, 7),
+                      blurRadius: 6,
+                    )
+                  ]),
             ),
-          ),
-          const SizedBox(height: 30),
-          Row(
-            children: [
-              ProfileRow(title: 'Name', value: username.toString()),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: [
-              ProfileRow(title: 'Email', value: emailAdd.toString()),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: [
-              ProfileRow(
-                  title: 'Number of Cars',
-                  value: listOfCarNames.length.toString()),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: [
-              ProfileRow(
-                title: 'Active Reminders',
-                value: reminderList.length.toString(),
-              ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: [
-              Expanded(
-                child: ProfileRow(
-                    title: 'User ID Number',
-                    value: FirebaseAuth.instance.currentUser!.uid.toString()),
-              )
-            ],
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              ElevatedButton.icon(
-                onPressed: () async {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const CreateCarProfile(
-                              title: "a",
-                            )),
+            const SizedBox(height: 20),
+            Container(
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: Colors.black38, width: 3),
+                  borderRadius: BorderRadius.circular(30),
+                  boxShadow: const <BoxShadow>[]),
+              padding: const EdgeInsets.only(left: 30, right: 30),
+              child: DropdownButton<String>(
+                value: drop,
+                icon: const Icon(Icons.arrow_drop_down_sharp),
+                elevation: 16,
+                style: const TextStyle(color: Colors.blue),
+                underline: Container(
+                  height: 1,
+                  width: 1,
+                  color: Colors.blueAccent,
+                ),
+                onChanged: (String? value) {
+                  // This is called when the user selects an item.
+                  setState(() {
+                    drop = value!;
+                  });
+                },
+                items: listOfCarNames
+                    .map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
                   );
-                },
-                icon: const Icon(Icons.add),
-                label: const Text(
-                  'Add a Car',
-                ),
-                style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 40.0, vertical: 15.0),
-                    backgroundColor: Colors.blue,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50.0))),
+                }).toList(),
               ),
-              const SizedBox(width: 10),
-              ElevatedButton.icon(
-                onPressed: () async {
-                  await _auth.signOut();
-                  // await _auth.emailsignOut();
-                },
-                icon: const Icon(Icons.logout),
-                label: const Text(
-                  'Log Out',
+            ),
+            const SizedBox(height: 30),
+            Row(
+              children: [
+                ProfileRow(title: 'Name', value: username.toString()),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                ProfileRow(title: 'Email', value: emailAdd.toString()),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                ProfileRow(
+                    title: 'Number of Cars',
+                    value: listOfCarNames.length.toString()),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                ProfileRow(
+                  title: 'Active Reminders',
+                  value: reminderList.length.toString(),
                 ),
-                style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 40.0, vertical: 15.0),
-                    backgroundColor: Colors.red,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50.0))),
-              )
-            ],
-          )
-        ],
+              ],
+            ),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                Expanded(
+                  child: ProfileRow(
+                      title: 'User ID Number',
+                      value: FirebaseAuth.instance.currentUser!.uid.toString()),
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ElevatedButton.icon(
+                  onPressed: () async {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const CreateCarProfile(
+                                title: "a",
+                              )),
+                    );
+                  },
+                  icon: const Icon(Icons.add),
+                  label: const Text(
+                    'Add a Car',
+                  ),
+                  style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 40.0, vertical: 15.0),
+                      backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50.0))),
+                ),
+                const SizedBox(width: 10),
+                ElevatedButton.icon(
+                  onPressed: () async {
+                    await _auth.signOut();
+                    // await _auth.emailsignOut();
+                  },
+                  icon: const Icon(Icons.logout),
+                  label: const Text(
+                    'Log Out',
+                  ),
+                  style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 40.0, vertical: 15.0),
+                      backgroundColor: Colors.red,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50.0))),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

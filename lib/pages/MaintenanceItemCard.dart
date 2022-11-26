@@ -11,8 +11,10 @@ class MaintenanceItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         child: Card(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+                side: BorderSide(color: Colors.blue, width: 5)),
+            // RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
             // color: Colors.pink,
             child: Padding(
               padding: const EdgeInsets.all(12.0),
@@ -21,7 +23,7 @@ class MaintenanceItemCard extends StatelessWidget {
                   Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 10.0),
+                        padding: const EdgeInsets.only(top: 10, left: 20),
                         child: Text(
                           _maintenance.system.toString(),
                           style: const TextStyle(
@@ -35,19 +37,23 @@ class MaintenanceItemCard extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Text("Miles remaining:"),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: Text("Miles remaining:"),
+                      ),
                       Spacer(),
                       Padding(
                         padding: const EdgeInsets.all(10),
                         child: Container(
                             decoration: BoxDecoration(
-                                color: Colors.blue,
-                                border: Border.all(
-                                  color: Colors.red.shade400,
-                                  width: 3,
-                                ),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
+                              color: Colors.blue,
+                              // border: Border.all(
+                              //   color: Colors.red.shade400,
+                              //   width: 3,
+                              // ),
+                              // borderRadius:
+                              //     BorderRadius.all(Radius.circular(10))
+                            ),
                             child: Text(
                               _maintenance.miles.toString(),
                               style: const TextStyle(
