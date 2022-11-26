@@ -14,8 +14,6 @@ class MaintenanceItemCard extends StatelessWidget {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
                 side: BorderSide(color: Colors.blue, width: 5)),
-            // RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-            // color: Colors.pink,
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(
@@ -46,8 +44,6 @@ class MaintenanceItemCard extends StatelessWidget {
                         padding: const EdgeInsets.all(10),
                         child: Container(
                             decoration: BoxDecoration(
-                                // color: Colors.blue,
-
                                 border: Border.all(
                                   color: Colors.red.shade400,
                                   width: 2,

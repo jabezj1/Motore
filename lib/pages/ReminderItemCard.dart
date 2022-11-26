@@ -11,8 +11,9 @@ class ReminderItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         child: Card(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+                side: BorderSide(color: Colors.blue, width: 5)),
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(
@@ -20,7 +21,7 @@ class ReminderItemCard extends StatelessWidget {
                   Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 10.0),
+                        padding: const EdgeInsets.only(top: 10, left: 20),
                         child: Text(
                           _reminder.title.toString(),
                           style: const TextStyle(
@@ -34,23 +35,27 @@ class ReminderItemCard extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Text("Days left:"),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: Text("Days left:"),
+                      ),
                       Spacer(),
                       Padding(
                         padding: const EdgeInsets.all(10),
                         child: Container(
                             decoration: BoxDecoration(
-                                color: Colors.blue,
+                                // color: Colors.blue,
                                 border: Border.all(
                                   color: Colors.red.shade400,
-                                  width: 3,
+                                  width: 2,
                                 ),
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
+                                    BorderRadius.all(Radius.circular(5))),
+                            padding: EdgeInsets.symmetric(horizontal: 10),
                             child: Text(
                               _reminder.days.toString(),
                               style: const TextStyle(
-                                color: Colors.white,
+                                color: Colors.black,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
