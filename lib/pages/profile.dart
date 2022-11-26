@@ -80,12 +80,7 @@ class StateProfile extends State<Profile> {
                 color: Colors.white,
                 border: Border.all(color: Colors.black38, width: 3),
                 borderRadius: BorderRadius.circular(30),
-                boxShadow: const <BoxShadow>[
-                  //apply shadow on Dropdown button
-                  // BoxShadow(
-                  //     color: Color.fromRGBO(0, 0, 0, 0.57), //shadow for button
-                  //     blurRadius: 5) //blur radius of shadow
-                ]),
+                boxShadow: const <BoxShadow>[]),
             padding: const EdgeInsets.only(left: 30, right: 30),
             child: DropdownButton<String>(
               value: drop,
@@ -116,6 +111,11 @@ class StateProfile extends State<Profile> {
           Row(
             children: [
               ProfileRow(title: 'Name', value: username.toString()),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            children: [
               ProfileRow(title: 'Email', value: emailAdd.toString()),
             ],
           ),
@@ -125,6 +125,11 @@ class StateProfile extends State<Profile> {
               ProfileRow(
                   title: 'Number of Cars',
                   value: listOfCarNames.length.toString()),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            children: [
               ProfileRow(
                 title: 'Active Reminders',
                 value: reminderList.length.toString(),
@@ -142,7 +147,7 @@ class StateProfile extends State<Profile> {
             ],
           ),
           const SizedBox(
-            height: 50,
+            height: 30,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -194,61 +199,49 @@ class StateProfile extends State<Profile> {
 }
 
 class ProfileRow extends StatelessWidget {
-  const ProfileRow({
-    Key? key,
-    required this.title,
-    required this.value,
-  }) : super(key: key);
+  const ProfileRow({Key? key, required this.title, required this.value})
+      : super(key: key);
   final String title;
   final String value;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 300,
-      height: 30,
-      child: Center(
-        child: Text(
-          title,
-          style: TextStyle(
-              fontFamily: 'Arial',
-              fontSize: 18,
-              color: Colors.black,
-              fontWeight: FontWeight.bold),
-          textAlign: TextAlign.center,
-        ),
+    return SizedBox(
+      width: MediaQuery.of(context).size.width,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                      color: Colors.blue,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18.0,
+                    ),
+              ),
+              Text(
+                value,
+                style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 15.0,
+                    ),
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width / 1.3,
+                child: const Divider(
+                  thickness: 2.0,
+                  color: Colors.black,
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
-
-      //   width: MediaQuery.of(context).size.width / 2,
-
-      //height: 10,
-      //color: Color.fromARGB(255, 199, 210, 215),
-      //   child: Column(
-      //     crossAxisAlignment: CrossAxisAlignment.center,
-      //     children: [
-      //       Text(
-      //         title,
-      //         style: Theme.of(context).textTheme.subtitle2!.copyWith(
-      //               color: Colors.blue,
-      //               fontWeight: FontWeight.w600,
-      //               fontSize: 15.0,
-      //             ),
-      //         //   textAlign: TextAlign.left,
-      //       ),
-      //       Text(
-      //         value,
-      //         style: Theme.of(context).textTheme.subtitle2!.copyWith(
-      //               color: Colors.black,
-      //               fontWeight: FontWeight.w600,
-      //               fontSize: 15.0,
-      //             ),
-      //         //   textAlign: TextAlign.right,
-      //       ),
-      //       SizedBox(
-      //         width: MediaQuery.of(context).size.width / 3,
-      //       ),
-      //     ],
-      //   ),
     );
   }
 }
