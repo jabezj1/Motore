@@ -46,18 +46,19 @@ class MaintenanceItemCard extends StatelessWidget {
                         padding: const EdgeInsets.all(10),
                         child: Container(
                             decoration: BoxDecoration(
-                              color: Colors.blue,
-                              // border: Border.all(
-                              //   color: Colors.red.shade400,
-                              //   width: 3,
-                              // ),
-                              // borderRadius:
-                              //     BorderRadius.all(Radius.circular(10))
-                            ),
+                                // color: Colors.blue,
+
+                                border: Border.all(
+                                  color: Colors.red.shade400,
+                                  width: 2,
+                                ),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5))),
+                            padding: EdgeInsets.symmetric(horizontal: 10),
                             child: Text(
                               _maintenance.miles.toString(),
                               style: const TextStyle(
-                                color: Colors.white,
+                                color: Colors.black,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
