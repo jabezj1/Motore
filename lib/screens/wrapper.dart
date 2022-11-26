@@ -21,7 +21,7 @@ class Wrapper extends StatelessWidget {
     if (user == null) {
       return Authenticate();
     } else {
-      return NavigationExample();
+      return Navigation();
     }
   }
 }

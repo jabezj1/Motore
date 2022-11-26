@@ -194,51 +194,61 @@ class StateProfile extends State<Profile> {
 }
 
 class ProfileRow extends StatelessWidget {
-  const ProfileRow({Key? key, required this.title, required this.value})
-      : super(key: key);
+  const ProfileRow({
+    Key? key,
+    required this.title,
+    required this.value,
+  }) : super(key: key);
   final String title;
   final String value;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width / 2,
+    return Container(
+      width: 300,
+      height: 30,
+      child: Center(
+        child: Text(
+          title,
+          style: TextStyle(
+              fontFamily: 'Arial',
+              fontSize: 18,
+              color: Colors.black,
+              fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
+        ),
+      ),
+
+      //   width: MediaQuery.of(context).size.width / 2,
 
       //height: 10,
       //color: Color.fromARGB(255, 199, 210, 215),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: Theme.of(context).textTheme.subtitle2!.copyWith(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 15.0,
-                    ),
-              ),
-              Text(
-                value,
-                style: Theme.of(context).textTheme.subtitle2!.copyWith(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 15.0,
-                    ),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width / 3,
-              ),
-            ],
-          ),
-          const Align(
-            alignment: Alignment.centerRight,
-          ),
-        ],
-      ),
+      //   child: Column(
+      //     crossAxisAlignment: CrossAxisAlignment.center,
+      //     children: [
+      //       Text(
+      //         title,
+      //         style: Theme.of(context).textTheme.subtitle2!.copyWith(
+      //               color: Colors.blue,
+      //               fontWeight: FontWeight.w600,
+      //               fontSize: 15.0,
+      //             ),
+      //         //   textAlign: TextAlign.left,
+      //       ),
+      //       Text(
+      //         value,
+      //         style: Theme.of(context).textTheme.subtitle2!.copyWith(
+      //               color: Colors.black,
+      //               fontWeight: FontWeight.w600,
+      //               fontSize: 15.0,
+      //             ),
+      //         //   textAlign: TextAlign.right,
+      //       ),
+      //       SizedBox(
+      //         width: MediaQuery.of(context).size.width / 3,
+      //       ),
+      //     ],
+      //   ),
     );
   }
 }
