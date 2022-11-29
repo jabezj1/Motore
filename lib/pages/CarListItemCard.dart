@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:motore/pages/CarListItem.dart';
 import 'package:motore/pages/createCarProfile.dart';
+import 'package:motore/pages/profile.dart';
 
 class CarListItemCard extends StatelessWidget {
  	final CarListItem _carListItem;
@@ -34,6 +35,7 @@ class CarListItemCard extends StatelessWidget {
 			onTap:() {
 				// sets curr_car to nickname of the car item that was tapped
 				curr_car = _carListItem.nickname.toString();
+				Navigator.push(context, MaterialPageRoute(builder: (context) => const Profile()));
 			},
     	);
 	}
