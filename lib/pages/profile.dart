@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:motore/pages/CarListItem.dart';
 import 'package:motore/pages/Dashboard.dart';
 import 'package:motore/services/auth.dart';
 import 'package:motore/pages/createCarProfile.dart';
@@ -32,7 +33,7 @@ class StateProfile extends State<Profile> {
     ;
 
     setState(() {
-			listOfCarNames = List.from(data.docs.map((doc) => MaintenanceItem.fromSnapshot(doc)));
+			listOfCarNames = List.from(data.docs.map((doc) => CarListItem.fromSnapshot(doc)));
 		});
       
   }
