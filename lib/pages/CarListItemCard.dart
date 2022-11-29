@@ -36,8 +36,8 @@ class CarListItemCard extends StatelessWidget {
 				// sets curr_car to nickname of the car item that was tapped
 				curr_car = _carListItem.nickname.toString();
 				Navigator.push(context, MaterialPageRoute(builder: (context) => const Profile()));
-
-				// replace above line with a setState() function to rebuild the weidget correctly
+				// wanted to use setState() but was getting error, this is next best option
+				// replace above line with a setState() function to rebuild the widget correctly
 			},
     	);
 	}
