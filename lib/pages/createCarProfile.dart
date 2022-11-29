@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:motore/pages/profile.dart';
 
-late String curr_car;
+late String curr_car = "";
 
 class CreateCarProfile extends StatefulWidget {
 	const CreateCarProfile({super.key, required this.title});

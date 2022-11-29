@@ -7,8 +7,8 @@ import 'package:motore/pages/createCarProfile.dart';
 import '../components/basicPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-List<String> listOfCarNames = <String>['Car one'];
-String drop = listOfCarNames.first;
+List<CarListItem> listOfCarNames = <CarListItem>[];
+CarListItem drop = listOfCarNames.first;
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -37,6 +37,12 @@ class StateProfile extends State<Profile> {
 		});
       
   }
+
+	@override
+	void didChangeDependencies() {
+		super.didChangeDependencies();
+		getListOfCars();
+	}
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +100,7 @@ class StateProfile extends State<Profile> {
                   borderRadius: BorderRadius.circular(30),
                   boxShadow: const <BoxShadow>[]),
               padding: const EdgeInsets.only(left: 30, right: 30),
-              child: DropdownButton<String>(
+              child: DropdownButton<CarListItem>(
                 value: drop,
                 icon: const Icon(Icons.arrow_drop_down_sharp),
                 elevation: 16,
@@ -104,17 +110,17 @@ class StateProfile extends State<Profile> {
                   width: 1,
                   color: Colors.blueAccent,
                 ),
-                onChanged: (String? value) {
+                onChanged: (CarListItem? value) {
                   // This is called when the user selects an item.
                   setState(() {
                     drop = value!;
                   });
                 },
                 items: listOfCarNames
-                    .map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
+                    .map<DropdownMenuItem<CarListItem>>((CarListItem value) {
+                  return DropdownMenuItem<CarListItem>(
                     value: value,
-                    child: Text(value),
+                    child: Text(value.toString()),
                   );
                 }).toList(),
               ),
@@ -277,7 +283,7 @@ class _DropDownState extends State<DropDown> {
         borderRadius: BorderRadius.circular(30),
       ),
       padding: EdgeInsets.only(left: 30, right: 30),
-      child: DropdownButton<String>(
+      child: DropdownButton<CarListItem>(
         value: drop,
         icon: const Icon(Icons.arrow_drop_down_sharp),
         elevation: 16,
@@ -287,15 +293,15 @@ class _DropDownState extends State<DropDown> {
           width: 3,
           color: Colors.blueAccent,
         ),
-        onChanged: (String? value) {
+        onChanged: (CarListItem? value) {
           // This is called when the user selects an item.
           setState(() {
             drop = value!;
           });
         },
-        items: list.map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
-            value: value,
+        items: list.map<DropdownMenuItem<CarListItem>>((String value) {
+          return DropdownMenuItem<CarListItem>(
+            // value: value,
             child: Text(value),
           );
         }).toList(),
