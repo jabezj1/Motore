@@ -301,7 +301,7 @@ class _DropDownState extends State<DropDown> {
         },
         items: list.map<DropdownMenuItem<CarListItem>>((String value) {
           return DropdownMenuItem<CarListItem>(
-            // value: value,
+            value: drop,
             child: Text(value),
           );
         }).toList(),
