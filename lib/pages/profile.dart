@@ -5,12 +5,7 @@ import 'package:motore/services/auth.dart';
 import 'package:motore/pages/createCarProfile.dart';
 import '../components/basicPage.dart';
 
-const List<String> listOfCarNames = <String>[
-  ' Car One',
-  ' Car Two',
-  ' Car Three',
-  ' Car Four',
-];
+const List<String> listOfCarNames = <String>[];
 
 String drop = listOfCarNames.first;
 
