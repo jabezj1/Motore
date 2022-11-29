@@ -273,7 +273,7 @@ class _DropDownState extends State<DropDown> {
 				onChanged: (CarListItem? value) {
 					// This is called when the user selects an item.
 					setState(() {
-						drop = value!;
+						drop = CarListItem().nickname as CarListItem;
 					});
 				},
 				items: list.map<DropdownMenuItem<CarListItem>>((String value) {
