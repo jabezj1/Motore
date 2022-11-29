@@ -4,9 +4,9 @@ import 'package:motore/pages/Dashboard.dart';
 import 'package:motore/services/auth.dart';
 import 'package:motore/pages/createCarProfile.dart';
 import '../components/basicPage.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-const List<String> listOfCarNames = <String>[];
-
+List<String> listOfCarNames = <String>['Car one'];
 String drop = listOfCarNames.first;
 
 class Profile extends StatefulWidget {
@@ -21,6 +21,21 @@ class StateProfile extends State<Profile> {
   bool read = true;
   String? username = FirebaseAuth.instance.currentUser?.displayName;
   String? emailAdd = FirebaseAuth.instance.currentUser?.email;
+
+	Future getListOfCars() async { // retreives list of cars a user has on their profile
+    var data = await FirebaseFirestore.instance
+      .collection("users")
+      .doc(emailAdd)
+      .collection("cars")
+			.orderBy("nickname", descending: true)
+      .get()
+    ;
+
+    setState(() {
+			listOfCarNames = List.from(data.docs.map((doc) => MaintenanceItem.fromSnapshot(doc)));
+		});
+      
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -187,7 +202,8 @@ class StateProfile extends State<Profile> {
                           borderRadius: BorderRadius.circular(50.0))),
                 )
               ],
-            )
+            ),
+						const SizedBox(height: 15)
           ],
         ),
       ),
