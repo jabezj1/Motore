@@ -60,21 +60,18 @@ class MaintenanceItemCard extends StatelessWidget {
                               ),
                             )),
                       ),
-                      ElevatedButton.icon(
-                        onPressed: () async {
-                          // sawait _auth.signOut();
-                          // await _auth.emailsignOut();
-                        },
-                        icon: const Icon(Icons.delete),
-                        label: const Text(
-                          'Delete',
+                      IconButton(
+                        onPressed: () async {},
+                        icon: const Icon(
+                          Icons.refresh,
+                          color: Colors.green,
                         ),
-                        style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 10.0, vertical: 3.0),
-                            backgroundColor: Colors.red,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50.0))),
+                        // style: ElevatedButton.styleFrom(
+                        //     padding: const EdgeInsets.symmetric(
+                        //         horizontal: 10.0, vertical: 3.0),
+                        //     backgroundColor: Colors.red,
+                        //     shape: RoundedRectangleBorder(
+                        //         borderRadius: BorderRadius.circular(50.0))),
                       ),
                     ],
                   ),

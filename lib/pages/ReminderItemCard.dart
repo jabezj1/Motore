@@ -61,6 +61,19 @@ class ReminderItemCard extends StatelessWidget {
                               ),
                             )),
                       ),
+                      IconButton(
+                        onPressed: () async {},
+                        icon: const Icon(
+                          Icons.delete,
+                          color: Colors.red,
+                        ),
+                        // style: ElevatedButton.styleFrom(
+                        //     padding: const EdgeInsets.symmetric(
+                        //         horizontal: 10.0, vertical: 3.0),
+                        //     backgroundColor: Colors.red,
+                        //     shape: RoundedRectangleBorder(
+                        //         borderRadius: BorderRadius.circular(50.0))),
+                      ),
                     ],
                   )
                 ],
