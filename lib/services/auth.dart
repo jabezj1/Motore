@@ -16,7 +16,7 @@ class AuthService {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (BuildContext context, snapshot) {
           if (snapshot.hasData) {
-            return const NavigationExample();
+            return const Navigation();
           } else {
             return const IntroPage();
           }

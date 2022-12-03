@@ -4,9 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:motore/pages/profile.dart';
-import 'package:searchfield/searchfield.dart';
-import 'package:motore/pages/CarInfo.dart';
-import 'package:http/http.dart' as http;
 
 late String curr_car;
 
@@ -19,8 +16,6 @@ class CreateCarProfile extends StatefulWidget {
 }
 
 class StateCreateCarProfile extends State<CreateCarProfile> {
-  List<dynamic> cars = [];
-  List<dynamic> make = [];
   TextEditingController carMakeController = TextEditingController();
   TextEditingController carModelController = TextEditingController();
   TextEditingController carModelYearController = TextEditingController();
@@ -142,28 +137,16 @@ class StateCreateCarProfile extends State<CreateCarProfile> {
                                     //       "Notes": ""
                                   })
                               .catchError((e) => print(e));
+
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Profile()));
                         })),
               ]),
             ),
           )),
     );
-  }
-
-  fetchCarYear() async {
-    // List<dynamic> cars = [];
-    print("fetchCar called");
-    const url = 'https://car-api2.p.rapidapi.com/api/makes';
-    final uri = Uri.parse(url);
-    final response = await http.get(uri, headers: {
-      'X-RapidAPI-Key': 'e6ebfb9ba0mshc75a7335d6856fcp170770jsn8630a0da6b73',
-      'X-RapidAPI-Host': 'car-api2.p.rapidapi.com'
-    });
-    final body = response.body;
-    final json = jsonDecode(body);
-    setState(() {
-      cars = json;
-    });
-    print('fetchCars complete');
   }
 }
 

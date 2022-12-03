@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motore/screens/authenticate/signup.dart';
 import 'package:motore/services/auth.dart';
 import 'package:motore/components/basicPage.dart';
 import 'package:provider/provider.dart';
@@ -225,7 +226,10 @@ class _LoginState extends State<Login> {
         const Text("New Here?"),
         TextButton(
             onPressed: () {
-              widget.toggleView();
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Signup()),
+              );
             },
             child: const Text("Sign Up")),
         Container(

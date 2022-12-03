@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motore/screens/authenticate/login.dart';
 
 class Signup extends StatefulWidget {
   final toggleView;
@@ -311,7 +312,10 @@ class _SignupState extends State<Signup> {
         const Text("Already have an account?"),
         TextButton(
             onPressed: () {
-              widget.toggleView();
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Login()),
+              );
             },
             child: const Text("Login")),
         Container(
