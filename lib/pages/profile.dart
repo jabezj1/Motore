@@ -190,9 +190,11 @@ class StateProfile extends State<Profile> {
                       backgroundColor: Colors.red,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50.0))),
-                )
+                ),
+                
               ],
-            )
+            ),
+            const SizedBox(height: 15),
           ],
         ),
       ),
