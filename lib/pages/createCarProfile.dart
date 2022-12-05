@@ -72,7 +72,16 @@ class StateCreateCarProfile extends State<CreateCarProfile> {
                 const SizedBox(
                   height: 20,
                 ),
-                EnterCarInfo(hintText: "Make", controller: carMakeController),
+                Column(children: [
+                  EnterCarInfo(hintText: "Make", controller: carMakeController),
+                  ElevatedButton.icon(
+                      onPressed: () {},
+                      icon: Icon(Icons.arrow_circle_down),
+                      label: const Text(
+                        "",
+                        style: TextStyle(fontSize: 20),
+                      ))
+                ]),
                 EnterCarInfo(hintText: "Model", controller: carModelController),
                 EnterCarInfo(
                     hintText: "Model Year", controller: carModelYearController),

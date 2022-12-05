@@ -1,9 +1,14 @@
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:motore/pages/Dashboard.dart';
 import 'package:motore/services/auth.dart';
 import 'package:motore/pages/createCarProfile.dart';
 import '../components/basicPage.dart';
+import 'package:http/http.dart' as http;
+
+List<dynamic> carsA = [];
 
 const List<String> listOfCarNames = <String>[
   ' Car One',
@@ -154,6 +159,7 @@ class StateProfile extends State<Profile> {
             children: <Widget>[
               ElevatedButton.icon(
                 onPressed: () async {
+                  fetchCarYear;
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -195,6 +201,22 @@ class StateProfile extends State<Profile> {
         ],
       ),
     );
+  }
+
+  void fetchCarYear() async {
+    print("fetchCar called");
+    const url = 'https://car-api2.p.rapidapi.com/api/years';
+    final uri = Uri.parse(url);
+    final response = await http.get(uri, headers: {
+      'X-RapidAPI-Key': 'e6ebfb9ba0mshc75a7335d6856fcp170770jsn8630a0da6b73',
+      'X-RapidAPI-Host': 'car-api2.p.rapidapi.com'
+    });
+    final body = response.body;
+    final json = jsonDecode(body);
+    setState(() {
+      carsA = json;
+    });
+    print('fetchCars complete');
   }
 }
 

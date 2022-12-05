@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:motore/navbar.dart';
 import 'package:motore/pages/CarInfo.dart';
 import 'package:motore/services/auth.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
@@ -28,8 +29,8 @@ class MyApp extends StatelessWidget {
           splashIconSize: 400,
           // backgroundColor: Colors.black,
           splashTransition: SplashTransition.fadeTransition,
-          nextScreen: AuthService().handleAuthState()),
-      // nextScreen: CarInfo()),
+          // nextScreen: AuthService().handleAuthState()),
+          nextScreen: Navigation()),
     );
   }
 }
