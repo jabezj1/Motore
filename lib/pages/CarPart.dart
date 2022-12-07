@@ -52,19 +52,28 @@ class _HomePageState extends State<HomePage> {
           elevation: 0,
           flexibleSpace: Container(
             decoration: const BoxDecoration(
-              gradient: LinearGradient(colors: [
-                Color(0xFF15AAAFF),
-                Color(0xFFADF7F2),
-              ]),
-            ),
+                // color: Colors.red,
+                // gradient: LinearGradient(colors: [
+                //   Colors.red,
+                //   Color(0xff15aaaff),
+                // ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+                // gradient: LinearGradient(colors: [
+                //   Color(0xFF15AAAFF),
+                //   Color(0xFFADF7F2),
+                // ]),
+                ),
           ),
         ),
         body: Container(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.bottomLeft,
-                end: Alignment.bottomRight,
-                colors: [Color(0xFF15AAAFF), Color(0xFFADF7F2)]),
+            gradient: LinearGradient(colors: [
+              Colors.red,
+              Color(0xff15aaaff),
+            ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+            // gradient: LinearGradient(
+            //     begin: Alignment.bottomLeft,
+            //     end: Alignment.bottomRight,
+            //     colors: [Color(0xFF15AAAFF), Color(0xFFADF7F2)]),
           ),
           child: Column(
             children: [

@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -96,12 +95,18 @@ class StateProfile extends State<Profile> {
         ),
         centerTitle: true,
         elevation: 0,
+        // backgroundColor: Colors.amber,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [
-              Color(0xFF15AAAFF),
-              Color(0xFFADF7F2),
-            ]),
+            color: Colors.red,
+            // gradient: LinearGradient(colors: [
+            //   Colors.red,
+            //   // Color(0xff15aaaff),
+            // ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+            // gradient: LinearGradient(colors: [
+            //   Color(0xFF15AAAFF),
+            //   Color(0xFFADF7F2),
+            // ]),
           ),
         ),
       ),
@@ -113,10 +118,14 @@ class StateProfile extends State<Profile> {
               width: double.infinity,
               height: 150,
               decoration: BoxDecoration(
-                  gradient: const LinearGradient(colors: [
-                    Color(0xFF15AAAFF),
-                    Color(0xFFADF7F2),
-                  ]),
+                  gradient: LinearGradient(colors: [
+                    Colors.red,
+                    Color(0xff15aaaff),
+                  ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+                  // gradient: const LinearGradient(colors: [
+                  //   Color(0xFF15AAAFF),
+                  //   Color(0xFFADF7F2),
+                  // ]),
                   //color: Color.fromARGB(255, 150, 206, 232),
 
                   image: DecorationImage(
@@ -352,8 +361,10 @@ class _DropDownState extends State<DropDown> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      // color: Colors.green.shade100,
       decoration: BoxDecoration(
-        color: Colors.white,
+        // color: Colors.red,
+        // color: Colors.green.shade100,
         border: Border.all(color: Colors.black38, width: 3),
         borderRadius: BorderRadius.circular(30),
       ),
