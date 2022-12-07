@@ -46,6 +46,7 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           title: const Text(
             'Car Parts',
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
           elevation: 0,
