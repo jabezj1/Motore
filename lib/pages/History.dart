@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:motore/pages/InspectPastMaintenance.dart';
 import 'package:motore/pages/createHistoryEntry.dart';
 
@@ -7,72 +8,97 @@ class History extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        automaticallyImplyLeading: false,
-        title: const Text(
-          'History',
-          style: TextStyle(
-              fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
-        ),
-        centerTitle: true,
-        elevation: 0,
-        flexibleSpace: Container(
-            // decoration: const BoxDecoration(
-            //   gradient: LinearGradient(colors: [
-            //     Color(0xff15aaaff),
-            //     Color(0xFFADF7F2),
-            //   ]),
-            // ),
-            ),
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(colors: [
+          Colors.red,
+          Color(0xff15aaaff),
+        ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
       ),
-      backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 25),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 200,
-                      height: 120,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        image: DecorationImage(
-                          image: AssetImage("lib/icons/car.png"),
-                          fit: BoxFit.scaleDown,
-                        ),
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          automaticallyImplyLeading: false,
+          title: const Text(
+            'History',
+            style: TextStyle(
+                fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+          centerTitle: true,
+          elevation: 0,
+          flexibleSpace: Container(
+              // decoration: const BoxDecoration(
+              //   gradient: LinearGradient(colors: [
+              //     Color(0xff15aaaff),
+              //     Color(0xFFADF7F2),
+              //   ]),
+              // ),
+              ),
+        ),
+        backgroundColor: Colors.transparent,
+        body: Center(
+          child: SingleChildScrollView(
+            child: Container(
+              // alignment: Alignment.bottomCenter,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 25),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Container(
+                          //   width: 200,
+                          //   height: 120,
+                          //   decoration: const BoxDecoration(
+                          //     gradient: LinearGradient(
+                          //         colors: [
+                          //           Colors.red,
+                          //           Color(0xff15aaaff),
+                          //         ],
+                          //         begin: Alignment.topCenter,
+                          //         end: Alignment.bottomCenter),
+                          //     color: Colors.white,
+                          //     image: DecorationImage(
+                          //       image: AssetImage("lib/icons/car.png"),
+                          //       fit: BoxFit.scaleDown,
+                          //     ),
+                          //   ),
+                          // ),
+                        ],
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                    ],
+                  ),
+                  // SizedBox(
+                  //   height: 160,
+                  // ),
 
-            // TODO: use stateful values
-            const HistoryWidget(
-                imageLink: "lib/icons/expense.png",
-                contTitle: "Monthly Expenses",
-                descText: "This month's expenses: \n",
-                value: "5000"),
-            const HistoryWidget(
-                imageLink: "lib/icons/oil_two.png",
-                contTitle: "Gas Expenses",
-                descText: "Last fuelup cost: \n",
-                value: "50"),
-            const HistoryWidget(
-                imageLink: "lib/icons/past.png",
-                contTitle: "Maintenance History",
-                descText: "Date of last maintenance: \n",
-                value: "01/01/01")
-          ],
+                  // TODO: use stateful values
+                  const HistoryWidget(
+                      imageLink: "lib/icons/expense.png",
+                      contTitle: "Monthly Expenses",
+                      descText: "This month's expenses: \n",
+                      value: "5000"),
+                  const HistoryWidget(
+                      imageLink: "lib/icons/oil_two.png",
+                      contTitle: "Gas Expenses",
+                      descText: "Last fuelup cost: \n",
+                      value: "50"),
+                  const HistoryWidget(
+                      imageLink: "lib/icons/past.png",
+                      contTitle: "Maintenance History",
+                      descText: "Date of last maintenance: \n",
+                      value: "01/01/01"),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );
@@ -109,26 +135,29 @@ class HistoryWidget extends StatelessWidget {
           child: Stack(
             children: [
               Container(
+                alignment: Alignment.center,
                 width: MediaQuery.of(context).size.width,
                 height: 111,
+                // color: Colors.white.withOpacity(0.5),
                 decoration: BoxDecoration(
-                  gradient: const LinearGradient(colors: [
-                    Color(0xff15aaaff),
-                    Color(0xFFADF7F2),
-                  ]),
+                  color: Colors.white.withOpacity(0.5),
+                  //   gradient: const LinearGradient(colors: [
+                  //     Color(0xff15aaaff),
+                  //     Color(0xFFADF7F2),
+                  //   ]),
                   borderRadius: BorderRadius.circular(20),
-                  boxShadow: const [
-                    BoxShadow(
-                      blurRadius: 30,
-                      offset: Offset(8, 10),
-                      color: Color.fromARGB(255, 133, 178, 214),
-                    ),
-                  ],
+                  //   boxShadow: const [
+                  //     BoxShadow(
+                  //       blurRadius: 30,
+                  //       offset: Offset(8, 10),
+                  //       color: Color.fromARGB(255, 133, 178, 214),
+                  //     ),
+                  //   ],
                 ),
               ),
               Container(
-                height: 200,
-                width: 350,
+                // height: 400,
+                // width: 350,
                 margin: const EdgeInsets.only(
                   right: 220,
                   bottom: 20,
