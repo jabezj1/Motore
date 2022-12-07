@@ -52,10 +52,15 @@ class _DashboardState extends State<Dashboard> {
     });
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
-        title: const Text('Dashboard'),
+        title: Text('Dashboard',
+            style: GoogleFonts.roboto(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            )),
         centerTitle: true,
         elevation: 0,
         flexibleSpace: Container(
@@ -78,11 +83,15 @@ class _DashboardState extends State<Dashboard> {
               child: Column(
             children: [
               const SizedBox(height: 25),
-              Text("Hello, $username",
-                  style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold)),
+              Text(
+                "Hello, $username",
+                style: GoogleFonts.josefinSans(
+                    fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+              // style: const TextStyle(
+              //     color: Colors.black,
+              //     fontSize: 30,
+              //     fontWeight: FontWeight.bold)),
               // Row(
               // 	children: [
               // 		const Padding(

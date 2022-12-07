@@ -22,48 +22,53 @@ class _NavigationState extends State<Navigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Container(
-        color: Colors.black,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-          child: GNav(
-            backgroundColor: Colors.black,
-            color: Colors.white,
-            activeColor: Colors.black,
-            tabBackgroundColor: Colors.lightBlue,
-            padding: EdgeInsets.all(16),
-            gap: 8,
-            onTabChange: (selctedIndex) {
-              setState(() {
-                index = selctedIndex;
-              });
-            },
-            // EdgeInsets.symmetric(
-            //     horizontal: 10, vertical: 15),
-            tabs: const [
-              GButton(
-                icon: Icons.dashboard_customize_outlined,
-                text: 'Dashboard',
+      bottomNavigationBar: Wrap(
+        children: [
+          Container(
+            // height: MediaQuery.of(context).size.height * 0.1,
+            color: Colors.black,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+              child: GNav(
+                backgroundColor: Colors.black,
+                color: Colors.white,
+                activeColor: Colors.black,
+                tabBackgroundColor: Colors.lightBlue,
+                padding: EdgeInsets.all(16),
+                gap: 8,
+                onTabChange: (selctedIndex) {
+                  setState(() {
+                    index = selctedIndex;
+                  });
+                },
+                // EdgeInsets.symmetric(
+                //     horizontal: 10, vertical: 15),
+                tabs: const [
+                  GButton(
+                    icon: Icons.dashboard_customize_outlined,
+                    text: 'Dashboard',
+                  ),
+                  GButton(
+                    icon: Icons.directions_car,
+                    text: 'Car Parts',
+                  ),
+                  GButton(
+                    icon: Icons.share_location_rounded,
+                    text: 'Fuel',
+                  ),
+                  GButton(
+                    icon: Icons.history_outlined,
+                    text: 'History',
+                  ),
+                  GButton(
+                    icon: Icons.person,
+                    text: 'Profile',
+                  ),
+                ],
               ),
-              GButton(
-                icon: Icons.directions_car,
-                text: 'Car Parts',
-              ),
-              GButton(
-                icon: Icons.share_location_rounded,
-                text: 'Fuel',
-              ),
-              GButton(
-                icon: Icons.history_outlined,
-                text: 'History',
-              ),
-              GButton(
-                icon: Icons.person,
-                text: 'Profile',
-              ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
       body: Container(
           color: Colors.white,

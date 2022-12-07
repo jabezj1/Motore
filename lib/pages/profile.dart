@@ -92,6 +92,7 @@ class StateProfile extends State<Profile> {
         automaticallyImplyLeading: false,
         title: const Text(
           'Profile',
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         elevation: 0,
@@ -266,9 +267,10 @@ class StateProfile extends State<Profile> {
                       backgroundColor: Colors.red,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50.0))),
-                )
+                ),
               ],
-            )
+            ),
+            const SizedBox(height: 15),
           ],
         ),
       ),
