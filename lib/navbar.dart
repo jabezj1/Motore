@@ -36,7 +36,7 @@ class _NavigationState extends State<Navigation> {
                 activeColor: Colors.black,
                 tabBackgroundColor: Colors.lightBlue,
                 padding: EdgeInsets.all(16),
-                gap: 8,
+                gap: 5,
                 onTabChange: (selctedIndex) {
                   setState(() {
                     index = selctedIndex;
@@ -47,11 +47,11 @@ class _NavigationState extends State<Navigation> {
                 tabs: const [
                   GButton(
                     icon: Icons.dashboard_customize_outlined,
-                    text: 'Dashboard',
+                    text: 'Dash',
                   ),
                   GButton(
                     icon: Icons.directions_car,
-                    text: 'Car Parts',
+                    text: 'Parts',
                   ),
                   GButton(
                     icon: Icons.share_location_rounded,
@@ -63,7 +63,7 @@ class _NavigationState extends State<Navigation> {
                   ),
                   GButton(
                     icon: Icons.person,
-                    text: 'Profile',
+                    text: 'Bio',
                   ),
                 ],
               ),
