@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: '/',
       // routes: {
       //   '/': (context) => HistorySecond(),
@@ -29,8 +30,8 @@ class MyApp extends StatelessWidget {
           splashIconSize: 400,
           // backgroundColor: Colors.black,
           splashTransition: SplashTransition.fadeTransition,
-          // nextScreen: AuthService().handleAuthState()),
-          nextScreen: Navigation()),
+          nextScreen: AuthService().handleAuthState()),
+      // nextScreen: Navigation()),
     );
   }
 }

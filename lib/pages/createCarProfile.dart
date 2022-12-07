@@ -3,7 +3,13 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:motore/pages/CarInfo.dart';
+import 'package:motore/pages/carMakes.dart';
+import 'package:motore/pages/carModel.dart';
+import 'package:motore/pages/carModelTrim.dart';
 import 'package:motore/pages/profile.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert' as convert;
 
 late String curr_car;
 
@@ -22,6 +28,12 @@ class StateCreateCarProfile extends State<CreateCarProfile> {
   TextEditingController carTrimController = TextEditingController();
   TextEditingController carMileageController = TextEditingController();
   TextEditingController carNicknameController = TextEditingController();
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   carModelYearController = new TextEditingController(text: newYear);
+  // }
 
   //todo consolidate query to cars
   CollectionReference users = FirebaseFirestore.instance.collection("users");
@@ -72,26 +84,36 @@ class StateCreateCarProfile extends State<CreateCarProfile> {
                 const SizedBox(
                   height: 20,
                 ),
-                Column(children: [
-                  EnterCarInfo(hintText: "Make", controller: carMakeController),
-                  ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: Icon(Icons.arrow_circle_down),
-                      label: const Text(
-                        "",
-                        style: TextStyle(fontSize: 20),
-                      ))
-                ]),
-                EnterCarInfo(hintText: "Model", controller: carModelController),
                 EnterCarInfo(
-                    hintText: "Model Year", controller: carModelYearController),
+                    hintText: "Year",
+                    controller: theYear,
+                    page: CarInfo(),
+                    icon: Icon(Icons.arrow_circle_right_outlined)),
                 EnterCarInfo(
-                    hintText: "Model Trim", controller: carTrimController),
+                    hintText: "Make",
+                    controller: theMake,
+                    page: CarMakes(),
+                    icon: Icon(Icons.arrow_circle_right_outlined)),
                 EnterCarInfo(
-                    hintText: "Mileage", controller: carMileageController),
+                    hintText: "Model",
+                    controller: theModel,
+                    page: CarModel(),
+                    icon: Icon(Icons.arrow_circle_right_outlined)),
+                EnterCarInfo(
+                    hintText: "Model Trim",
+                    controller: theModelTrim,
+                    page: CarModelTrim(),
+                    icon: Icon(Icons.arrow_circle_right_outlined)),
+                EnterCarInfo(
+                    hintText: "Mileage",
+                    controller: carMileageController,
+                    page: null,
+                    icon: Icon(null)),
                 EnterCarInfo(
                     hintText: "Car Nickname",
-                    controller: carNicknameController),
+                    controller: carNicknameController,
+                    page: null,
+                    icon: Icon(null)),
                 const SizedBox(
                   height: 30,
                 ),
@@ -110,6 +132,10 @@ class StateCreateCarProfile extends State<CreateCarProfile> {
                             style:
                                 TextStyle(fontSize: 20, color: Colors.black)),
                         onPressed: () {
+                          carModelYearController = theYear;
+                          carMakeController = theMake;
+                          carModelController = theModel;
+                          carTrimController = theModelTrim;
                           print({
                             "title": carMakeController.text,
                             "date": carModelController.text,
@@ -160,11 +186,20 @@ class StateCreateCarProfile extends State<CreateCarProfile> {
 }
 
 class EnterCarInfo extends StatelessWidget {
+  // final String inital;
   final String hintText;
   final TextEditingController controller;
 
-  const EnterCarInfo(
-      {super.key, required this.hintText, required this.controller});
+  final dynamic page;
+  final dynamic icon;
+
+  const EnterCarInfo({
+    super.key,
+    required this.hintText,
+    required this.controller,
+    required this.page,
+    required this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -173,8 +208,14 @@ class EnterCarInfo extends StatelessWidget {
       child: TextField(
         obscureText: false,
         controller: controller,
-        maxLines: null,
         decoration: InputDecoration(
+          suffixIcon: IconButton(
+            icon: icon,
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => page));
+            },
+          ),
           filled: true,
           fillColor: Colors.white,
           border: OutlineInputBorder(

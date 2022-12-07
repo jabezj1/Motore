@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:motore/pages/ReminderItem.dart';
@@ -11,8 +14,11 @@ class ReminderItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         child: Card(
+            elevation: 20,
+            color: Colors.white.withOpacity(0.5),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+            // side: BorderSide(color: Colors.blue, width: 5)),
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(
@@ -20,13 +26,16 @@ class ReminderItemCard extends StatelessWidget {
                   Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 10.0),
-                        child: Text(
-                          _reminder.title.toString(),
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
+                        padding: const EdgeInsets.only(top: 10, left: 20),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width / 1.5,
+                          child: AutoSizeText(
+                            _reminder.title.toString().toUpperCase(),
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       )
@@ -34,27 +43,44 @@ class ReminderItemCard extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Text("Days left:"),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: Text("Days left:"),
+                      ),
                       Spacer(),
                       Padding(
                         padding: const EdgeInsets.all(10),
                         child: Container(
                             decoration: BoxDecoration(
-                                color: Colors.blue,
+                                // color: Colors.blue,
                                 border: Border.all(
                                   color: Colors.red.shade400,
-                                  width: 3,
+                                  width: 2,
                                 ),
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
+                                    BorderRadius.all(Radius.circular(5))),
+                            padding: EdgeInsets.symmetric(horizontal: 10),
                             child: Text(
                               _reminder.days.toString(),
                               style: const TextStyle(
-                                color: Colors.white,
+                                color: Colors.black,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
                             )),
+                      ),
+                      IconButton(
+                        onPressed: () async {},
+                        icon: const Icon(
+                          Icons.delete,
+                          color: Colors.red,
+                        ),
+                        // style: ElevatedButton.styleFrom(
+                        //     padding: const EdgeInsets.symmetric(
+                        //         horizontal: 10.0, vertical: 3.0),
+                        //     backgroundColor: Colors.red,
+                        //     shape: RoundedRectangleBorder(
+                        //         borderRadius: BorderRadius.circular(50.0))),
                       ),
                     ],
                   )

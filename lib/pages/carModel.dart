@@ -1,53 +1,81 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:http/http.dart' as http;
+import 'package:motore/pages/CarInfo.dart';
 import 'dart:convert' as convert;
+
 import 'package:motore/pages/createCarProfile.dart';
 import 'package:motore/pages/profile.dart';
 
-List<dynamic> carsYear = cars;
-String apiYear = '';
-TextEditingController theYear = TextEditingController();
+import 'carMakes.dart';
 
-class CarInfo extends StatefulWidget {
-  const CarInfo({super.key});
+List<dynamic> carModel = model;
+TextEditingController theModel = TextEditingController();
+String apiModel = '';
+List<dynamic> modelTrim = [];
+
+class CarModel extends StatefulWidget {
+  const CarModel({super.key});
 
   @override
-  State<CarInfo> createState() => _CarInfoState();
+  State<CarModel> createState() => _CarModelState();
 }
 
-class _CarInfoState extends State<CarInfo> {
+class _CarModelState extends State<CarModel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Years"),
+        title: const Text("Models"),
       ),
       body: ListView.builder(
-          itemCount: cars.length,
+          itemCount: model.length,
           itemBuilder: (context, index) {
-            final year = cars[index];
+            final year = model[index]["name"];
             // final name = cars[index]["name"];
             return ListTile(
               leading: ClipRRect(
                 borderRadius: BorderRadius.circular(100),
                 // child: Image.network(show)),
               ),
-              title: Text(year.toString()),
+              title: Text(year),
               //
               onTap: () {
-                theYear.text = year.toString();
-                apiYear = year.toString();
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (context) => CreateCarProfile(title: "a")));
+                theModel.text = year.toString();
+                fetchCarTrim();
+                // fetchCarModel();
               },
             );
           }),
-      // floatingActionButton: FloatingActionButton(onPressed: fetchCarMake),
     );
+  }
+
+  void fetchCarTrim() async {
+    print("fetchCar called");
+    print(theMake);
+    String newMake = apiMake.replaceAll(" ", "%20");
+    String newModel = apiModel.replaceAll(" ", "%20");
+    String newYear = apiYear.replaceAll(" ", "%20");
+    print(newMake);
+
+    final url =
+        'https://car-api2.p.rapidapi.com/api/trims?year=$newYear&make=$newMake&model=$newModel';
+    final uri = Uri.parse(url);
+    final response = await http.get(uri, headers: {
+      'X-RapidAPI-Key': 'e6ebfb9ba0mshc75a7335d6856fcp170770jsn8630a0da6b73',
+      'X-RapidAPI-Host': 'car-api2.p.rapidapi.com'
+    });
+    final body = response.body;
+    final json = jsonDecode(body);
+
+    modelTrim = json['data'];
+
+    print('fetchCars complete');
+    print(model);
   }
 
   // void fetchCarMake() async {

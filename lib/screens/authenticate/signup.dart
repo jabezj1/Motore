@@ -1,5 +1,8 @@
+import 'dart:ffi';
 import 'package:flutter/material.dart';
-import 'package:motore/screens/authenticate/login.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../../services/auth.dart';
+import 'login.dart';
 
 class Signup extends StatefulWidget {
   final toggleView;
@@ -13,6 +16,8 @@ class _SignupState extends State<Signup> {
   // final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
 
+  bool loading = false;
+
   String email = '';
   String password = '';
   String error = '';
@@ -22,17 +27,37 @@ class _SignupState extends State<Signup> {
     return Scaffold(
       //appBar: AppBar(elevation: 0),
       resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
 
       body: Container(
-          margin: const EdgeInsets.all(24),
+          margin: const EdgeInsets.symmetric(
+            horizontal: 30,
+            vertical: 10,
+          ),
           child: Form(
               key: _formKey,
               child: Column(
                 children: [
+                  SizedBox(
+                    height: 48,
+                  ),
                   _header(context),
+                  SizedBox(
+                    height: 5,
+                  ),
                   _inputFields(context),
+                  _signup_button(context),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Divider(
+                    thickness: 1,
+                    color: Colors.black,
+                    indent: 30,
+                    endIndent: 30,
+                  ),
                   _googleAOth(context),
-                  _appleAOth(context),
+                  // _appleAOth(context),
                   _loginInfo(context),
                 ],
               ))
@@ -44,10 +69,15 @@ class _SignupState extends State<Signup> {
 
   _header(context) {
     return Column(
-      children: const [
+      children: [
         Text(
           "Sign Up",
-          style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+          style: GoogleFonts.arsenal(
+            textStyle: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Schyler'),
+          ),
         ),
         //Text("Enter details to get started"),
       ],
@@ -60,10 +90,37 @@ class _SignupState extends State<Signup> {
       children: [
         TextFormField(
           decoration: InputDecoration(
-            hintText: "Username",
+            hintText: "Enter Username",
+            hintStyle: GoogleFonts.arsenal(
+              color: Colors.grey[350],
+            ),
+            labelStyle: const TextStyle(
+              color: Colors.black,
+            ),
             fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
+            // fillColor: Colors.grey,
+            focusedBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.black, width: 2.0),
+              borderRadius: BorderRadius.circular(25.0),
+            ),
             filled: true,
-            prefixIcon: const Icon(Icons.person),
+            floatingLabelStyle:
+                MaterialStateTextStyle.resolveWith((Set<MaterialState> states) {
+              final Color color = states.contains(MaterialState.error)
+                  ? Theme.of(context).errorColor
+                  : Colors.black26;
+              return TextStyle(color: color, letterSpacing: 1.3);
+            }),
+
+            prefixIcon: Align(
+                widthFactor: 1.5,
+                heightFactor: 1.5,
+                child: ImageIcon(
+                  AssetImage('lib/icons/user.png'),
+                  size: 35,
+                  // color: Colors.black,
+                )),
+            labelText: 'Username',
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(18),
                 borderSide: BorderSide.none),
@@ -80,10 +137,35 @@ class _SignupState extends State<Signup> {
         ),
         TextFormField(
             decoration: InputDecoration(
-              hintText: "Email Address",
+              hintText: "Enter your Email Address",
+              hintStyle: GoogleFonts.arsenal(
+                color: Colors.grey[350],
+              ),
+              labelStyle: const TextStyle(
+                color: Colors.black,
+              ),
               fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
+              focusedBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.black, width: 2.0),
+                borderRadius: BorderRadius.circular(25.0),
+              ),
               filled: true,
-              prefixIcon: const Icon(Icons.email_outlined),
+              floatingLabelStyle: MaterialStateTextStyle.resolveWith(
+                  (Set<MaterialState> states) {
+                final Color color = states.contains(MaterialState.error)
+                    ? Theme.of(context).errorColor
+                    : Colors.black26;
+                return TextStyle(color: color, letterSpacing: 1.3);
+              }),
+              prefixIcon: Align(
+                  widthFactor: 1.5,
+                  heightFactor: 1.5,
+                  child: ImageIcon(
+                    AssetImage('lib/icons/email.png'),
+                    size: 35,
+                    // color: Colors.black,
+                  )),
+              labelText: 'Email',
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(18),
                   borderSide: BorderSide.none),
@@ -102,10 +184,34 @@ class _SignupState extends State<Signup> {
         ),
         TextFormField(
             decoration: InputDecoration(
-              hintText: "Password",
+              hintText: "Enter Password",
+              hintStyle: TextStyle(color: Colors.grey[350]),
+              labelStyle: const TextStyle(
+                color: Colors.black,
+              ),
               fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
+              focusedBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.black, width: 2.0),
+                borderRadius: BorderRadius.circular(25.0),
+              ),
               filled: true,
-              prefixIcon: const Icon(Icons.password_outlined),
+              floatingLabelStyle: MaterialStateTextStyle.resolveWith(
+                  (Set<MaterialState> states) {
+                final Color color = states.contains(MaterialState.error)
+                    ? Theme.of(context).errorColor
+                    : Colors.black26;
+                return TextStyle(color: color, letterSpacing: 1.3);
+              }),
+              prefixIcon: Align(
+                widthFactor: 1.5,
+                heightFactor: 1.5,
+                child: ImageIcon(
+                  AssetImage('lib/icons/unlock.png'),
+                  size: 35,
+                  // color: Colors.black,
+                ),
+              ),
+              labelText: 'Password',
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(18),
                   borderSide: BorderSide.none),
@@ -125,39 +231,60 @@ class _SignupState extends State<Signup> {
         ),
         TextField(
           decoration: InputDecoration(
-            hintText: "Retype Password",
+            hintText: "Enter Password",
+            hintStyle: TextStyle(color: Colors.grey[350]),
+            labelStyle: const TextStyle(
+              color: Colors.black,
+            ),
             fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
+            focusedBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.black, width: 2.0),
+              borderRadius: BorderRadius.circular(25.0),
+            ),
             filled: true,
-            prefixIcon: const Icon(Icons.password_outlined),
+            floatingLabelStyle:
+                MaterialStateTextStyle.resolveWith((Set<MaterialState> states) {
+              final Color color = states.contains(MaterialState.error)
+                  ? Theme.of(context).errorColor
+                  : Colors.black26;
+              return TextStyle(color: color, letterSpacing: 1.3);
+            }),
+            prefixIcon: Align(
+              widthFactor: 1.5,
+              heightFactor: 1.5,
+              child: ImageIcon(
+                AssetImage('lib/icons/unlock.png'),
+                size: 35,
+                // color: Colors.black,
+              ),
+            ),
+            labelText: 'Retype Password',
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(18),
                 borderSide: BorderSide.none),
           ),
           obscureText: true,
         ),
-        const SizedBox(
-          height: 10,
-        ),
-        ElevatedButton(
-          onPressed: () async {
-            // if (_formKey.currentState!.validate()) {
-            //   dynamic result =
-            //       await _auth.signUpWithEmailAndPassword(email, password);
-            //   if (result == null) {
-            //     setState(() => error = 'Please Provide a Valid Email');
-            //   }
-            // }
-          },
-          child: const Text(
-            "Create Account",
-            style: TextStyle(fontSize: 20),
-          ),
-          style: ElevatedButton.styleFrom(
-            shape: const StadiumBorder(),
-            padding: const EdgeInsets.symmetric(vertical: 16),
-          ),
-        ),
-        const SizedBox(height: 12.0),
+        // ElevatedButton(
+        // onPressed: () async {
+        // if (_formKey.currentState!.validate()) {
+        //   dynamic result =
+        //       await _auth.signUpWithEmailAndPassword(email, password);
+        //   if (result == null) {
+        //     setState(() => error = 'Please Provide a Valid Email');
+        //   }
+        // }
+        // },
+        //   child: const Text(
+        //     "Create Account",
+        //     style: TextStyle(fontSize: 20),
+        //   ),
+        //   style: ElevatedButton.styleFrom(
+        //     shape: const StadiumBorder(),
+        //     padding: const EdgeInsets.symmetric(vertical: 16),
+        //   ),
+        // ),
+        const SizedBox(height: 5.0),
         Text(
           error,
           style: const TextStyle(color: Colors.red, fontSize: 14.0),
@@ -166,50 +293,90 @@ class _SignupState extends State<Signup> {
     );
   }
 
-  _googleAOth(context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        GestureDetector(
-            onTap: () {
-              print('Google Pressed');
-            },
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 0.05),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Container(
-                      margin: const EdgeInsets.all(3),
-                      height: 45.0,
-                      width: 140,
+  _signup_button(context) {
+    return Column(
+      children: [
+        loading
+            ? Row(children: [
+                CircularProgressIndicator(),
+                SizedBox(
+                  width: 24,
+                ),
+                Text('Please wait...'),
+              ])
+            : Container(
+                child: ElevatedButton(
+                    onPressed: () async {
+                      setState(() {
+                        loading = true;
+                      });
+                      await Future.delayed(Duration(seconds: 4));
+                      if (_formKey.currentState!.validate()) {
+                        dynamic result = await AuthService()
+                            .signUpWithEmailAndPassword(email, password);
+                        if (result == null) {
+                          setState(
+                              () => error = 'Please Provide a Valid Email');
+                        }
+                      }
+                      setState(() {
+                        loading = false;
+                      });
+                    },
+                    style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40),
+                        )),
+                    child: Ink(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        shape: BoxShape.rectangle,
-                        color: Colors.white,
-                        boxShadow: const [
-                          BoxShadow(
-                              color: Colors.black26,
-                              offset: Offset(0, 2),
-                              blurRadius: 6.0),
-                        ],
-                        image: const DecorationImage(
-                            image: AssetImage('lib/icons/google.png'),
-                            alignment: Alignment.centerLeft),
-                      ),
-                      child: const Align(
-                        alignment: Alignment.centerRight,
+                          gradient:
+                              LinearGradient(colors: [Colors.red, Colors.blue]),
+                          borderRadius: BorderRadius.circular(40)),
+                      child: Container(
+                        width: 200,
+                        height: 50,
+                        alignment: Alignment.center,
                         child: Text(
-                          "Sign in with Google",
-                          style: TextStyle(
-                              fontSize: 10, fontWeight: FontWeight.bold),
+                          "Sign Up",
+                          style: TextStyle(fontSize: 20),
                         ),
-                      )),
-                ],
+                      ),
+                    )),
               ),
-            )),
+        // SizedBox(
+        //   height: 10,
+        // ),
+        // Text(
+        //   error,
+        //   //style: TextStyle(color: Colors.red, fontSize: 14.0),
+        // )
       ],
     );
+  }
+
+  _googleAOth(context) {
+    return Container(
+        alignment: Alignment.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              radius: 30,
+              backgroundColor: Colors.transparent,
+              child: GestureDetector(
+                onTap: () async {
+                  AuthService().signInWithGoogle();
+                },
+                child: Image.asset(
+                  'lib/icons/google.png',
+                  // fit: BoxFit.fitWidth,
+                  // alignment: Alignment.center,
+                ),
+              ),
+            ),
+          ],
+        ));
   }
 
   // return ElevatedButton(
@@ -309,24 +476,27 @@ class _SignupState extends State<Signup> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        const Text("Already have an account?"),
+        Text(
+          "Already have an account?",
+          style: GoogleFonts.poppins(fontSize: 15),
+        ),
         TextButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Login()),
-              );
+              widget.toggleView();
             },
-            child: const Text("Login")),
-        Container(
-            alignment: Alignment.bottomCenter,
-            child: const SizedBox(
-              width: 200.0,
-              height: 200.0,
-              // child: Image.asset(
-              //   'assets/images/Motore_logo.png',
-              // )
+            child: Text(
+              "Login",
+              style: GoogleFonts.poppins(
+                fontSize: 15,
+              ),
             )),
+        Image.asset(
+          'lib/icons/BreakCheck_logo.png',
+          height: 150,
+          width: 200,
+          // fit: BoxFit.fitWidth,
+          // alignment: Alignment.center,
+        )
       ],
     );
   }
