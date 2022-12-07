@@ -8,22 +8,25 @@ class History extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // extendBodyBehindAppBar: true,
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
         title: const Text(
           'History',
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          style: TextStyle(
+              fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
         ),
         centerTitle: true,
         elevation: 0,
         flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [
-              Color(0xff15aaaff),
-              Color(0xFFADF7F2),
-            ]),
-          ),
-        ),
+            // decoration: const BoxDecoration(
+            //   gradient: LinearGradient(colors: [
+            //     Color(0xff15aaaff),
+            //     Color(0xFFADF7F2),
+            //   ]),
+            // ),
+            ),
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
