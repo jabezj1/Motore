@@ -11,6 +11,8 @@ import 'package:motore/pages/profile.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
+import '../navbar.dart';
+
 late String curr_car;
 
 class CreateCarProfile extends StatefulWidget {
@@ -148,35 +150,36 @@ class StateCreateCarProfile extends State<CreateCarProfile> {
                           users
                               .doc(FirebaseAuth.instance.currentUser?.email)
                               .collection("cars")
-                              .add({
-                                "make": carMakeController.text,
-                                "model": carModelController.text,
-                                "year": carModelYearController.text,
-                                "trim": carTrimController.text,
-                                "miles": carMileageController.text,
-                                "nickname": carNicknameController.text
-                              })
+                              .doc(carNicknameController.text)
+                              .set({
+                            "make": carMakeController.text,
+                            "model": carModelController.text,
+                            "year": carModelYearController.text,
+                            "trim": carTrimController.text,
+                            "miles": carMileageController.text,
+                            "nickname": carNicknameController.text
+                          })
                               //todo fix fields
-                              .then((value) => {
-                                    curr_car = value.id
-                                    // users
-                                    //         .doc("iftekhar.f.19@gmail.com")
-                                    //         .collection("cars")
-                                    //         .doc(value.id)
-                                    //         .collection("history")
-                                    //         .add({
-                                    //       "Title": "",
-                                    //       "Date": DateTime.now(),
-                                    //       "Cost": "",
-                                    //       "Location": "",
-                                    //       "Notes": ""
-                                  })
+                              // .then((value) => {
+                              //       curr_car = value.id
+                              //       // users
+                              //       //         .doc("iftekhar.f.19@gmail.com")
+                              //       //         .collection("cars")
+                              //       //         .doc(value.id)
+                              //       //         .collection("history")
+                              //       //         .add({
+                              //       //       "Title": "",
+                              //       //       "Date": DateTime.now(),
+                              //       //       "Cost": "",
+                              //       //       "Location": "",
+                              //       //       "Notes": ""
+                              //     })
                               .catchError((e) => print(e));
 
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const Profile()));
+                                  builder: (context) => const Navigation()));
                         })),
               ]),
             ),

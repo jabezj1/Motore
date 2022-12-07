@@ -8,6 +8,9 @@ import 'package:motore/pages/History.dart';
 import 'package:motore/pages/PartTile.dart';
 import 'package:motore/pages/profile.dart';
 
+int index = 0;
+dynamic defPage = Dashboard();
+
 class Navigation extends StatefulWidget {
   const Navigation({Key? key}) : super(key: key);
 
@@ -16,7 +19,6 @@ class Navigation extends StatefulWidget {
 }
 
 class _NavigationState extends State<Navigation> {
-  int index = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,13 +88,13 @@ Widget getSelectedWidget({required int index}) {
       widget = Fuel();
       break;
     case 3:
-      widget = const History();
+      widget = History();
       break;
     case 4:
       widget = Profile();
       break;
     default:
-      widget = History();
+      widget = defPage;
       break;
   }
   return widget;

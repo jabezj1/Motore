@@ -1,10 +1,13 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:motore/pages/CarInfo.dart';
 import 'package:motore/pages/Dashboard.dart';
 import 'package:motore/pages/carModel.dart';
+import 'package:motore/pages/carSpec.dart';
+import 'package:motore/pages/carSpecCard.dart';
 import 'package:motore/services/auth.dart';
 import 'package:motore/pages/createCarProfile.dart';
 import '../components/basicPage.dart';
@@ -70,6 +73,14 @@ class StateProfile extends State<Profile> {
   String? username = FirebaseAuth.instance.currentUser?.displayName;
   String? emailAdd = FirebaseAuth.instance.currentUser?.email;
 
+  List<Object> _carSpeclist = [];
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    getCarSpesc();
+  }
+
   // String imgMake = apiMake.replaceAll(" ", "%20");
   // String imgModel = apiModel.replaceAll(" ", "%20");
   // String imgYear = apiYear.replaceAll(" ", "%20");
@@ -78,6 +89,7 @@ class StateProfile extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text(
           'Profile',
         ),
@@ -108,7 +120,7 @@ class StateProfile extends State<Profile> {
 
                   image: DecorationImage(
                     image: NetworkImage(
-                        "https://cdn-01.imagin.studio/getImage?customer=usmotore&make=$apiMake&modelFamily=$apiModel"),
+                        "https://cdn-01.imagin.studio/getImage?customer=usmotore&make=$selMake&modelFamily=$selModel"),
                     fit: BoxFit.cover,
                   ),
                   borderRadius: const BorderRadius.only(
@@ -129,36 +141,46 @@ class StateProfile extends State<Profile> {
             ),
             const SizedBox(height: 20),
             Container(
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: Colors.black38, width: 3),
-                  borderRadius: BorderRadius.circular(30),
-                  boxShadow: const <BoxShadow>[]),
-              padding: const EdgeInsets.only(left: 30, right: 30),
-              child: DropdownButton<String>(
-                value: drop,
-                icon: const Icon(Icons.arrow_drop_down_sharp),
-                elevation: 16,
-                style: const TextStyle(color: Colors.blue),
-                underline: Container(
-                  height: 1,
-                  width: 1,
-                  color: Colors.blueAccent,
-                ),
-                onChanged: (String? value) {
-                  // This is called when the user selects an item.
-                  setState(() {
-                    drop = value!;
-                  });
-                },
-                items: listOfCarNames
-                    .map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-              ),
+              child: ElevatedButton(
+                  child: Text(
+                    "Select a car",
+                  ),
+                  onPressed: (() async {
+                    showModalBottomSheet(
+                        backgroundColor: const Color.fromARGB(255, 35, 34, 34),
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(25.0),
+                          ),
+                        ),
+                        context: context,
+                        builder: (context) => Padding(
+                            padding: EdgeInsets.only(
+                                bottom:
+                                    MediaQuery.of(context).viewInsets.bottom),
+                            child: Container(
+                              margin: const EdgeInsets.all(20),
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: <Widget>[
+                                    SizedBox(
+                                      height:
+                                          MediaQuery.of(context).size.height /
+                                              2,
+                                      child: ListView.builder(
+                                        itemCount: _carSpeclist.length,
+                                        itemBuilder: (context, index) {
+                                          print(_carSpeclist);
+                                          return CarSpecCard(
+                                              _carSpeclist[index] as CarSpec);
+                                        },
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )));
+                  })),
             ),
             const SizedBox(height: 30),
             Row(
@@ -251,6 +273,21 @@ class StateProfile extends State<Profile> {
         ),
       ),
     );
+  }
+
+  Future getCarSpesc() async {
+    final userEmail = FirebaseAuth.instance.currentUser?.email;
+    var data = await FirebaseFirestore.instance
+        .collection("users")
+        .doc(userEmail) // replace with userEmail
+        .collection("cars")
+        .orderBy("nickname", descending: true)
+        .get();
+
+    setState(() {
+      _carSpeclist =
+          List.from(data.docs.map((doc) => CarSpec.fromSnapshot(doc)));
+    });
   }
 }
 
