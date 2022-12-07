@@ -1,47 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-
-import 'package:motore/navbar.dart';
-import 'package:motore/pages/CarInfo.dart';
-
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:motore/services/auth.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:motore/screens/introPage.dart';
+import 'package:provider/provider.dart';
+
+import 'services/geolocator_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final locatorService = GeoLocatorService();
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-
-      debugShowCheckedModeBanner: false,
-
-      theme: ThemeData(
-        fontFamily: GoogleFonts.roboto().fontFamily,
+    return FutureProvider(
+      create: (context) => locatorService.getLocation(),
+      initialData: null,
+      child: MaterialApp(
+        initialRoute: '/',
+        theme: ThemeData(
+            fontFamily: GoogleFonts.roboto().fontFamily,
+            primarySwatch: Colors.red,
+            inputDecorationTheme: const InputDecorationTheme(
+              labelStyle: TextStyle(color: Colors.redAccent),
+            )),
+        home: AnimatedSplashScreen(
+            splash: 'lib/icons/BC_logo.png',
+            duration: 3000,
+            splashIconSize: 400,
+            splashTransition: SplashTransition.fadeTransition,
+            nextScreen: AuthService().handleAuthState()),
       ),
-
-      initialRoute: '/',
-      // routes: {
-      //   '/': (context) => HistorySecond(),
-      // },
-      home: AnimatedSplashScreen(
-          // splash: 'lib/icons/BC_logo.png',
-          splash: 'lib/icons/BC_logo.png',
-          duration: 3000,
-          splashIconSize: 400,
-          // backgroundColor: Colors.black,
-          splashTransition: SplashTransition.fadeTransition,
-          nextScreen: AuthService().handleAuthState()),
-      // nextScreen: Navigation()),
     );
   }
 }

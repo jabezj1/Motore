@@ -7,6 +7,7 @@ import 'package:motore/pages/Fuel.dart';
 import 'package:motore/pages/History.dart';
 import 'package:motore/pages/PartTile.dart';
 import 'package:motore/pages/profile.dart';
+import 'package:motore/pages/search.dart';
 
 int index = 0;
 dynamic defPage = Dashboard();
@@ -54,7 +55,7 @@ class _NavigationState extends State<Navigation> {
                   ),
                   GButton(
                     icon: Icons.share_location_rounded,
-                    text: 'Fuel',
+                    text: 'Search',
                   ),
                   GButton(
                     icon: Icons.history_outlined,
@@ -90,7 +91,7 @@ Widget getSelectedWidget({required int index}) {
       widget = HomePage();
       break;
     case 2:
-      widget = Fuel();
+      widget = Search();
       break;
     case 3:
       widget = History();
