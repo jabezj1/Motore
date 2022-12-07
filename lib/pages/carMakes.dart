@@ -12,7 +12,7 @@ import 'package:motore/pages/profile.dart';
 
 List<dynamic> carMake = make;
 TextEditingController theMake = TextEditingController();
-String apiMake = '';
+String apiMake = ''.replaceAll(" ", "%20");
 List<dynamic> model = [];
 
 class CarMakes extends StatefulWidget {
@@ -44,6 +44,7 @@ class _CarMakesState extends State<CarMakes> {
               onTap: () {
                 theMake.text = year.toString();
                 apiMake = year.toString();
+                print(apiMake);
                 fetchCarModel();
               },
             );

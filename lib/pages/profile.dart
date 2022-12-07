@@ -70,9 +70,9 @@ class StateProfile extends State<Profile> {
   String? username = FirebaseAuth.instance.currentUser?.displayName;
   String? emailAdd = FirebaseAuth.instance.currentUser?.email;
 
-  final String imgMake = theMake.toString().replaceAll(" ", "%20");
-  final String imgModel = theModel.toString().replaceAll(" ", "%20");
-  final String imgyear = theYear.toString().replaceAll(" ", "%20");
+  // String imgMake = apiMake.replaceAll(" ", "%20");
+  // String imgModel = apiModel.replaceAll(" ", "%20");
+  // String imgYear = apiYear.replaceAll(" ", "%20");
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +98,7 @@ class StateProfile extends State<Profile> {
             Container(
               padding: const EdgeInsets.only(right: 100),
               width: double.infinity,
-              height: 165,
+              height: 150,
               decoration: BoxDecoration(
                   gradient: const LinearGradient(colors: [
                     Color(0xFF15AAAFF),
@@ -108,7 +108,7 @@ class StateProfile extends State<Profile> {
 
                   image: DecorationImage(
                     image: NetworkImage(
-                        "https://cdn-01.imagin.studio/getImage?customer=usmotore&year=$theYear&make=$theMake&modelFamily=$theModel"),
+                        "https://cdn-01.imagin.studio/getImage?customer=usmotore&make=$apiMake&modelFamily=$apiModel"),
                     fit: BoxFit.cover,
                   ),
                   borderRadius: const BorderRadius.only(
@@ -122,6 +122,10 @@ class StateProfile extends State<Profile> {
                       blurRadius: 6,
                     )
                   ]),
+              child: Text(
+                "*Some Cars May not appear.",
+                textAlign: TextAlign.end,
+              ),
             ),
             const SizedBox(height: 20),
             Container(

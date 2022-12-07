@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:motore/pages/ReminderItem.dart';
 import 'package:motore/pages/ReminderItemCard.dart';
+import 'package:motore/pages/carMakes.dart';
+import 'package:motore/pages/carModel.dart';
 import 'package:motore/pages/createCarProfile.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:motore/pages/MaintenanceItem.dart';
@@ -107,10 +109,10 @@ class _DashboardState extends State<Dashboard> {
                   Container(
                     height: MediaQuery.of(context).size.height / 6,
                     width: MediaQuery.of(context).size.width / 1.5,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                         image: DecorationImage(
-                      image: AssetImage(
-                          "lib/icons/car2.png"), // displays picture of selected car from Profile
+                      image: NetworkImage(
+                          "https://cdn-01.imagin.studio/getImage?customer=usmotore&make=$apiMake&modelFamily=$apiModel"), // displays picture of selected car from Profile
                     )),
                   ),
                   const SizedBox(height: 5),

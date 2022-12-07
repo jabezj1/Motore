@@ -15,7 +15,7 @@ import 'carMakes.dart';
 
 List<dynamic> carModel = model;
 TextEditingController theModel = TextEditingController();
-String apiModel = '';
+String apiModel = ''.replaceAll(" ", "%20");
 List<dynamic> modelTrim = [];
 
 class CarModel extends StatefulWidget {
@@ -46,6 +46,7 @@ class _CarModelState extends State<CarModel> {
               //
               onTap: () {
                 theModel.text = year.toString();
+                apiModel = year.toString();
                 fetchCarTrim();
                 // fetchCarModel();
               },
@@ -56,11 +57,14 @@ class _CarModelState extends State<CarModel> {
 
   void fetchCarTrim() async {
     print("fetchCar called");
-    print(theMake);
+    // print(theMake);
     String newMake = apiMake.replaceAll(" ", "%20");
     String newModel = apiModel.replaceAll(" ", "%20");
     String newYear = apiYear.replaceAll(" ", "%20");
-    print(newMake);
+
+    apiMake = newMake;
+    apiModel = newModel;
+    apiYear = newYear;
 
     final url =
         'https://car-api2.p.rapidapi.com/api/trims?year=$newYear&make=$newMake&model=$newModel';
@@ -75,7 +79,7 @@ class _CarModelState extends State<CarModel> {
     modelTrim = json['data'];
 
     print('fetchCars complete');
-    print(model);
+    print(modelTrim);
   }
 
   // void fetchCarMake() async {
