@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+
+import 'package:motore/navbar.dart';
+import 'package:motore/pages/CarInfo.dart';
+
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:motore/services/auth.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 
@@ -17,9 +22,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
+      debugShowCheckedModeBanner: false,
+
       theme: ThemeData(
         fontFamily: GoogleFonts.roboto().fontFamily,
       ),
+
       initialRoute: '/',
       // routes: {
       //   '/': (context) => HistorySecond(),
@@ -32,7 +41,7 @@ class MyApp extends StatelessWidget {
           // backgroundColor: Colors.black,
           splashTransition: SplashTransition.fadeTransition,
           nextScreen: AuthService().handleAuthState()),
-      // nextScreen: CarInfo()),
+      // nextScreen: Navigation()),
     );
   }
 }

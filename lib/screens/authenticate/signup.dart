@@ -481,9 +481,8 @@ class _SignupState extends State<Signup> {
           style: GoogleFonts.poppins(fontSize: 15),
         ),
         TextButton(
-            onPressed: () async {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Login()));
+            onPressed: () {
+              widget.toggleView();
             },
             child: Text(
               "Login",

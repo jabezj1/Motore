@@ -1,8 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:motore/pages/CarInfo.dart';
 import 'package:motore/pages/ReminderItem.dart';
 import 'package:motore/pages/ReminderItemCard.dart';
+import 'package:motore/pages/carMakes.dart';
+import 'package:motore/pages/carModel.dart';
 import 'package:motore/pages/createCarProfile.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:motore/pages/MaintenanceItem.dart';
@@ -114,15 +117,15 @@ class _DashboardState extends State<Dashboard> {
               Column(
                 children: [
                   Container(
-                    height: MediaQuery.of(context).size.height / 6,
-                    width: MediaQuery.of(context).size.width / 1.5,
-                    decoration: const BoxDecoration(
+                    height: MediaQuery.of(context).size.height / 3,
+                    width: MediaQuery.of(context).size.width / 0.5,
+                    decoration: BoxDecoration(
                         image: DecorationImage(
-                      image: AssetImage(
-                          "lib/icons/car2.png"), // displays picture of selected car from Profile
+                      image: NetworkImage(
+                        "https://cdn-01.imagin.studio/getImage?customer=usmotore&year=$apiYear&make=$apiMake&modelFamily=$apiModel",
+                      ), // displays picture of selected car from Profile
                     )),
                   ),
-                  const SizedBox(height: 5),
                   Container(
                     padding: const EdgeInsets.all(8),
                     width: MediaQuery.of(context).size.width,
