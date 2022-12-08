@@ -46,12 +46,14 @@ class _NearByPlacesScreenState extends State<NearByPlacesScreen> {
       ),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ElevatedButton(
                 onPressed: () {
                   getNearbyPlaces();
                 },
-                child: const Text("Get Gas Station")),
+                child: Text("Get Gas Station")),
             if (nearbyPlacesResponse.results != null)
               for (int i = 0; i < nearbyPlacesResponse.results!.length; i++)
                 nearbyPlacesWidget(nearbyPlacesResponse.results![i])

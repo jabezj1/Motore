@@ -54,9 +54,9 @@ class History extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            width: 200,
-                            height: 120,
-                            decoration: const BoxDecoration(
+                            height: MediaQuery.of(context).size.height / 3,
+                            width: MediaQuery.of(context).size.height / 3,
+                            decoration: BoxDecoration(
                               // gradient: LinearGradient(
                               //     colors: [
                               //       Colors.red,
@@ -64,10 +64,10 @@ class History extends StatelessWidget {
                               //     ],
                               //     begin: Alignment.topCenter,
                               //     end: Alignment.bottomCenter),
-                              color: Colors.white,
+                              // color: Colors.white,
                               image: DecorationImage(
                                 image: AssetImage("lib/icons/car.png"),
-                                fit: BoxFit.scaleDown,
+                                // fit: BoxFit.scaleDown,
                               ),
                             ),
                           ),
@@ -75,9 +75,9 @@ class History extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 160,
-                  ),
+                  // SizedBox(
+                  //   height: 160,
+                  // ),
                   // SizedBox(
                   //   height: 170,
                   //   width: 170,

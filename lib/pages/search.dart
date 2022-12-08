@@ -23,7 +23,7 @@ class Search extends StatelessWidget {
               return const NearByPlacesScreen();
             }));
           },
-          label: Text('Near By Gas Station'),
+          label: Text('Nearby Gas Station'),
           backgroundColor: Colors.red,
           hoverColor: Colors.orange,
           focusColor: Colors.green,
