@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         theme: ThemeData(
             fontFamily: GoogleFonts.roboto().fontFamily,
-            primarySwatch: Colors.red,
+            primarySwatch: Colors.blue,
             inputDecorationTheme: const InputDecorationTheme(
               labelStyle: TextStyle(color: Colors.redAccent),
             )),
