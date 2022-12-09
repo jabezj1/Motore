@@ -62,7 +62,7 @@ class _NearByPlacesScreenState extends State<NearByPlacesScreen> {
               Center(
                 child: Padding(
                   padding: const EdgeInsets.only(
-                    top: 200.0,
+                    top: 100.0,
                     right: 20,
                     left: 20,
                   ),
@@ -120,8 +120,8 @@ class _NearByPlacesScreenState extends State<NearByPlacesScreen> {
       margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.black),
-          borderRadius: BorderRadius.circular(10)),
+          border: Border.all(color: Colors.black, width: 2.5),
+          borderRadius: BorderRadius.circular(20)),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -192,7 +192,7 @@ class _NearByPlacesScreenState extends State<NearByPlacesScreen> {
                           results.geometry!.location!.lng))
                       .toStringAsFixed(2)
                       .toString() +
-                  " Km",
+                  " km",
               style: TextStyle(
                 color: Colors.yellow,
               ),
@@ -201,8 +201,9 @@ class _NearByPlacesScreenState extends State<NearByPlacesScreen> {
               height: 10,
             ),
             IconButton(
+              iconSize: 50,
               icon: Icon(Icons.directions),
-              color: Theme.of(context).primaryColor,
+              color: Colors.amber,
               onPressed: (() {
                 _launchMapsUrl(results.geometry!.location!.lat!,
                     results.geometry!.location!.lng!);
