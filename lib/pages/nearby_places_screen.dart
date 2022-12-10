@@ -1,8 +1,9 @@
 import 'dart:convert' as convert;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
@@ -36,28 +37,59 @@ class _NearByPlacesScreenState extends State<NearByPlacesScreen> {
 
     latitude = currPosition!.latitude;
     longitude = currPosition.longitude;
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Nearby Gas Station'),
-        centerTitle: true,
-        backgroundColor: Colors.red,
-        elevation: 5,
-        toolbarHeight: 50,
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(colors: [
+          Colors.red,
+          Color(0xff15aaaff),
+        ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ElevatedButton(
-                onPressed: () {
-                  getNearbyPlaces();
-                },
-                child: Text("Get Gas Station")),
-            if (nearbyPlacesResponse.results != null)
-              for (int i = 0; i < nearbyPlacesResponse.results!.length; i++)
-                nearbyPlacesWidget(nearbyPlacesResponse.results![i])
-          ],
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          title: const Text('Nearby Gas Station'),
+          centerTitle: true,
+          backgroundColor: Colors.red,
+          elevation: 0,
+          toolbarHeight: 50,
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 100.0,
+                    right: 20,
+                    left: 20,
+                  ),
+                  child: ElevatedButton(
+                      style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            ),
+                          ),
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.green.shade300)),
+                      onPressed: () {
+                        getNearbyPlaces();
+                      },
+                      child: Text(
+                        "Find a Gas Station",
+                        style: TextStyle(fontSize: 35),
+                      )),
+                ),
+              ),
+              if (nearbyPlacesResponse.results != null)
+                for (int i = 0; i < nearbyPlacesResponse.results!.length; i++)
+                  nearbyPlacesWidget(nearbyPlacesResponse.results![i])
+            ],
+          ),
         ),
       ),
     );
@@ -88,13 +120,19 @@ class _NearByPlacesScreenState extends State<NearByPlacesScreen> {
       margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.black),
-          borderRadius: BorderRadius.circular(10)),
+          border: Border.all(color: Colors.black, width: 2.5),
+          borderRadius: BorderRadius.circular(20)),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Text(results.name!),
+            Text(
+              results.name!,
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+            ),
             SizedBox(
               height: 5,
             ),
@@ -102,16 +140,35 @@ class _NearByPlacesScreenState extends State<NearByPlacesScreen> {
             //     results.geometry!.location!.lat.toString() +
             //     " , " +
             //     results.geometry!.location!.lng.toString()),
-            Text(results.vicinity!),
+            Text(
+              results.vicinity!,
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+            ),
             SizedBox(
               height: 5,
             ),
 
-            Text(results.openingHours != null ? "Open" : "Closed"),
+            Text(
+              results.openingHours != null ? "Open" : "Closed",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
             SizedBox(
               height: 10,
             ),
-            Text('user-rating: ' + results.userRatingsTotal.toString()),
+            Text(
+              'user-rating: ' + results.userRatingsTotal.toString(),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  color: Colors.white),
+            ),
             SizedBox(
               height: 10,
             ),
@@ -126,26 +183,32 @@ class _NearByPlacesScreenState extends State<NearByPlacesScreen> {
             SizedBox(
               height: 10,
             ),
-            Text("Total distance: " +
-                (_coordinateDistance(
-                        currPosition!.latitude,
-                        currPosition.longitude,
-                        results.geometry!.location!.lat,
-                        results.geometry!.location!.lng))
-                    .toStringAsFixed(2)
-                    .toString() +
-                " Km"),
+            Text(
+              "Total distance: " +
+                  (_coordinateDistance(
+                          currPosition!.latitude,
+                          currPosition.longitude,
+                          results.geometry!.location!.lat,
+                          results.geometry!.location!.lng))
+                      .toStringAsFixed(2)
+                      .toString() +
+                  " km",
+              style: TextStyle(
+                color: Colors.yellow,
+              ),
+            ),
             SizedBox(
               height: 10,
             ),
             IconButton(
+              iconSize: 50,
               icon: Icon(Icons.directions),
-              color: Theme.of(context).primaryColor,
+              color: Colors.amber,
               onPressed: (() {
                 _launchMapsUrl(results.geometry!.location!.lat!,
                     results.geometry!.location!.lng!);
               }),
-            )
+            ),
 
             // Consumer<double>(
             //   builder: (context, meters, widget) {
@@ -157,6 +220,8 @@ class _NearByPlacesScreenState extends State<NearByPlacesScreen> {
             // Text(results.photos.)
 
             // Image.network(results.icon!),
+            Lottie.network(
+                'https://assets10.lottiefiles.com/packages/lf20_0ec3p5o6.json'),
           ],
         ),
       ),

@@ -6,6 +6,7 @@ import 'package:motore/pages/ReminderItem.dart';
 import 'package:motore/pages/ReminderItemCard.dart';
 import 'package:motore/pages/carMakes.dart';
 import 'package:motore/pages/carModel.dart';
+import 'package:motore/pages/carSpecCard.dart';
 import 'package:motore/pages/createCarProfile.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:motore/pages/MaintenanceItem.dart';
@@ -96,7 +97,7 @@ class _DashboardState extends State<Dashboard> {
                     decoration: BoxDecoration(
                         image: DecorationImage(
                       image: NetworkImage(
-                        "https://cdn-01.imagin.studio/getImage?customer=usmotore&year=$apiYear&make=$apiMake&modelFamily=$apiModel",
+                        "https://cdn-01.imagin.studio/getImage?customer=usmotore&make=$selMake&modelFamily=$selModel",
                       ), // displays picture of selected car from Profile
                     )),
                   ),
