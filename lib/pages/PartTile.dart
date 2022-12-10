@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:motore/pages/InspectPastMaintenance.dart';
+import 'package:url_launcher/url_launcher.dart';
+// sellModel and sellMake
+String newUrl = "test.com";
 
 class EngineTile extends StatefulWidget {
   final String partType;
   final String partPrice;
   final tileColor;
   final String imageName;
-
+  final String url;
 
   const EngineTile({
     super.key,
@@ -14,19 +17,23 @@ class EngineTile extends StatefulWidget {
     required this.partPrice,
     required this.tileColor,
     required this.imageName,
+    required this.url
   });
-
   @override
   State<EngineTile> createState() => _EngineTileState();
 }
 
 class _EngineTileState extends State<EngineTile> {
   final double borderRadius = 12;
-
+  
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.push,
+      onTap: () async{
+        Uri part_url = Uri.parse(widget.url);
+        if(await canLaunchUrl(part_url)){
+        await launchUrl(part_url);
+      }},
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(

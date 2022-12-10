@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motore/pages/PartTile.dart';
+import 'package:motore/pages/carSpecCard.dart';
 
 class EngineTab extends StatefulWidget {
   EngineTab({super.key});
@@ -9,11 +10,13 @@ class EngineTab extends StatefulWidget {
 }
 
 class _EngineTabState extends State<EngineTab> {
+  
   List partsOnSale = [
+    // exampleURL = https://www.autozone.com/searchresult?searchText=MODEL%20MAKE%20PARTNAME
     // [ partName, partPrice, tileColor, imageName ]
 
-    ["Driveshaft", "45", Colors.red, "lib/images/driveshaft.png"],
-    ["Clutches", "84", Colors.purple, "lib/images/clutch.png"],
+    ["Driveshaft", "45", Colors.red, "lib/images/driveshaft.png",],
+    ["Clutches", "84", Colors.purple, "lib/images/clutch.png",],
     ["Transmission", "95", Colors.brown, "lib/images/transmission.png"],
     ["Spark Plug", "36", Colors.blue, "lib/images/spark-plug.png"],
 
@@ -38,7 +41,8 @@ class _EngineTabState extends State<EngineTab> {
             partType: partsOnSale[index][0],
             partPrice: partsOnSale[index][1],
             tileColor: partsOnSale[index][2],
-            imageName: partsOnSale[index][3]);
+            imageName: partsOnSale[index][3],
+            url: "https://www.autozone.com/searchresult?searchText=" + selMake + " " + selModel + " " + partsOnSale[index][0]);
       },
     );
   }
@@ -72,11 +76,13 @@ class _WheelTabState extends State<WheelTab> {
         ),
         itemBuilder: (context, index) {
           return EngineTile(
-              partType: partsOnSale[index][0],
-              partPrice: partsOnSale[index][1],
-              tileColor: partsOnSale[index][2],
-              imageName: partsOnSale[index][3]);
-        });
+            partType: partsOnSale[index][0],
+            partPrice: partsOnSale[index][1],
+            tileColor: partsOnSale[index][2],
+            imageName: partsOnSale[index][3],
+            url: "https://www.autozone.com/searchresult?searchText=" + selMake + " " + selModel + " " + partsOnSale[index][0]);
+      },
+    );
   }
 }
 
@@ -108,11 +114,11 @@ class _BatteryTabState extends State<BatteryTab> {
       ),
       itemBuilder: (context, index) {
         return EngineTile(
-          partType: partsOnSale[index][0],
-          partPrice: partsOnSale[index][1],
-          tileColor: partsOnSale[index][2],
-          imageName: partsOnSale[index][3],
-        );
+            partType: partsOnSale[index][0],
+            partPrice: partsOnSale[index][1],
+            tileColor: partsOnSale[index][2],
+            imageName: partsOnSale[index][3],
+            url: "https://www.autozone.com/searchresult?searchText=" + selMake + " " + selModel + " " + partsOnSale[index][0]);
       },
     );
   }
@@ -151,7 +157,8 @@ class _InteriorTabState extends State<InteriorTab> {
             partType: partsOnSale[index][0],
             partPrice: partsOnSale[index][1],
             tileColor: partsOnSale[index][2],
-            imageName: partsOnSale[index][3]);
+            imageName: partsOnSale[index][3],
+            url: "https://www.autozone.com/searchresult?searchText=" + selMake + " " + selModel + " " + partsOnSale[index][0]);
       },
     );
   }
@@ -187,11 +194,11 @@ class _ExteriorTabState extends State<ExteriorTab> {
       ),
       itemBuilder: (context, index) {
         return EngineTile(
-          partType: partsOnSale[index][0],
-          partPrice: partsOnSale[index][1],
-          tileColor: partsOnSale[index][2],
-          imageName: partsOnSale[index][3],
-        );
+            partType: partsOnSale[index][0],
+            partPrice: partsOnSale[index][1],
+            tileColor: partsOnSale[index][2],
+            imageName: partsOnSale[index][3],
+            url: "https://www.autozone.com/searchresult?searchText=" + selMake + " " + selModel + " " + partsOnSale[index][0]);
       },
     );
   }

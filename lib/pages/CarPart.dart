@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:motore/pages/CarPartsTab.dart';
 import 'package:motore/pages/Tab.dart';
+import 'package:motore/pages/Profile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
