@@ -53,30 +53,40 @@ class History extends StatelessWidget {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Container(
-                          //   width: 200,
-                          //   height: 120,
-                          //   decoration: const BoxDecoration(
-                          //     gradient: LinearGradient(
-                          //         colors: [
-                          //           Colors.red,
-                          //           Color(0xff15aaaff),
-                          //         ],
-                          //         begin: Alignment.topCenter,
-                          //         end: Alignment.bottomCenter),
-                          //     color: Colors.white,
-                          //     image: DecorationImage(
-                          //       image: AssetImage("lib/icons/car.png"),
-                          //       fit: BoxFit.scaleDown,
-                          //     ),
-                          //   ),
-                          // ),
+                          Container(
+                            height: MediaQuery.of(context).size.height / 3,
+                            width: MediaQuery.of(context).size.height / 3,
+                            decoration: BoxDecoration(
+                              // gradient: LinearGradient(
+                              //     colors: [
+                              //       Colors.red,
+                              //       Color(0xff15aaaff),
+                              //     ],
+                              //     begin: Alignment.topCenter,
+                              //     end: Alignment.bottomCenter),
+                              // color: Colors.white,
+                              image: DecorationImage(
+                                image: AssetImage("lib/icons/car.png"),
+                                // fit: BoxFit.scaleDown,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ],
                   ),
                   // SizedBox(
                   //   height: 160,
+                  // ),
+                  // SizedBox(
+                  //   height: 170,
+                  //   width: 170,
+                  //   child: OverflowBox(
+                  //     // minHeight: 170,
+                  //     // minWidth: 170,
+                  //     child: Lottie.network(
+                  //         'https://assets1.lottiefiles.com/packages/lf20_hvZQkG.json'),
+                  //   ),
                   // ),
 
                   // TODO: use stateful values

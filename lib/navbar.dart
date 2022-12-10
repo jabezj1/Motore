@@ -7,6 +7,7 @@ import 'package:motore/pages/Fuel.dart';
 import 'package:motore/pages/History.dart';
 import 'package:motore/pages/PartTile.dart';
 import 'package:motore/pages/profile.dart';
+import 'package:motore/pages/search.dart';
 
 int index = 0;
 dynamic defPage = Dashboard();
@@ -35,7 +36,7 @@ class _NavigationState extends State<Navigation> {
                 activeColor: Colors.black,
                 tabBackgroundColor: Colors.lightBlue,
                 padding: EdgeInsets.all(16),
-                gap: 8,
+                gap: 5,
                 onTabChange: (selctedIndex) {
                   setState(() {
                     index = selctedIndex;
@@ -46,15 +47,15 @@ class _NavigationState extends State<Navigation> {
                 tabs: const [
                   GButton(
                     icon: Icons.dashboard_customize_outlined,
-                    text: 'Dashboard',
+                    text: 'Dash',
                   ),
                   GButton(
                     icon: Icons.directions_car,
-                    text: 'Car Parts',
+                    text: 'Parts',
                   ),
                   GButton(
                     icon: Icons.share_location_rounded,
-                    text: 'Fuel',
+                    text: 'Search',
                   ),
                   GButton(
                     icon: Icons.history_outlined,
@@ -62,7 +63,7 @@ class _NavigationState extends State<Navigation> {
                   ),
                   GButton(
                     icon: Icons.person,
-                    text: 'Profile',
+                    text: 'Bio',
                   ),
                 ],
               ),
@@ -90,7 +91,7 @@ Widget getSelectedWidget({required int index}) {
       widget = HomePage();
       break;
     case 2:
-      widget = Fuel();
+      widget = Search();
       break;
     case 3:
       widget = History();

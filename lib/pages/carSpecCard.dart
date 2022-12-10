@@ -57,7 +57,7 @@ class CarSpecCard extends StatelessWidget {
                 // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
                 subtitle: Row(
                   children: <Widget>[
-                    Text("Make:${_car.make} Make:${_car.model}",
+                    Text("${_car.make} ${_car.model}",
                         style: TextStyle(color: Colors.black, fontSize: 10)),
                   ],
                 ),

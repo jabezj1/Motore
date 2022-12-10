@@ -89,32 +89,6 @@ class _DashboardState extends State<Dashboard> {
                 style: GoogleFonts.josefinSans(
                     fontSize: 30, fontWeight: FontWeight.bold),
               ),
-              // style: const TextStyle(
-              //     color: Colors.black,
-              //     fontSize: 30,
-              //     fontWeight: FontWeight.bold)),
-              // Row(
-              // 	children: [
-              // 		const Padding(
-              // 			padding: EdgeInsets.all(16.0),
-              // 			child: Text(
-              // 			"Hello,",
-              // 			style: TextStyle(
-              // 				color: Colors.black,
-              // 				fontSize: 30,
-              // 				fontWeight: FontWeight.bold),
-              // 			),
-              // 		),
-              // 		Text(
-              // 			username.toString(),
-              // 			style: const TextStyle(
-              // 			color: Colors.black,
-              // 			fontSize: 30,
-              // 			fontWeight: FontWeight.bold,
-              // 			),
-              // 		)
-              // 	]
-              // ),
               Column(
                 children: [
                   Container(
@@ -192,20 +166,12 @@ class _DashboardState extends State<Dashboard> {
                   ),
                 ],
               )),
-
               SafeArea(
                   child: Column(
                 children: [
                   Container(
                     padding: const EdgeInsets.only(top: 10),
-                    // decoration: const BoxDecoration(
-                    //   gradient: LinearGradient(
-                    //       colors: [
-                    //         Color(0xff15aaaff),
-                    //         Colors.white,
-                    //       ],
-                    //       begin: Alignment.topCenter,
-                    //       end: Alignment.bottomCenter),
+
                     // ),
                     child: Column(
                       children: [
