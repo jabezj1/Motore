@@ -46,6 +46,10 @@ class _CarMakesState extends State<CarMakes> {
                 apiMake = year.toString();
                 print(apiMake);
                 fetchCarModel();
+                 Navigator.pop(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CreateCarProfile(title: "")));
               },
             );
           }),

@@ -49,6 +49,10 @@ class _CarModelState extends State<CarModel> {
                 apiModel = year.toString();
                 fetchCarTrim();
                 // fetchCarModel();
+                 Navigator.pop(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CreateCarProfile(title: "")));
               },
             );
           }),

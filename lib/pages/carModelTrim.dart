@@ -47,6 +47,10 @@ class _CarModelTrimState extends State<CarModelTrim> {
               //
               onTap: () {
                 theModelTrim.text = year.toString();
+                 Navigator.pop(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CreateCarProfile(title: "")));
 
                 // fetchCarModel();
               },

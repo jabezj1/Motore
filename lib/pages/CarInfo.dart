@@ -39,10 +39,10 @@ class _CarInfoState extends State<CarInfo> {
               onTap: () {
                 theYear.text = year.toString();
                 apiYear = year.toString();
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (context) => CreateCarProfile(title: "a")));
+                Navigator.pop(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CreateCarProfile(title: "")));
               },
             );
           }),
