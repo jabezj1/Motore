@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
       create: (context) => locatorService.getLocation(),
       initialData: null,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         initialRoute: '/',
         theme: ThemeData(
             fontFamily: GoogleFonts.roboto().fontFamily,

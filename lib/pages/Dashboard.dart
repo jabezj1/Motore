@@ -54,23 +54,23 @@ class _DashboardState extends State<Dashboard> {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        automaticallyImplyLeading: false,
-        title: Text('Dashboard',
-            style: GoogleFonts.roboto(
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
-            )),
-        centerTitle: true,
-        elevation: 0,
-        flexibleSpace: Container(
-            // decoration: const BoxDecoration(
-            //   gradient:
-            //       LinearGradient(colors: [Color(0xff15aaaff), Color(0xFFADF7F2)]),
-            // ),
-            ),
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.transparent,
+      //   automaticallyImplyLeading: false,
+      //   title: Text('Dashboard',
+      //       style: GoogleFonts.roboto(
+      //         fontSize: 25,
+      //         fontWeight: FontWeight.bold,
+      //       )),
+      //   centerTitle: true,
+      //   elevation: 0,
+      //   flexibleSpace: Container(
+      //       // decoration: const BoxDecoration(
+      //       //   gradient:
+      //       //       LinearGradient(colors: [Color(0xff15aaaff), Color(0xFFADF7F2)]),
+      //       // ),
+      //       ),
+      // ),
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
         child: Container(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:motore/pages/InspectPastMaintenance.dart';
 import 'package:motore/pages/createHistoryEntry.dart';
@@ -20,12 +21,13 @@ class History extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           automaticallyImplyLeading: false,
-          title: const Text(
-            'History',
-            style: TextStyle(
-                fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
-          ),
-          centerTitle: true,
+          title: Text('History',
+              style: GoogleFonts.josefinSans(
+                color: Colors.blue,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              )),
+          centerTitle: false,
           elevation: 0,
           flexibleSpace: Container(
               // decoration: const BoxDecoration(

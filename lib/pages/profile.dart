@@ -208,27 +208,9 @@ class StateProfile extends State<Profile> {
             Row(
               children: [
                 ProfileRow(
-                    title: 'Number of Cars',
-                    value: listOfCarNames.length.toString()),
-              ],
-            ),
-            const SizedBox(height: 10),
-            Row(
-              children: [
-                ProfileRow(
                   title: 'Active Reminders',
                   value: reminderList.length.toString(),
                 ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            Row(
-              children: [
-                Expanded(
-                  child: ProfileRow(
-                      title: 'User ID Number',
-                      value: FirebaseAuth.instance.currentUser!.uid.toString()),
-                )
               ],
             ),
             const SizedBox(

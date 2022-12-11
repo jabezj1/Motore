@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:motore/pages/CarPartsTab.dart';
 import 'package:motore/pages/Tab.dart';
 import 'package:motore/pages/Profile.dart';
@@ -47,11 +48,12 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: Colors.red,
-          title: const Text(
+          title: Text(
             'Car Parts',
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            style: GoogleFonts.josefinSans(
+                fontSize: 25, fontWeight: FontWeight.bold),
           ),
-          centerTitle: true,
+          centerTitle: false,
           elevation: 0,
           flexibleSpace: Container(
             decoration: const BoxDecoration(
