@@ -1,6 +1,7 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../navbar.dart';
 import '../../services/auth.dart';
 import 'login.dart';
 
@@ -317,6 +318,11 @@ class _SignupState extends State<Signup> {
                         if (result == null) {
                           setState(
                               () => error = 'Please Provide a Valid Email');
+                        } else {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Navigation()));
                         }
                       }
                       setState(() {
@@ -398,52 +404,6 @@ class _SignupState extends State<Signup> {
   //     padding: EdgeInsets.symmetric(vertical: 16),
   //   ),
   // );
-
-  _appleAOth(context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        GestureDetector(
-            onTap: () {
-              print('Google Pressed');
-            },
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Container(
-                      //margin: const EdgeInsets.all(3),
-                      height: 45.0,
-                      width: 140,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        shape: BoxShape.rectangle,
-                        color: Colors.white,
-                        boxShadow: const [
-                          BoxShadow(
-                              color: Colors.black26,
-                              offset: Offset(0, 2),
-                              blurRadius: 6.0),
-                        ],
-                        image: const DecorationImage(
-                            image: AssetImage('lib/icons/apple.png'),
-                            alignment: Alignment.centerLeft),
-                      ),
-                      child: const Align(
-                        alignment: Alignment.centerRight,
-                        child: Text(
-                          "Sign in with Apple",
-                          style: TextStyle(
-                              fontSize: 10, fontWeight: FontWeight.bold),
-                        ),
-                      )),
-                ],
-              ),
-            )),
-      ],
-    );
-  }
 
   // _googleAOth(context) {
   //   return Column(

@@ -4,6 +4,8 @@ import 'package:lottie/lottie.dart';
 import 'package:motore/pages/InspectPastMaintenance.dart';
 import 'package:motore/pages/createHistoryEntry.dart';
 
+String historyType = "";
+
 class History extends StatelessWidget {
   const History({Key? key}) : super(key: key);
 
@@ -131,11 +133,14 @@ class HistoryWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(0),
       child: GestureDetector(
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => const InspectPastMaintenance()),
-        ),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const InspectPastMaintenance()),
+          );
+          historyType = contTitle;
+        },
         child: SizedBox(
           height: 140,
           width: 360,

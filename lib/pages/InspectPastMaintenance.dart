@@ -1,9 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:motore/pages/History.dart';
 import 'package:motore/pages/HistoryItem.dart';
 import 'package:motore/pages/HistoryItemCard.dart';
+import 'package:motore/pages/createGasExpense.dart';
 import 'package:motore/pages/createHistoryEntry.dart';
+import 'package:motore/pages/createMaintainceHistory.dart';
 import 'package:motore/services/auth.dart';
 // import 'package:flutter/src/rendering/box.dart';
 
@@ -28,7 +31,7 @@ class _InspectPastMaintenanceState extends State<InspectPastMaintenance> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
-        title: const Text('History'),
+        title: Text(historyType),
         centerTitle: true,
         elevation: 0,
         flexibleSpace: Container(
@@ -42,11 +45,26 @@ class _InspectPastMaintenanceState extends State<InspectPastMaintenance> {
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        const CreateHistoryEntry(title: "title")));
+            if (historyType == "Monthly Expenses") {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          const CreateHistoryEntry(title: "title")));
+            }
+            if (historyType == "Gas Expenses") {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => CreateGasExpense(title: "title")));
+            }
+            if (historyType == "Maintenance History") {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          CreateMaintainaceHistory(title: "title")));
+            }
           },
           child: const Icon(Icons.add)),
       body: SafeArea(
@@ -67,7 +85,7 @@ class _InspectPastMaintenanceState extends State<InspectPastMaintenance> {
         .doc(userEmail) // replace with userEmail
         .collection("cars")
         .doc("NAPm33gq0rcaKIaZGAA3")
-        .collection("history")
+        .collection(historyType)
         .orderBy("timestamp", descending: true)
         .get();
 

@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:motore/components/basicPage.dart';
 import 'package:provider/provider.dart';
 
+import '../../navbar.dart';
+
 class Login extends StatefulWidget {
   final toggleView;
   Login({this.toggleView});
@@ -270,6 +272,11 @@ class _LoginState extends State<Login> {
                         if (result == null) {
                           setState(
                               () => error = 'Log In Failed, Please try Again');
+                        } else {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Navigation()));
                         }
                       }
                       setState(() {

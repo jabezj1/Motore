@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:lottie/lottie.dart';
 import 'package:motore/components/introPageComp.dart';
 import 'package:motore/screens/authenticate/login.dart';
+import 'package:motore/screens/authenticate/signup.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../services/auth.dart';
@@ -86,25 +87,57 @@ class _IntroPageState extends State<IntroPage> {
                 const SizedBox(
                   height: 10,
                 ),
-                Container(
-                  width: 280,
-                  child: ElevatedButton.icon(
-                    onPressed: () async {
-                      // AuthService().signInWithGoogle();
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Login()));
-                    },
-                    icon: const Icon(Icons.car_rental),
-                    label: const Text(
-                      "Login",
-                      style: TextStyle(fontSize: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width / 2.5,
+                      child: ElevatedButton.icon(
+                        onPressed: () async {
+                          // AuthService().signInWithGoogle();
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Login()));
+                        },
+                        icon: const Icon(Icons.car_rental),
+                        label: const Text(
+                          "Login",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromRGBO(0, 71, 171, 100),
+                          shape: const StadiumBorder(),
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                        ),
+                      ),
                     ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromRGBO(0, 71, 171, 100),
-                      shape: const StadiumBorder(),
-                      padding: const EdgeInsets.symmetric(vertical: 16),
+                    const SizedBox(
+                      width: 20,
                     ),
-                  ),
+                    Container(
+                      width: MediaQuery.of(context).size.width / 2.5,
+                      child: ElevatedButton.icon(
+                        onPressed: () async {
+                          // AuthService().signInWithGoogle();
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Signup()));
+                        },
+                        icon: const Icon(Icons.new_label),
+                        label: const Text(
+                          "Sign Up",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromRGBO(0, 71, 171, 100),
+                          shape: const StadiumBorder(),
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(
                   height: 20,

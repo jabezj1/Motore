@@ -4,15 +4,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:motore/pages/History.dart';
 import 'package:motore/pages/InspectPastMaintenance.dart';
 
-class CreateHistoryEntry extends StatefulWidget {
-  const CreateHistoryEntry({super.key, required this.title});
+class CreateGasExpense extends StatefulWidget {
+  const CreateGasExpense({super.key, required this.title});
   final String title;
 
   @override
-  StateCreateHistoryEntry createState() => StateCreateHistoryEntry();
+  StateCreateGasExpense createState() => StateCreateGasExpense();
 }
 
-class StateCreateHistoryEntry extends State<CreateHistoryEntry> {
+class StateCreateGasExpense extends State<CreateGasExpense> {
   TextEditingController historyTitleController = TextEditingController();
   TextEditingController historyDateController = TextEditingController();
   TextEditingController historyCostController = TextEditingController();
@@ -53,7 +53,7 @@ class StateCreateHistoryEntry extends State<CreateHistoryEntry> {
             child: SingleChildScrollView(
               child: Column(children: [
                 const Text(
-                  "Enter the details of your Monthy Expense",
+                  "Enter the details of your latest Gas Expense.",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 15,
@@ -62,9 +62,14 @@ class StateCreateHistoryEntry extends State<CreateHistoryEntry> {
                 ),
                 const SizedBox(height: 20),
                 EnterHistoryInfo(
-                    hintText: 'Month', controller: historyTitleController),
+                    hintText: 'Gas Type', controller: historyTitleController),
                 EnterHistoryInfo(
-                    hintText: 'Total Cost', controller: historyCostController),
+                    hintText: 'Date', controller: historyDateController),
+                EnterHistoryInfo(
+                    hintText: 'Cost', controller: historyCostController),
+                EnterHistoryInfo(
+                    hintText: 'Location',
+                    controller: historyLocationController),
                 EnterHistoryInfo(
                     hintText: 'Notes', controller: historyNotesController),
                 const SizedBox(
@@ -85,10 +90,9 @@ class StateCreateHistoryEntry extends State<CreateHistoryEntry> {
                                 TextStyle(fontSize: 20, color: Colors.black)),
                         onPressed: () async {
                           print({
-                            "title": historyTitleController.text,
-                            "date": historyDateController,
+                            "date": historyDateController.text,
                             "cost": historyCostController.text,
-                            "location": historyLocationController,
+                            "location": historyLocationController.text,
                             "notes": historyNotesController.text
                           });
 
@@ -101,8 +105,10 @@ class StateCreateHistoryEntry extends State<CreateHistoryEntry> {
                               .collection(historyType)
                               .doc()
                               .set({
-                                "title": historyTitleController.text,
+                                "title": historyTitleController,
+                                "date": historyDateController.text,
                                 "cost": historyCostController.text,
+                                "location": historyLocationController.text,
                                 "notes": historyNotesController.text,
                                 "timestamp": timestampdate.toDate()
                               })

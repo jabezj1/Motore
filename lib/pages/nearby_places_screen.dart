@@ -219,7 +219,7 @@ class _NearByPlacesScreenState extends State<NearByPlacesScreen> {
             // Text(results.vicinity!),
             // Text(results.photos.)
 
-            // Image.network(results.icon!),
+            // // Image.network(results.icon!),
             Lottie.network(
                 'https://assets10.lottiefiles.com/packages/lf20_0ec3p5o6.json'),
           ],

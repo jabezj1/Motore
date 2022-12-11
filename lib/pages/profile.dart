@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:motore/pages/CarInfo.dart';
 import 'package:motore/pages/Dashboard.dart';
 import 'package:motore/pages/carModel.dart';
@@ -69,6 +70,7 @@ final AuthService _auth = AuthService();
 
 class StateProfile extends State<Profile> {
   bool read = true;
+  bool dark = false;
   String? username = FirebaseAuth.instance.currentUser?.displayName;
   String? emailAdd = FirebaseAuth.instance.currentUser?.email;
 
@@ -259,6 +261,15 @@ class StateProfile extends State<Profile> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50.0))),
                 ),
+                // Switch(
+                //     value: dark,
+                //     onChanged: ((value) {
+                //       if (value == false) {
+                //         darkColor = Colors.white;
+                //       } else {
+                //         darkColor = Colors.black;
+                //       }
+                //     }))
               ],
             ),
             const SizedBox(height: 15),
