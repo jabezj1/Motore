@@ -45,6 +45,7 @@ class _HomePageState extends State<HomePage> {
       length: myTabs.length,
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: Colors.red,
           title: const Text(
             'Car Parts',

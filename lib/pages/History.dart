@@ -56,20 +56,22 @@ class History extends StatelessWidget {
                           Container(
                             height: MediaQuery.of(context).size.height / 3,
                             width: MediaQuery.of(context).size.height / 3,
-                            decoration: BoxDecoration(
-                              // gradient: LinearGradient(
-                              //     colors: [
-                              //       Colors.red,
-                              //       Color(0xff15aaaff),
-                              //     ],
-                              //     begin: Alignment.topCenter,
-                              //     end: Alignment.bottomCenter),
-                              // color: Colors.white,
-                              image: DecorationImage(
-                                image: AssetImage("lib/icons/car.png"),
-                                // fit: BoxFit.scaleDown,
-                              ),
-                            ),
+                            child: Lottie.network(
+                                "https://assets3.lottiefiles.com/packages/lf20_yw3hreac.json"),
+                            // decoration: BoxDecoration(
+                            //   // gradient: LinearGradient(
+                            //   //     colors: [
+                            //   //       Colors.red,
+                            //   //       Color(0xff15aaaff),
+                            //   //     ],
+                            //   //     begin: Alignment.topCenter,
+                            //   //     end: Alignment.bottomCenter),
+                            //   // color: Colors.white,
+                            //   image: DecorationImage(
+                            //     image: AssetImage("lib/icons/car.png"),
+                            //     // fit: BoxFit.scaleDown,
+                            //   ),
+                            // ),
                           ),
                         ],
                       ),
@@ -91,20 +93,17 @@ class History extends StatelessWidget {
 
                   // TODO: use stateful values
                   const HistoryWidget(
-                      imageLink: "lib/icons/expense.png",
-                      contTitle: "Monthly Expenses",
-                      descText: "This month's expenses: \n",
-                      value: "5000"),
+                    imageLink: "lib/icons/expense.png",
+                    contTitle: "Monthly Expenses",
+                  ),
                   const HistoryWidget(
-                      imageLink: "lib/icons/oil_two.png",
-                      contTitle: "Gas Expenses",
-                      descText: "Last fuelup cost: \n",
-                      value: "50"),
+                    imageLink: "lib/icons/oil_two.png",
+                    contTitle: "Gas Expenses",
+                  ),
                   const HistoryWidget(
-                      imageLink: "lib/icons/past.png",
-                      contTitle: "Maintenance History",
-                      descText: "Date of last maintenance: \n",
-                      value: "01/01/01"),
+                    imageLink: "lib/icons/past.png",
+                    contTitle: "Maintenance History",
+                  ),
                 ],
               ),
             ),
@@ -120,14 +119,10 @@ class HistoryWidget extends StatelessWidget {
     Key? key,
     required this.imageLink,
     required this.contTitle,
-    required this.descText,
-    required this.value,
   }) : super(key: key);
 
   final String imageLink;
   final String contTitle;
-  final String descText;
-  final String value;
 
   @override
   Widget build(BuildContext context) {
@@ -182,7 +177,7 @@ class HistoryWidget extends StatelessWidget {
                 height: 100,
                 margin: const EdgeInsets.only(left: 140, top: 10),
                 child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
                         contTitle,
@@ -193,21 +188,6 @@ class HistoryWidget extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 15),
-                      RichText(
-                          text: TextSpan(
-                              text: descText,
-                              style: const TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                              children: [
-                            TextSpan(
-                                text: value,
-                                style: const TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 16,
-                                ))
-                          ]))
                     ]),
               ),
             ],
