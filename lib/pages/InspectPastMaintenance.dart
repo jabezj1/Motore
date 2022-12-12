@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:motore/pages/History.dart';
 import 'package:motore/pages/HistoryItem.dart';
 import 'package:motore/pages/HistoryItemCard.dart';
+import 'package:motore/pages/createCarProfile.dart';
 import 'package:motore/pages/createGasExpense.dart';
 import 'package:motore/pages/createHistoryEntry.dart';
 import 'package:motore/pages/createMaintenanceHistory.dart';
@@ -84,7 +85,7 @@ class _InspectPastMaintenanceState extends State<InspectPastMaintenance> {
         .collection("users")
         .doc(userEmail) // replace with userEmail
         .collection("cars")
-        .doc("NAPm33gq0rcaKIaZGAA3")
+        .doc(curr_car) // "NAPm33gq0rcaKIaZGAA3"
         .collection(historyType)
         .orderBy("timestamp", descending: true)
         .get();

@@ -67,7 +67,10 @@ class MaintenanceItemCard extends StatelessWidget {
                             )),
                       ),
                       IconButton(
-                        onPressed: () async {},
+                        onPressed: () async {
+                          // access the database
+                          // reset to default value
+                        },
                         icon: const Icon(
                           Icons.refresh,
                           color: Colors.green,

@@ -13,7 +13,7 @@ import 'dart:convert' as convert;
 
 import '../navbar.dart';
 
-late String curr_car;
+String curr_car = "";
 
 class CreateCarProfile extends StatefulWidget {
   const CreateCarProfile({super.key, required this.title});

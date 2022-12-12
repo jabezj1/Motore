@@ -215,7 +215,7 @@ class _DashboardState extends State<Dashboard> {
         .collection("users")
         .doc(FirebaseAuth.instance.currentUser?.email) // emailAdd
         .collection("cars")
-        .doc("NAPm33gq0rcaKIaZGAA3")
+        .doc(curr_car) // "NAPm33gq0rcaKIaZGAA3"
         .collection("maintenance")
         .orderBy("miles", descending: false)
         .get();
@@ -231,7 +231,7 @@ class _DashboardState extends State<Dashboard> {
         .collection("users")
         .doc(FirebaseAuth.instance.currentUser?.email) // emailAdd
         .collection("cars")
-        .doc("NAPm33gq0rcaKIaZGAA3") // replace with curr_car
+        .doc(curr_car) // "NAPm33gq0rcaKIaZGAA3"
         .collection("reminders")
         .orderBy("days", descending: false)
         .get();
