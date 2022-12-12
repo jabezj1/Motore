@@ -108,26 +108,6 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 11),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: const Icon(Icons.map_outlined),
-                      label: const Text('Find Nearby Auto Parts Stores'),
-                      style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 5.0),
-                          backgroundColor: Color.fromARGB(255, 228, 111, 150),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50.0))),
-                    )
-                  ],
-                ),
-              )
             ],
           ),
         ),

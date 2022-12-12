@@ -8,6 +8,7 @@ import 'package:motore/pages/profile.dart';
 dynamic bord = Colors.blue;
 String selMake = '';
 String selModel = '';
+String selnick = '';
 
 class CarSpecCard extends StatelessWidget {
   final CarSpec _car;
@@ -19,6 +20,7 @@ class CarSpecCard extends StatelessWidget {
         onTap: () {
           selMake = _car.make.toString();
           selModel = _car.model.toString();
+          selModel = _car.nickname.toString();
           index = 4;
           defPage = Profile();
           Navigator.push(
