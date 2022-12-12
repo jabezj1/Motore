@@ -132,7 +132,7 @@ class StateProfile extends State<Profile> {
 
                   image: DecorationImage(
                     image: NetworkImage(
-                        "https://cdn-01.imagin.studio/getImage?customer=usmotore&make=$selMake&modelFamily=$selModel"),
+                        "https://cdn-01.imagin.studio/getImage?customer=usmotore&make=$sellMake&modelFamily=$sellModel"),
                     fit: BoxFit.cover,
                   ),
                   borderRadius: const BorderRadius.only(

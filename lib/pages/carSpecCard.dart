@@ -4,11 +4,11 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:motore/navbar.dart';
 import 'package:motore/pages/carSpec.dart';
 import 'package:motore/pages/profile.dart';
+import 'Dashboard.dart';
 
 dynamic bord = Colors.blue;
-String selMake = '';
-String selModel = '';
-String selnick = '';
+String sellMake = '';
+String sellModel = '';
 
 class CarSpecCard extends StatelessWidget {
   final CarSpec _car;
@@ -18,9 +18,9 @@ class CarSpecCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          selMake = _car.make.toString();
-          selModel = _car.model.toString();
-          selModel = _car.nickname.toString();
+          sellMake = _car.make.toString();
+          sellModel = _car.model.toString();
+          sellNick = _car.nickname.toString();
           index = 4;
           defPage = Profile();
           Navigator.push(

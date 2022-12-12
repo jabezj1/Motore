@@ -12,6 +12,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:motore/pages/MaintenanceItem.dart';
 import 'package:motore/pages/MaintenanceItemCard.dart';
 
+String sellNick = " ";
 List<Object> reminderList = [];
 List<Object> maintenanceList = [];
 
@@ -23,12 +24,9 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  String? username = FirebaseAuth
-      .instance.currentUser?.displayName; // name of the authenticated user
-  String? emailAdd = FirebaseAuth
-      .instance.currentUser?.email; // email of the authenticated user
-  late String? carNick =
-      ""; // nickname of the car the user picked in Profile page
+  String? username = FirebaseAuth.instance.currentUser?.displayName; // name of the authenticated user
+  String? emailAdd = FirebaseAuth.instance.currentUser?.email; // email of the authenticated user
+  String carNick = sellNick; // nickname of the car the user picked in Profile page
 
   @override
   void didChangeDependencies() {
@@ -36,21 +34,8 @@ class _DashboardState extends State<Dashboard> {
     getCarRemindersList();
     getPreventativeMaintenanceList();
   }
-
   @override
   Widget build(BuildContext context) {
-    FirebaseFirestore.instance
-        .collection("users")
-        .doc("iftekhar.f.19@gmail.com")
-        .collection("cars")
-        .doc(
-            "NAPm33gq0rcaKIaZGAA3") // curr_car references the current car selected in profile page
-        .get()
-        .then((DocumentSnapshot ds) {
-      // creates a document snapshot named "ds"
-      carNick =
-          ds['nickname']; // only retrieves the nickname field from the document
-    });
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -97,7 +82,7 @@ class _DashboardState extends State<Dashboard> {
                     decoration: BoxDecoration(
                         image: DecorationImage(
                       image: NetworkImage(
-                        "https://cdn-01.imagin.studio/getImage?customer=usmotore&make=$selMake&modelFamily=$selModel",
+                        "https://cdn-01.imagin.studio/getImage?customer=usmotore&make=$sellMake&modelFamily=$sellModel",
                       ), // displays picture of selected car from Profile
                     )),
                   ),
@@ -111,7 +96,7 @@ class _DashboardState extends State<Dashboard> {
                         //     end: Alignment.bottomCenter),
                         ),
                     child: Text(
-                      carNick.toString(),
+                      carNick,
                       textAlign: TextAlign.center,
                       style: GoogleFonts.getFont(
                         'Permanent Marker',

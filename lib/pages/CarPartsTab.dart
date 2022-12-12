@@ -42,7 +42,7 @@ class _EngineTabState extends State<EngineTab> {
             partPrice: partsOnSale[index][1],
             tileColor: partsOnSale[index][2],
             imageName: partsOnSale[index][3],
-            url: "https://www.autozone.com/searchresult?searchText=" + selMake + " " + selModel + " " + partsOnSale[index][0]);
+            url: "https://www.autozone.com/searchresult?searchText=" + sellMake + " " + sellModel + " " + partsOnSale[index][0]);
       },
     );
   }
@@ -80,7 +80,7 @@ class _WheelTabState extends State<WheelTab> {
             partPrice: partsOnSale[index][1],
             tileColor: partsOnSale[index][2],
             imageName: partsOnSale[index][3],
-            url: "https://www.autozone.com/searchresult?searchText=" + selMake + " " + selModel + " " + partsOnSale[index][0]);
+            url: "https://www.autozone.com/searchresult?searchText=" + sellMake + " " + sellModel + " " + partsOnSale[index][0]);
       },
     );
   }
@@ -118,7 +118,7 @@ class _BatteryTabState extends State<BatteryTab> {
             partPrice: partsOnSale[index][1],
             tileColor: partsOnSale[index][2],
             imageName: partsOnSale[index][3],
-            url: "https://www.autozone.com/searchresult?searchText=" + selMake + " " + selModel + " " + partsOnSale[index][0]);
+            url: "https://www.autozone.com/searchresult?searchText=" + sellMake + " " + sellModel + " " + partsOnSale[index][0]);
       },
     );
   }
@@ -158,7 +158,7 @@ class _InteriorTabState extends State<InteriorTab> {
             partPrice: partsOnSale[index][1],
             tileColor: partsOnSale[index][2],
             imageName: partsOnSale[index][3],
-            url: "https://www.autozone.com/searchresult?searchText=" + selMake + " " + selModel + " " + partsOnSale[index][0]);
+            url: "https://www.autozone.com/searchresult?searchText=" + sellMake + " " + sellModel + " " + partsOnSale[index][0]);
       },
     );
   }
@@ -198,7 +198,7 @@ class _ExteriorTabState extends State<ExteriorTab> {
             partPrice: partsOnSale[index][1],
             tileColor: partsOnSale[index][2],
             imageName: partsOnSale[index][3],
-            url: "https://www.autozone.com/searchresult?searchText=" + selMake + " " + selModel + " " + partsOnSale[index][0]);
+            url: "https://www.autozone.com/searchresult?searchText=" + sellMake + " " + sellModel + " " + partsOnSale[index][0]);
       },
     );
   }
