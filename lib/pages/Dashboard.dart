@@ -52,17 +52,17 @@ class _DashboardState extends State<Dashboard> {
       ),
       child: Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          automaticallyImplyLeading: false,
-          title: Text('Dashboard',
-              style: GoogleFonts.roboto(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-              )),
-          centerTitle: true,
-          elevation: 0,
-        ),
+        // appBar: AppBar(
+        //   backgroundColor: Colors.transparent,
+        //   automaticallyImplyLeading: false,
+        //   title: Text('Dashboard',
+        //       style: GoogleFonts.roboto(
+        //         fontSize: 25,
+        //         fontWeight: FontWeight.bold,
+        //       )),
+        //   centerTitle: true,
+        //   elevation: 0,
+        // ),
         backgroundColor: Colors.transparent,
         body: SingleChildScrollView(
           child: Container(
