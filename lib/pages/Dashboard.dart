@@ -15,7 +15,6 @@ import 'package:motore/pages/createMaintenanceHistory.dart';
 import 'package:motore/pages/createNewMaintenance.dart';
 import 'package:motore/pages/createToDo.dart';
 
-
 String sellNick = " ";
 List<Object> reminderList = [];
 List<Object> maintenanceList = [];
@@ -28,9 +27,12 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  String? username = FirebaseAuth.instance.currentUser?.displayName; // name of the authenticated user
-  String? emailAdd = FirebaseAuth.instance.currentUser?.email; // email of the authenticated user
-  String carNick = sellNick; // nickname of the car the user picked in Profile page
+  String? username = FirebaseAuth
+      .instance.currentUser?.displayName; // name of the authenticated user
+  String? emailAdd = FirebaseAuth
+      .instance.currentUser?.email; // email of the authenticated user
+  String carNick =
+      sellNick; // nickname of the car the user picked in Profile page
 
   @override
   void didChangeDependencies() {
@@ -38,9 +40,9 @@ class _DashboardState extends State<Dashboard> {
     getCarRemindersList();
     getPreventativeMaintenanceList();
   }
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       extendBodyBehindAppBar: true,
       // appBar: AppBar(
@@ -63,7 +65,7 @@ class _DashboardState extends State<Dashboard> {
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
         child: Container(
-          //height: MediaQuery.of(context).size.height,
+          // height: MediaQuery.of(context).size.height,
           decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
               Colors.red,
@@ -133,11 +135,17 @@ class _DashboardState extends State<Dashboard> {
                               color: Colors.black,
                               fontSize: 25,
                               fontWeight: FontWeight.bold),
-                        ),ElevatedButton(onPressed: (){Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const createNewMaintenance(title:"")));}, child: Text("Add Maintenance")),
+                        ),
+                        ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const createNewMaintenance(
+                                              title: "")));
+                            },
+                            child: Text("Add Maintenance")),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
@@ -175,11 +183,16 @@ class _DashboardState extends State<Dashboard> {
                               color: Colors.black,
                               fontSize: 25,
                               fontWeight: FontWeight.bold),
-                        ),ElevatedButton(onPressed: (){Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const createToDo(title:"")));}, child: Text("Add To-Do")),
+                        ),
+                        ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const createToDo(title: "")));
+                            },
+                            child: Text("Add To-Do")),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
@@ -227,7 +240,7 @@ class _DashboardState extends State<Dashboard> {
   Future getCarRemindersList() async {
     var data = await FirebaseFirestore.instance
         .collection("users")
-        .doc(FirebaseAuth.instance.currentUser?.email)// emailAdd
+        .doc(FirebaseAuth.instance.currentUser?.email) // emailAdd
         .collection("cars")
         .doc("NAPm33gq0rcaKIaZGAA3") // replace with curr_car
         .collection("reminders")

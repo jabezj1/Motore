@@ -14,6 +14,7 @@ class History extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(colors: [
+          Colors.white,
           Colors.red,
           Color(0xff15aaaff),
         ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
@@ -58,25 +59,27 @@ class History extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            height: MediaQuery.of(context).size.height / 3,
-                            width: MediaQuery.of(context).size.height / 3,
-                            child: Lottie.network(
-                                "https://assets3.lottiefiles.com/packages/lf20_yw3hreac.json"),
-                            // decoration: BoxDecoration(
-                            //   // gradient: LinearGradient(
-                            //   //     colors: [
-                            //   //       Colors.red,
-                            //   //       Color(0xff15aaaff),
-                            //   //     ],
-                            //   //     begin: Alignment.topCenter,
-                            //   //     end: Alignment.bottomCenter),
-                            //   // color: Colors.white,
-                            //   image: DecorationImage(
-                            //     image: AssetImage("lib/icons/car.png"),
-                            //     // fit: BoxFit.scaleDown,
-                            //   ),
-                            // ),
-                          ),
+                              height: MediaQuery.of(context).size.height / 2.5,
+                              width: MediaQuery.of(context).size.height / 2.5,
+                              child: Image.asset(
+                                'lib/images/noBgAnimation.gif',
+                              )
+                              // decoration: const BoxDecoration(
+                              //   // gradient: LinearGradient(
+                              //   //     colors: [
+                              //   //       Colors.red,
+                              //   //       Color(0xff15aaaff),
+                              //   //     ],
+                              //   //     begin: Alignment.topCenter,
+                              //   //     end: Alignment.bottomCenter),
+                              //   // color: Colors.white,
+                              //   image: DecorationImage(
+                              //     image: AssetImage(
+                              //         "lib/images/historyAnimantion.gif"),
+                              //     // fit: BoxFit.scaleDown,
+                              //   ),
+                              // ),
+                              ),
                         ],
                       ),
                     ],
