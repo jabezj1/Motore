@@ -95,7 +95,7 @@ class StateProfile extends State<Profile> {
           'Profile',
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
-        centerTitle: true,
+        centerTitle: false,
         elevation: 0,
         // backgroundColor: Colors.amber,
         flexibleSpace: Container(
