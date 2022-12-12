@@ -4,16 +4,16 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:motore/pages/History.dart';
 import 'package:motore/pages/InspectPastMaintenance.dart';
 
-class CreateMaintainaceHistory extends StatefulWidget {
-  const CreateMaintainaceHistory({super.key, required this.title});
+class CreateMaintenanceHistory extends StatefulWidget {
+  const CreateMaintenanceHistory({super.key, required this.title});
   final String title;
 
   @override
-  StateCreateMaintainaceHistory createState() =>
-      StateCreateMaintainaceHistory();
+  StateCreateMaintenanceHistory createState() =>
+      StateCreateMaintenanceHistory();
 }
 
-class StateCreateMaintainaceHistory extends State<CreateMaintainaceHistory> {
+class StateCreateMaintenanceHistory extends State<CreateMaintenanceHistory> {
   TextEditingController historyTitleController = TextEditingController();
   TextEditingController historyDateController = TextEditingController();
   TextEditingController historyCostController = TextEditingController();
@@ -54,7 +54,7 @@ class StateCreateMaintainaceHistory extends State<CreateMaintainaceHistory> {
             child: SingleChildScrollView(
               child: Column(children: [
                 const Text(
-                  "Enter the details of your Maintainace History",
+                  "Enter the details of your Maintenance History",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 15,

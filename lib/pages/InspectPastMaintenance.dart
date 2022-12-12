@@ -63,7 +63,7 @@ class _InspectPastMaintenanceState extends State<InspectPastMaintenance> {
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
-                          CreateMaintainaceHistory(title: "title")));
+                          CreateMaintenanceHistory(title: "title")));
             }
           },
           child: const Icon(Icons.add)),

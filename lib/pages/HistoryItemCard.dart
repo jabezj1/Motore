@@ -70,19 +70,6 @@ class HistoryItemCard extends StatelessWidget {
                                       ),
                                     ) // notes that go under the title
                                     ),
-                                Padding(
-                                  padding: EdgeInsets.all(12),
-                                  child: Row(
-                                    children: [
-                                      const Text(
-                                        "LOCATION: ",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      Text(_historyItem.location.toString())
-                                    ],
-                                  ),
-                                )
                               ],
                             ),
                           ),

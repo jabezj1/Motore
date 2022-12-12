@@ -53,7 +53,7 @@ class StateCreateHistoryEntry extends State<CreateHistoryEntry> {
             child: SingleChildScrollView(
               child: Column(children: [
                 const Text(
-                  "Enter the details of your Monthy Expense",
+                  "Enter the details of your Montly Expense",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 15,
@@ -86,12 +86,12 @@ class StateCreateHistoryEntry extends State<CreateHistoryEntry> {
                         onPressed: () async {
                           print({
                             "title": historyTitleController.text,
-                            "date": historyDateController,
+                            "date": historyDateController.text,
                             "cost": historyCostController.text,
-                            "location": historyLocationController,
+                            "location": historyLocationController.text,
                             "notes": historyNotesController.text
                           });
-
+                          print(historyType);
                           FirebaseFirestore.instance
                               .collection("users")
                               .doc(FirebaseAuth.instance.currentUser
@@ -104,6 +104,7 @@ class StateCreateHistoryEntry extends State<CreateHistoryEntry> {
                                 "title": historyTitleController.text,
                                 "cost": historyCostController.text,
                                 "notes": historyNotesController.text,
+                                "location": historyLocationController,
                                 "timestamp": timestampdate.toDate()
                               })
                               .then((value) =>

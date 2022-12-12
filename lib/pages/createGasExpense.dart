@@ -105,7 +105,7 @@ class StateCreateGasExpense extends State<CreateGasExpense> {
                               .collection(historyType)
                               .doc()
                               .set({
-                                "title": historyTitleController,
+                                "title": historyTitleController.text,
                                 "date": historyDateController.text,
                                 "cost": historyCostController.text,
                                 "location": historyLocationController.text,
