@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class MaintenanceItem {
 	String? system;
-  	int? miles;
+  	String? miles;
 
 	MaintenanceItem();
 

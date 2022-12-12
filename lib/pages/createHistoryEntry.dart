@@ -104,7 +104,7 @@ class StateCreateHistoryEntry extends State<CreateHistoryEntry> {
                                 "title": historyTitleController.text,
                                 "cost": historyCostController.text,
                                 "notes": historyNotesController.text,
-                                "location": historyLocationController,
+                                "location": historyLocationController.text,
                                 "timestamp": timestampdate.toDate()
                               })
                               .then((value) =>

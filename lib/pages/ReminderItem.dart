@@ -1,20 +1,18 @@
 class ReminderItem {
 	String? title;
-	int? days;
+	String? days;
 	DateTime? created;
 
 	ReminderItem();
 
 	Map<String, dynamic> toJson() => {
 		'title': title,
-		'days': days,
-		'timestamp': created
+		'days': days
 	};
 
 	ReminderItem.fromSnapshot(snapshot)
 		: title = snapshot.data() ['title'],
-		days = snapshot.data() ['days'],
-		created = snapshot.data() ['timestamp'].toDate()
+		days = snapshot.data() ['days']
 	;
 
 }

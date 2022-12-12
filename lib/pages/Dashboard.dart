@@ -11,6 +11,10 @@ import 'package:motore/pages/createCarProfile.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:motore/pages/MaintenanceItem.dart';
 import 'package:motore/pages/MaintenanceItemCard.dart';
+import 'package:motore/pages/createMaintenanceHistory.dart';
+import 'package:motore/pages/createNewMaintenance.dart';
+import 'package:motore/pages/createToDo.dart';
+
 
 String sellNick = " ";
 List<Object> reminderList = [];
@@ -59,6 +63,7 @@ class _DashboardState extends State<Dashboard> {
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
         child: Container(
+          //height: MediaQuery.of(context).size.height,
           decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
               Colors.red,
@@ -128,7 +133,11 @@ class _DashboardState extends State<Dashboard> {
                               color: Colors.black,
                               fontSize: 25,
                               fontWeight: FontWeight.bold),
-                        ),
+                        ),ElevatedButton(onPressed: (){Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const createNewMaintenance(title:"")));}, child: Text("Add Maintenance")),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
@@ -166,7 +175,11 @@ class _DashboardState extends State<Dashboard> {
                               color: Colors.black,
                               fontSize: 25,
                               fontWeight: FontWeight.bold),
-                        ),
+                        ),ElevatedButton(onPressed: (){Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const createToDo(title:"")));}, child: Text("Add To-Do")),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
@@ -198,7 +211,7 @@ class _DashboardState extends State<Dashboard> {
   Future getPreventativeMaintenanceList() async {
     var data = await FirebaseFirestore.instance
         .collection("users")
-        .doc("iftekhar.f.19@gmail.com") // emailAdd
+        .doc(FirebaseAuth.instance.currentUser?.email) // emailAdd
         .collection("cars")
         .doc("NAPm33gq0rcaKIaZGAA3")
         .collection("maintenance")
@@ -214,7 +227,7 @@ class _DashboardState extends State<Dashboard> {
   Future getCarRemindersList() async {
     var data = await FirebaseFirestore.instance
         .collection("users")
-        .doc("iftekhar.f.19@gmail.com") // emailAdd
+        .doc(FirebaseAuth.instance.currentUser?.email)// emailAdd
         .collection("cars")
         .doc("NAPm33gq0rcaKIaZGAA3") // replace with curr_car
         .collection("reminders")

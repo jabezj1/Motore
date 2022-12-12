@@ -6,7 +6,7 @@ import 'package:motore/pages/HistoryItem.dart';
 import 'package:motore/pages/HistoryItemCard.dart';
 import 'package:motore/pages/createGasExpense.dart';
 import 'package:motore/pages/createHistoryEntry.dart';
-import 'package:motore/pages/createMaintainceHistory.dart';
+import 'package:motore/pages/createMaintenanceHistory.dart';
 import 'package:motore/services/auth.dart';
 // import 'package:flutter/src/rendering/box.dart';
 
