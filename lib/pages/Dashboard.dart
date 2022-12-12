@@ -43,179 +43,168 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      // appBar: AppBar(
-      //   backgroundColor: Colors.transparent,
-      //   automaticallyImplyLeading: false,
-      //   title: Text('Dashboard',
-      //       style: GoogleFonts.roboto(
-      //         fontSize: 25,
-      //         fontWeight: FontWeight.bold,
-      //       )),
-      //   centerTitle: true,
-      //   elevation: 0,
-      //   flexibleSpace: Container(
-      //       // decoration: const BoxDecoration(
-      //       //   gradient:
-      //       //       LinearGradient(colors: [Color(0xff15aaaff), Color(0xFFADF7F2)]),
-      //       // ),
-      //       ),
-      // ),
-      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-      body: SingleChildScrollView(
-        child: Container(
-          // height: MediaQuery.of(context).size.height,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [
-              Colors.red,
-              Color(0xff15aaaff),
-            ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
-          ),
-          child: SafeArea(
-              child: Column(
-            children: [
-              const SizedBox(height: 25),
-              Text(
-                "Hello, $username",
-                style: GoogleFonts.josefinSans(
-                    fontSize: 30, fontWeight: FontWeight.bold),
-              ),
-              Column(
-                children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height / 3,
-                    width: MediaQuery.of(context).size.width / 0.5,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                      image: NetworkImage(
-                        "https://cdn-01.imagin.studio/getImage?customer=usmotore&make=$sellMake&modelFamily=$sellModel",
-                      ), // displays picture of selected car from Profile
-                    )),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    width: MediaQuery.of(context).size.width,
-                    decoration: const BoxDecoration(
-                        // gradient: LinearGradient(
-                        //     colors: [Colors.white, Colors.red],
-                        //     begin: Alignment.topCenter,
-                        //     end: Alignment.bottomCenter),
+    return DecoratedBox(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(colors: [
+          Colors.red,
+          Color(0xff15aaaff),
+        ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+      ),
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          automaticallyImplyLeading: false,
+          title: Text('Dashboard',
+              style: GoogleFonts.roboto(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              )),
+          centerTitle: true,
+          elevation: 0,
+        ),
+        backgroundColor: Colors.transparent,
+        body: SingleChildScrollView(
+          child: Container(
+            child: SafeArea(
+                child: Column(
+              children: [
+                const SizedBox(height: 25),
+                Text(
+                  "Hello, $username",
+                  style: GoogleFonts.josefinSans(
+                      fontSize: 30, fontWeight: FontWeight.bold),
+                ),
+                Column(
+                  children: [
+                    Container(
+                      height: MediaQuery.of(context).size.height / 3,
+                      width: MediaQuery.of(context).size.width / 0.5,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                        image: NetworkImage(
+                          "https://cdn-01.imagin.studio/getImage?customer=usmotore&make=$sellMake&modelFamily=$sellModel",
+                        ), // displays picture of selected car from Profile
+                      )),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      width: MediaQuery.of(context).size.width,
+                      decoration: const BoxDecoration(
+                          // gradient: LinearGradient(
+                          //     colors: [Colors.white, Colors.red],
+                          //     begin: Alignment.topCenter,
+                          //     end: Alignment.bottomCenter),
+                          ),
+                      child: Text(
+                        carNick,
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.getFont(
+                          'Permanent Marker',
+                          color: Colors.black,
+                          fontSize: 36,
+                          fontWeight: FontWeight.w700,
+                          fontStyle: FontStyle.italic,
                         ),
-                    child: Text(
-                      carNick,
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.getFont(
-                        'Permanent Marker',
-                        color: Colors.black,
-                        fontSize: 36,
-                        fontWeight: FontWeight.w700,
-                        fontStyle: FontStyle.italic,
                       ),
                     ),
-                  ),
-                ],
-              ),
-              SafeArea(
-                  child: Column(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.only(top: 10),
-                    // decoration: const BoxDecoration(
-                    //   gradient: LinearGradient(colors: [
-                    //     Colors.red,
-                    //     Color(0xff15aaaff),
-                    //   ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
-                    // ),
+                  ],
+                ),
+                SafeArea(
                     child: Column(
-                      children: [
-                        const Text(
-                          "Upcoming Maintenance",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const createNewMaintenance(
-                                              title: "")));
-                            },
-                            child: Text("Add Maintenance")),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: ListView.builder(
-                                shrinkWrap: true,
-                                physics: const BouncingScrollPhysics(),
-                                itemCount: maintenanceList.length,
-                                itemBuilder: ((context, index) {
-                                  return MaintenanceItemCard(
-                                      maintenanceList[index]
-                                          as MaintenanceItem);
-                                })),
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Column(
+                        children: [
+                          const Text(
+                            "Upcoming Maintenance",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold),
                           ),
-                        ),
-                      ],
+                          ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const createNewMaintenance(
+                                                title: "")));
+                              },
+                              child: Text("Add Maintenance")),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              child: ListView.builder(
+                                  shrinkWrap: true,
+                                  physics: const BouncingScrollPhysics(),
+                                  itemCount: maintenanceList.length,
+                                  itemBuilder: ((context, index) {
+                                    return MaintenanceItemCard(
+                                        maintenanceList[index]
+                                            as MaintenanceItem);
+                                  })),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-              )),
-              SafeArea(
-                  child: Column(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.only(top: 10),
+                  ],
+                )),
+                SafeArea(
+                    child: Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.only(top: 10),
 
-                    // ),
-                    child: Column(
-                      children: [
-                        const Text(
-                          "To-Do List",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const createToDo(title: "")));
-                            },
-                            child: Text("Add To-Do")),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: ListView.builder(
-                                shrinkWrap: true,
-                                physics: const BouncingScrollPhysics(),
-                                itemCount: reminderList.length,
-                                itemBuilder: ((context, index) {
-                                  return ReminderItemCard(
-                                      reminderList[index] as ReminderItem);
-                                })),
+                      // ),
+                      child: Column(
+                        children: [
+                          const Text(
+                            "To-Do List",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold),
                           ),
-                        ),
-                      ],
+                          ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const createToDo(title: "")));
+                              },
+                              child: Text("Add To-Do")),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              child: ListView.builder(
+                                  shrinkWrap: true,
+                                  physics: const BouncingScrollPhysics(),
+                                  itemCount: reminderList.length,
+                                  itemBuilder: ((context, index) {
+                                    return ReminderItemCard(
+                                        reminderList[index] as ReminderItem);
+                                  })),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-              ))
-            ],
-          )),
+                  ],
+                ))
+              ],
+            )),
+          ),
         ),
       ),
     );
