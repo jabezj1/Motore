@@ -100,10 +100,10 @@ class _DashboardState extends State<Dashboard> {
                         carNick,
                         textAlign: TextAlign.center,
                         style: GoogleFonts.getFont(
-                          'Permanent Marker',
+                          'Caveat',
                           color: Colors.black,
                           fontSize: 36,
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.w900,
                           fontStyle: FontStyle.italic,
                         ),
                       ),
