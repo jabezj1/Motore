@@ -44,29 +44,7 @@ class _EngineTileState extends State<EngineTile> {
           child: Column(
             children: [
               // price
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: widget.tileColor[100],
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(borderRadius),
-                        topRight: Radius.circular(borderRadius),
-                      ),
-                    ),
-                    padding: EdgeInsets.all(12),
-                    child: Text(
-                      '\$${widget.partPrice}',
-                      style: TextStyle(
-                        color: widget.tileColor[800],
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              
 
               // part picture
               Padding(
