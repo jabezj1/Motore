@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:motore/navbar.dart';
+import 'package:motore/pages/Dashboard.dart';
 import 'package:motore/pages/History.dart';
 import 'package:motore/pages/InspectPastMaintenance.dart';
 
@@ -104,7 +105,7 @@ class StateCreateMaintenanceHistory extends State<CreateMaintenanceHistory> {
                               .doc(FirebaseAuth.instance.currentUser
                                   ?.email) //FirebaseAuth.instance.currentUser?.email
                               .collection("cars")
-                              .doc("NAPm33gq0rcaKIaZGAA3")
+                              .doc(sellNick)
                               .collection(historyType)
                               .doc()
                               .set({
