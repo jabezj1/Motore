@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:motore/pages/History.dart';
-import 'package:motore/pages/InspectPastMaintenance.dart';
+import 'package:motore/pages/Dashboard.dart';
+import 'package:motore/pages/InspectGas.dart';
 
 class CreateGasExpense extends StatefulWidget {
   const CreateGasExpense({super.key, required this.title});
@@ -13,11 +13,10 @@ class CreateGasExpense extends StatefulWidget {
 }
 
 class StateCreateGasExpense extends State<CreateGasExpense> {
-  TextEditingController historyTitleController = TextEditingController();
-  TextEditingController historyDateController = TextEditingController();
-  TextEditingController historyCostController = TextEditingController();
-  TextEditingController historyLocationController = TextEditingController();
-  TextEditingController historyNotesController = TextEditingController();
+  TextEditingController gasCostController = TextEditingController();
+  TextEditingController gasGallonsController = TextEditingController();
+  TextEditingController gasMileageController = TextEditingController();
+  TextEditingController gasTypeController = TextEditingController();
   Timestamp timestampdate = Timestamp.now();
 
   @override
@@ -62,16 +61,13 @@ class StateCreateGasExpense extends State<CreateGasExpense> {
                 ),
                 const SizedBox(height: 20),
                 EnterHistoryInfo(
-                    hintText: 'Gas Type', controller: historyTitleController),
+                    hintText: 'Gas Type', controller: gasTypeController),
                 EnterHistoryInfo(
-                    hintText: 'Date', controller: historyDateController),
+                    hintText: 'Cost', controller: gasCostController),
                 EnterHistoryInfo(
-                    hintText: 'Cost', controller: historyCostController),
+                    hintText: 'Gallons', controller: gasGallonsController),
                 EnterHistoryInfo(
-                    hintText: 'Location',
-                    controller: historyLocationController),
-                EnterHistoryInfo(
-                    hintText: 'Notes', controller: historyNotesController),
+                    hintText: 'Current Mileage', controller: gasMileageController),
                 const SizedBox(
                   height: 30,
                 ),
@@ -85,42 +81,33 @@ class StateCreateGasExpense extends State<CreateGasExpense> {
                             side: const BorderSide(width: 4.0),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30))),
-                        child: const Text('Create New History Entry',
+                        child: const Text('Add Gas Expense',
                             style:
                                 TextStyle(fontSize: 20, color: Colors.black)),
                         onPressed: () async {
-                          print({
-                            "date": historyDateController.text,
-                            "cost": historyCostController.text,
-                            "location": historyLocationController.text,
-                            "notes": historyNotesController.text
-                          });
-
                           FirebaseFirestore.instance
                               .collection("users")
                               .doc(FirebaseAuth.instance.currentUser
                                   ?.email) //FirebaseAuth.instance.currentUser?.email
                               .collection("cars")
-                              .doc("NAPm33gq0rcaKIaZGAA3")
-                              .collection(historyType)
-                              .doc()
-                              .set({
-                                "title": historyTitleController.text,
-                                "date": historyDateController.text,
-                                "cost": historyCostController.text,
-                                "location": historyLocationController.text,
-                                "notes": historyNotesController.text,
+                              .doc(sellNick)
+                              .collection("gas")
+                              .add({
+                                "cost": gasCostController.text,
+                                "gallons": gasGallonsController.text,
+                                "mileage": gasMileageController.text,
+                                "type": gasTypeController.text,
                                 "timestamp": timestampdate.toDate()
                               })
                               .then((value) =>
                                   print("successfully added document"))
                               .catchError((e) => print(e));
 
-                          Navigator.pop(
+                          Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      const InspectPastMaintenance()));
+                                      const InspectGas()));
                         })),
               ]),
             ),

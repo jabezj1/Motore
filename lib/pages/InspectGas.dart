@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:motore/pages/Dashboard.dart';
+import 'package:motore/pages/GasItem.dart';
+import 'package:motore/pages/GasItemCard.dart';
 import 'package:motore/pages/History.dart';
 import 'package:motore/pages/HistoryItem.dart';
 import 'package:motore/pages/HistoryItemCard.dart';
@@ -28,7 +30,7 @@ class _InspectGasState extends State<InspectGas> {
 		return Scaffold(
 			appBar: AppBar(
 				automaticallyImplyLeading: true,
-				title: Text(historyType),
+				title: const Text("Gas Expenses"),
 				centerTitle: true,
 				elevation: 0,
 				flexibleSpace: Container(
@@ -55,7 +57,7 @@ class _InspectGasState extends State<InspectGas> {
 				child: ListView.builder(
 					itemCount: _pastGas.length,
 					itemBuilder: (context, index) {
-						return HistoryItemCard(_pastGas[index] as HistoryItem);
+						return GasItemCard(_pastGas[index] as GasItem);
 					},
 				),
 			),
@@ -69,12 +71,12 @@ class _InspectGasState extends State<InspectGas> {
 			.doc(userEmail) // replace with userEmail
 			.collection("cars")
 			.doc(sellNick)
-			.collection("gas-trips")
+			.collection("gas")
 			.orderBy("timestamp", descending: true)
 			.get();
 
 		setState(() {
-			_pastGas = List.from(data.docs.map((doc) => HistoryItem.fromSnapshot(doc)));
+			_pastGas = List.from(data.docs.map((doc) => GasItem.fromSnapshot(doc)));
 		});
 	}
 }
