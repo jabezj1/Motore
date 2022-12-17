@@ -224,10 +224,14 @@ class _DashboardState extends State<Dashboard> {
 
 		setState(() {
 			maintenanceList = List.from(data.docs.map((doc) => MaintenanceItem.fromSnapshot(doc)));
+			// getPreventativeMaintenanceList();
+
+			// Calling the above code will force-update the list,
+			// but this is reading recursively, which is not good!
 		});
 
-    print("Getting maint. list...");
-    print(maintenanceList);
+		print("Getting maint. list...");
+		print(maintenanceList);
 	}
 
 	Future getCarRemindersList() async {
@@ -246,29 +250,6 @@ class _DashboardState extends State<Dashboard> {
 	}
 
 	Future getLatestCarData() async {
-		// FutureBuilder<DocumentSnapshot>(
-		// 	future: FirebaseFirestore.instance
-		// 		.collection("users")
-		// 		.doc(FirebaseAuth.instance.currentUser?.email)
-		// 		.get(),
-		// 	builder: (((context, snapshot) {
-
-		// 		if (snapshot.hasError) {
-        //   			return Text("Something went wrong");
-        // 		}
-
-		// 		if (snapshot.hasData && !snapshot.data!.exists) {
-		// 			return Text("Document does not exist");
-		// 		}
-
-		// 		Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
-		// 		carNick = data['selected-nick'];
-		// 		carMake = data['selected-make'];
-		// 		carModel = data['selected-model'];
-		// 		return const Text("");
-		// 	})),
-		// );
-
 		FirebaseFirestore.instance
 			.collection('users')
 			.doc(FirebaseAuth.instance.currentUser?.email)
