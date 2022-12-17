@@ -47,23 +47,16 @@ class GasItemCard extends StatelessWidget {
                                       padding: EdgeInsets.all(12),
                                       child: Row(
                                         children: [
-											const Text(
-												"Gas Type: ",
-												style: TextStyle(
-													color: Colors.black,
-													fontSize: 20,
-													fontWeight: FontWeight.bold
+											Flexible(
+												child: Text(
+													"Grade: ${_gasItem.type!}",
+													style: const TextStyle(
+														color: Colors.black,
+														fontSize: 20,
+														fontWeight: FontWeight.bold
+													),
 												),
 											),	
-                                          Text(
-                                            _gasItem.type!
-                                                .toString(),
-                                            style: const TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                          ),
                                         ],
                                       ) // title of maintenance
                                       ),
