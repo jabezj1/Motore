@@ -66,23 +66,29 @@ class _NearByPlacesScreenState extends State<NearByPlacesScreen> {
                     right: 20,
                     left: 20,
                   ),
-                  child: ElevatedButton(
-                      style: ButtonStyle(
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
-                            ),
-                          ),
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.green.shade300)),
-                      onPressed: () {
-                        getNearbyPlaces();
-                      },
-                      child: Text(
-                        "Find a Gas Station",
-                        style: TextStyle(fontSize: 35),
-                      )),
+                  child: Column(
+                    children: [
+                      Lottie.network(
+                'https://assets10.lottiefiles.com/packages/lf20_0ec3p5o6.json'),
+                      ElevatedButton(
+                          style: ButtonStyle(
+                              shape:
+                                  MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18.0),
+                                ),
+                              ),
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.green.shade300)),
+                          onPressed: () {
+                            getNearbyPlaces();
+                          },
+                          child: Text(
+                            "Find a Gas Station",
+                            style: TextStyle(fontSize: 35),
+                          )),
+                    ],
+                  ),
                 ),
               ),
               if (nearbyPlacesResponse.results != null)
@@ -220,8 +226,7 @@ class _NearByPlacesScreenState extends State<NearByPlacesScreen> {
             // Text(results.photos.)
 
             // // Image.network(results.icon!),
-            Lottie.network(
-                'https://assets10.lottiefiles.com/packages/lf20_0ec3p5o6.json'),
+            
           ],
         ),
       ),
