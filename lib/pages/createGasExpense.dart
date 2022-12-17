@@ -1,8 +1,12 @@
+import 'dart:ffi';
+
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:motore/pages/Dashboard.dart';
 import 'package:motore/pages/InspectGas.dart';
+import 'package:motore/pages/carSpecCard.dart';
 
 class CreateGasExpense extends StatefulWidget {
   const CreateGasExpense({super.key, required this.title});
@@ -85,6 +89,56 @@ class StateCreateGasExpense extends State<CreateGasExpense> {
                             style:
                                 TextStyle(fontSize: 20, color: Colors.black)),
                         onPressed: () async {
+                          int newMiles = int.parse(gasMileageController.text);
+                          int prevMiles = 0;
+                          int deltaMiles = 0;
+						  
+                          
+						  // save the current mileage of the car
+						FirebaseFirestore.instance
+                            .collection("users")
+                            .doc(FirebaseAuth.instance.currentUser?.email)
+                            .collection("cars")
+                            .doc(sellNick)
+                            .get()
+                            .then((DocumentSnapshot documentSnapshot) {
+                              prevMiles = documentSnapshot.get("miles");
+                            });
+
+                          // change mileage of car to what the new indicated mileage is
+                          FirebaseFirestore.instance
+                            .collection("users")
+                            .doc(FirebaseAuth.instance.currentUser?.email)
+                            .collection("cars")
+                            .doc(sellNick)
+                            .update({
+                              "miles" : newMiles
+                            });
+
+							// calculate the change in mileage
+                          deltaMiles = newMiles - prevMiles;
+
+						
+						
+                          var updatingMaintCollection = FirebaseFirestore.instance
+                            .collection("users")
+                            .doc(FirebaseAuth.instance.currentUser?.email)
+                            .collection("cars")
+                            .doc(sellMake)
+                            .collection("maintenance");
+
+                          var querySnapshots = await updatingMaintCollection.get();
+
+                          for (var doc in querySnapshots.docs) {
+                            // TODO: write function to save mileage of each maintenance item
+							int maintMiles = 0;
+							
+
+							await doc.reference.update({
+                              
+                            });
+                          }
+
                           FirebaseFirestore.instance
                               .collection("users")
                               .doc(FirebaseAuth.instance.currentUser
@@ -95,13 +149,25 @@ class StateCreateGasExpense extends State<CreateGasExpense> {
                               .add({
                                 "cost": gasCostController.text,
                                 "gallons": gasGallonsController.text,
-                                "mileage": gasMileageController.text,
+                                "mileage": newMiles,
                                 "type": gasTypeController.text,
                                 "timestamp": timestampdate.toDate()
+                                
                               })
                               .then((value) =>
                                   print("successfully added document"))
                               .catchError((e) => print(e));
+
+                          FirebaseFirestore.instance
+                            .collection("users")
+                            .doc(FirebaseAuth.instance.currentUser?.email)
+                            .collection("cars")
+                            .doc(sellNick)
+                            .collection("expenses")
+                            .add({
+                              "title" : "Fuel Fillup (${gasTypeController.text})",
+                              "cost" : gasCostController.text
+                            });
 
                           Navigator.push(
                               context,
