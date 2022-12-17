@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 class MaintenanceItem {
 	String? system;
   	String? miles;
@@ -11,6 +13,6 @@ class MaintenanceItem {
 
 	MaintenanceItem.fromSnapshot(snapshot): 
 		system = snapshot.data()['system'],
-		miles = snapshot.data()['miles']
+		miles = snapshot.data()['miles'].toString()
 	;
 }

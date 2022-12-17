@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:motore/main.dart';
 import 'package:motore/pages/CarInfo.dart';
 import 'package:motore/pages/ReminderItem.dart';
 import 'package:motore/pages/ReminderItemCard.dart';
@@ -34,8 +35,8 @@ class _DashboardState extends State<Dashboard> {
 	void didChangeDependencies() {
 		super.didChangeDependencies();
 		getLatestCarData();
+    	getPreventativeMaintenanceList();
 		getCarRemindersList();
-		getPreventativeMaintenanceList();
 	}
 
 	@override
@@ -100,18 +101,23 @@ class _DashboardState extends State<Dashboard> {
                 				SafeArea(
                     				child: Column(
                   						children: [
-                    						Container(
+											ExpansionTile(
+												collapsedIconColor: Colors.black,
+												iconColor: Colors.black,
+												title: const Text(
+													"Upcoming Maintenance",
+													textAlign: TextAlign.center,
+													style: TextStyle(
+														color: Colors.black,
+														fontSize: 25,
+														fontWeight: FontWeight.bold
+													),
+												),
+											children: [
+												Container(
                       							padding: const EdgeInsets.only(top: 10),
                       							child: Column(
                         							children: [
-                          								const Text(
-                            								"Upcoming Maintenance",
-                            								style: TextStyle(
-                                								color: Colors.black,
-                                								fontSize: 25,
-                                								fontWeight: FontWeight.bold
-															),
-														),
                           									Padding(
 																padding: const EdgeInsets.all(8.0),
 																child: Container(
@@ -133,6 +139,8 @@ class _DashboardState extends State<Dashboard> {
                         								],
                       								),
                     							),
+											],)
+                    						
                   							],
                 						)
 									),
@@ -143,15 +151,18 @@ class _DashboardState extends State<Dashboard> {
                       								padding: const EdgeInsets.only(top: 10),
                       								child: Column(
                         								children: [
-                          									const Text(
-                            									"To-Do List",
-                            									style: TextStyle(
-																	color: Colors.black,
-																	fontSize: 25,
-																	fontWeight: FontWeight.bold
+															ExpansionTile(
+																title: const Text(
+																	"To-Do List",
+																	textAlign: TextAlign.center,
+																	style: TextStyle(
+																		color: Colors.black,
+																		fontSize: 25,
+																		fontWeight: FontWeight.bold
+																	),
 																),
-                          									),
-															ElevatedButton(
+																children: [
+																	ElevatedButton(
 																onPressed: () {
 																	getCarRemindersList();
 																	Navigator.push(
@@ -162,7 +173,7 @@ class _DashboardState extends State<Dashboard> {
 																		)
 																	);
 																},
-                              									child: Text("Add To-Do")
+                              									child: const Text("Add To-Do")
 															),
                           									Padding(
 																padding: const EdgeInsets.all(8.0),
@@ -182,6 +193,10 @@ class _DashboardState extends State<Dashboard> {
 																	),
 																),
 															),
+																],
+															),
+                          									
+															
                         								],
                       								),
                     							),
@@ -210,6 +225,9 @@ class _DashboardState extends State<Dashboard> {
 		setState(() {
 			maintenanceList = List.from(data.docs.map((doc) => MaintenanceItem.fromSnapshot(doc)));
 		});
+
+    print("Getting maint. list...");
+    print(maintenanceList);
 	}
 
 	Future getCarRemindersList() async {
