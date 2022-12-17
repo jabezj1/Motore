@@ -30,10 +30,10 @@ class _DashboardState extends State<Dashboard> {
 	String? username = FirebaseAuth.instance.currentUser?.displayName; // name of the authenticated user
 	String? emailAdd = FirebaseAuth.instance.currentUser?.email; // email of the authenticated user
 	String carNick = sellNick; // nickname of the car the user picked in Profile page
-
 	@override
 	void didChangeDependencies() {
 		super.didChangeDependencies();
+		getLatestCarData();
 		getCarRemindersList();
 		getPreventativeMaintenanceList();
 	}
@@ -112,20 +112,6 @@ class _DashboardState extends State<Dashboard> {
                                 								fontWeight: FontWeight.bold
 															),
 														),
-														ElevatedButton(
-															onPressed: () {
-																getPreventativeMaintenanceList();
-																Navigator.push(
-																	context,
-																	MaterialPageRoute(
-																		builder: (context) =>
-																			const createNewMaintenance(
-																				title: ""
-																			)
-																	)
-																);
-															},
-                              								child: Text("Add Maintenance")),
                           									Padding(
 																padding: const EdgeInsets.all(8.0),
 																child: Container(
@@ -239,6 +225,49 @@ class _DashboardState extends State<Dashboard> {
 		setState(() {
 			reminderList = List.from(data.docs.map((doc) => ReminderItem.fromSnapshot(doc)));
 		});
+	}
+
+	Future getLatestCarData() async {
+		// FutureBuilder<DocumentSnapshot>(
+		// 	future: FirebaseFirestore.instance
+		// 		.collection("users")
+		// 		.doc(FirebaseAuth.instance.currentUser?.email)
+		// 		.get(),
+		// 	builder: (((context, snapshot) {
+
+		// 		if (snapshot.hasError) {
+        //   			return Text("Something went wrong");
+        // 		}
+
+		// 		if (snapshot.hasData && !snapshot.data!.exists) {
+		// 			return Text("Document does not exist");
+		// 		}
+
+		// 		Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
+		// 		carNick = data['selected-nick'];
+		// 		carMake = data['selected-make'];
+		// 		carModel = data['selected-model'];
+		// 		return const Text("");
+		// 	})),
+		// );
+
+		FirebaseFirestore.instance
+			.collection('users')
+			.doc(FirebaseAuth.instance.currentUser?.email)
+			.get()
+			.then((DocumentSnapshot documentSnapshot) {
+			if (documentSnapshot.exists) {
+				print('Document data: ${documentSnapshot.data()}');
+				sellNick = documentSnapshot.get("selected-nick");
+				sellMake = documentSnapshot.get("selected-make");
+				sellModel = documentSnapshot.get("selected-model");
+				print(sellNick);
+				print(sellMake);
+				print(sellModel);
+			} else {
+				print('Document does not exist on the database');
+			}
+    		});
 	}
 }
 

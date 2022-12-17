@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -25,6 +28,15 @@ class CarSpecCard extends StatelessWidget {
           defPage = Profile();
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => Navigation()));
+
+          FirebaseFirestore.instance
+            .collection("users")
+            .doc(FirebaseAuth.instance.currentUser?.email)
+            .set({
+              "selected-nick" : sellNick.toString(),
+              "selected-make" : sellMake.toString(),
+              "selected-model" : sellModel.toString()
+            });
         },
         child: Card(
           shape: RoundedRectangleBorder(

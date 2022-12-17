@@ -8,6 +8,7 @@ import 'package:motore/pages/Dashboard.dart';
 import 'package:motore/pages/carMakes.dart';
 import 'package:motore/pages/carModel.dart';
 import 'package:motore/pages/carModelTrim.dart';
+import 'package:motore/pages/carSpecCard.dart';
 import 'package:motore/pages/profile.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
@@ -156,6 +157,15 @@ class StateCreateCarProfile extends State<CreateCarProfile> {
 								"miles": carMileageController.text,
 								"nickname": carNicknameController.text
 							});
+
+              FirebaseFirestore.instance
+            .collection("users")
+            .doc(FirebaseAuth.instance.currentUser?.email)
+            .set({
+              "selected-nick" : sellNick.toString(),
+              "selected-make" : sellMake.toString(),
+              "selected-model" : sellModel.toString()
+            });
 
 							CollectionReference newCarMaint = newCarDoc.collection("maintenance");
 							
