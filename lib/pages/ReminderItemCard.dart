@@ -1,9 +1,13 @@
 import 'dart:math';
 
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:motore/pages/ReminderItem.dart';
+import 'package:motore/pages/carSpecCard.dart';
 
 class ReminderItemCard extends StatelessWidget {
   final ReminderItem _reminder;
@@ -70,17 +74,21 @@ class ReminderItemCard extends StatelessWidget {
                             )),
                       ),
                       IconButton(
-                        onPressed: () async {},
+                        onPressed: () async {
+                          FirebaseFirestore.instance
+                            .collection("users")
+                            .doc(FirebaseAuth.instance.currentUser?.email)
+                            .collection("cars")
+                            .doc(sellMake)
+                            .collection("reminders")
+                            .where("title", isEqualTo: _reminder.title.toString())
+                            .get();
+                            
+                        },
                         icon: const Icon(
                           Icons.delete,
                           color: Colors.red,
                         ),
-                        // style: ElevatedButton.styleFrom(
-                        //     padding: const EdgeInsets.symmetric(
-                        //         horizontal: 10.0, vertical: 3.0),
-                        //     backgroundColor: Colors.red,
-                        //     shape: RoundedRectangleBorder(
-                        //         borderRadius: BorderRadius.circular(50.0))),
                       ),
                     ],
                   )

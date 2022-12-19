@@ -88,7 +88,7 @@ class _InspectPastMaintenanceState extends State<InspectPastMaintenance> {
 			.doc(userEmail) // replace with userEmail
 			.collection("cars")
 			.doc(sellNick)
-			.collection(historyType)
+			.collection("service")
 			.orderBy("timestamp", descending: true)
 			.get();
 

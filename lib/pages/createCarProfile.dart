@@ -154,7 +154,7 @@ class StateCreateCarProfile extends State<CreateCarProfile> {
 								"model": carModelController.text,
 								"year": carModelYearController.text,
 								"trim": carTrimController.text,
-								"miles": carMileageController.text,
+								"miles": int.parse(carMileageController.text.toString()), // int.parse(gasMileageController.text)
 								"nickname": carNicknameController.text
 							});
 

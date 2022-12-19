@@ -2,7 +2,7 @@ import 'dart:ffi';
 
 class GasItem {
 	String? gallons;
-  	String? mileage;
+  	int? mileage;
 	String? type;
 	String? cost;
 

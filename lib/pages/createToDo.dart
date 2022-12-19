@@ -90,7 +90,7 @@ class StatecreateToDo extends State<createToDo> {
 								.doc(FirebaseAuth.instance.currentUser
 									?.email) //FirebaseAuth.instance.currentUser?.email
 								.collection("cars")
-								.doc("NAPm33gq0rcaKIaZGAA3")
+								.doc(sellNick)
 								.collection("reminders")
 								.doc()
 								.set({

@@ -41,6 +41,8 @@ class _DashboardState extends State<Dashboard> {
 
 	@override
 	Widget build(BuildContext context) {
+		carNick = sellNick;
+		// getPreventativeMaintenanceList();
 		return DecoratedBox(
 			decoration: const BoxDecoration(
 				gradient: LinearGradient(
@@ -152,6 +154,8 @@ class _DashboardState extends State<Dashboard> {
                       								child: Column(
                         								children: [
 															ExpansionTile(
+																collapsedIconColor: Colors.black,
+																iconColor: Colors.black,
 																title: const Text(
 																	"To-Do List",
 																	textAlign: TextAlign.center,
@@ -163,36 +167,36 @@ class _DashboardState extends State<Dashboard> {
 																),
 																children: [
 																	ElevatedButton(
-																onPressed: () {
-																	getCarRemindersList();
-																	Navigator.push(
-																		context,
-																		MaterialPageRoute(
-																			builder: (context) =>
-																				const createToDo(title: "")
-																		)
-																	);
-																},
-                              									child: const Text("Add To-Do")
-															),
-                          									Padding(
-																padding: const EdgeInsets.all(8.0),
-																child: Container(
-																	decoration: BoxDecoration(
-																		borderRadius: BorderRadius.circular(30),
-																	),
-																	child: ListView.builder(
-																		shrinkWrap: true,
-																		physics: const BouncingScrollPhysics(),
-																		itemCount: reminderList.length,
-																		itemBuilder: ((context, index) {
-																			return ReminderItemCard(
-																				reminderList[index] as ReminderItem
+																		onPressed: () {
+																			getCarRemindersList();
+																			Navigator.push(
+																				context,
+																				MaterialPageRoute(
+																					builder: (context) =>
+																						const createToDo(title: "")
+																				)
 																			);
-																		})
+																		},
+																		child: const Text("Add To-Do")
 																	),
-																),
-															),
+																	Padding(
+																		padding: const EdgeInsets.all(8.0),
+																		child: Container(
+																			decoration: BoxDecoration(
+																				borderRadius: BorderRadius.circular(30),
+																			),
+																			child: ListView.builder(
+																				shrinkWrap: true,
+																				physics: const BouncingScrollPhysics(),
+																				itemCount: reminderList.length,
+																				itemBuilder: ((context, index) {
+																					return ReminderItemCard(
+																						reminderList[index] as ReminderItem
+																					);
+																				})
+																			),
+																		),
+																	),
 																],
 															),
                           									
@@ -228,6 +232,8 @@ class _DashboardState extends State<Dashboard> {
 
 			// Calling the above code will force-update the list,
 			// but this is reading recursively, which is not good!
+			// Too many reads from database will make the app slow
+			// and cost us extra money.
 		});
 
 		print("Getting maint. list...");
@@ -269,34 +275,3 @@ class _DashboardState extends State<Dashboard> {
     		});
 	}
 }
-
-// class ShowReminders extends StatelessWidget {
-//   final String remText;
-//   final String daysLeft;
-//   const ShowReminders(
-//       {super.key, required this.remText, required this.daysLeft});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//         // color: Colors.pink,
-//         padding: const EdgeInsets.only(bottom: 10, right: 40, left: 30),
-//         child: Container(
-//           child: Row(
-//             children: [
-//               Text(
-//                 remText,
-//                 style: const TextStyle(
-//                   fontSize: 30,
-//                 ),
-//               ),
-//               const SizedBox(width: 15),
-//               Text(
-//                 daysLeft,
-//                 textAlign: TextAlign.left,
-//               )
-//             ],
-//           ),
-//         ));
-//   }
-// }

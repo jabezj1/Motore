@@ -89,92 +89,93 @@ class StateCreateGasExpense extends State<CreateGasExpense> {
                             style:
                                 TextStyle(fontSize: 20, color: Colors.black)),
                         onPressed: () async {
-                          int newMiles = int.parse(gasMileageController.text);
-                          int prevMiles = 0;
-                          int deltaMiles = 0;
+							int newMiles = int.parse(gasMileageController.text); // new milage of the car
+							int prevMiles = 0; // preset previous mileage
+							int deltaMiles = 0; // preset change in mileage
 						  
-                          
-						  // save the current mileage of the car
-						FirebaseFirestore.instance
-                            .collection("users")
-                            .doc(FirebaseAuth.instance.currentUser?.email)
-                            .collection("cars")
-                            .doc(sellNick)
-                            .get()
-                            .then((DocumentSnapshot documentSnapshot) {
-                              prevMiles = documentSnapshot.get("miles");
-                            });
+						  	// save the current mileage of the car
+							// by getting it from the car's stats on the database
+							FirebaseFirestore.instance
+								.collection("users")
+								.doc(FirebaseAuth.instance.currentUser?.email)
+								.collection("cars")
+								.doc(sellNick)
+								.get()
+								.then((DocumentSnapshot documentSnapshot) {
+									prevMiles = documentSnapshot.get("miles");
+								});
 
-                          // change mileage of car to what the new indicated mileage is
-                          FirebaseFirestore.instance
-                            .collection("users")
-                            .doc(FirebaseAuth.instance.currentUser?.email)
-                            .collection("cars")
-                            .doc(sellNick)
-                            .update({
-                              "miles" : newMiles
-                            });
+							if (newMiles > prevMiles) {
+								// PROCESS: update all maintenance mileage intervals
+								// 			to reflect change in mileage
 
-							// calculate the change in mileage
-                          deltaMiles = newMiles - prevMiles;
+								// calculate the change in mileage
+								deltaMiles = newMiles - prevMiles;
 
-						
-						
-                          var updatingMaintCollection = FirebaseFirestore.instance
-                            .collection("users")
-                            .doc(FirebaseAuth.instance.currentUser?.email)
-                            .collection("cars")
-                            .doc(sellMake)
-                            .collection("maintenance");
+								// create a collection reference to the maintenance numbers of the car
+								var updatingMaintCollection = FirebaseFirestore.instance
+									.collection("users")
+									.doc(FirebaseAuth.instance.currentUser?.email)
+									.collection("cars")
+									.doc(sellMake)
+									.collection("maintenance");
+								
+								// get all the documents in the collection 
+								var querySnapshots = await updatingMaintCollection.get();
 
-                          var querySnapshots = await updatingMaintCollection.get();
+								// for every document in the collection: 
+								for (var doc in querySnapshots.docs) {
+									int maintMiles = doc["miles"]; // save the miles left on the maintenance
+									int newMaintMiles = maintMiles - deltaMiles; // calculate the new miles left for the maintenance
 
-                          for (var doc in querySnapshots.docs) {
-                            // TODO: write function to save mileage of each maintenance item
-							int maintMiles = 0;
-							
+									// update the maintenance miles remaining
+									await doc.reference.update({
+										"miles" : newMaintMiles 
+									});
+								}
 
-							await doc.reference.update({
-                              
-                            });
-                          }
+								// change mileage of car to what the new indicated mileage is
+								FirebaseFirestore.instance
+									.collection("users")
+									.doc(FirebaseAuth.instance.currentUser?.email)
+									.collection("cars")
+									.doc(sellNick)
+									.update({
+										"miles" : newMiles
+									});
+					
+								FirebaseFirestore.instance
+									.collection("users")
+									.doc(FirebaseAuth.instance.currentUser?.email) //FirebaseAuth.instance.currentUser?.email
+									.collection("cars")
+									.doc(sellNick)
+									.collection("gas")
+									.add({
+										"cost": gasCostController.text,
+										"gallons": gasGallonsController.text,
+										"mileage": newMiles,
+										"type": gasTypeController.text,
+										"timestamp": timestampdate.toDate() 
+									})
+									.then((value) =>
+										print("successfully added document"))
+										.catchError((e) => print(e));
 
-                          FirebaseFirestore.instance
-                              .collection("users")
-                              .doc(FirebaseAuth.instance.currentUser
-                                  ?.email) //FirebaseAuth.instance.currentUser?.email
-                              .collection("cars")
-                              .doc(sellNick)
-                              .collection("gas")
-                              .add({
-                                "cost": gasCostController.text,
-                                "gallons": gasGallonsController.text,
-                                "mileage": newMiles,
-                                "type": gasTypeController.text,
-                                "timestamp": timestampdate.toDate()
-                                
-                              })
-                              .then((value) =>
-                                  print("successfully added document"))
-                              .catchError((e) => print(e));
-
-                          FirebaseFirestore.instance
-                            .collection("users")
-                            .doc(FirebaseAuth.instance.currentUser?.email)
-                            .collection("cars")
-                            .doc(sellNick)
-                            .collection("expenses")
-                            .add({
-                              "title" : "Fuel Fillup (${gasTypeController.text})",
-                              "cost" : gasCostController.text
-                            });
-
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const InspectGas()));
-                        })),
+								FirebaseFirestore.instance
+									.collection("users")
+									.doc(FirebaseAuth.instance.currentUser?.email)
+									.collection("cars")
+									.doc(sellNick)
+									.collection("expenses")
+									.add({
+										"title" : "Fuel Fillup (${gasTypeController.text})",
+										"cost" : gasCostController.text
+									});
+							}
+							Navigator.push(context, MaterialPageRoute(builder: (context) => const InspectGas()));
+                        }
+					)
+				),
               ]),
             ),
           )),
