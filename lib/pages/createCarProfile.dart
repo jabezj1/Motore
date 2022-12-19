@@ -4,16 +4,18 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:motore/pages/CarInfo.dart';
+import 'package:motore/pages/Dashboard.dart';
 import 'package:motore/pages/carMakes.dart';
 import 'package:motore/pages/carModel.dart';
 import 'package:motore/pages/carModelTrim.dart';
+import 'package:motore/pages/carSpecCard.dart';
 import 'package:motore/pages/profile.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
 import '../navbar.dart';
 
-late String curr_car;
+late String newNickname;
 
 class CreateCarProfile extends StatefulWidget {
   const CreateCarProfile({super.key, required this.title});
@@ -126,40 +128,71 @@ class StateCreateCarProfile extends State<CreateCarProfile> {
                     padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
-                          side: const BorderSide(width: 4.0),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30)),
+							backgroundColor: Colors.blue,
+							side: const BorderSide(width: 4.0),
+							shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                         ),
-                        child: const Text('Add Vehicle',
+                        child: const Text(
+							'Add Vehicle',
                             style:
-                                TextStyle(fontSize: 20, color: Colors.black)),
+                                TextStyle(fontSize: 20, color: Colors.black)
+						),
                         onPressed: () {
-                          carModelYearController = theYear;
-                          carMakeController = theMake;
-                          carModelController = theModel;
-                          carTrimController = theModelTrim;
-                          print({
-                            "title": carMakeController.text,
-                            "date": carModelController.text,
-                            "cost": carModelYearController.text,
-                            "location": carTrimController.text,
-                            "notes": carMileageController.text,
-                            "nickname": carNicknameController.text
-                          });
+							carModelYearController = theYear;
+							carMakeController = theMake;
+							carModelController = theModel;
+							carTrimController = theModelTrim;
 
-                          users
-                              .doc(FirebaseAuth.instance.currentUser?.email)
-                              .collection("cars")
-                              .doc(carNicknameController.text)
-                              .set({
-                            "make": carMakeController.text,
-                            "model": carModelController.text,
-                            "year": carModelYearController.text,
-                            "trim": carTrimController.text,
-                            "miles": carMileageController.text,
-                            "nickname": carNicknameController.text
-                          })
+                          	newNickname = carNicknameController.text;
+							DocumentReference newCarDoc = users
+								.doc(FirebaseAuth.instance.currentUser?.email)
+								.collection("cars")
+								.doc(newNickname);
+
+							newCarDoc.set({
+								"make": carMakeController.text,
+								"model": carModelController.text,
+								"year": carModelYearController.text,
+								"trim": carTrimController.text,
+								"miles": int.parse(carMileageController.text.toString()), // int.parse(gasMileageController.text)
+								"nickname": carNicknameController.text
+							});
+
+              FirebaseFirestore.instance
+            .collection("users")
+            .doc(FirebaseAuth.instance.currentUser?.email)
+            .set({
+              "selected-nick" : sellNick.toString(),
+              "selected-make" : sellMake.toString(),
+              "selected-model" : sellModel.toString()
+            });
+
+							CollectionReference newCarMaint = newCarDoc.collection("maintenance");
+							
+							newCarMaint.add({
+								"system": "Brakes",
+								"miles": 14000
+							});
+							
+							newCarMaint.add({
+								"system": "Steering",
+								"miles": 62000
+							});
+
+							newCarMaint.add({
+								"system": "Clutch",
+								"miles": 69000
+							});
+
+							newCarMaint.add({
+								"system": "Injection",
+								"miles": 24000
+							});
+
+							newCarMaint.add({
+								"system": "Cooling",
+								"miles": 14000
+							}).catchError((e) => print(e));
                               //todo fix fields
                               // .then((value) => {
                               //       curr_car = value.id
@@ -175,12 +208,12 @@ class StateCreateCarProfile extends State<CreateCarProfile> {
                               //       //       "Location": "",
                               //       //       "Notes": ""
                               //     })
-                              .catchError((e) => print(e));
+                            
 
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Navigation()));
+							Navigator.push(
+								context,
+								MaterialPageRoute(
+									builder: (context) => const Navigation()));
                         })),
               ]),
             ),

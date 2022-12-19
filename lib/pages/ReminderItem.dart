@@ -10,9 +10,8 @@ class ReminderItem {
 		'days': days
 	};
 
-	ReminderItem.fromSnapshot(snapshot)
-		: title = snapshot.data() ['title'],
-		days = snapshot.data() ['days']
-	;
+	ReminderItem.fromSnapshot(snapshot): 
+		title = snapshot.data() ['title'],
+		days = snapshot.data() ['days'];
 
 }

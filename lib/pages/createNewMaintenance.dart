@@ -5,6 +5,7 @@ import 'package:motore/navbar.dart';
 import 'package:motore/pages/Dashboard.dart';
 import 'package:motore/pages/History.dart';
 import 'package:motore/pages/InspectPastMaintenance.dart';
+import 'package:motore/pages/createCarProfile.dart';
 
 class createNewMaintenance extends StatefulWidget {
   const createNewMaintenance({super.key, required this.title});
@@ -90,7 +91,7 @@ class StatecreateNewMaintenance extends State<createNewMaintenance> {
                               .doc(FirebaseAuth.instance.currentUser
                                   ?.email) //FirebaseAuth.instance.currentUser?.email
                               .collection("cars")
-                              .doc("NAPm33gq0rcaKIaZGAA3")
+                              .doc(sellNick)
                               .collection("maintenance")
                               .doc()
                               .set({

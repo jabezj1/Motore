@@ -18,8 +18,8 @@ class HistoryItem {
         'location': location,
       };
 
-  HistoryItem.fromSnapshot(snapshot)
-      : title = snapshot.data()['title'],
+  HistoryItem.fromSnapshot(snapshot):
+        title = snapshot.data()['title'],
         timestamp = snapshot.data()['timestamp'],
         cost = snapshot.data()['cost'],
         notes = snapshot.data()['notes'],

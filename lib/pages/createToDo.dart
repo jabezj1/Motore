@@ -7,113 +7,113 @@ import 'package:motore/pages/History.dart';
 import 'package:motore/pages/InspectPastMaintenance.dart';
 
 class createToDo extends StatefulWidget {
-  const createToDo({super.key, required this.title});
-  final String title;
+	const createToDo({super.key, required this.title});
+	final String title;
 
-  @override
-  StatecreateToDo createState() => StatecreateToDo();
+	@override
+	StatecreateToDo createState() => StatecreateToDo();
 }
 
 class StatecreateToDo extends State<createToDo> {
-  TextEditingController titleName = TextEditingController();
-  TextEditingController Days = TextEditingController();
-  Timestamp timestampdate = Timestamp.now();
+	TextEditingController titleName = TextEditingController();
+	TextEditingController Days = TextEditingController();
+	Timestamp timestampdate = Timestamp.now();
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-            begin: Alignment.bottomLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xff15aaaff), Color(0xFFADF7F2)]),
-      ),
-      child: Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            title: const Text(
-              'Entries',
-              style: TextStyle(color: Color.fromARGB(255, 5, 132, 235)),
-            ),
-            centerTitle: true,
-            elevation: 0,
-            flexibleSpace: Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.bottomLeft,
-                    end: Alignment.bottomRight,
-                    colors: [Color(0xFF15AAAFF), Color(0xFFADF7F2)]),
-              ),
-            ),
-          ),
-          //backgroundColor: Color.fromARGB(255, 150, 206, 232),
-          body: Container(
-            margin: const EdgeInsets.only(top: 20),
-            child: SingleChildScrollView(
-              child: Column(children: [
-                const Text(
-                  "Enter the details of your To-Do.",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                EnterHistoryInfo(
-                    hintText: 'To-Do', controller: titleName),
-                EnterHistoryInfo(
-                    hintText: 'days', controller: Days),
-                const SizedBox(
-                  height: 30,
-                ),
-                Container(
-                    height: 50,
-                    width: 280,
-                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.blue,
-                            side: const BorderSide(width: 4.0),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30))),
-                        child: const Text('Create New To-Do',
-                            style:
-                                TextStyle(fontSize: 20, color: Colors.black)),
-                        onPressed: () async {
-                          print({
-                            "days": Days.text,
-                          });
+	@override
+	Widget build(BuildContext context) {
+		return Container(
+		decoration: const BoxDecoration(
+			gradient: LinearGradient(
+				begin: Alignment.bottomLeft,
+				end: Alignment.bottomRight,
+				colors: [Color(0xff15aaaff), Color(0xFFADF7F2)]),
+		),
+		child: Scaffold(
+			backgroundColor: Colors.transparent,
+			appBar: AppBar(
+				title: const Text(
+				'Entries',
+				style: TextStyle(color: Color.fromARGB(255, 5, 132, 235)),
+				),
+				centerTitle: true,
+				elevation: 0,
+				flexibleSpace: Container(
+				decoration: const BoxDecoration(
+					gradient: LinearGradient(
+						begin: Alignment.bottomLeft,
+						end: Alignment.bottomRight,
+						colors: [Color(0xFF15AAAFF), Color(0xFFADF7F2)]),
+				),
+				),
+			),
+			//backgroundColor: Color.fromARGB(255, 150, 206, 232),
+			body: Container(
+				margin: const EdgeInsets.only(top: 20),
+				child: SingleChildScrollView(
+				child: Column(children: [
+					const Text(
+					"Enter the details of your To-Do.",
+					textAlign: TextAlign.center,
+					style: TextStyle(
+						fontSize: 15,
+						fontWeight: FontWeight.bold,
+					),
+					),
+					const SizedBox(height: 20),
+					EnterHistoryInfo(
+						hintText: 'To-Do', controller: titleName),
+					EnterHistoryInfo(
+						hintText: 'days', controller: Days),
+					const SizedBox(
+					height: 30,
+					),
+					Container(
+						height: 50,
+						width: 280,
+						padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+						child: ElevatedButton(
+							style: ElevatedButton.styleFrom(
+								primary: Colors.blue,
+								side: const BorderSide(width: 4.0),
+								shape: RoundedRectangleBorder(
+									borderRadius: BorderRadius.circular(30))),
+							child: const Text('Create New To-Do',
+								style:
+									TextStyle(fontSize: 20, color: Colors.black)),
+							onPressed: () async {
+							print({
+								"days": Days.text,
+							});
 
-                          FirebaseFirestore.instance
-                              .collection("users")
-                              .doc(FirebaseAuth.instance.currentUser
-                                  ?.email) //FirebaseAuth.instance.currentUser?.email
-                              .collection("cars")
-                              .doc("NAPm33gq0rcaKIaZGAA3")
-                              .collection("reminders")
-                              .doc()
-                              .set({
-                                "title": titleName.text,
-                                "days": Days.text,
-                                
-                              })
-                              .then((value) =>
-                                  print("successfully added document"))
-                              .catchError((e) => print(e));
-                          index = 0;
-                          defPage = Dashboard();
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const Navigation()));
-                        })),
-              ]),
-            ),
-          )),
-    );
-  }
+							FirebaseFirestore.instance
+								.collection("users")
+								.doc(FirebaseAuth.instance.currentUser
+									?.email) //FirebaseAuth.instance.currentUser?.email
+								.collection("cars")
+								.doc(sellNick)
+								.collection("reminders")
+								.doc()
+								.set({
+									"title": titleName.text,
+									"days": Days.text,
+									
+								})
+								.then((value) =>
+									print("successfully added document"))
+								.catchError((e) => print(e));
+							index = 0;
+							defPage = Dashboard();
+							Navigator.push(
+								context,
+								MaterialPageRoute(
+									builder: (context) =>
+										const Navigation()));
+							})),
+				]),
+				),
+			)),
+		);
+	}
 }
 
 class EnterHistoryInfo extends StatelessWidget {

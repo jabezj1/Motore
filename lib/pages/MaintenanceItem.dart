@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:ffi';
 
 class MaintenanceItem {
 	String? system;
@@ -11,8 +11,8 @@ class MaintenanceItem {
 		'miles' : miles
 	};
 
-	MaintenanceItem.fromSnapshot(snapshot)
-		: system = snapshot.data()['system'],
-		miles = snapshot.data()['miles']
+	MaintenanceItem.fromSnapshot(snapshot): 
+		system = snapshot.data()['system'],
+		miles = snapshot.data()['miles'].toString()
 	;
 }

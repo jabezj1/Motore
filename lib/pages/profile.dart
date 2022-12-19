@@ -78,8 +78,8 @@ class StateProfile extends State<Profile> {
 
   @override
   void didChangeDependencies() {
-    super.didChangeDependencies();
-    getCarSpesc();
+      super.didChangeDependencies();
+      getCarSpesc();
   }
 
   // String imgMake = apiMake.replaceAll(" ", "%20");
@@ -177,8 +177,7 @@ class StateProfile extends State<Profile> {
                                   children: <Widget>[
                                     SizedBox(
                                       height:
-                                          MediaQuery.of(context).size.height /
-                                              2,
+                                          MediaQuery.of(context).size.height / 2,
                                       child: ListView.builder(
                                         itemCount: _carSpeclist.length,
                                         itemBuilder: (context, index) {

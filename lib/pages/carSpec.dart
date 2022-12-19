@@ -1,3 +1,9 @@
+// carSpec.dart
+
+// Defines a "CarSpec" object that reads car information from a snapshot (read from the database).
+// This data is used in carSpecCard where it is displayed when the user is looking at their 
+// list of cars.
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CarSpec {
@@ -6,7 +12,7 @@ class CarSpec {
   String? make;
   String? model;
   String? trim;
-  String? miles;
+  int? miles;
 
   CarSpec();
 
@@ -19,8 +25,8 @@ class CarSpec {
         'miles': miles
       };
 
-  CarSpec.fromSnapshot(snapshot)
-      : nickname = snapshot.data()['nickname'],
+  CarSpec.fromSnapshot(snapshot): 
+        nickname = snapshot.data()['nickname'],
         year = snapshot.data()['year'],
         make = snapshot.data()['make'],
         model = snapshot.data()['model'],

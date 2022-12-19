@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 import 'package:motore/pages/InspectPastMaintenance.dart';
-import 'package:motore/pages/createHistoryEntry.dart';
+import 'package:motore/pages/InspectGas.dart';
+import 'package:motore/pages/InspectExpenses.dart';
 
 String historyType = "";
 
@@ -33,86 +33,223 @@ class History extends StatelessWidget {
           centerTitle: false,
           elevation: 0,
           flexibleSpace: Container(
-              // decoration: const BoxDecoration(
-              //   gradient: LinearGradient(colors: [
-              //     Color(0xff15aaaff),
-              //     Color(0xFFADF7F2),
-              //   ]),
-              // ),
               ),
         ),
         backgroundColor: Colors.transparent,
         body: Center(
           child: SingleChildScrollView(
             child: Container(
-              // alignment: Alignment.bottomCenter,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 25),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                              height: MediaQuery.of(context).size.height / 2.5,
-                              width: MediaQuery.of(context).size.height / 2.5,
-                              child: Image.asset(
-                                'lib/images/noBgAnimation.gif',
-                              )
-                              // decoration: const BoxDecoration(
-                              //   // gradient: LinearGradient(
-                              //   //     colors: [
-                              //   //       Colors.red,
-                              //   //       Color(0xff15aaaff),
-                              //   //     ],
-                              //   //     begin: Alignment.topCenter,
-                              //   //     end: Alignment.bottomCenter),
-                              //   // color: Colors.white,
-                              //   image: DecorationImage(
-                              //     image: AssetImage(
-                              //         "lib/images/historyAnimantion.gif"),
-                              //     // fit: BoxFit.scaleDown,
-                              //   ),
-                              // ),
-                              ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  // SizedBox(
-                  //   height: 160,
-                  // ),
-                  // SizedBox(
-                  //   height: 170,
-                  //   width: 170,
-                  //   child: OverflowBox(
-                  //     // minHeight: 170,
-                  //     // minWidth: 170,
-                  //     child: Lottie.network(
-                  //         'https://assets1.lottiefiles.com/packages/lf20_hvZQkG.json'),
-                  //   ),
-                  // ),
-
-                  // TODO: use stateful values
-                  const HistoryWidget(
-                    imageLink: "lib/icons/expense.png",
-                    contTitle: "Monthly Expenses",
-                  ),
-                  const HistoryWidget(
-                    imageLink: "lib/icons/oil_two.png",
-                    contTitle: "Gas Expenses",
-                  ),
-                  const HistoryWidget(
-                    imageLink: "lib/icons/past.png",
-                    contTitle: "Maintenance History",
-                  ),
-                ],
-              ),
+				// alignment: Alignment.bottomCenter,
+				child: Column(
+					mainAxisAlignment: MainAxisAlignment.center,
+					crossAxisAlignment: CrossAxisAlignment.center,
+					children: [
+						const SizedBox(height: 25),
+						Row(
+							mainAxisAlignment: MainAxisAlignment.center,
+							crossAxisAlignment: CrossAxisAlignment.center,
+							children: [
+								Row(
+									crossAxisAlignment: CrossAxisAlignment.start,
+									children: [
+										Container(
+											height: MediaQuery.of(context).size.height / 2.5,
+											width: MediaQuery.of(context).size.height / 2.5,
+											child: Image.asset('lib/images/noBgAnimation.gif')
+										),
+									],
+								),
+							],
+						),
+						Padding(
+							padding: const EdgeInsets.all(0),
+							child: GestureDetector(
+								onTap: () {
+									Navigator.push(
+										context,
+										MaterialPageRoute(builder: (context) => const InspectPastMaintenance()),
+									);
+								},
+								child: SizedBox(
+									height: 140,
+									width: 360,
+									child: Stack(
+										children: [
+											Container(
+												alignment: Alignment.center,
+												width: MediaQuery.of(context).size.width,
+												height: 111,
+												decoration: BoxDecoration(
+													color: Colors.white.withOpacity(0.5),
+													borderRadius: BorderRadius.circular(20),
+												),
+											),
+											Container(
+												margin: const EdgeInsets.only(
+													right: 220,
+													bottom: 20
+												),
+												decoration: BoxDecoration(
+													borderRadius: BorderRadius.circular(20),
+													image: const DecorationImage(image: AssetImage("lib/icons/past.png"))
+												),
+											),
+											Container(
+												width: double.maxFinite,
+												height: 100,
+												margin: const EdgeInsets.only(left: 140, top: 10),
+												child: Column(
+													crossAxisAlignment: CrossAxisAlignment.center,
+													children: const [
+														SizedBox(height: 40),
+														Text(
+															"Service History",
+															style: TextStyle(
+																color: Colors.black,
+																fontSize: 20,
+																fontWeight: FontWeight.bold,
+															),
+														),
+														SizedBox(height: 15)
+													]
+												),
+											),
+										],
+									),
+								),
+							),
+						),
+						Padding(
+							padding: const EdgeInsets.all(0),
+							child: GestureDetector(
+								onTap: () {
+									Navigator.push(
+										context,
+										MaterialPageRoute(builder: (context) => const InspectGas()),
+									);
+								},
+								child: SizedBox(
+									height: 140,
+									width: 360,
+									child: Stack(
+										children: [
+											Container(
+												alignment: Alignment.center,
+												width: MediaQuery.of(context).size.width,
+												height: 111,
+												decoration: BoxDecoration(
+													color: Colors.white.withOpacity(0.5),
+													borderRadius: BorderRadius.circular(20),
+												),
+											),
+											Container(
+												margin: const EdgeInsets.only(
+													right: 220,
+													bottom: 20
+												),
+												decoration: BoxDecoration(
+													borderRadius: BorderRadius.circular(20),
+													image: const DecorationImage(image: AssetImage("lib/icons/oil_two.png"))
+												),
+											),
+											Container(
+												width: double.maxFinite,
+												height: 100,
+												margin: const EdgeInsets.only(left: 140, top: 10),
+												child: Column(
+													crossAxisAlignment: CrossAxisAlignment.center,
+													children: const [
+														SizedBox(height: 40),
+														Text(
+															"Gas & Trips",
+															style: TextStyle(
+																color: Colors.black,
+																fontSize: 20,
+																fontWeight: FontWeight.bold,
+															),
+														),
+														SizedBox(height: 15)
+													]
+												),
+											),
+										],
+									),
+								),
+							),
+						),
+						Padding(
+							padding: const EdgeInsets.all(0),
+							child: GestureDetector(
+								onTap: () {
+									Navigator.push(
+										context,
+										MaterialPageRoute(builder: (context) => const InspectExpenses()),
+									);
+								},
+								child: SizedBox(
+									height: 140,
+									width: 360,
+									child: Stack(
+										children: [
+											Container(
+												alignment: Alignment.center,
+												width: MediaQuery.of(context).size.width,
+												height: 111,
+												decoration: BoxDecoration(
+													color: Colors.white.withOpacity(0.5),
+													borderRadius: BorderRadius.circular(20),
+												),
+											),
+											Container(
+												margin: const EdgeInsets.only(
+													right: 220,
+													bottom: 20
+												),
+												decoration: BoxDecoration(
+													borderRadius: BorderRadius.circular(20),
+													image: const DecorationImage(image: AssetImage("lib/icons/expense.png"))
+												),
+											),
+											Container(
+												width: double.maxFinite,
+												height: 100,
+												margin: const EdgeInsets.only(left: 140, top: 10),
+												child: Column(
+													crossAxisAlignment: CrossAxisAlignment.center,
+													children: const [
+														SizedBox(height: 40),
+														Text(
+															"Expenses",
+															style: TextStyle(
+																color: Colors.black,
+																fontSize: 20,
+																fontWeight: FontWeight.bold,
+															),
+														),
+														SizedBox(height: 15)
+													]
+												),
+											),
+										],
+									),
+								),
+							),
+						),
+					// TODO: use stateful values
+					// const HistoryWidget(
+					// 	imageLink: "lib/icons/expense.png",
+					// 	contTitle: "Monthly Expenses",
+					// ),
+					// const HistoryWidget(
+					// 	imageLink: "lib/icons/oil_two.png",
+					// 	contTitle: "Gas Expenses",
+					// ),
+					// const HistoryWidget(
+					// 	imageLink: "lib/icons/past.png",
+					// 	contTitle: "Maintenance History",
+					// ),
+					],
+				),
             ),
           ),
         ),
@@ -189,7 +326,7 @@ class HistoryWidget extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                       Text(
