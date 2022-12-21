@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:motore/pages/HistoryItem.dart';
 
 class HistoryItemCard extends StatelessWidget {
@@ -48,27 +45,99 @@ class HistoryItemCard extends StatelessWidget {
                                   alignment: Alignment.centerLeft,
                                   child: Padding(
                                       padding: EdgeInsets.all(12),
-                                      child: Text(
-                                        _historyItem.title!
-                                            .toUpperCase()
-                                            .toString(),
-                                        style: const TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                      child: Row(
+                                        children: [
+											Flexible(
+												child: Text(
+													_historyItem.title!,
+													style: const TextStyle(
+														color: Colors.black,
+														fontSize: 20,
+														fontWeight: FontWeight.bold
+													),
+												),
+											),	
+                                        ],
                                       ) // title of maintenance
                                       ),
                                 ),
                                 Padding(
                                     padding: EdgeInsets.all(12),
                                     child: Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        _historyItem.notes.toString(),
-                                        //   textAlign: TextAlign.left,
-                                      ),
-                                    ) // notes that go under the title
+										alignment: Alignment.centerLeft,
+										child: Column(
+											children: [
+												Row(
+													children: [
+														const Text(
+															"Notes: ",
+															style: TextStyle(
+																color: Colors.black,
+																fontSize: 17.5,
+																fontWeight: FontWeight.bold
+															),
+														),
+														Flexible(
+															child: Text(
+																_historyItem.notes.toString(),
+																style: const TextStyle(
+																	fontSize: 17.5,
+																	color: Colors.black,
+																	fontWeight: FontWeight.normal
+																),
+															),
+														),
+													],
+												),
+												const SizedBox(height: 10),
+												Row(
+													children: [
+														const Text(
+															"Location: ",
+															style: TextStyle(
+																color: Colors.black,
+																fontSize: 17.5,
+																fontWeight: FontWeight.bold
+															),
+														),
+														Flexible(
+															child: Text(
+																_historyItem.location.toString(),
+																style: const TextStyle(
+																	fontSize: 17.5,
+																	color: Colors.black,
+																	fontWeight: FontWeight.normal
+																),
+															),
+														),
+													],
+												),
+												const SizedBox(height: 10),
+												Row(
+													children: [
+														const Text(
+															"Date: ",
+															style: TextStyle(
+																color: Colors.black,
+																fontSize: 17.5,
+																fontWeight: FontWeight.bold
+															),
+														),
+														Flexible(
+															child: Text(
+																_historyItem.timestamp!.toDate().toString(),
+																style: const TextStyle(
+																	fontSize: 17.5,
+																	color: Colors.black,
+																	fontWeight: FontWeight.normal
+																),
+															),
+														),
+													],
+												),
+											],
+										),
+									) // notes that go under the title
                                     ),
                               ],
                             ),
