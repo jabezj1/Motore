@@ -32,7 +32,7 @@ class _InspectPastMaintenanceState extends State<InspectPastMaintenance> {
 		return Scaffold(
 		appBar: AppBar(
 			automaticallyImplyLeading: true,
-			title: Text(historyType),
+			title: Text("Service"),
 			centerTitle: true,
 			elevation: 0,
 			flexibleSpace: Container(
@@ -48,26 +48,11 @@ class _InspectPastMaintenanceState extends State<InspectPastMaintenance> {
 		),
 		floatingActionButton: FloatingActionButton(
 			onPressed: () {
-				if (historyType == "Monthly Expenses") {
-				Navigator.push(
-					context,
-					MaterialPageRoute(
-						builder: (context) =>
-							const CreateHistoryEntry(title: "title")));
-				}
-				if (historyType == "Gas Expenses") {
-				Navigator.push(
-					context,
-					MaterialPageRoute(
-						builder: (context) => CreateGasExpense(title: "title")));
-				}
-				if (historyType == "Maintenance History") {
 				Navigator.push(
 					context,
 					MaterialPageRoute(
 						builder: (context) =>
 							CreateMaintenanceHistory(title: "title")));
-				}
 			},
 			child: const Icon(Icons.add)),
 		body: SafeArea(

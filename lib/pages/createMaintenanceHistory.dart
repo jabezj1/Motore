@@ -17,7 +17,7 @@ class CreateMaintenanceHistory extends StatefulWidget {
 
 class StateCreateMaintenanceHistory extends State<CreateMaintenanceHistory> {
   TextEditingController historyTitleController = TextEditingController();
-  TextEditingController historyDateController = TextEditingController();
+//   TextEditingController historyDateController = TextEditingController();
   TextEditingController historyCostController = TextEditingController();
   TextEditingController historyLocationController = TextEditingController();
   TextEditingController historyNotesController = TextEditingController();
@@ -66,8 +66,8 @@ class StateCreateMaintenanceHistory extends State<CreateMaintenanceHistory> {
                 const SizedBox(height: 20),
                 EnterHistoryInfo(
                     hintText: 'Title', controller: historyTitleController),
-                EnterHistoryInfo(
-                    hintText: 'Date', controller: historyDateController),
+                // EnterHistoryInfo(
+                //     hintText: 'Date', controller: historyDateController),
                 EnterHistoryInfo(
                     hintText: 'Cost', controller: historyCostController),
                 EnterHistoryInfo(
@@ -92,25 +92,15 @@ class StateCreateMaintenanceHistory extends State<CreateMaintenanceHistory> {
                             style:
                                 TextStyle(fontSize: 20, color: Colors.black)),
                         onPressed: () async {
-                          print({
-                            "title": historyTitleController.text,
-                            "date": historyDateController.text,
-                            "cost": historyCostController.text,
-                            "location": historyLocationController.text,
-                            "notes": historyNotesController.text
-                          });
-
                           FirebaseFirestore.instance
                               .collection("users")
-                              .doc(FirebaseAuth.instance.currentUser
-                                  ?.email) //FirebaseAuth.instance.currentUser?.email
+                              .doc(FirebaseAuth.instance.currentUser?.email) //FirebaseAuth.instance.currentUser?.email
                               .collection("cars")
                               .doc(sellNick)
-                              .collection(historyType)
-                              .doc()
-                              .set({
+                              .collection("service")
+                              .add({
                                 "title": historyTitleController.text,
-                                "date": historyDateController.text,
+                                "date": timestampdate.toDate().toString(),
                                 "cost": historyCostController.text,
                                 "location": historyLocationController.text,
                                 "notes": historyNotesController.text,
@@ -119,7 +109,7 @@ class StateCreateMaintenanceHistory extends State<CreateMaintenanceHistory> {
                               .then((value) =>
                                   print("successfully added document"))
                               .catchError((e) => print(e));
-                          Navigator.pop(
+                          Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
