@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:motore/pages/CreateNewExpense.dart';
 import 'package:motore/pages/Dashboard.dart';
 import 'package:motore/pages/History.dart';
 import 'package:motore/pages/HistoryItem.dart';
@@ -9,6 +10,8 @@ import 'package:motore/pages/createGasExpense.dart';
 import 'package:motore/pages/createHistoryEntry.dart';
 import 'package:motore/pages/createMaintenanceHistory.dart';
 import 'package:motore/services/auth.dart';
+import 'package:motore/pages/ExpenseItem.dart';
+import 'package:motore/pages/ExpenseItemCard.dart';
 // import 'package:flutter/src/rendering/box.dart';
 
 class InspectExpenses extends StatefulWidget {
@@ -50,7 +53,7 @@ class _InspectExpensesState extends State<InspectExpenses> {
 				onPressed: () {
 					Navigator.push(
 						context,
-						MaterialPageRoute(builder: (context) => CreateGasExpense(title: "title"))
+						MaterialPageRoute(builder: (context) => const CreateNewExpense(title: "title"))
 					);
 				},
 				child: const Icon(Icons.add)
@@ -59,7 +62,7 @@ class _InspectExpensesState extends State<InspectExpenses> {
 				child: ListView.builder(
 					itemCount: _expenses.length,
 					itemBuilder: (context, index) {
-						return HistoryItemCard(_expenses[index] as HistoryItem);
+						return ExpenseItemCard(_expenses[index] as ExpenseItem);
 					},
 				),
 			),
@@ -78,7 +81,7 @@ class _InspectExpensesState extends State<InspectExpenses> {
 			.get();
 
 		setState(() {
-			_expenses = List.from(data.docs.map((doc) => HistoryItem.fromSnapshot(doc)));
+			_expenses = List.from(data.docs.map((doc) => ExpenseItem.fromSnapshot(doc)));
 		});
 	}
 }
