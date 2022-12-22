@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:motore/pages/HistoryItem.dart';
+import 'package:motore/pages/ExpenseItem.dart';
 
-class HistoryItemCard extends StatelessWidget {
-  final HistoryItem _historyItem;
-  const HistoryItemCard(this._historyItem, {super.key});
+class ExpenseItemCard extends StatelessWidget {
+  final ExpenseItem _expenseItem;
+  const ExpenseItemCard(this._expenseItem, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class HistoryItemCard extends StatelessWidget {
                                         children: [
 											Flexible(
 												child: Text(
-													_historyItem.title!,
+													_expenseItem.title!,
 													style: const TextStyle(
 														color: Colors.black,
 														fontSize: 20,
@@ -64,80 +64,31 @@ class HistoryItemCard extends StatelessWidget {
                                 Padding(
                                     padding: EdgeInsets.all(12),
                                     child: Align(
-										alignment: Alignment.centerLeft,
-										child: Column(
-											children: [
-												Row(
-													children: [
-														const Text(
-															"Notes: ",
-															style: TextStyle(
-																color: Colors.black,
-																fontSize: 17.5,
-																fontWeight: FontWeight.bold
-															),
-														),
-														Flexible(
-															child: Text(
-																_historyItem.notes.toString(),
-																style: const TextStyle(
-																	fontSize: 17.5,
-																	color: Colors.black,
-																	fontWeight: FontWeight.normal
-																),
-															),
-														),
-													],
+                                      alignment: Alignment.centerLeft,
+                                      child: Row(
+                                        children: [
+											const Text(
+												"Date: ",
+												style: TextStyle(
+													color: Colors.black,
+													fontSize: 17.5,
+													fontWeight: FontWeight.normal
 												),
-												const SizedBox(height: 10),
-												Row(
-													children: [
-														const Text(
-															"Location: ",
-															style: TextStyle(
-																color: Colors.black,
-																fontSize: 17.5,
-																fontWeight: FontWeight.bold
-															),
-														),
-														Flexible(
-															child: Text(
-																_historyItem.location.toString(),
-																style: const TextStyle(
-																	fontSize: 17.5,
-																	color: Colors.black,
-																	fontWeight: FontWeight.normal
-																),
-															),
-														),
-													],
-												),
-												const SizedBox(height: 10),
-												Row(
-													children: [
-														const Text(
-															"Date: ",
-															style: TextStyle(
-																color: Colors.black,
-																fontSize: 17.5,
-																fontWeight: FontWeight.bold
-															),
-														),
-														Flexible(
-															child: Text(
-																_historyItem.timestamp!.toDate().toString(),
-																style: const TextStyle(
-																	fontSize: 17.5,
-																	color: Colors.black,
-																	fontWeight: FontWeight.normal
-																),
-															),
-														),
-													],
-												),
-											],
-										),
-									) // notes that go under the title
+											),
+                                          Flexible(
+											child: Text(
+											  _expenseItem.timestamp!.toDate().toString(),
+																					style: const TextStyle(
+																						fontSize: 17.5,
+																						color: Colors.black,
+																						fontWeight: FontWeight.normal
+																					),
+											  //   textAlign: TextAlign.left,
+											),
+										  ),
+                                        ],
+                                      ),
+                                    ) // notes that go under the title
                                     ),
                               ],
                             ),
@@ -168,7 +119,7 @@ class HistoryItemCard extends StatelessWidget {
                                           ),
                                         ),
                                         Text(
-                                          _historyItem.cost.toString(),
+                                          _expenseItem.cost.toString(),
                                           style: const TextStyle(
                                             color: Colors.white,
                                             fontSize: 20,

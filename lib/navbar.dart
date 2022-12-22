@@ -5,6 +5,9 @@ import 'package:motore/pages/CarPartsTab.dart';
 import 'package:motore/pages/Dashboard.dart';
 import 'package:motore/pages/Fuel.dart';
 import 'package:motore/pages/History.dart';
+import 'package:motore/pages/InspectExpenses.dart';
+import 'package:motore/pages/InspectGas.dart';
+import 'package:motore/pages/InspectPastMaintenance.dart';
 import 'package:motore/pages/PartTile.dart';
 import 'package:motore/pages/profile.dart';
 import 'package:motore/pages/search.dart';
@@ -98,6 +101,15 @@ Widget getSelectedWidget({required int index}) {
       break;
     case 4:
       widget = Profile();
+      break;
+    case 5:
+      widget = InspectPastMaintenance();
+      break;
+    case 6:
+      widget = InspectGas();
+      break;
+    case 7:
+      widget = InspectExpenses();
       break;
     default:
       widget = defPage;
