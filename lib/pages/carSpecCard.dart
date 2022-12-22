@@ -65,27 +65,25 @@ class CarSpecCard extends StatelessWidget {
 								scale: 10,
 							)
 						),
-						title: Flexible(
-                          child: Text(
-                            "${_car.nickname}",
-                            style: const TextStyle(
-                              color: Colors.black, 
-                              fontWeight: FontWeight.bold
-                            ),
-                          ),
-                        ),
+						title: Text(
+							"${_car.nickname}",
+							style: const TextStyle(
+								color: Colors.black, 
+								fontWeight: FontWeight.bold
+							),
+						),
 						// subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
 						subtitle: Row(
 							children: <Widget>[
 								Flexible(
-                                  child: Text(
-                                    "${_car.make} ${_car.model}",
-                                    style: const TextStyle(
-                                      color: Colors.black, 
-                                      fontSize: 15
-                                    )
-                                  ),
-                                ),
+																  child: Text(
+																	"${_car.make} ${_car.model}",
+																	style: const TextStyle(
+																		color: Colors.black, 
+																		fontSize: 10
+																	)
+																  ),
+																),
 							],
 						),
 						trailing: const Icon(
