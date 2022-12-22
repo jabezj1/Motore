@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:motore/pages/Dashboard.dart';
 import 'package:motore/pages/InspectGas.dart';
 import 'package:motore/pages/carSpecCard.dart';
+import 'package:motore/navbar.dart';
 
 class CreateGasExpense extends StatefulWidget {
   const CreateGasExpense({super.key, required this.title});
@@ -172,7 +173,7 @@ class StateCreateGasExpense extends State<CreateGasExpense> {
 										"cost" : gasCostController.text
 									});
 							}
-							Navigator.push(context, MaterialPageRoute(builder: (context) => const InspectGas()));
+							Navigator.push(context, MaterialPageRoute(builder: (context) => const Navigation()));
                         }
 					)
 				),

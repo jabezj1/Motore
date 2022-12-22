@@ -113,7 +113,7 @@ class StateCreateMaintenanceHistory extends State<CreateMaintenanceHistory> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      const InspectPastMaintenance()));
+                                      const Navigation()));
                         })),
               ]),
             ),
